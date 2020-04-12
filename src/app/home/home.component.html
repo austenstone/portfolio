@@ -1,0 +1,55 @@
+<div class="main-container">
+  <!-- <nav>
+    <button mat-raised-button color="primary" class="contact"><i class="material-icons">chat</i>Contact Me</button>
+  </nav> -->
+  <content>
+    <div class="header">
+      <div class="header-text">
+        <h1 class="title hack-font">&lt;Austen Stone></h1>
+        <h2 class="sub-title hack-font">
+          <div class="skills"></div>
+        </h2>
+      </div>
+    </div>
+  </content>
+</div>
+
+<!-- <div class="coding">
+    <video style="
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);" autoplay muted loop id="codeVideo">
+      <source src="../../assets/video/Blurred Video of Scripts Being Typed.mp4" type="video/mp4">
+    </video>
+    <div class="coding-overlay">
+      <div class="coding-overlay-text">
+        <h1 class="mat-display-2">Heading 1</h1>
+        <pre class="hack-font">
+          &lt;html>
+            &lt;head>&lt;title>&lt;/title>&lt;/head>
+            &lt;body>&lt;/body>
+          &lt;/html>
+        </pre>
+</div>
+</div>
+</div>-->
+
+<footer class="main-container">
+    <mat-list role="list">
+        <mat-list-item role="listitem"><a href="/location-history">
+          <!-- <video autoplay muted loop id="codeVideo">
+            <source src="../../assets/video/FD4L3FOF5R.mp4" type="video/mp4">
+          </video> -->
+          Location History App
+        </a></mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem"><a href="https://github.com/astone2014">GitHub</a></mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item role="listitem"><a href="mailto:me@austenstone.com">Contact Me</a></mat-list-item>
+      </mat-list>
+
+      <div *ngIf="fahrenheit">
+        <h3 class=".mat-h1">It's {{fahrenheit | number:'1.0-0'}}&#176; F in Boca Raton. Not bad...</h3>
+      </div>
+
+</footer>
