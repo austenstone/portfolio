@@ -1,27 +1,22 @@
-:host {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  height: 100%;
-}
-
-.main-container {
-  margin: auto;
+.wrapper {
   max-width: 1024px;
-  width:calc(100% - 15px);
+  margin: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  display:grid;
 }
 
 .title {
   font-size:5.5em;
   font-weight: 400;
   margin-bottom: 0;
+  line-height: initial;
 }
 
 .sub-title {
   font-size:3em;
   font-weight: 400;
-  margin-left: 61px;
+  margin-left: 1em;
   margin-top: 0;
 }
 
@@ -81,4 +76,9 @@ button i {
     font-size:6vw;
     margin-left: 5vw;
   }
+ }
+
+
+ .section {
+   margin: 20px 0;
  }

@@ -1,29 +1,37 @@
-<div class="main-container">
-  <content>
-    <div class="header">
-      <div class="header-text">
-        <h1 class="title hack-font">&lt;Austen Stone></h1>
-        <h2 class="sub-title hack-font">
-          <div class="skills"></div>
-        </h2>
-      </div>
+<div class="wrapper mat-typography">
+  <div class="header">
+    <div class="header-text">
+      <h1 class="title hack-font">&lt;Austen Stone></h1>
+      <h2 class="sub-title hack-font">
+        <div class="skills"></div>
+      </h2>
     </div>
-  </content>
+  </div>
+
+  <div style="margin:40px auto;width: 450px;text-align: center;">
+    <h1>Hello 👋</h1>
+    <p>I am currently working as a Solutions Engineer at Telit IoT Platforms where I build industrial drivers, create
+      UIs,
+      and automate tasks. My freelance work has consited of building and recovering custom websites and apps for all
+      sorts
+      of businesses.</p>
+    <p>Got Questions?<br>
+      <a href="mailto:miltonlaxer@gmail.com">
+        <button mat-button>Contact Me</button>
+      </a>
+    </p>
+  </div>
+
+  <!-- 
+  <mat-list role="list">
+    <mat-list-item role="listitem"><a href="mailto:miltonlaxer@gmail.com">Email Me</a></mat-list-item>
+  </mat-list> -->
+
+  <footer>
+    <div *ngIf="fahrenheit">
+      <h3>It's {{fahrenheit | number:'1.0-0'}}&#176; F in Boca Raton. Not bad...</h3>
+    </div>
+  </footer>
 </div>
 
-<footer class="main-container">
-  <mat-list role="list">
-    <mat-divider></mat-divider>
-    <mat-list-item role="listitem"><a href="https://github.com/astone2014">GitHub</a></mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item role="listitem"><a href="mailto:miltonlaxer@gmail.com">Contact Me</a></mat-list-item>
-  </mat-list>
-
-  <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal"
-    data-theme="light" data-vanity="austenstone"><a class="LI-simple-link"
-      href='https://www.linkedin.com/in/austenstone?trk=profile-badge'>Austen Stone</a></div>
-
-  <div *ngIf="fahrenheit">
-    <h3 class="mat-h1">It's {{fahrenheit | number:'1.0-0'}}&#176; F in Boca Raton. Not bad...</h3>
-  </div>
-</footer>
+<app-github-corner></app-github-corner>
