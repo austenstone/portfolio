@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   fahrenheit = 0;
   weather: OpenWeather;
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
     const typed = new Typed.default('.skills', {
@@ -35,8 +35,6 @@ export class HomeComponent implements OnInit {
       startDelay: 200
     });
 
-    this.getBeer();
-
     this.weatherService.getWeather().subscribe((weather) => {
       this.weather = weather;
       this.fahrenheit = this.kelvinToFahrenheit(this.weather.main.temp);
@@ -47,9 +45,4 @@ export class HomeComponent implements OnInit {
     return (kelvin - 273.15) * 9 / 5 + 32;
   }
 
-  getBeer() {
-    return this.weatherService.getBeer().subscribe((beer) => {
-      console.log(beer);
-    });
-  }
 }

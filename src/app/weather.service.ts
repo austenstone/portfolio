@@ -12,23 +12,14 @@ export class WeatherService {
   COUNTRY = 'us';
   ZIP_CODE = 33414;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getWeather() {
     return this.http.get<OpenWeather>(
-      'https://api.openweathermap.org/data/2.5/weather?zip=' +
-        this.ZIP_CODE +
-        ',' +
-        this.COUNTRY +
-        '&APPID=' +
-        this.OPEN_WEATHER_APP_ID
+      `https://api.openweathermap.org/data/2.5/weather?zip=${this.ZIP_CODE},${this.COUNTRY}&APPID=${this.OPEN_WEATHER_APP_ID}`
     ).pipe(
       tap((weather) => this.weather = weather)
     );
   }
 
-  getBeer() {
-    // 237988287f6a1b421875a73373d4a6a0
-    return this.http.get<any>('https://sandbox-api.brewerydb.com/v2/beer/random/?key=237988287f6a1b421875a73373d4a6a0');
-  }
 }
