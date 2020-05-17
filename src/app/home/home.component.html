@@ -8,20 +8,20 @@
     </div>
   </div>
 
-  <div style="margin:40px auto;width: 450px;text-align: center;">
-    <h1>Hello 👋</h1>
+  <div style="margin:40px auto;max-width: 450px;text-align: center;">
     <p>I am currently working as a Solutions Engineer at Telit IoT Platforms where I build industrial drivers, create
       UIs,
       and automate tasks. My freelance work has consited of building and recovering custom websites and apps for all
       sorts
       of businesses.</p>
+  </div>
+  <div style="margin:20px auto;max-width: 450px;text-align: center;">
     <p>Got Questions?<br>
       <a href="mailto:miltonlaxer@gmail.com">
         <button mat-button>Contact Me</button>
       </a>
     </p>
   </div>
-
   <!-- 
   <mat-list role="list">
     <mat-list-item role="listitem"><a href="mailto:miltonlaxer@gmail.com">Email Me</a></mat-list-item>
@@ -29,7 +29,9 @@
 
   <footer>
     <div *ngIf="fahrenheit">
-      <h3>It's {{fahrenheit | number:'1.0-0'}}&#176; F in Boca Raton. Not bad...</h3>
+      <h3>It's {{fahrenheit | number:'1.0-0'}}&#176; F with {{weather.weather[0].description}} in {{weather.name}}. Not
+        bad...
+      </h3>
     </div>
   </footer>
 </div>

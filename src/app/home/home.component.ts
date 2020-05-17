@@ -2,6 +2,8 @@ import { WeatherService } from './../weather.service';
 import { OpenWeather } from '../weather';
 import { Component, OnInit } from '@angular/core';
 import * as Typed from 'typed.js';
+import { interval } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -35,9 +37,11 @@ export class HomeComponent implements OnInit {
       startDelay: 200
     });
 
-    this.weatherService.getWeather().subscribe((weather) => {
-      this.weather = weather;
-      this.fahrenheit = this.kelvinToFahrenheit(this.weather.main.temp);
+    this.weatherService.getWeather$().subscribe((weather) => {
+      if (weather) {
+        this.weather = weather;
+        this.fahrenheit = this.kelvinToFahrenheit(this.weather.main.temp);
+      }
     });
   }
 

@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "publish": "ng build --prod && scp -r dist/austen-stone/* root@austenstone.com:/var/www/html"
+    "publish": "ng build --prod && scp -r dist/austen-stone/* ubuntu@ec2-34-239-114-34.compute-1.amazonaws.com:/var/www/html"
   },
   "private": true,
   "dependencies": {
