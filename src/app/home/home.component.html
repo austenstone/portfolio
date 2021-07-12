@@ -82,9 +82,7 @@
 
 <footer class="wrapper">
   <div *ngIf="fahrenheit">
-    <p>It's {{fahrenheit | number:'1.0-0'}}&#176; F with {{weather.weather[0].description}} in {{weather.name}}. Not
-      bad...
-    </p>
+    <p>It's {{fahrenheit | number:'1.0-0'}}&#176;F with {{weather.weather[0].description}} in {{weather.name}}. {{ weatherThought }}!</p>
   </div>
 
   <!-- <a href="https://www.fau.edu/" target="_blank">
