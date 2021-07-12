@@ -19,20 +19,22 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.16.1
-      - name: Install dependencies
+      - name: Install dependencies 📥
         run: npm install
-      - name: Lint
+      - name: Lint ✏️
         run: npm run lint
-      - name: Build
+      - name: Build 🔧
         run: npm run build-ghpages
-      - name: Check GitHub Pages Status
+      - name: Check GitHub Pages Status 👀
         uses: crazy-max/ghaction-github-status@v1
         with:
           pages_threshold: major_outage
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages 🚀
+        if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
           build_dir: dist/austen-stone
+          fqdn: austen.info
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

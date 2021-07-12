@@ -104,3 +104,7 @@ button i {
   grid-auto-flow: column;
   grid-gap: 10px;
  }
+
+ ::ng-deep .mat-tooltip {
+  white-space: pre-line;
+}
