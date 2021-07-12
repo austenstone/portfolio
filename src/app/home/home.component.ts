@@ -42,21 +42,23 @@ export class HomeComponent implements OnInit {
       if (weather) {
         this.weather = weather;
         this.fahrenheit = this.kelvinToFahrenheit(this.weather.main.temp);
-        if (this.weather.weather[0].description.includes('storm')) {
-          this.weatherThought = 'Batten down the hatches';
+        if (this.weather.weather[0].description.includes('cloud')) {
+          this.weatherThought = 'Bring out the sun ⛅';
+        } if (this.weather.weather[0].description.includes('storm')) {
+          this.weatherThought = 'Batten down the hatches ⚡';
         } else if (this.weather.weather[0].description.includes('rain')) {
-          this.weatherThought = 'That\'s Florida for you';
+          this.weatherThought = 'That\'s Florida for you ☔';
         } else {
           if (this.fahrenheit > 90) {
-            this.weatherThought = 'It\'s hot';
+            this.weatherThought = 'It\'s hot 🔥';
           } else if (this.fahrenheit > 80) {
-            this.weatherThought = 'It\'s pretty warm';
+            this.weatherThought = 'It\'s pretty warm 🌞';
           } else if (this.fahrenheit > 70) {
-            this.weatherThought = 'It\'s perfect weather';
+            this.weatherThought = 'It\'s perfect weather 👌';
           }  else if (this.fahrenheit > 65) {
-            this.weatherThought = 'It\'s a little chilly for Florida';
+            this.weatherThought = 'It\'s a little chilly for Florida 😮';
           } else {
-            this.weatherThought = 'It\'s freezing';
+            this.weatherThought = 'It\'s freezing 🥶';
           }
         }
       }
