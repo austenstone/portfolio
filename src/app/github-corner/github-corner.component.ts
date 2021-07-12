@@ -5,11 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './github-corner.component.html',
   styleUrls: ['./github-corner.component.css']
 })
-export class GithubCornerComponent implements OnInit {
-
+export class GithubCornerComponent {
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

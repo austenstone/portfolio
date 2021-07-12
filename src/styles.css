@@ -15,7 +15,20 @@ pre {
   text-align: left;
 }
 
+/* @media screen and (min-width: 521px) {
+  body {
+    font-size: 1rem !important;
+  }
+} */
+
+.easy-read p {
+  font-size: 20px;
+  line-height: 30px;
+  color: #424242;
+}
+
 a {
-  text-decoration: none;
-  color:inherit;
+  color: #212121;
+  /* text-decoration: none; */
+  /* font-weight: bold; */
 }

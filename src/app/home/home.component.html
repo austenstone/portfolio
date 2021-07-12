@@ -1,4 +1,4 @@
-<div class="wrapper mat-typography">
+<div class="wrapper">
   <div class="header">
     <div class="header-text">
       <h1 class="title hack-font">&lt;Austen Stone></h1>
@@ -7,33 +7,91 @@
       </h2>
     </div>
   </div>
-
-  <div style="margin:40px auto;max-width: 450px;text-align: center;">
-    <p>I am currently working as a Solutions Engineer at Telit IoT Platforms where I build industrial drivers, create
-      UIs,
-      and automate tasks. My freelance work has consited of building and recovering custom websites and apps for all
-      sorts
-      of businesses.</p>
+  <div>
+    <p>I am currently working as a Solutions Engineer at <a href="https://www.telit.com/m2m-iot-products/iot-platforms/iot-platform-overview/">Telit IoT Platforms</a> where I build industrial drivers, create UIs, and automate tasks.</p>
+    <p>My freelance work has consisted of building and recovering websites and apps for all sorts of businesses.</p>
   </div>
-  <div style="margin:20px auto;max-width: 450px;text-align: center;">
-    <p>Got Questions?<br>
-      <a href="mailto:miltonlaxer@gmail.com">
-        <button mat-button>Contact Me</button>
+
+  <section>
+    <h1>Projects</h1>
+    <p>These are some projects I can share with you.</p>
+
+    <h2>deviceWISE View</h2>
+    <p>Build visualizations for deviceWISE by simply dragging and dropping widgets into a canvas.</p>
+    <div class="links">
+      <a target="_blank" mat-stroked-button href="https://view.devicewise.com">
+        <mat-icon>preview</mat-icon> Demo
       </a>
+      <a target="_blank" mat-stroked-button href="https://docs.devicewise.com/Content/Products/GatewayDevelopersGuide/deviceWISE_View/deviceWISE-View.htm">
+        <mat-icon>description</mat-icon> Docs
+      </a>
+    </div>
+
+    <h2>reddit TV</h2>
+    <p>Watch YouTube videos from Reddit like you watch TV.</p>
+    <div class="links">
+      <a target="_blank" mat-stroked-button href="https://watch.austen.info">
+        <mat-icon>link</mat-icon> Link
+      </a>
+      <a target="_blank" mat-stroked-button href="https://github.com/astone2014/reddit-yt">
+        <mat-icon>code</mat-icon> Code
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h1>Other Cool Projects</h1>
+    <p>Other noteworthy projects.</p>
+
+    <h2>Audi Car Search</h2>
+    <p>I backwards engineered Audi's website so I could find the cheapest certified pre owned vehicle in America.</p>
+    <div class="links">
+      <a target="_blank" mat-stroked-button href="https://github.com/astone2014/audi-car-search">
+        <mat-icon>code</mat-icon> Code
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h1>My Code</h1>
+    <p>I like to write everything in JavaScript but I also write alot of C code.</p>
+  </section>
+</div>
+
+<div class="contact-banner">
+  <div class="wrapper">
+    <h2>Have more questions?</h2>
+    <p>Feel free to contact me.</p>
+    <div class="links">
+      <a mat-stroked-button href="mailto:miltonlaxer@gmail.com">
+        <mat-icon>mail</mat-icon> Email
+      </a>
+      <a target="_blank" mat-stroked-button href="https://www.linkedin.com/in/austenstone">
+        <mat-icon>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="global-nav__logo" color="#0a66c2" style="display: block;">
+            <title>
+              LinkedIn
+            </title>
+            <g>
+              <path d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z" fill="currentColor"></path>
+            </g>
+          </svg>
+        </mat-icon> LinkedIn
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="wrapper">
+  <div *ngIf="fahrenheit">
+    <p>It's {{fahrenheit | number:'1.0-0'}}&#176; F with {{weather.weather[0].description}} in {{weather.name}}. Not
+      bad...
     </p>
   </div>
-  <!-- 
-  <mat-list role="list">
-    <mat-list-item role="listitem"><a href="mailto:miltonlaxer@gmail.com">Email Me</a></mat-list-item>
-  </mat-list> -->
 
-  <footer>
-    <div *ngIf="fahrenheit">
-      <h3>It's {{fahrenheit | number:'1.0-0'}}&#176; F with {{weather.weather[0].description}} in {{weather.name}}. Not
-        bad...
-      </h3>
-    </div>
-  </footer>
-</div>
+  <!-- <a href="https://www.fau.edu/" target="_blank">
+    <img src="https://dbukjj6eu5tsf.cloudfront.net/fausports.com/images/responsive_2020/nav_main.svg">
+  </a> -->
+</footer>
 
 <app-github-corner></app-github-corner>

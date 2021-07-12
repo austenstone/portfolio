@@ -1,9 +1,13 @@
 .wrapper {
-  max-width: 1024px;
+  max-width: 725px;
   margin: auto;
-  padding: 10px;
+  padding: 16px;
   box-sizing: border-box;
   display:grid;
+}
+
+.header {
+  margin-bottom: 36px;
 }
 
 .title {
@@ -81,4 +85,22 @@ button i {
 
  .section {
    margin: 20px 0;
+ }
+
+
+ .contact-banner {
+  margin: 20px 0;
+  /* background-color: #151513; */
+ }
+
+ section {
+   margin: 30px 0;
+ }
+
+ .links {
+  margin: 0 0 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 125px);
+  grid-auto-flow: column;
+  grid-gap: 10px;
  }
