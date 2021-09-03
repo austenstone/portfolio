@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  position: relative;
+}
+
 .wrapper {
   max-width: 725px;
   margin: auto;
@@ -107,4 +112,17 @@ button i {
 
  ::ng-deep .mat-tooltip {
   white-space: pre-line;
+}
+
+.bike {
+  position: absolute;
+  bottom: 0;
+  left: 25px;
+  max-width: 300px
+}
+
+@media only screen and (max-width: 1450px) {
+  .bike {
+    position: initial;
+  }
 }
