@@ -1,0 +1,70 @@
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+// Define a light theme
+$primary: mat.define-palette(mat.$indigo-palette);
+$accent: mat.define-palette(mat.$pink-palette);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+    ),
+  )
+);
+
+// Define a dark theme
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+    ),
+  )
+);
+
+@include mat.core-color($light-theme);
+:root {
+  color-scheme: light;
+  --p-color: #424242;
+  --a-color: #212121;
+}
+
+.github-corner {
+  fill: #303030;
+  color: #fff;
+}
+
+.bike {
+  fill: #303030;
+}
+
+@media (prefers-color-scheme: dark) {
+  @include mat.core-theme($dark-theme);
+  @include mat.button-theme($dark-theme);
+  :root {
+    color-scheme: dark;
+    --p-color: white;
+    --a-color: white;
+  }
+  .github-corner {
+    fill: #fff;
+    color: #303030;
+  }
+
+  .bike {
+    fill: white;
+  }
+}
+
+a {
+  color: mat.get-color-from-palette($primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+p {
+  color: var(--p-color);
+}

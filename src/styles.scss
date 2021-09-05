@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./material.styles.scss";
 
 html,
 body {
@@ -30,11 +30,11 @@ pre {
 .easy-read p {
   font-size: 20px;
   line-height: 30px;
-  color: #424242;
+  // color: #424242;
 }
 
 a {
-  color: #212121;
+  // color: #212121;
   /* text-decoration: none; */
   /* font-weight: bold; */
 }
