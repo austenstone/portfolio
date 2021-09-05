@@ -17,6 +17,9 @@ export class ResumeComponent implements OnInit {
     // description: 'worked here',
     bullets: [
       'Creator of deviceWISE View, a drag/drop dashboard builder that has generated over $1m+ in revenue.',
+      'Gathered requirments and created proposals for clients outlining project scope and timeline.',
+      'Developed internal applications to evolve our processes and increase productivity.',
+      'Researched and studied new concepts and directed development to provide better solutions to customers.'
     ]
   }, {
     title: 'Solutions Engineer',
