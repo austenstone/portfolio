@@ -76,10 +76,17 @@ section {
 
 .links {
   margin: 0 0 20px 0;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, 125px);
   grid-auto-flow: column;
-  grid-gap: 10px;
+  grid-gap: 10px; */
+}
+
+.links > * {
+  margin: 0 10px 10px 0;
 }
 
 ::ng-deep .mat-tooltip {
