@@ -21,22 +21,10 @@ pre {
   text-align: left;
 }
 
-/* @media screen and (min-width: 521px) {
-  body {
-    font-size: 1rem !important;
-  }
-} */
-
 .easy-read p {
   font-size: 20px;
   line-height: 30px;
   // color: #424242;
-}
-
-a {
-  // color: #212121;
-  /* text-decoration: none; */
-  /* font-weight: bold; */
 }
 
 .button-center .mat-button-wrapper {
@@ -47,4 +35,22 @@ a {
 
 .button-center .mat-button-wrapper mat-icon {
   margin-right: 5px;
+}
+
+.flexer {
+  flex: 1;
+}
+
+.display-none {
+  display: none;
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+
+  .print-only {
+    display: block;
+  }
 }

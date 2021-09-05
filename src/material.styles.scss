@@ -41,6 +41,13 @@ $dark-theme: mat.define-dark-theme(
   fill: #303030;
 }
 
+#resume {
+  background: white;
+}
+app-resume {
+  background: #f5f5f5;
+}
+
 @media (prefers-color-scheme: dark) {
   @include mat.core-theme($dark-theme);
   @include mat.button-theme($dark-theme);
@@ -57,6 +64,13 @@ $dark-theme: mat.define-dark-theme(
   .bike {
     fill: white;
   }
+
+  #resume {
+    background: #303030;
+  }
+  app-resume {
+    background: #1f1f1f;
+  }
 }
 
 a {
@@ -67,4 +81,20 @@ a {
 
 p {
   color: var(--p-color);
+}
+
+#resume {
+  #side-header {
+    background: mat.get-color-from-palette($primary, 600);
+    color: white;
+  }
+
+  #side {
+    background: mat.get-color-from-palette($primary, 500);
+    color: white;
+  }
+}
+
+.primary-light {
+  color: mat.get-color-from-palette($primary, 200);
 }

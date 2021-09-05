@@ -3,25 +3,30 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from './home/weather/material.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { GithubCornerComponent } from './github-corner/github-corner.component';
+import { GithubCornerComponent } from './home/github-corner/github-corner.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { SpecialButtonComponent } from './components/special-button/special-button.component';
-import { HeaderComponent } from './header/header.component';
-import { WeatherComponent } from './weather/weather.component';
+import { SpecialButtonComponent } from './home/special-button/special-button.component';
+import { HeaderComponent } from './home/header/header.component';
+import { WeatherComponent } from './home/weather/weather.component';
+import { ResumeComponent } from './resume/resume.component';
+import { AppRoutingModule } from './app-routing.module';
+import { GradientContainerComponent } from './home/gradient-container/gradient-container.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
     HomeComponent,
     GithubCornerComponent,
     SpecialButtonComponent,
-      HeaderComponent,
-      WeatherComponent
-   ],
+    HeaderComponent,
+    WeatherComponent,
+    ResumeComponent,
+    GradientContainerComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -32,7 +37,8 @@ import { WeatherComponent } from './weather/weather.component';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

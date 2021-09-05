@@ -1,0 +1,41 @@
+<div id="resume-container">
+  <div id="resume">
+    <div id="header">
+      <h1 class="no-margin">{{name}}</h1>
+      <h2 class="no-margin">{{title}}</h2>
+      <p *ngIf="description">{{description}}</p>
+    </div>
+    <div id="side-header">
+      <h1 class="no-margin">{{name}}</h1>
+      <h2 class="no-margin">{{title}}</h2>
+    </div>
+    <div id="side">
+      <h1>Skills</h1>
+      <h1>Education</h1>
+    </div>
+    <div id="content">
+      <h1 class="banner">Experience</h1>
+      <div class="experience" *ngFor="let experience of workExperiences">
+        <div class="experience-header">
+          <div class="title">
+            <h1>{{experience.title}}</h1>
+            <h2 class="primary-light">{{experience.name}}</h2>
+          </div>
+          <span class="flexer"></span>
+          <span class="date primary-light">
+            {{experience.dateStart | date:'y'}} - {{experience.dateEnd ? (experience.dateEnd| date:'y') : 'Present'}}
+          </span>
+        </div>
+        <div>
+          <p>
+            {{experience.description}}
+          </p>
+          <ul>
+            <li *ngFor="let bullet of experience.bullets">{{bullet}}</li>
+          </ul>
+        </div>
+      </div>
+      <p class="display-none print-only">View online at: https://austen.info/resume</p>
+    </div>
+  </div>
+</div>
