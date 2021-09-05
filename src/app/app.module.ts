@@ -9,13 +9,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { GithubCornerComponent } from './github-corner/github-corner.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SpecialButtonComponent } from './components/special-button/special-button.component';
+import { HeaderComponent } from './header/header.component';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     HomeComponent,
-    GithubCornerComponent
-  ],
+    GithubCornerComponent,
+    SpecialButtonComponent,
+      HeaderComponent,
+      WeatherComponent
+   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

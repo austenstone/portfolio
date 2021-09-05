@@ -8,33 +8,7 @@
   margin: auto;
   padding: 16px;
   box-sizing: border-box;
-  display:grid;
-}
-
-.header {
-  margin-bottom: 36px;
-}
-
-.title {
-  font-size:5.5em;
-  font-weight: 400;
-  margin-bottom: 0;
-  line-height: initial;
-}
-
-.sub-title {
-  font-size:3em;
-  font-weight: 400;
-  margin-left: 1em;
-  margin-top: 0;
-}
-
-.skills-container {
-  display: inline;
-}
-
-.skills {
-  display: inline;
+  display: grid;
 }
 
 .contact {
@@ -77,40 +51,38 @@ button i {
   width: 100%;
 }
 
-@media (max-width:1025px) {
+@media (max-width: 1025px) {
   .title {
-    font-size:9vw;
+    font-size: 9vw;
   }
   .sub-title {
-    font-size:6vw;
+    font-size: 6vw;
     margin-left: 5vw;
   }
- }
+}
 
+.section {
+  margin: 20px 0;
+}
 
- .section {
-   margin: 20px 0;
- }
-
-
- .contact-banner {
+.contact-banner {
   margin: 20px 0;
   /* background-color: #151513; */
- }
+}
 
- section {
-   margin: 30px 0;
- }
+section {
+  margin: 30px 0;
+}
 
- .links {
+.links {
   margin: 0 0 20px 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, 125px);
   grid-auto-flow: column;
   grid-gap: 10px;
- }
+}
 
- ::ng-deep .mat-tooltip {
+::ng-deep .mat-tooltip {
   white-space: pre-line;
 }
 
@@ -118,7 +90,7 @@ button i {
   position: absolute;
   bottom: 0;
   left: 25px;
-  max-width: 300px
+  max-width: 300px;
 }
 
 @media only screen and (max-width: 1450px) {

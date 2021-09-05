@@ -1,0 +1,34 @@
+:host {
+  margin-bottom: 36px;
+}
+
+.title {
+  font-size: 5.5em;
+  font-weight: 400;
+  margin-bottom: 0;
+  line-height: initial;
+}
+
+.sub-title {
+  font-size: 3em;
+  font-weight: 400;
+  margin-left: 1em;
+  margin-top: 0;
+}
+
+.skills-container {
+  display: inline;
+}
+
+.skills {
+  display: inline;
+}
+
+@media only screen and (max-width: 600px) {
+  .title {
+    font-size: 3em;
+  }
+  .sub-title {
+    font-size: 1.75em;
+  }
+}

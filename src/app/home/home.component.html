@@ -1,60 +1,85 @@
 <div class="wrapper">
-  <div class="header">
+  <!-- <div class="header">
     <div class="header-text">
       <h1 class="title hack-font">&lt;Austen Stone></h1>
       <h2 class="sub-title hack-font">
         <div class="skills"></div>
       </h2>
     </div>
-  </div>
-  <div>
-    <p>I am currently working as a Solutions Engineer at <a href="https://www.telit.com/m2m-iot-products/iot-platforms/iot-platform-overview/">Telit IoT Platforms</a> where I build industrial drivers, create UIs, and automate tasks.</p>
-    <p>My freelance work has consisted of building and recovering websites and apps for all sorts of businesses.</p>
-  </div>
+  </div> -->
+  <app-header></app-header>
+  <section>
+    <h1>About</h1>
+    <p>I am currently working as a Solutions Engineer at <a
+        href="https://www.telit.com/m2m-iot-products/iot-platforms/iot-platform-overview/">Telit IoT Platforms</a> where
+      I build industrial drivers, create UIs, and automate tasks.</p>
+  </section>
 
+  <section>
+    <h1>Code</h1>
+    <p>I actually love to code; It's my hobby. I'm big fan of the web and frameworks like Angular and React. I also am a
+      very proficient with C/C++.</p>
+    <app-special-button [text]="'GitHub'" [href]="'https://github.com/astone2014'"
+      [img]="'https://cdn-icons-png.flaticon.com/512/25/25231.png'">
+    </app-special-button>
+  </section>
   <section>
     <h1>Projects</h1>
 
     <h2>deviceWISE View</h2>
     <p>Build visualizations for deviceWISE by simply dragging and dropping widgets into a canvas.</p>
     <div class="links">
-      <a target="_blank" mat-stroked-button href="https://view.devicewise.com">
-        <mat-icon>preview</mat-icon> Demo
-      </a>
-      <a target="_blank" mat-stroked-button href="https://docs.devicewise.com/Content/Products/GatewayDevelopersGuide/deviceWISE_View/deviceWISE-View.htm">
-        <mat-icon>description</mat-icon> Docs
-      </a>
-    </div>
-
-    <h2>reddit TV</h2>
-    <p>Watch YouTube videos from Reddit like you watch TV.</p>
-    <div class="links">
-      <a target="_blank" mat-stroked-button href="https://watch.austen.info">
-        <mat-icon><mat-icon>
-          <img _ngcontent-elb-c59="" src="https://watch.austen.info/assets/img/reddit-yt-logo-circle.png" style="width: 24px;height: 24px;">
-        </mat-icon></mat-icon> reddit TV
-      </a>
-      <a target="_blank" mat-stroked-button href="https://github.com/astone2014/reddit-yt">
-        <mat-icon>code</mat-icon> Code
-      </a>
+      <app-special-button [text]="'Demo'" [href]="'https://view.devicewise.com'" [icon]="'preview'">
+      </app-special-button>
+      <app-special-button [text]="'Docs'"
+        [href]="'https://docs.devicewise.com/Content/Products/GatewayDevelopersGuide/deviceWISE_View/deviceWISE-View.htm'"
+        [icon]="'description'">
+      </app-special-button>
     </div>
   </section>
 
   <section>
     <h1>Other Cool Projects</h1>
+    <h2>reddit TV</h2>
+    <p>Watch YouTube videos from Reddit like you watch TV.</p>
+    <div class="links">
+      <app-special-button [text]="'reddit TV'" [href]="'https://watch.austen.info'"
+        [img]="'https://watch.austen.info/assets/img/reddit-yt-logo-circle.png'">
+      </app-special-button>
+      <app-special-button [text]="'Code'" [href]="'https://github.com/astone2014/reddit-yt'" [icon]="'code'">
+      </app-special-button>
+    </div>
+
+    <h2>React Chat</h2>
+    <p>Simple chatroom using Firebase and React.</p>
+    <div class="links">
+      <app-special-button [text]="'React Chat'" [href]="'https://chat.austen.info'"
+        [img]="domSanitizer.bypassSecurityTrustUrl('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K')">
+      </app-special-button>
+      <app-special-button [text]="'Code'" [href]="'https://github.com/astone2014/react-chat'" [icon]="'code'">
+      </app-special-button>
+    </div>
 
     <h2>Audi Car Search</h2>
     <p>I backwards engineered Audi's website so I could find the cheapest certified pre owned vehicle in America.</p>
     <div class="links">
-      <a target="_blank" mat-stroked-button href="https://github.com/astone2014/audi-car-search">
-        <mat-icon>code</mat-icon> Code
-      </a>
+      <app-special-button [text]="'Code'" [href]="'https://github.com/astone2014/audi-car-search'" [icon]="'code'">
+      </app-special-button>
     </div>
   </section>
 
   <section>
-    <h1>My Code</h1>
-    <p>I like to write everything in JavaScript but I also write alot of C code.</p>
+    <h1>Video Games</h1>
+    <p>I grew up playing games and still try to find time to play the latest titles.</p>
+    <div class="links">
+      <app-special-button [text]="'Steam'" [href]="'https://steamcommunity.com/id/bottlez/'"
+        [img]="'https://cdn.freebiesupply.com/images/large/2x/steam-logo-transparent.png'">
+      </app-special-button>
+
+      <app-special-button [text]="'WoW'" [href]="'https://worldofwarcraft.com/en-us/character/us/illidan/bottlez'"
+        [img]="'https://assets.worldofwarcraft.com/static/components/Logo/Logo-wowIcon.01e2c443798558c38d8e3b143a6f0d03.png'">
+      </app-special-button>
+    </div>
   </section>
 </div>
 
@@ -63,34 +88,22 @@
     <h2>Have more questions?</h2>
     <p>Feel free to contact me.</p>
     <div class="links">
-      <a mat-stroked-button href="mailto:miltonlaxer@gmail.com">
-        <mat-icon>mail</mat-icon> Email
-      </a>
-      <a target="_blank" mat-stroked-button href="https://www.linkedin.com/in/austenstone">
-        <mat-icon>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="global-nav__logo" color="#0a66c2" style="display: block;">
-            <title>
-              LinkedIn
-            </title>
-            <g>
-              <path d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z" fill="currentColor"></path>
-            </g>
-          </svg>
-        </mat-icon> LinkedIn
-      </a>
+      <app-special-button [text]="'LinkedIn'" [href]="'https://www.linkedin.com/in/austenstone'"
+        [img]="'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png'">
+      </app-special-button>
+      <app-special-button [text]="'Twitter'" [href]="'https://twitter.com/Austen_Stone'"
+        [img]="'https://pbs.twimg.com/profile_images/1013798240683266048/zRim1x6M_bigger.jpg'">
+      </app-special-button>
+      <app-special-button [text]="'Email'" [href]="'mailto:miltonlaxer@gmail.com'" [icon]="'mail'">
+      </app-special-button>
     </div>
   </div>
 </div>
 
 <footer class="wrapper">
-  <a target="_blank" href="https://www.strava.com/athletes/4518741"><img class="bike" src="/assets/img/cannondale.svg"></a>
-  <div *ngIf="fahrenheit">
-    <p>It's {{fahrenheit | number:'1.0-0'}}&#176;F with {{weather.weather[0].description}} in {{weather.name}}. {{ weatherThought }}!</p>
-  </div>
-
-  <!-- <a href="https://www.fau.edu/" target="_blank">
-    <img src="https://dbukjj6eu5tsf.cloudfront.net/fausports.com/images/responsive_2020/nav_main.svg">
-  </a> -->
+  <a target="_blank" href="https://www.strava.com/athletes/4518741"><img class="bike"
+      src="/assets/img/cannondale.svg"></a>
+  <app-weather></app-weather>
 </footer>
 
 <app-github-corner></app-github-corner>

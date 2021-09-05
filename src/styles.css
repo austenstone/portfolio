@@ -1,11 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 @font-face {
   font-family: "hack";
-  src: url('assets/fonts/Hack-Regular.ttf');
+  src: url("assets/fonts/Hack-Regular.ttf");
 }
 .hack-font {
   font-family: "hack";
@@ -31,4 +37,14 @@ a {
   color: #212121;
   /* text-decoration: none; */
   /* font-weight: bold; */
+}
+
+.button-center .mat-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-center .mat-button-wrapper mat-icon {
+  margin-right: 5px;
 }
