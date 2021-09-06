@@ -17,7 +17,17 @@ body {
 @font-face {
   font-family: "hack";
   src: url("assets/fonts/Hack-Regular.ttf");
+  font-display: swap;
 }
 .hack-font {
   font-family: "hack";
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
