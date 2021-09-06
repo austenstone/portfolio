@@ -9,40 +9,25 @@ export class ResumeComponent {
   name = 'Austen Stone';
   title = 'Software Engineer';
   description = 'Professional developer focused on using cutting edge technology to solve business problems.';
-  skills = [{
-    name: 'C',
-    value: 100
-  }, {
-    name: 'C++',
-    value: 100
-  }, {
-    name: 'Typescript',
-    value: 90
-  }, {
-    name: 'Javascript',
-    value: 90
-  }, {
-    name: 'Javascript',
-    value: 90
-  }, {
-    name: 'Angular',
-    value: 90
-  }, {
-    name: 'React',
-    value: 90
-  }, {
-    name: 'Node',
-    value: 90
-  }, {
-    name: 'Continuous integration',
-    value: 90
-  }]
+  skills = [
+    'C',
+    'C++',
+    'Typescript',
+    'JavaScript',
+    'Angular',
+    'React',
+    'Node',
+    'Git',
+    'Bash',
+    'Object Oriented Design',
+    'Deployment',
+    'Continuous integration'
+  ];
   workExperiences = [{
     title: 'Solutions Expert',
     name: 'Telit',
     dateStart: new Date('Jan 1, 2021'),
     dateEnd: null,
-    // description: 'worked here',
     bullets: [
       'Creator of deviceWISE View, a drag/drop dashboard builder that has generated over $1m+ in revenue.',
       'Gathered requirments and created proposals for clients outlining project scope and timeline.',
@@ -64,7 +49,6 @@ export class ResumeComponent {
     name: 'Telit',
     dateStart: new Date('October 1, 2016'),
     dateEnd: new Date('April 1, 2018'),
-    // description: 'worked here'
   }, {
     title: 'Owner',
     name: 'Austen Stone Tech',
