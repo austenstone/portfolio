@@ -25,6 +25,8 @@ jobs:
         run: npm run lint
       - name: Build 🔧
         run: npm run build-ghpages
+      - name: 404 GitHub Pages 🥱
+        run: cp dist/index.html dist/404.html
       - name: Check GitHub Pages Status 👀
         uses: crazy-max/ghaction-github-status@v1
         with:
