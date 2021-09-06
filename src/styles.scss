@@ -6,6 +6,11 @@ body {
   margin: 0;
 }
 
+body {
+  min-height: 100%;
+  height: auto;
+}
+
 .flexer {
   flex: 1;
 }

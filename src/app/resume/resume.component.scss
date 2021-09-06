@@ -54,16 +54,16 @@
 }
 #header {
   grid-area: header;
-  padding: 30px;
+  padding: 20px 30px;
 }
 #side-header {
   grid-area: side-header;
-  padding: 30px;
+  padding: 20px 30px;
   // background: #2e3894;
 }
 #side {
   grid-area: side;
-  padding: 30px;
+  padding: 20px 30px;
   // background: #034c9d;
   .side-section {
     margin-bottom: 30px;
@@ -71,7 +71,7 @@
 }
 #content {
   grid-area: content;
-  padding: 30px;
+  padding: 20px 30px;
 }
 
 blockquote {
@@ -85,7 +85,7 @@ a {
 }
 
 .experience {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   .experience-header {
     display: flex;
     margin-bottom: 10px;
@@ -137,11 +137,20 @@ h1.banner {
   .print-only {
     display: block;
   }
+  :host {
+    display: block;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    position: static;
+  }
   #resume-container {
     padding: 0 !important;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+  }
+  #resume {
+    box-shadow: none;
   }
   blockquote {
     margin: 0;

@@ -30,9 +30,10 @@ export class ResumeComponent {
     dateEnd: null,
     bullets: [
       'Creator of deviceWISE View, a drag/drop dashboard builder that has generated over $1m+ in revenue.',
-      'Gathered requirments and created proposals for clients outlining project scope and timeline.',
-      'Developed internal applications to evolve our processes and increase productivity.',
-      'Researched and studied new concepts and directed development to provide better solutions to customers.'
+      'Gathered requirements and created proposals for clients outlining project scope and timeline.',
+      'Worked between product management, developers, and sales team to solve problems and prioritize work.',
+      'Developed internal applications to evolve our processes and increase productivity such as a license server, Tunneling Client, GitLab CI, and build scripts.',
+      'Worked collaboratively with the open source community on GitHub and Stackoverflow to add features or solve issues in third party libraries.',
     ]
   }, {
     title: 'Solutions Engineer',
@@ -42,7 +43,9 @@ export class ResumeComponent {
     bullets: [
       'Creator of industrial C drivers such as FANUC CNC, CAN Bus, Modbus, TCP, etc.',
       'Creator of C extensions such as Siemens Mindsphere, Azure IoT Hub, AWS Sitewise, AWS IoT Core, IBM Maximo, etc.',
-      'Designed and delivered solutions from idea to dll. Worked with customers and debugged problems in the real world.'
+      'Designed and delivered complex solutions/features with quality and supportability.',
+      'Review pull requests and Jira issues from the team in a thoughtful and constructive way.',
+      'Researched and studied new concepts and directed development to provide better solutions to customers.',
     ]
   }, {
     title: 'Engineer Intern',
@@ -55,8 +58,7 @@ export class ResumeComponent {
     dateStart: new Date('January 1, 2013'),
     dateEnd: new Date('January 1, 2019'),
     bullets: [
-      'Custom software solutions, mostly websites.',
-      '20+ satisfied clients.',
+      'Custom software solutions. 20+ satisfied clients.',
     ]
   }, {
     title: 'IT & Computer Graphics Specialist',
@@ -66,8 +68,8 @@ export class ResumeComponent {
     bullets: [
       'Transformed the JRPR’s “traditional” marketing strategy to incorporate modern techniques and automate processes.',
       'Improved existing services and incorporated new ones such as web development, graphic design, social media, and more.',
-      'Managed and lead PR team on technology projects.',
-      'Created custom websites for clients.'
+      // 'Managed and lead PR team on technology projects.',
+      // 'Created custom websites for clients.'
     ]
   }]
 
