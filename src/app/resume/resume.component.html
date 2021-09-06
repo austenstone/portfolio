@@ -3,19 +3,44 @@
     <div id="header">
       <h1 class="no-margin">{{name}}</h1>
       <h2 class="no-margin">{{title}}</h2>
-      <p *ngIf="description">{{description}}</p>
     </div>
     <div id="side-header">
-      <h1 class="no-margin">{{name}}</h1>
-      <h2 class="no-margin">{{title}}</h2>
+      <blockquote *ngIf="description">{{description}}</blockquote>
     </div>
     <div id="side">
-      <h1>Skills</h1>
-      <mat-progress-bar class="example-margin" color="accent" [value]="50">
-      </mat-progress-bar>
-      <h1>Education</h1>
-      <h2>Florida Atlantic Univeristy</h2>
-      <h3 color="accent">Go OWLS</h3>
+      <div class="side-section">
+        <h1>Contact</h1>
+        <div class="contact">
+          <div>
+            <a href="mailto:miltonlaxer@gmail.com">miltonlaxer@gmail.com</a>
+          </div>
+          <div>
+            <a href="https://austen.info/">austen.info</a>
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/in/austenstone">linkedin.com/in/austenstone</a>
+          </div>
+        </div>
+      </div>
+      <div class="side-section">
+        <h1>Skills</h1>
+        <mat-chip-list>
+          <mat-chip [color]="'accent'" *ngFor="let skill of skills">
+            {{skill.name}}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="side-section">
+        <h1>Education</h1>
+        <a target="_blank" href="https://www.fau.edu/">
+          <div class="education">
+            <div class="title">
+              <h1>Florida Atlantic University</h1>
+              <h2 class="accent-light">Bachelors of Science in Computer Engineering</h2>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
     <div id="content">
       <h1 class="banner">Experience</h1>
@@ -39,7 +64,7 @@
           </ul>
         </div>
       </div>
-      <p class="display-none print-only">View online at: https://austen.info/resume</p>
+      <p class="display-none print-only">View online at: austen.info/resume</p>
     </div>
   </div>
 </div>

@@ -98,3 +98,7 @@ p {
 .primary-light {
   color: mat.get-color-from-palette($primary, 200);
 }
+
+.accent-light {
+  color: mat.get-color-from-palette($accent, 200);
+}

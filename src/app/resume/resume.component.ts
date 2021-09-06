@@ -7,8 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumeComponent {
   name = 'Austen Stone';
-  title = 'Solutions Engineer';
-  description = '';
+  title = 'Software Engineer';
+  description = 'Professional developer focused on using cutting edge technology to solve business problems.';
+  skills = [{
+    name: 'C',
+    value: 100
+  }, {
+    name: 'C++',
+    value: 100
+  }, {
+    name: 'Typescript',
+    value: 90
+  }, {
+    name: 'Javascript',
+    value: 90
+  }, {
+    name: 'Javascript',
+    value: 90
+  }, {
+    name: 'Angular',
+    value: 90
+  }, {
+    name: 'React',
+    value: 90
+  }, {
+    name: 'Node',
+    value: 90
+  }, {
+    name: 'Continuous integration',
+    value: 90
+  }]
   workExperiences = [{
     title: 'Solutions Expert',
     name: 'Telit',

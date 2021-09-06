@@ -39,6 +39,9 @@
       "content"
       "side";
   }
+  blockquote {
+    margin: 0;
+  }
 }
 
 @media (max-width: 512px) {
@@ -62,6 +65,9 @@
   grid-area: side;
   padding: 30px;
   // background: #034c9d;
+  .side-section {
+    margin-bottom: 30px;
+  }
 }
 #content {
   grid-area: content;
@@ -92,6 +98,33 @@
   }
 }
 
+.education {
+  h1 {
+    font-size: 1.3em;
+    line-height: initial;
+    margin-bottom: 0;
+  }
+  h2 {
+    font-size: 1.1em;
+    line-height: initial;
+    margin-bottom: 0;
+    font-weight: 400;
+  }
+}
+
+.contact {
+}
+
 h1.banner {
   font-size: 1.75em;
+}
+
+blockquote {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
