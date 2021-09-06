@@ -74,6 +74,16 @@
   padding: 30px;
 }
 
+blockquote {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .experience {
   margin-bottom: 40px;
   .experience-header {
@@ -119,12 +129,21 @@ h1.banner {
   font-size: 1.75em;
 }
 
-blockquote {
-  margin-top: 0;
-  margin-bottom: 0;
-}
+@media print {
+  .no-print {
+    display: none;
+  }
 
-a {
-  text-decoration: none;
-  color: inherit;
+  .print-only {
+    display: block;
+  }
+  #resume-container {
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  blockquote {
+    margin: 0;
+  }
 }

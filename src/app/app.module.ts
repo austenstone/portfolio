@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './home/weather/material.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubCornerComponent } from './home/github-corner/github-corner.component';
@@ -15,6 +14,7 @@ import { WeatherComponent } from './home/weather/weather.component';
 import { ResumeComponent } from './resume/resume.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GradientContainerComponent } from './home/gradient-container/gradient-container.component';
+import { MaterialModule } from './material-module';
 
 @NgModule({
   declarations: [

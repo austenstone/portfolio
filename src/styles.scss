@@ -3,38 +3,7 @@
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-@font-face {
-  font-family: "hack";
-  src: url("assets/fonts/Hack-Regular.ttf");
-}
-.hack-font {
-  font-family: "hack";
-}
-
-pre {
-  text-align: left;
-}
-
-.easy-read p {
-  font-size: 20px;
-  line-height: 30px;
-  // color: #424242;
-}
-
-.button-center .mat-button-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.button-center .mat-button-wrapper mat-icon {
-  margin-right: 5px;
 }
 
 .flexer {
@@ -45,21 +14,10 @@ pre {
   display: none;
 }
 
-@media print {
-  .no-print {
-    display: none;
-  }
-
-  .print-only {
-    display: block;
-  }
-  #resume-container {
-    padding: 0 !important;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  blockquote {
-    margin: 0;
-  }
+@font-face {
+  font-family: "hack";
+  src: url("assets/fonts/Hack-Regular.ttf");
+}
+.hack-font {
+  font-family: "hack";
 }
