@@ -21,7 +21,6 @@ export class WeatherComponent implements OnInit {
       if (weather) {
         this.weather = weather;
         this.fahrenheit = this.kelvinToFahrenheit(this.weather.main.temp);
-        console.log(this.weather.weather[0].description);
         if (this.weather.weather[0].description.includes('cloud')) {
           this.weatherThought = 'Bring out the sun ⛅';
         } else if (this.weather.weather[0].description.includes('storm')) {
