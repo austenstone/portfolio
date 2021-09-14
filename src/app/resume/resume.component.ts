@@ -34,10 +34,10 @@ export class ResumeComponent {
     dateEnd: null,
     bullets: [
       'Creator of deviceWISE View, a drag/drop dashboard builder that has generated over $1m+ in revenue.',
+      'Worked collaboratively with the open source community on GitHub and Stackoverflow to add features or solve issues in third party libraries.',
       'Gathered requirements and created proposals for clients outlining project scope and timeline.',
       'Worked between product management, developers, and sales team to solve problems and prioritize work.',
       'Developed internal applications to evolve our processes and increase productivity such as a license server, Tunneling Client, GitLab CI, and build scripts.',
-      'Worked collaboratively with the open source community on GitHub and Stackoverflow to add features or solve issues in third party libraries.',
     ]
   }, {
     title: 'Solutions Engineer',
@@ -45,11 +45,11 @@ export class ResumeComponent {
     dateStart: new Date('April 1, 2018'),
     dateEnd: new Date('Jan 1, 2021'),
     bullets: [
-      'Creator of industrial C drivers such as FANUC CNC, CAN Bus, Modbus, TCP, etc.',
+      'Creator of industrial C drivers: FANUC CNC, CAN Bus, Modbus, TCP, etc.',
       'Creator of C extensions such as Siemens Mindsphere, Azure IoT Hub, AWS Sitewise, AWS IoT Core, IBM Maximo, etc.',
-      'Designed and delivered complex solutions/features with quality and supportability.',
-      'Review pull requests and Jira issues from the team in a thoughtful and constructive way.',
-      'Researched and studied new concepts and directed development to provide better solutions to customers.',
+      'Lead a large scale development for Foxconn to connect and visualize data from entire factory. In-person in Shenzhen, China.',
+      'Created and delivered J1939 CANbus solution with AT&T for Halliburton Company USA. Monitor and manage 1000\'s of fracking trucks remotely.',
+      'Matched customer problems to product features. Developed missing features by extending or creating new products.',
     ]
   }, {
     title: 'Engineer Intern',
