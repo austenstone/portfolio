@@ -125,3 +125,12 @@ p {
 .accent-light {
   color: mat.get-color-from-palette($accent, 200);
 }
+
+.elev-hover {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:hover {
+    @include mat.elevation(4);
+  }
+}
