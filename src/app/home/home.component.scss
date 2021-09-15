@@ -159,6 +159,13 @@ h1 {
   line-height: 44px;
 }
 
+h1:before {
+  content: "<";
+}
+h1:after {
+  content: ">";
+}
+
 .portrait {
   float: right;
   width: 300px;
