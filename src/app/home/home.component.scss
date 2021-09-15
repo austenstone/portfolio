@@ -4,7 +4,6 @@
 }
 
 .wrapper {
-  // max-width: 775px;
   max-width: 1075px;
   margin: auto;
   padding: 16px;
@@ -30,14 +29,12 @@
 }
 
 section {
-  // padding: 30px 0;
   margin-bottom: 100px;
   max-width: 100%;
 }
 
 .contact-banner {
   margin: 20px 0;
-  /* background-color: #151513; */
 }
 
 .links {
@@ -45,10 +42,6 @@ section {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, 125px);
-  grid-auto-flow: column;
-  grid-gap: 10px; */
 }
 
 .links > * {
@@ -127,7 +120,6 @@ p {
       left: 0;
       width: 100%;
       height: 100%;
-      // background: #3f51b5;
       mix-blend-mode: screen;
       content: "";
       transition: ease-in-out 0.2s;
@@ -195,9 +187,6 @@ h1:after {
     display: grid;
     grid-template-columns: auto;
   }
-}
-
-@media (max-width: 850px) {
   .project-container {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;

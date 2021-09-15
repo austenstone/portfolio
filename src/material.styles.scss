@@ -2,7 +2,6 @@
 
 @include mat.core();
 
-// Define a light theme
 $primary: mat.define-palette(mat.$indigo-palette);
 $accent: mat.define-palette(mat.$pink-palette);
 
@@ -26,7 +25,6 @@ $light-theme: mat.define-light-theme(
   )
 );
 
-// Define a dark theme
 $dark-theme: mat.define-dark-theme(
   (
     color: (
@@ -73,7 +71,7 @@ app-resume {
   }
   @include mat.core-theme($dark-theme);
   @include mat.all-component-themes($dark-theme);
-  // @include mat.core($dark-theme);
+
   .github-corner {
     fill: #fff;
     color: #303030;
@@ -92,7 +90,6 @@ app-resume {
 }
 
 a {
-  // color: inherit;
   text-decoration: none;
   font-weight: 500;
 }
