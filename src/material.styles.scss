@@ -1,4 +1,4 @@
-@use '~@angular/material' as mat;
+@use "~@angular/material" as mat;
 
 @include mat.core();
 
@@ -111,6 +111,11 @@ p {
     background: mat.get-color-from-palette($primary, 500);
     color: white;
   }
+}
+
+.project-image::after,
+.primary-background {
+  background: mat.get-color-from-palette($primary);
 }
 
 .primary-light {

@@ -30,6 +30,7 @@ export class ResumeComponent {
   workExperiences = [{
     title: 'Solutions Expert',
     name: 'Telit',
+    href: 'https://www.telit.com/',
     dateStart: new Date('Jan 1, 2021'),
     dateEnd: null,
     bullets: [
@@ -42,6 +43,7 @@ export class ResumeComponent {
   }, {
     title: 'Solutions Engineer',
     name: 'Telit',
+    href: 'https://www.telit.com/',
     dateStart: new Date('April 1, 2018'),
     dateEnd: new Date('Jan 1, 2021'),
     bullets: [
@@ -54,6 +56,7 @@ export class ResumeComponent {
   }, {
     title: 'Engineer Intern',
     name: 'Telit',
+    href: 'https://www.telit.com/',
     dateStart: new Date('October 1, 2016'),
     dateEnd: new Date('April 1, 2018'),
   }, {

@@ -48,7 +48,10 @@
         <div class="experience-header">
           <div class="title">
             <h1>{{experience.title}}</h1>
-            <h2 class="primary-light">{{experience.name}}</h2>
+            <a *ngIf="experience.href" target="_blank" [href]="experience.href">
+              <h2 class="primary-light">{{experience.name}}</h2>
+            </a>
+            <h2 *ngIf="!experience.href" class="primary-light">{{experience.name}}</h2>
           </div>
           <span class="flexer"></span>
           <span class="date primary-light">
@@ -64,8 +67,11 @@
           </ul>
         </div>
       </div>
-      <p class="display-none print-only"><a target="_blank" href="https://austen.info/resume">View online at:
-          austen.info/resume</a></p>
+      <p class="display-none print-only">
+        <a target="_blank" href="https://austen.info/resume">
+          View online at: austen.info/resume
+        </a>
+      </p>
     </div>
   </div>
 </div>

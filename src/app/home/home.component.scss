@@ -4,8 +4,8 @@
 }
 
 .wrapper {
-  max-width: 775px;
-  // max-width: 940px;
+  // max-width: 775px;
+  max-width: 1075px;
   margin: auto;
   padding: 16px;
   box-sizing: border-box;
@@ -32,6 +32,7 @@
 
 section {
   padding: 30px 0;
+  margin-bottom: 100px;
 }
 
 .contact-banner {
@@ -40,7 +41,7 @@ section {
 }
 
 .links {
-  margin: 0 0 20px 0;
+  margin: 20px 0 20px 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -61,11 +62,13 @@ section {
 .bike {
   position: absolute;
   bottom: 0;
-  left: 25px;
+  right: 25px;
+  // transform: rotate(90);
+  transform: scaleX(-1);
   max-width: 300px;
 }
 
-@media only screen and (max-width: 1450px) {
+@media only screen and (max-width: 1000px) {
   .bike {
     position: initial;
   }
@@ -90,4 +93,113 @@ p {
 
 .home-header {
   padding-top: 20px;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 10px;
+
+  .project-image {
+    grid-column: 1/8;
+    grid-area: 1/5/1/-1;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      // background: #3f51b5;
+      mix-blend-mode: screen;
+      content: "";
+      transition: ease-in-out 0.2s;
+    }
+
+    &:hover::after {
+      background: black;
+    }
+  }
+
+  .project-info {
+    z-index: 2;
+    grid-column: 6/-1;
+    grid-area: 1/1/-1/-7;
+
+    mat-card {
+      font-size: 18px;
+      line-height: 24px;
+      padding: 20px;
+    }
+  }
+}
+
+h1 {
+  margin: 10px 0px 40px;
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.25px;
+  line-height: 44px;
+}
+
+.portrait {
+  float: right;
+  width: 300px;
+  height: 300px;
+  background-image: url(/assets/img/me.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+#about {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  .portrait-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 700px) {
+  #about {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
+
+@media (max-width: 850px) {
+  .project-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+    .project-image {
+      grid-column: auto;
+      grid-area: auto;
+    }
+    .project-info {
+      grid-column: auto;
+      grid-area: auto;
+    }
+  }
 }

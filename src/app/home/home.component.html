@@ -1,42 +1,63 @@
 <div class="wrapper easy-read">
   <app-header></app-header>
   <section>
-    <h1>About</h1>
-    <p>I am currently working as a Solutions Engineer at <a
-        href="https://www.telit.com/m2m-iot-products/iot-platforms/iot-platform-overview/">Telit IoT Platforms</a>
-      where
-      I build industrial drivers, create UIs, and automate tasks.</p>
+    <div id="about">
+      <div class="portrait-container">
+        <div class="portrait"></div>
+      </div>
+      <div>
+        <h1>About</h1>
+        <p>
+          Hi 👋, I'm a developer. I am currently working as a Solutions Engineer at
+          <a href="https://www.telit.com/m2m-iot-products/iot-platforms/iot-platform-overview/">Telit IoT Platforms</a>
+          where I build industrial drivers, create UIs, and automate tasks.
+        </p>
+        <div class="links">
+          <app-special-button [text]="'GitHub'" [href]="'https://github.com/astone2014'"
+            [img]="'https://cdn-icons-png.flaticon.com/512/25/25231.png'">
+          </app-special-button>
+          <app-special-button [text]="'NPM'" [href]="'https://www.npmjs.com/~austenstone'"
+            [img]="'https://static.npmjs.com/1996fcfdf7ca81ea795f67f093d7f449.png'">
+          </app-special-button>
+          <app-special-button [text]="'Stack Overflow'" [href]="'https://stackoverflow.com/users/5092005/austen-stone'"
+            [img]="'https://image.flaticon.com/icons/png/512/2111/2111628.png'">
+          </app-special-button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section>
-    <h1>Code</h1>
-    <p>I've been programming since 2010 when I started creating websites for friends and family. I sometimes write code
-      for fun but I like my solutions to solve problems. I am passionate about keeping up to date with
-      technology and using automation to make life easier whether that be in the real world or in my CI pipeline.</p>
-    <p>My best programming languages: C, Javascript</p>
-    <p>My favorite programming languages: Rust, Typescript</p>
-    <app-special-button [text]="'GitHub'" [href]="'https://github.com/astone2014'"
-      [img]="'https://cdn-icons-png.flaticon.com/512/25/25231.png'">
-    </app-special-button>
-    <app-special-button [text]="'NPM'" [href]="'https://www.npmjs.com/~austenstone'"
-      [img]="'https://static.npmjs.com/1996fcfdf7ca81ea795f67f093d7f449.png'">
-    </app-special-button>
-    <app-special-button [text]="'Stack Overflow'" [href]="'https://stackoverflow.com/users/5092005/austen-stone'"
-      [img]="'https://image.flaticon.com/icons/png/512/2111/2111628.png'">
-    </app-special-button>
-  </section>
-  <section>
-    <h1>Projects</h1>
+    <h1>Main Projects</h1>
+    <div class="project-container">
+      <!-- <div class="project-image" [style.backgroundImage]="'url(' + 'assets/screenshots/chrome_E0qv0L1q0I.jpg' + ')'"></div>-->
+      <div class="project-info">
+        <h2>deviceWISE View</h2>
+        <mat-card>A no-code dashboard builder. Visualize your data and create HMIs by simply dragging and
+          dropping widgets into a canvas.</mat-card>
+        <div class="links">
 
-    <h2>deviceWISE View</h2>
-    <p>Build visualizations for deviceWISE by simply dragging and dropping widgets into a canvas.</p>
-    <div class="links">
-      <app-special-button [text]="'Demo'" [href]="'https://view.devicewise.com'" [icon]="'preview'">
-      </app-special-button>
-      <app-special-button [text]="'Docs'"
-        [href]="'https://docs.devicewise.com/Content/Products/GatewayDevelopersGuide/deviceWISE_View/deviceWISE-View.htm'"
-        [icon]="'description'">
-      </app-special-button>
+          <a mat-raised-button color="primary" href="https://view.devicewise.com" target="_blank" rel="noopener">
+            <mat-icon>preview</mat-icon>
+            Demo
+          </a>
+
+          <a mat-raised-button color="primary"
+            href="https://docs.devicewise.com/Content/Products/GatewayDevelopersGuide/deviceWISE_View/deviceWISE-View.htm"
+            target="_blank" rel="noopener">
+            <mat-icon>description</mat-icon>
+            Docs
+          </a>
+
+          <a mat-raised-button color="primary" href="https://youtu.be/impH4bBiCdA" target="_blank" rel="noopener">
+            <mat-icon>videocam</mat-icon>
+            Video
+          </a>
+        </div>
+      </div>
+      <a class="project-image" href="https://view.devicewise.com" target="_blank">
+        <img src="assets/screenshots/chrome_EWhfXl9Ecn.png" />
+      </a>
     </div>
   </section>
 
