@@ -7,37 +7,50 @@ import * as Typed from 'typed.js';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   constructor(
     public domSanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
-    new Typed.default('#about-title', {
-      strings: [
-        `About`
-      ],
-      typeSpeed: 50,
-      backSpeed: 40,
-      smartBackspace: true,
-      showCursor: false,
-      loop: false,
-      onComplete: () => {
-        new Typed.default('#main-projects-title', {
-          strings: [
-            `\<MainProjects\>`
-          ],
-          typeSpeed: 50,
-          backSpeed: 40,
-          smartBackspace: true,
-          showCursor: false,
-          loop: false,
-          startDelay: 200
-        });
-      }
-    });
-
+    console.log(`%c⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣄⡀⠀⢻⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⠃⢰⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⢶⣶⣶⣾⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⢠⡀⠐⠀⠀⠀⠻⢿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⢸⣷⡄⠀⠣⣄⡀⠀⠉⠛⢿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀⣿⣿⣦⠀⠹⣿⣷⣶⣦⣼⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣼⣿⣿⣿⣷⣄⣸⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⡿⢛⡙⢻⠛⣉⢻⣉⢈⣹⣿⣿⠟⣉⢻⡏⢛⠙⣉⢻⣿⣿⣿
+⣿⣿⣇⠻⠃⣾⠸⠟⣸⣿⠈⣿⣿⣿⡀⠴⠞⡇⣾⡄⣿⠘⣿⣿⣿
+⣿⣿⣟⠛⣃⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿`, "font-family:serif; font-size: 12px")
+    //   new Typed.default('#about-title', {
+    //     strings: [
+    //       `About`
+    //     ],
+    //     typeSpeed: 50,
+    //     backSpeed: 40,
+    //     smartBackspace: true,
+    //     showCursor: false,
+    //     loop: false,
+    //     onComplete: () => {
+    //       new Typed.default('#main-projects-title', {
+    //         strings: [
+    //           `\<MainProjects\>`
+    //         ],
+    //         typeSpeed: 50,
+    //         backSpeed: 40,
+    //         smartBackspace: true,
+    //         showCursor: false,
+    //         loop: false,
+    //         startDelay: 200
+    //       });
+    //     }
+    //   });
   }
 
 }
