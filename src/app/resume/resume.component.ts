@@ -31,7 +31,7 @@ export class ResumeComponent {
     title: 'Solutions Expert',
     name: 'Telit',
     href: 'https://www.telit.com/',
-    dateStart: new Date('Jan 1, 2021'),
+    dateStart: new Date('Dec 1, 2020'),
     dateEnd: null,
     bullets: [
       'Creator of deviceWISE View, a drag/drop dashboard builder that has generated over $1m+ in revenue.',
@@ -46,7 +46,7 @@ export class ResumeComponent {
     name: 'Telit',
     href: 'https://www.telit.com/',
     dateStart: new Date('April 1, 2018'),
-    dateEnd: new Date('Jan 1, 2021'),
+    dateEnd: new Date('Dec 1, 2020'),
     bullets: [
       'Creator of industrial C drivers: FANUC CNC, CAN Bus, Modbus, TCP, etc.',
       'Creator of C extensions such as Siemens Mindsphere, Azure IoT Hub, AWS Sitewise, AWS IoT Core, IBM Maximo, etc.',
