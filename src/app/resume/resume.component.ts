@@ -37,8 +37,9 @@ export class ResumeComponent {
       'Creator of deviceWISE View, a drag/drop dashboard builder that has generated over $1m+ in revenue.',
       'Worked collaboratively with the open source community on GitHub and Stackoverflow to add features or solve issues in third party libraries.',
       'Gathered requirements and created proposals for clients outlining project scope and timeline.',
+      'Developed internal applications to evolve our processes and increase productivity such as a License Server, Tunneling Client, and modern CI/CD pipelines.',
       'Worked between product management, developers, and sales team to solve problems and prioritize work.',
-      'Developed internal applications to evolve our processes and increase productivity such as a license server, Tunneling Client, GitLab CI, and build scripts.',
+      'Successfully delivered 100s of live demonstrations to customers.'
     ]
   }, {
     title: 'Solutions Engineer',
