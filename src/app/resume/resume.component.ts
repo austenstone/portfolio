@@ -39,7 +39,7 @@ export class ResumeComponent {
       'Gathered requirements and created proposals for clients outlining project scope and timeline.',
       'Developed internal applications to evolve our processes and increase productivity such as a License Server, Tunneling Client, and modern CI/CD pipelines.',
       'Worked between product management, developers, and sales team to solve problems and prioritize work.',
-      'Successfully delivered 100s of live demonstrations to customers.'
+      'Successfully delivered 100s of live demonstrations to customers including IBM, Siemens, Amazon, Dell, Lenovo, Coke, Ford, Honda, Caterpillar, Deloitte, Medtronic, Furuno.'
     ]
   }, {
     title: 'Solutions Engineer',
