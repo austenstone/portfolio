@@ -24,7 +24,7 @@
       </div>
       <div class="side-section">
         <h1>Skills</h1>
-        <mat-chip-list>
+        <mat-chip-list class="skill-chips">
           <mat-chip [color]="'accent'" *ngFor="let skill of skills">
             {{skill}}
           </mat-chip>
@@ -49,7 +49,7 @@
           <div class="title">
             <h1>{{experience.title}}</h1>
             <a *ngIf="experience.href" target="_blank" [href]="experience.href">
-              <h2 class="primary-light">{{experience.name}}</h2>
+              <h2 class="company-name primary-light">{{experience.name}}</h2>
             </a>
             <h2 *ngIf="!experience.href" class="primary-light">{{experience.name}}</h2>
           </div>
