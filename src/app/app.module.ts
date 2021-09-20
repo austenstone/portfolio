@@ -13,7 +13,6 @@ import { HeaderComponent } from './home/header/header.component';
 import { WeatherComponent } from './home/weather/weather.component';
 import { ResumeComponent } from './resume/resume.component';
 import { AppRoutingModule } from './app-routing.module';
-import { GradientContainerComponent } from './home/gradient-container/gradient-container.component';
 import { MaterialModule } from './material-module';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { MaterialModule } from './material-module';
     HeaderComponent,
     WeatherComponent,
     ResumeComponent,
-    GradientContainerComponent
   ],
   imports: [
     BrowserModule,
