@@ -15,22 +15,29 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.16.1
+
+      - name: Use Node.js 16 🟩
         uses: actions/setup-node@v1
         with:
-          node-version: 12.16.1
+          node-version: 16
+
       - name: Install dependencies 📥
         run: npm install
+
       - name: Lint ✏️
         run: npm run lint
+
       - name: Build 🔧
         run: npm run build-ghpages
+
       - name: 404 GitHub Pages 🥱
         run: cp dist/austen-stone/index.html dist/austen-stone/404.html
+
       - name: Check GitHub Pages Status 👀
         uses: crazy-max/ghaction-github-status@v1
         with:
           pages_threshold: major_outage
+
       - name: Deploy to GitHub Pages 🚀
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
