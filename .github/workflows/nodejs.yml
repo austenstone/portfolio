@@ -50,7 +50,7 @@ jobs:
 
       - name: Deploy to GitHub Pages 🚀
         uses: crazy-max/ghaction-github-pages@v2
-        if: github.actor != "dependabot[bot]"
+        if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
         with:
           target_branch: gh-pages
           build_dir: dist/austen-stone
