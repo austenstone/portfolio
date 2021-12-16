@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: dist
+          path: dist/austen-stone
 
   deploy:
     needs: build
@@ -54,14 +54,14 @@ jobs:
           name: dist
 
       - name: 404 GitHub Pages 💫
-        run: cp dist/austen-stone/index.html dist/austen-stone/404.html
+        run: cp austen-stone/index.html austen-stone/404.html
 
       - name: Deploy to GitHub Pages 🚀
         uses: crazy-max/ghaction-github-pages@v2
         if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
         with:
           target_branch: gh-pages
-          build_dir: dist/austen-stone
+          build_dir: austen-stone
           fqdn: austen.info
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
