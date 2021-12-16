@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: dist/austen-stone
+          path: dist/
 
   deploy:
     needs: build
@@ -64,7 +64,7 @@ jobs:
         if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
         with:
           target_branch: gh-pages
-          build_dir: dist/austen-stone
+          build_dir: austen-stone
           fqdn: austen.info
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
