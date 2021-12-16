@@ -40,7 +40,7 @@ jobs:
           name: dist
           path: dist/
 
-  Test:
+  test:
     runs-on: ubuntu-latest
 
     steps:
