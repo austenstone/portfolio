@@ -29,13 +29,13 @@ jobs:
           node-version: 16
 
       - name: Install dependencies 📥
-        run: npm install
+        run: npm ci
 
       - name: Lint ✏️
         run: npm run lint
 
       - name: Build 🔧
-        run: npm run build-ghpages
+        run: npm run build:prod
 
       - name: 404 GitHub Pages ⚠️
         run: cp dist/austen-stone/index.html dist/austen-stone/404.html
@@ -56,12 +56,15 @@ jobs:
         with:
           name: dist
 
+      - name: Look 👀
+        run: ls -al
+
       - name: Deploy to GitHub Pages 🚀
         uses: crazy-max/ghaction-github-pages@v2
         if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
         with:
           target_branch: gh-pages
-          build_dir: austen-stone
+          build_dir: dist/austen-stone
           fqdn: austen.info
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

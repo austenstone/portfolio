@@ -5,11 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-ghpages": "ng build --configuration production",
+    "build:prod": "ng build --configuration production",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "publish": "ng build --configuration production && scp -r dist/austen-stone/* ubuntu@ec2-34-239-114-34.compute-1.amazonaws.com:/var/www/html"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
