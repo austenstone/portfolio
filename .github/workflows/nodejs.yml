@@ -37,9 +37,6 @@ jobs:
       - name: Build 🔧
         run: npm run build:prod
 
-      - name: 404 GitHub Pages ⚠️
-        run: cp dist/austen-stone/index.html dist/austen-stone/404.html
-
       - name: 💾 Archive austen-stone artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -56,8 +53,8 @@ jobs:
         with:
           name: dist
 
-      - name: Look 👀
-        run: ls -al
+      - name: 404 GitHub Pages ⚠️
+        run: cp austen-stone/index.html austen-stone/404.html
 
       - name: Deploy to GitHub Pages 🚀
         uses: crazy-max/ghaction-github-pages@v2
