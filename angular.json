@@ -140,6 +140,7 @@
   },
   "defaultProject": "austen-stone",
   "cli": {
-    "analytics": "e976c120-4cca-4b1f-a2a2-fad569aa22a3"
+    "analytics": "e976c120-4cca-4b1f-a2a2-fad569aa22a3",
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }
