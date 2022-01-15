@@ -39,11 +39,6 @@ jobs:
         with:
           name: dist
           path: dist/
-         
-      - name: 🤖 Dependabot Auto Merge
-        uses: ahmadnassri/action-dependabot-auto-merge@v2
-        with:
-          github-token: ${{ secrets.mytoken }}
 
   test:
     runs-on: ubuntu-latest
