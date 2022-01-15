@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OpenWeather } from '../weather';
-import { WeatherService } from '../weather.service';
+import { OpenWeather } from 'src/app/weather';
+import { WeatherService } from './weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -21,7 +21,6 @@ export class WeatherComponent implements OnInit {
       if (weather) {
         this.weather = weather;
         this.fahrenheit = this.kelvinToFahrenheit(this.weather.main.temp);
-        console.log(this.weather.weather[0].description);
         if (this.weather.weather[0].description.includes('cloud')) {
           this.weatherThought = 'Bring out the sun ⛅';
         } else if (this.weather.weather[0].description.includes('storm')) {

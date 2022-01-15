@@ -3,48 +3,36 @@
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+body {
+  min-height: 100%;
+  height: auto;
+}
+
+.flexer {
+  flex: 1;
+}
+
+.display-none {
+  display: none;
 }
 
 @font-face {
   font-family: "hack";
-  src: url("assets/fonts/Hack-Regular.ttf");
+  src: url("/assets/fonts/Hack-Regular.ttf");
+  font-display: swap;
 }
 .hack-font {
-  font-family: "hack";
+  font-family: "hack" !important;
 }
 
-pre {
-  text-align: left;
+html,
+body {
+  height: 100%;
 }
-
-/* @media screen and (min-width: 521px) {
-  body {
-    font-size: 1rem !important;
-  }
-} */
-
-.easy-read p {
-  font-size: 20px;
-  line-height: 30px;
-  // color: #424242;
-}
-
-a {
-  // color: #212121;
-  /* text-decoration: none; */
-  /* font-weight: bold; */
-}
-
-.button-center .mat-button-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.button-center .mat-button-wrapper mat-icon {
-  margin-right: 5px;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

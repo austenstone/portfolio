@@ -1,12 +1,15 @@
 :host {
-  margin-bottom: 36px;
+  // margin-bottom: 36px;
+  display: block;
+  margin-bottom: 100px;
 }
 
 .title {
   font-size: 5.5em;
-  font-weight: 400;
+  font-weight: 700;
   margin-bottom: 0;
   line-height: initial;
+  white-space: nowrap;
 }
 
 .sub-title {
@@ -26,9 +29,9 @@
 
 @media only screen and (max-width: 600px) {
   .title {
-    font-size: 3em;
+    font-size: 8vw;
   }
   .sub-title {
-    font-size: 1.75em;
+    font-size: 4vw;
   }
 }

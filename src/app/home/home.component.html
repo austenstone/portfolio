@@ -1,52 +1,102 @@
-<div class="wrapper">
-  <!-- <div class="header">
-    <div class="header-text">
-      <h1 class="title hack-font">&lt;Austen Stone></h1>
-      <h2 class="sub-title hack-font">
-        <div class="skills"></div>
-      </h2>
-    </div>
-  </div> -->
+<div class="wrapper easy-read">
   <app-header></app-header>
-  <section>
-    <h1>About</h1>
-    <p>I am currently working as a Solutions Engineer at <a
-        href="https://www.telit.com/m2m-iot-products/iot-platforms/iot-platform-overview/">Telit IoT Platforms</a> where
-      I build industrial drivers, create UIs, and automate tasks.</p>
-  </section>
-
-  <section>
-    <h1>Code</h1>
-    <p>I actually love to code; It's my hobby. I'm big fan of the web and frameworks like Angular and React. I also am a
-      very proficient with C/C++.</p>
-    <app-special-button [text]="'GitHub'" [href]="'https://github.com/astone2014'"
-      [img]="'https://cdn-icons-png.flaticon.com/512/25/25231.png'">
-    </app-special-button>
-  </section>
-  <section>
-    <h1>Projects</h1>
-
-    <h2>deviceWISE View</h2>
-    <p>Build visualizations for deviceWISE by simply dragging and dropping widgets into a canvas.</p>
-    <div class="links">
-      <app-special-button [text]="'Demo'" [href]="'https://view.devicewise.com'" [icon]="'preview'">
-      </app-special-button>
-      <app-special-button [text]="'Docs'"
-        [href]="'https://docs.devicewise.com/Content/Products/GatewayDevelopersGuide/deviceWISE_View/deviceWISE-View.htm'"
-        [icon]="'description'">
-      </app-special-button>
+  <section class="">
+    <div id="about">
+      <div class="portrait-container">
+        <div class="portrait mat-elevation-z8"></div>
+      </div>
+      <div class="">
+        <h1 class="typed-title">
+          About
+        </h1>
+        <p>
+          Hey👋, I'm Austen. I write code and solve people's business problems.
+        </p>
+        <div class="links">
+          <app-special-button [text]="'GitHub'" [href]="'https://github.com/austenstone'"
+            [img]="'https://cdn-icons-png.flaticon.com/512/25/25231.png'">
+          </app-special-button>
+          <app-special-button [text]="'Stack Overflow'" [href]="'https://stackoverflow.com/users/5092005/austen-stone'"
+            [img]="'https://image.flaticon.com/icons/png/512/2111/2111628.png'">
+          </app-special-button>
+          <app-special-button [text]="'NPM'" [href]="'https://www.npmjs.com/~austenstone'"
+            [img]="'https://static.npmjs.com/1996fcfdf7ca81ea795f67f093d7f449.png'">
+          </app-special-button>
+        </div>
+      </div>
     </div>
   </section>
 
   <section>
-    <h1>Other Cool Projects</h1>
+
+    <h1 class="typed-title">
+      <!-- <div id="main-projects-title"></div> -->
+      MainProjects
+    </h1>
+    <div class="project-container">
+      <!-- <div class="project-image" [style.backgroundImage]="'url(' + 'assets/screenshots/chrome_E0qv0L1q0I.jpg' + ')'"></div>-->
+      <div class="project-info">
+        <h2>deviceWISE View</h2>
+        <mat-card class="mat-elevation-z8">
+          A powerful no-code dashboard builder.
+          Visualize your data or create UI's by simply dragging and dropping widgets into a canvas.</mat-card>
+        <div class="links">
+
+          <a mat-raised-button color="primary" href="https://view.devicewise.com/login?user=demo&pass=demo"
+            target="_blank" rel="noopener">
+            <mat-icon>preview</mat-icon>
+            Demo
+          </a>
+
+          <a mat-raised-button color="primary"
+            href="https://docs.devicewise.com/Content/Products/GatewayDevelopersGuide/deviceWISE_View/deviceWISE-View.htm"
+            target="_blank" rel="noopener">
+            <mat-icon>description</mat-icon>
+            Docs
+          </a>
+
+          <a mat-raised-button color="primary" href="https://youtu.be/Gh3EXo6ZuYE" target="_blank" rel="noopener">
+            <mat-icon>videocam</mat-icon>
+            Video
+          </a>
+        </div>
+      </div>
+      <a class="project-image elev-hover" href="https://view.devicewise.com/login?user=demo&pass=demo" target="_blank"
+        rel="noopener">
+        <img src="assets/screenshots/chrome_EWhfXl9Ecn.png" alt="deviceWISE View" aria-label="deviceWISE View" />
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h1>OtherProjects</h1>
+
     <h2>reddit TV</h2>
     <p>Watch YouTube videos from Reddit like you watch TV.</p>
     <div class="links">
       <app-special-button [text]="'reddit TV'" [href]="'https://watch.austen.info'"
         [img]="'https://watch.austen.info/assets/img/reddit-yt-logo-circle.png'">
       </app-special-button>
-      <app-special-button [text]="'Code'" [href]="'https://github.com/astone2014/reddit-yt'" [icon]="'code'">
+      <app-special-button [text]="'Code'" [href]="'https://github.com/austenstone/reddit-yt'" [icon]="'code'">
+      </app-special-button>
+    </div>
+
+    <h2>The Game of Life</h2>
+    <p>The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John
+      Horton
+      Conway in 1970.</p>
+    <div class="links">
+      <app-special-button [text]="'Life'" [icon]="'group_work'" [href]="'https://life.austen.info'">
+      </app-special-button>
+      <app-special-button [text]="'Code'" [href]="'https://github.com/austenstone/game-of-life'" [icon]="'code'">
+      </app-special-button>
+    </div>
+
+    <h2>Audi Car Search</h2>
+    <p>I backwards engineered Audi's website so I could find the cheapest certified pre owned vehicle in America.
+    </p>
+    <div class="links">
+      <app-special-button [text]="'Code'" [href]="'https://github.com/austenstone/audi-car-search'" [icon]="'code'">
       </app-special-button>
     </div>
 
@@ -54,58 +104,54 @@
     <p>Simple chatroom using Firebase and React.</p>
     <div class="links">
       <app-special-button [text]="'React Chat'" [href]="'https://chat.austen.info'"
-        [img]="domSanitizer.bypassSecurityTrustUrl('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K')">
+        [img]="'https://chat.austen.info/logo192.png'">
       </app-special-button>
-      <app-special-button [text]="'Code'" [href]="'https://github.com/astone2014/react-chat'" [icon]="'code'">
-      </app-special-button>
-    </div>
-
-    <h2>Audi Car Search</h2>
-    <p>I backwards engineered Audi's website so I could find the cheapest certified pre owned vehicle in America.</p>
-    <div class="links">
-      <app-special-button [text]="'Code'" [href]="'https://github.com/astone2014/audi-car-search'" [icon]="'code'">
+      <app-special-button [text]="'Code'" [href]="'https://github.com/austenstone/react-chat'" [icon]="'code'">
       </app-special-button>
     </div>
   </section>
 
-  <section>
-    <h1>Video Games</h1>
-    <p>I grew up playing games and still try to find time to play the latest titles.</p>
-    <div class="links">
-      <app-special-button [text]="'Steam'" [href]="'https://steamcommunity.com/id/bottlez/'"
-        [img]="'https://cdn.freebiesupply.com/images/large/2x/steam-logo-transparent.png'">
-      </app-special-button>
+  <!-- <section>
+      <h1>Video Games</h1>
+      <p>I grew up with video games and still try to find time to play.</p>
+      <div class="links">
+        <app-special-button [text]="'Steam'" [href]="'https://steamcommunity.com/id/bottlez/'"
+          [img]="'https://cdn.freebiesupply.com/images/large/2x/steam-logo-transparent.png'">
+        </app-special-button>
 
-      <app-special-button [text]="'WoW'" [href]="'https://worldofwarcraft.com/en-us/character/us/illidan/bottlez'"
-        [img]="'https://assets.worldofwarcraft.com/static/components/Logo/Logo-wowIcon.01e2c443798558c38d8e3b143a6f0d03.png'">
-      </app-special-button>
-    </div>
-  </section>
+        <app-special-button [text]="'WoW'" [href]="'https://worldofwarcraft.com/en-us/character/us/illidan/bottlez'"
+          [img]="'https://assets.worldofwarcraft.com/static/components/Logo/Logo-wowIcon.01e2c443798558c38d8e3b143a6f0d03.png'">
+        </app-special-button>
+      </div>
+    </section> -->
 </div>
 
 <div class="contact-banner">
   <div class="wrapper">
     <h2>Have more questions?</h2>
-    <p>Feel free to contact me.</p>
     <div class="links">
       <app-special-button [text]="'LinkedIn'" [href]="'https://www.linkedin.com/in/austenstone'"
         [img]="'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png'">
       </app-special-button>
-      <app-special-button [text]="'Twitter'" [href]="'https://twitter.com/Austen_Stone'"
-        [img]="'https://pbs.twimg.com/profile_images/1013798240683266048/zRim1x6M_bigger.jpg'">
+      <!-- <app-special-button [text]="'Twitter'" [href]="'https://twitter.com/Austen_Stone'"
+        [img]="'https://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png'">
       </app-special-button>
       <app-special-button [text]="'Facebook'" [href]="'https://www.facebook.com/austen.stone1'"
         [img]="'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png'">
-      </app-special-button>
-      <app-special-button [text]="'Email'" [href]="'mailto:miltonlaxer@gmail.com'" [icon]="'mail'">
+      </app-special-button> -->
+      <app-special-button [text]="'Email'" [href]="'mailto:hi@austen.info'" [icon]="'mail'">
       </app-special-button>
     </div>
+    <h2>Want to work together?</h2>
+    <app-special-button [text]="'Resume'" [href]="'/resume'" [icon]="'history_edu'">
+    </app-special-button>
+
   </div>
 </div>
 
 <footer class="wrapper">
-  <a target="_blank" href="https://www.strava.com/athletes/4518741">
-    <svg class="bike" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 699.07 397.87">
+  <a target="_blank" href="https://www.strava.com/athletes/4518741" aria-label="Strava" rel="noopener">
+    <svg alt="bike" class="bike" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 699.07 397.87">
       <g id="Layer_2" data-name="Layer 2">
         <g id="Layer_1-2" data-name="Layer 1">
           <path
@@ -114,6 +160,8 @@
       </g>
     </svg>
   </a>
+  <a href="https://www.passmark.com/baselines/V10/display.php?id=147458042732"><img
+      src="https://www.passmark.com/baselines/V10/images/147458042732.png" alt="PassMark Rating" border="0" /></a>
   <app-weather></app-weather>
 </footer>
 
