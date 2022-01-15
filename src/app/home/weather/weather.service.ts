@@ -1,4 +1,4 @@
-import { OpenWeather } from './weather';
+import { OpenWeather } from '../../weather';
 import { tap } from 'rxjs/operators';
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
