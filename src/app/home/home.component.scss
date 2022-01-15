@@ -163,7 +163,7 @@ h1:after {
   float: right;
   width: 300px;
   height: 300px;
-  background-image: url(/assets/img/me.jpg);
+  background-image: url("https://avatars.githubusercontent.com/u/22425467?v=4");
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -189,15 +189,13 @@ h1:after {
   }
   .project-container {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: repeat(6, 1fr);
 
     .project-image {
-      grid-column: auto;
-      grid-area: auto;
+      grid-area: 4/1/7/1;
     }
     .project-info {
-      grid-column: auto;
-      grid-area: auto;
+      grid-area: 1/1/5/1;
     }
   }
 }
