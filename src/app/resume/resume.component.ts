@@ -28,11 +28,19 @@ export class ResumeComponent {
     'Deployment'
   ];
   workExperiences = [{
+    title: 'Inside Solutions Engineer',
+    name: 'GitHub',
+    href: 'https://www.telit.com/',
+    dateStart: new Date('Jan 11, 2021'),
+    dateEnd: null,
+    bullets: [
+    ]
+  }, {
     title: 'Solutions Expert',
     name: 'Telit',
     href: 'https://www.telit.com/',
     dateStart: new Date('Dec 1, 2020'),
-    dateEnd: null,
+    dateEnd: new Date('Jan 10, 2021'),
     bullets: [
       'Creator of deviceWISE View, a drag/drop dashboard builder that has generated over $1m+ in revenue.',
       'Worked collaboratively with the open source community on GitHub and Stack Overflow to add features or solve issues in third party libraries.',
@@ -64,21 +72,12 @@ export class ResumeComponent {
     title: 'Owner',
     name: 'Austen Stone Tech',
     dateStart: new Date('January 1, 2013'),
-    dateEnd: new Date('January 1, 2019'),
-    bullets: [
-      'Custom software solutions. 20+ satisfied clients.',
-    ]
+    dateEnd: new Date('January 1, 2019')
   }, {
     title: 'IT & Computer Graphics Specialist',
     name: 'JRPR Public Relations',
     dateStart: new Date('August 1, 2013'),
-    dateEnd: new Date('December 1, 2016'),
-    bullets: [
-      'Transformed the JRPR’s “traditional” marketing strategy to incorporate modern techniques and automate processes.',
-      'Improved existing services and incorporated new ones such as web development, graphic design, social media, and more.',
-      // 'Managed and lead PR team on technology projects.',
-      // 'Created custom websites for clients.'
-    ]
+    dateEnd: new Date('December 1, 2016')
   }]
 
   constructor() { }
