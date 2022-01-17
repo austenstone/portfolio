@@ -30,7 +30,7 @@ export class ResumeComponent {
   workExperiences = [{
     title: 'Inside Solutions Engineer',
     name: 'GitHub',
-    href: 'https://www.telit.com/',
+    href: 'https://github.com/',
     dateStart: new Date('Jan 11, 2021'),
     dateEnd: null,
     bullets: [
