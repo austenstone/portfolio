@@ -81,12 +81,21 @@ jobs:
       - name: 404 GitHub Pages ⚠️
         run: cp austen-stone/index.html austen-stone/404.html
 
-      - name: Deploy to GitHub Pages 🚀
-        uses: crazy-max/ghaction-github-pages@v2
-        if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
+      - name: Custom Domain 🌐
+        run: echo 'austen.info' > austen-stone/CNAME
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          target_branch: gh-pages
-          build_dir: austen-stone
-          fqdn: austen.info
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: austen-stone
+
+      # - name: Deploy to GitHub Pages 🚀
+      #   uses: crazy-max/ghaction-github-pages@v2
+      #   if: github.actor != 'dependabot[bot]' && github.actor != 'dependabot-preview[bot]'
+      #   with:
+      #     target_branch: gh-pages
+      #     build_dir: austen-stone
+      #     fqdn: austen.info
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
