@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    name: Build 🔨
     runs-on: ubuntu-latest
 
     steps:
@@ -40,6 +41,7 @@ jobs:
           path: dist/
 
   test:
+    name: Test 🧪
     needs: [build]
     runs-on: ubuntu-latest
 
@@ -69,6 +71,7 @@ jobs:
         run: npm run test -- --browsers=ChromeHeadless --watch=false
 
   deploy:
+    name: Deploy 🚀
     needs: [build, test]
     runs-on: ubuntu-latest
 
