@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build 🔨
-        run: ng build -- --configuration production
+        run: npm run build -- --configuration production
 
       - name: Archive artifacts 💽
         uses: actions/upload-artifact@v2
