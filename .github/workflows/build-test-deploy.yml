@@ -23,24 +23,24 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Use Node.js 16 🟩
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: 16
 
       - name: Install dependencies 📥
         run: npm ci
 
-      - name: Build 🔧
+      - name: Build 🔨
         run: npm run build:prod
 
-      - name: 💾 Archive austen-stone artifacts
+      - name: Archive artifacts 💽
         uses: actions/upload-artifact@v2
         with:
           name: dist
           path: dist/
 
   test:
+    needs: [build]
     runs-on: ubuntu-latest
 
     steps:
@@ -53,8 +53,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Use Node.js 16 🟩
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: 16
 
@@ -70,7 +69,7 @@ jobs:
         run: npm run test:prod
 
   deploy:
-    needs: build
+    needs: [build, test]
     runs-on: ubuntu-latest
 
     steps:
