@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "timestamp": 1646017903383,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.0ffe346a1cde00e8.js",
+        "/manifest.webmanifest",
+        "/polyfills.847c3b4951e79c2f.js",
+        "/runtime.cbeb395d2c6caf51.js",
+        "/styles.5a58026075af47d8.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/fonts/Hack-Regular.ttf",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/cannondale.svg",
+        "/assets/img/japaneese_garden_small.jpg",
+        "/assets/img/me.jpg",
+        "/assets/screenshots/chrome_E0qv0L1q0I.jpg",
+        "/assets/screenshots/chrome_EWhfXl9Ecn.png",
+        "/assets/video/Blurred Video of Scripts Being Typed.mp4",
+        "/assets/video/FD4L3FOF5R.mp4"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/fonts/Hack-Regular.ttf": "b1cd50ba36380d6d6ada37facfc954a8f20c15ba",
+    "/assets/icons/icon-128x128.png": "fb76962f50f969e68567799107890d2a05c710d5",
+    "/assets/icons/icon-144x144.png": "5b5198ad3d55976b9d86b1b2ef18d5e931f7badb",
+    "/assets/icons/icon-152x152.png": "c61fd66d3fbfec13d5475029b43a9df4c5137970",
+    "/assets/icons/icon-192x192.png": "f888b6845ec95112a24277bd08ef74b0cc255c2c",
+    "/assets/icons/icon-384x384.png": "85750da100b1a1fcc53392520d407f3cc92a6116",
+    "/assets/icons/icon-512x512.png": "4db507e56ec72e94a0625b20f6232cefa30120dc",
+    "/assets/icons/icon-72x72.png": "3b0862a810187ac6955663f7b9039b97eaaf0061",
+    "/assets/icons/icon-96x96.png": "8ecbfc7c9c0ed42833b80265a6a6bd29d8a4907d",
+    "/assets/img/cannondale.svg": "25f9b5ffe8dd255088c1aec516bb721af095401f",
+    "/assets/img/japaneese_garden_small.jpg": "0e50a1cab7102f36c9f5771227c6a20e88f7dcea",
+    "/assets/img/me.jpg": "8f79a8f9f50a43630b638b8ed7f0100c08cd4203",
+    "/assets/screenshots/chrome_E0qv0L1q0I.jpg": "382708e37154d02ca313eb39848f2cfff5f0d957",
+    "/assets/screenshots/chrome_EWhfXl9Ecn.png": "55e577936dbf57096c8783b5e288d28582e6c5c5",
+    "/assets/video/Blurred Video of Scripts Being Typed.mp4": "ea643c535dc12f3b91212d15c39aac2c20989b6c",
+    "/assets/video/FD4L3FOF5R.mp4": "6e57a4194815f9123470debe5e5563590a2dcc4d",
+    "/favicon.ico": "fc028d316b1089f11ab68908f5819a54677daa0c",
+    "/index.html": "cdff457f0848a4a3c0a1ec4e2422ef253c53de63",
+    "/main.0ffe346a1cde00e8.js": "7f976142e6e536c39b296dbcf33d362de5441d45",
+    "/manifest.webmanifest": "3270e0e722ca4e03dc1900c4c42cde324fb7ff2e",
+    "/polyfills.847c3b4951e79c2f.js": "841b534728284e4070dbdcbb5506d5aa17822276",
+    "/runtime.cbeb395d2c6caf51.js": "fddef5617f15331ba8dcc3a83db4f19cbe2c63ac",
+    "/styles.5a58026075af47d8.css": "f6eea2c1cb3fde0facbaf49aad4dfa1c7faba44c"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
