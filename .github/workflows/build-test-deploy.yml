@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Build 🔨
-        run: npm run build:prod
+        run: ng build -- --configuration production
 
       - name: Archive artifacts 💽
         uses: actions/upload-artifact@v2
@@ -66,7 +66,7 @@ jobs:
 
       - name: Test 🧪
         continue-on-error: true
-        run: npm run test:prod
+        run: npm run test -- --browsers=ChromeHeadless --watch=false
 
   deploy:
     needs: [build, test]
