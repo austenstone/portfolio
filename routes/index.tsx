@@ -1,6 +1,9 @@
+import Grain from "../islands/Grain.tsx";
+
 export default function Home() {
   return (
     <div class="box-border grid grid-cols-[100%]">
+      <Grain></Grain>
       <div class="w-full h-24" style="background-color:black;color:white;">
         <div>
           <div>Logo</div>
