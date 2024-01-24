@@ -1,15 +1,6 @@
 @use "@angular/material" as mat;
 
-// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
-@include mat.all-legacy-component-typographies();
-@include mat.legacy-core();
+@include mat.core();
 
 $primary: mat.define-palette(mat.$indigo-palette);
 $accent: mat.define-palette(mat.$pink-palette);
@@ -29,8 +20,7 @@ $light-theme: mat.define-light-theme(
     color: (
       primary: $primary,
       accent: $accent,
-    ),
-    typography: $typography,
+    )
   )
 );
 
@@ -44,16 +34,11 @@ $dark-theme: mat.define-dark-theme(
   )
 );
 
-// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy($light-theme);`
-@include mat.all-legacy-component-typographies($light-theme);
-@include mat.legacy-core();
+// @include mat.typography-hierarchy($typography);
+// @include mat.all-component-typographies($typography);
+
+@include mat.core-theme($dark-theme);
+@include mat.all-component-themes($dark-theme);
 
 .github-corner {
   fill: #303030;
@@ -87,8 +72,8 @@ app-resume {
     --p-color: white;
     --a-color: white;
   }
-  @include mat.legacy-core-theme($dark-theme);
-  @include mat.all-legacy-component-themes($dark-theme);
+  @include mat.core-color($light-theme);
+  @include mat.all-component-themes($light-theme);
 
   .github-corner {
     fill: #fff;
