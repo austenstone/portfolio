@@ -74,18 +74,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "austen-stone:build"
+            "buildTarget": "austen-stone:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "austen-stone:build:production"
+              "buildTarget": "austen-stone:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "austen-stone:build"
+            "buildTarget": "austen-stone:build"
           }
         },
         "test": {
