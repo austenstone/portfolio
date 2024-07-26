@@ -26,13 +26,13 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 22.x
 
       - name: Install dependencies 📥
         run: npm ci
 
       - name: Build 🔨
-        run: npm run build -- --configuration production
+        run: npm run build
 
       - name: Archive artifacts 💽
         uses: actions/upload-artifact@v2
@@ -57,7 +57,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 22.x
 
       - name: Install dependencies 📥
         run: npm ci
