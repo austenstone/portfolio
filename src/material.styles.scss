@@ -37,8 +37,6 @@ $dark-theme: mat.define-dark-theme(
 @include mat.typography-hierarchy($typography);
 @include mat.all-component-typographies($typography);
 
-@include mat.core-theme($dark-theme);
-@include mat.all-component-themes($dark-theme);
 
 .github-corner {
   fill: #303030;
@@ -65,6 +63,8 @@ app-resume {
   :root {
     color-scheme: light;
   }
+  @include mat.core-color($light-theme);
+  @include mat.button-color($light-theme);
 }
 @media (prefers-color-scheme: dark) {
   :root {
