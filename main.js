@@ -1156,12 +1156,19 @@ class ResumeComponent {
     this.description = 'Passionate developer focused on using cutting edge technology to solve business problems.';
     this.skills = ['C', 'C++', 'Typescript', 'JavaScript', 'Angular', 'React', 'PWAs', 'Node', 'Git', 'Bash', 'Docker', 'Electron', 'Continuous integration', 'SCM', 'Object Oriented Design', 'Deployment'];
     this.workExperiences = [{
-      title: 'Inside Solutions Engineer',
+      title: 'Senior Solutions Engineer',
+      name: 'GitHub',
+      href: 'https://github.com/',
+      dateStart: new Date('Mar 1, 2024'),
+      dateEnd: null,
+      bullets: []
+    }, {
+      title: 'Solutions Engineer',
       name: 'GitHub',
       href: 'https://github.com/',
       dateStart: new Date('Jan 11, 2021'),
-      dateEnd: null,
-      bullets: []
+      dateEnd: new Date('Mar 1, 2024'),
+      bullets: ['Creator of GitHub Usage Report Viewer, a tool to visualize and analyze GitHub usage data.', 'Ran GitHub Actions roundtable for 100+ attendees to discuss best practices and new features.', 'Traveled to multiple hackathons, customer onsites, and conferences to represent GitHub and help developers.', 'Was GitHub Actions SME for the Solutions Engineering team.', 'developed internal tools to help the team be more efficient and effective.', 'Created countless GitHub Actions for customers and the community', 'FY23 Revenue Club Winner', 'FY23 Managers Choice Worldwide SE award winner']
     }, {
       title: 'Solutions Expert',
       name: 'Telit',
