@@ -1,6 +1,10 @@
 {
   "name": "austen-stone",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/austenstone/portfolio.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
