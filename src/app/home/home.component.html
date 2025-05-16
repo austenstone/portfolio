@@ -18,12 +18,6 @@
           </app-special-button>
           <app-special-button [text]="'LinkedIn'" [href]="'https://www.linkedin.com/in/austenstone'" [img]="'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png'">
           </app-special-button>
-          <!-- <app-special-button [text]="'Stack Overflow'" [href]="'https://stackoverflow.com/users/5092005/austen-stone'"
-            [img]="'https://image.flaticon.com/icons/png/512/2111/2111628.png'">
-          </app-special-button>
-          <app-special-button [text]="'NPM'" [href]="'https://www.npmjs.com/~austenstone'"
-            [img]="'https://static.npmjs.com/1996fcfdf7ca81ea795f67f093d7f449.png'">
-          </app-special-button> -->
         </div>
       </div>
     </div>
@@ -32,11 +26,37 @@
   <section>
 
     <h1 class="typed-title">
-      <!-- <div id="main-projects-title"></div> -->
       MainProjects
     </h1>
+
+    <div class="project-container">
+      <div class="project-info">
+        <h2>GitHub Value</h2>
+        <mat-card class="mat-elevation-z8">
+          GitHub Value is a free and open-source application designed to help measure the adoption, value, and impact of GitHub features.
+        </mat-card>
+        <div class="links">
+          <a mat-raised-button color="primary" href="https://oauth.gvm-chart.com/copilot"
+            target="_blank" rel="noopener">
+            <mat-icon>preview</mat-icon>
+            Demo
+          </a>
+
+          <a mat-raised-button color="primary"
+            href="https://github.com/austenstone/github-value"
+            target="_blank" rel="noopener">
+            <mat-icon>code</mat-icon>
+            Source
+          </a>
+        </div>
+      </div>
+      <a class="project-image elev-hover" href="https://oauth.gvm-chart.com/copilot" target="_blank"
+        rel="noopener">
+        <img src="https://github.com/user-attachments/assets/09c494cd-fbdb-4b8e-9cb3-696371e9487a" alt="GitHub Value" aria-label="GitHub Value" />
+      </a>
+    </div>
+
     <div class="project-container" id="github-actions">
-      <!-- <div class="project-image" [style.backgroundImage]="'url(' + 'assets/screenshots/chrome_E0qv0L1q0I.jpg' + ')'"></div>-->
       <div class="project-info">
         <h2>GitHub Actions</h2>
         <mat-card class="mat-elevation-z8">GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub.</mat-card>
@@ -51,12 +71,11 @@
       </div>
       <a class="project-image elev-hover" href="https://github.com/marketplace?query=austenstone" target="_blank"
         rel="noopener">
-        <img src="assets/screenshots/chrome_nSvEKPj2YO.png" alt="deviceWISE View" aria-label="deviceWISE View" />
+        <img src="assets/screenshots/chrome_nSvEKPj2YO.png" alt="GitHub Actions" aria-label="GitHub Actions" />
       </a>
     </div>
 
     <div class="project-container">
-      <!-- <div class="project-image" [style.backgroundImage]="'url(' + 'assets/screenshots/chrome_E0qv0L1q0I.jpg' + ')'"></div>-->
       <div class="project-info">
         <h2>deviceWISE View</h2>
         <mat-card class="mat-elevation-z8">
@@ -90,7 +109,6 @@
     </div>
 
     <div class="project-container">
-      <!-- <div class="project-image" [style.backgroundImage]="'url(' + 'assets/screenshots/chrome_E0qv0L1q0I.jpg' + ')'"></div>-->
       <div class="project-info">
         <h2>Github Actions<br>Usage Report Viewer</h2>
         <mat-card class="mat-elevation-z8">
@@ -115,7 +133,7 @@
           </a>
         </div>
       </div>
-      <a class="project-image elev-hover" href="https://view.devicewise.com/login?user=demo&pass=demo" target="_blank"
+      <a class="project-image elev-hover" href="https://austenstone.github.io/github-actions-usage-report/" target="_blank"
         rel="noopener">
         <img src="assets/screenshots/chrome_xebwmFt39a.png" alt="Github Actions Usage Report" aria-label="Github Actions Usage Report" />
       </a>
@@ -164,33 +182,10 @@
     </div>
   </section>
 
-  <!-- <section>
-      <h1>Video Games</h1>
-      <p>I grew up with video games and still try to find time to play.</p>
-      <div class="links">
-        <app-special-button [text]="'Steam'" [href]="'https://steamcommunity.com/id/bottlez/'"
-          [img]="'https://cdn.freebiesupply.com/images/large/2x/steam-logo-transparent.png'">
-        </app-special-button>
-
-        <app-special-button [text]="'WoW'" [href]="'https://worldofwarcraft.com/en-us/character/us/illidan/bottlez'"
-          [img]="'https://assets.worldofwarcraft.com/static/components/Logo/Logo-wowIcon.01e2c443798558c38d8e3b143a6f0d03.png'">
-        </app-special-button>
-      </div>
-    </section> -->
-
   <section>
     <h1>ContactMe</h1>
     <h2>Have more questions?</h2>
     <div class="links">
-      <!-- <app-special-button [text]="'LinkedIn'" [href]="'https://www.linkedin.com/in/austenstone'"
-        [img]="'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png'">
-      </app-special-button> -->
-      <!-- <app-special-button [text]="'Twitter'" [href]="'https://twitter.com/Austen_Stone'"
-                [img]="'https://assets.stickpng.com/images/580b57fcd9996e24bc43c53e.png'">
-              </app-special-button>
-              <app-special-button [text]="'Facebook'" [href]="'https://www.facebook.com/austen.stone1'"
-                [img]="'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png'">
-              </app-special-button> -->
       <app-special-button [text]="'Email'" [href]="'mailto:hi@austen.info'" [icon]="'mail'">
       </app-special-button>
     </div>
