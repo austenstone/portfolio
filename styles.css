@@ -3020,7 +3020,7 @@ app-resume {
     color: #303030;
   }
   .bike {
-    fill: white;
+    filter: invert(1);
   }
   #resume {
     background: #303030;

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1722014533097,
+  "timestamp": 1747408977233,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -31,6 +31,7 @@
       },
       "urls": [
         "/assets/fonts/Hack-Regular.ttf",
+        "/assets/icons/bike.svg",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -56,6 +57,7 @@
   "dataGroups": [],
   "hashTable": {
     "/assets/fonts/Hack-Regular.ttf": "b1cd50ba36380d6d6ada37facfc954a8f20c15ba",
+    "/assets/icons/bike.svg": "4c3c84cb40d75f60d6fe8f5226874261beea5ef4",
     "/assets/icons/icon-128x128.png": "fb76962f50f969e68567799107890d2a05c710d5",
     "/assets/icons/icon-144x144.png": "5b5198ad3d55976b9d86b1b2ef18d5e931f7badb",
     "/assets/icons/icon-152x152.png": "c61fd66d3fbfec13d5475029b43a9df4c5137970",
@@ -76,11 +78,11 @@
     "/assets/video/FD4L3FOF5R.mp4": "6e57a4194815f9123470debe5e5563590a2dcc4d",
     "/favicon.ico": "fc028d316b1089f11ab68908f5819a54677daa0c",
     "/index.html": "8a07b2d60436449d393c40b9fd5626baf835380a",
-    "/main.js": "9fe1934558c31c58e5114321529d0dbf048610c0",
+    "/main.js": "3a6df1cc0daa821c7a8687c5c6c43b1869fd6bb3",
     "/manifest.webmanifest": "3270e0e722ca4e03dc1900c4c42cde324fb7ff2e",
     "/polyfills.js": "a20f28f44254e62a4aedd2f4fc1eb7aec4c35b4b",
     "/runtime.js": "d7ff319d26529f9afb4d3a961fd0cc616ccca6c5",
-    "/styles.css": "c4bb73fabed4daad9ebd9c9ffaeec30563a6d27e",
+    "/styles.css": "9e1194bd2d42a9783c6c78f9eef5c4ee79bc1fde",
     "/vendor.js": "29b97aa7f90c9b5b0bb08e621b573e1dce261f15"
   },
   "navigationUrls": [
