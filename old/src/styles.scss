@@ -1,0 +1,38 @@
+@import "./material.styles.scss";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100%;
+  height: auto;
+}
+
+.flexer {
+  flex: 1;
+}
+
+.display-none {
+  display: none;
+}
+
+@font-face {
+  font-family: "hack";
+  src: url("/assets/fonts/Hack-Regular.ttf");
+  font-display: swap;
+}
+.hack-font {
+  font-family: "hack" !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,136 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$primary: mat.define-palette(mat.$indigo-palette);
+$accent: mat.define-palette(mat.$pink-palette);
+
+$typography: mat.define-legacy-typography-config(
+  $font-family: "Montserrat",
+  $display-4: mat.define-typography-level(112px, 112px, 300, "Open Sans"),
+  $display-3: mat.define-typography-level(56px, 56px, 400, "Open Sans"),
+  $headline: mat.define-typography-level(24px, 32px, 400, "Hack"),
+  $title: mat.define-typography-level(20px, 32px, 500, "Open Sans"),
+  $subheading-2: mat.define-typography-level(16px, 28px, 400, "Open Sans"),
+  $subheading-1: mat.define-typography-level(15px, 24px, 400, "Open Sans"),
+);
+
+$light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+    )
+  )
+);
+
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+    ),
+    typography: $typography,
+  )
+);
+
+@include mat.typography-hierarchy($typography);
+@include mat.all-component-typographies($typography);
+
+
+.github-corner {
+  fill: #303030;
+  color: #fff;
+}
+
+.bike {
+  fill: #303030;
+}
+
+#resume {
+  background: white;
+}
+app-resume {
+  background: #f5f5f5;
+}
+
+:root {
+  color-scheme: light;
+  --p-color: #424242;
+  --a-color: #212121;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+  @include mat.core-color($light-theme);
+  @include mat.button-color($light-theme);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --p-color: white;
+    --a-color: white;
+  }
+  @include mat.core-color($dark-theme);
+  @include mat.all-component-themes($dark-theme);
+
+  .github-corner {
+    fill: #fff;
+    color: #303030;
+  }
+
+  .bike {
+    filter: invert(1);
+  }
+
+  #resume {
+    background: #303030;
+  }
+  app-resume {
+    background: #1f1f1f;
+  }
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+p {
+  color: var(--p-color);
+}
+
+#resume {
+  #side-header {
+    background: mat.get-color-from-palette($primary, 600);
+    color: white;
+  }
+
+  #side {
+    background: mat.get-color-from-palette($primary, 500);
+    color: white;
+  }
+}
+
+.project-image::after,
+.primary-background {
+  background: mat.get-color-from-palette($primary);
+}
+
+.primary-light {
+  color: mat.get-color-from-palette($primary, 200);
+}
+
+.accent-light {
+  color: mat.get-color-from-palette($accent, 200);
+}
+
+.elev-hover {
+  @include mat.elevation-transition();
+  @include mat.elevation(2);
+
+  &:hover {
+    @include mat.elevation(4);
+  }
+}
