@@ -24,7 +24,7 @@ on:
   schedule:
     - cron: "0 0 * * *" # Daily at midnight UTC
 
-# Define environment variables available to all jobs
+# Environment variables available to all jobs
 env:
   NODE_VERSION: "18"
   PYTHON_VERSION: "3.9"
@@ -36,39 +36,40 @@ jobs:
     # Human-readable name for the job
     name: Basic Job Example
 
-    # Required: The type of runner to use
+    # The type of runner to use
     runs-on: ubuntu-latest
 
-    # Optional: Environment variables specific to this job
+    # Job level environment variables
     env:
       JOB_ENV: "development"
 
-    # Required: List of steps to execute
+    # List of steps to execute
     steps:
-      # Step 1: Checkout the repository code
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # Run an action with uses
+      - uses: actions/checkout@v4
+        # Specify input parameters for the action
+        with:
+          fetch-depth: 0
 
-      # Step 2: Run a simple shell command
-      - name: Say hello
-        run: echo "Hello, GitHub Actions!"
+      # Run a simple shell command
+      - run: echo "Hello, GitHub Actions!"
 
-      # Step 3: Run multiple commands
+      # Run multiple commands
       - name: Multi-line script
         run: |
           echo "Line 1"
           echo "Line 2"
           echo "Current directory: $(pwd)"
           echo "Files: $(ls -la)"
-
-      # Step 4: Use environment variables
-      - name: Use environment variables
-        run: |
           echo "Node version: $NODE_VERSION"
-          echo "Job environment: $JOB_ENV"
+          echo "STEP_ENV: $STEP_ENV"
         env:
           # Step-level environment variable
           STEP_ENV: "step-value"
+
+      # Use environment variables
+      - name: Use environment variables
+        run: |
 
   # Job with conditions and matrix strategy
   build-matrix:
