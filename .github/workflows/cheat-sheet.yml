@@ -29,7 +29,40 @@ env:
   NODE_VERSION: "18"
   PYTHON_VERSION: "3.9"
 
+# Use permissions to modify the default permissions granted to the GITHUB_TOKEN
+
+# Permissions define what the GITHUB_TOKEN can do
+permissions: write-all # write-all|read-all or disable with {}
+  # actions: read|write|none
+  # attestations: read|write|none
+  # checks: read|write|none
+  # contents: read|write|none
+  # deployments: read|write|none
+  # id-token: write|none
+  # issues: read|write|none
+  # models: read|none
+  # discussions: read|write|none
+  # packages: read|write|none
+  # pages: read|write|none
+  # pull-requests: read|write|none
+  # security-events: read|write|none
+  # statuses: read|write|none
+
+# provide default shell and working-directory options for all run steps
+defaults:
+  run:
+    shell: bash
+    working-directory: ./scripts
+
+# Concurrency allows you to control the concurrency of workflow runs.
+concurrency:
+  # The concurrency key is used to group workflows or jobs together into a concurrency group.
+  group: ci-${{ github.ref }}
+  # Cancel any in-progress job or run
+  cancel-in-progress: true
+
 # Jobs are the core building blocks of workflows
+# All jobs run in parallel by default, each job is a new clean runner environment
 jobs:
   # Job ID (can be referenced by other jobs)
   basic-job:
@@ -43,33 +76,68 @@ jobs:
     env:
       JOB_ENV: "development"
 
+    # Conditionally run this job
+    if: 1 == 1
+    
+    # Outputs from this job can be used by other jobs
+    outputs:
+      example-output: "Hello, World!"
+
     # List of steps to execute
     steps:
-      # Run an action with uses
-      - uses: actions/checkout@v4
-        # Specify input parameters for the action
+      # GitHub Actions are called with the uses keyword
+      - uses: sormuras/hello-world-java-action@v1
+        # Steps can have names for better readability
+        name: My first step
         with:
-          fetch-depth: 0
+          # Inputs are parameters passed to the action
+          who-to-greet: 'Mona the Octocat'
+          
+      # Reference a specific commit
+      - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
+      # Reference the major version of a release
+      - uses: actions/checkout@v4
+      # Reference a specific version
+      - uses: actions/checkout@v4.2.0
+      # Reference a branch
+      - uses: actions/checkout@main
 
       # Run a simple shell command
       - run: echo "Hello, GitHub Actions!"
 
       # Run multiple commands
-      - name: Multi-line script
-        run: |
+      - run: |
           echo "Line 1"
           echo "Line 2"
           echo "Current directory: $(pwd)"
           echo "Files: $(ls -la)"
           echo "Node version: $NODE_VERSION"
           echo "STEP_ENV: $STEP_ENV"
+          echo "step-output=Hello, World!" >> $GITHUB_OUTPUT
+        # use the id to reference this step later
+        id: example-step
+        # The maximum time this step can run before being cancelled
+        timeout-minutes: 5
+        # Whether to continue running the workflow if this step fails
+        continue-on-error: true
         env:
           # Step-level environment variable
           STEP_ENV: "step-value"
+        # Specify the working directory for this step
+        working-directory: ./scripts
 
-      # Use environment variables
-      - name: Use environment variables
-        run: |
+      # Use the outputs from a previous step
+      - run: echo "${{ steps.example-step.outputs.step-output }}"
+      
+      # Conditionally run a step
+      # The github context contains information about the workflow run and the event that triggered the run.
+      - if: ${{ github.ref == 'refs/heads/main' }}
+        run: echo "Deploying to production server on branch $GITHUB_REF"
+
+      # Create output example-output
+      - name: Create output
+        id: example-output
+        run: echo "example-output=Hello, World!" >> $GITHUB_OUTPUT
 
   # Job with conditions and matrix strategy
   build-matrix:
@@ -86,6 +154,8 @@ jobs:
     strategy:
       # Don't cancel other matrix jobs if one fails
       fail-fast: false
+      # The maximum number of jobs to run in parallel
+      max-parallel: 10
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         node-version: [16, 18, 20]
@@ -133,13 +203,6 @@ jobs:
       - name: Only on main branch
         if: github.ref == 'refs/heads/main'
         run: echo "This only runs on main branch"
-
-      # Step with custom shell
-      - name: PowerShell example
-        shell: pwsh
-        run: |
-          Write-Host "Running in PowerShell"
-          Get-Date
 
       # Step that continues on error
       - name: Step that might fail
