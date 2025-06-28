@@ -1,3 +1,36 @@
+```yml hljs
+name: example-workflow
+on: [push]
+jobs:
+  production-deploy:
+    if: github.repository == 'octo-org/octo-repo-prod'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+```
+
+```yml hljs
+name: example-workflow
+on: [push]
+jobs:
+  production-deploy:
+    if: github.repository == 'octo-org/octo-repo-prod'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+```
+
+```js hljs
+console.log('Hello, world!');
+```
 
 # Intro to Concepts
 
@@ -122,7 +155,7 @@ If you need to quickly perform a GitHub task this is the easiest way to do it!
 <details>
   <summary>Comment on an issue</summary>
 
-```yml
+```yml hljs
 on:
   issues:
     types:
@@ -176,7 +209,7 @@ This action makes it easy to quickly write a script in your workflow that uses t
 <details>
   <summary>Welcome a first-time contributor</summary>
 
-```yml
+```yml hljs
 on: pull_request_target
 
 jobs:
@@ -220,7 +253,7 @@ jobs:
 <details>
   <summary>Download data from a URL</summary>
 
-```yml
+```yml hljs
 on: pull_request
 
 jobs:
@@ -247,7 +280,7 @@ You can use boolean, null, number, or string data types.
 <details>
   <summary>Example of literals</summary>
 
-```yml
+```yml hljs
 env:
   myNull: ${{ null }}
   myBoolean: ${{ false }}

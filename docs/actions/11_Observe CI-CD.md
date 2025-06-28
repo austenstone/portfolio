@@ -99,7 +99,7 @@ You can send the notification in the workflow itself.
 <details>
   <summary>Example of notification on workflow failure</summary>
 
-```yml
+```yml hljs
 on:
   workflow_run:
     workflows: [Build]
@@ -127,7 +127,7 @@ jobs:
 <details>
   <summary>Example of notification on job failure</summary>
 
-```yml
+```yml hljs
 jobs:
   job1:
   job2:

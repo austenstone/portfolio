@@ -25,7 +25,7 @@ There are third-party actions on the marketplace that will allow you to integrat
 <details>
   <summary>hashicorp/hashicorp-vault</summary>
 
-```yml
+```yml hljs
 jobs:
     build:
         # ...
@@ -50,7 +50,7 @@ jobs:
   <summary>Azure/cli</summary>
 
 [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-cli)
-```yml
+```yml hljs
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:

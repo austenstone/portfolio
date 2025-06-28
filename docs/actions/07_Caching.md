@@ -10,7 +10,7 @@ GitHub Actions has a 10Gb rotating cache that you can leverage for any use case.
 
 ## Gradle
 
-```yml
+```yml hljs
 - name: Cache Gradle packages
   uses: actions/cache@v3
   with:
@@ -21,7 +21,7 @@ GitHub Actions has a 10Gb rotating cache that you can leverage for any use case.
 
 ## NPM Cache
   
-```yml
+```yml hljs
 name: NPM Cache Install
 description: NPM clean install with caching
 

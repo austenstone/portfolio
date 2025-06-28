@@ -30,7 +30,7 @@ These are reusable jobs. They are a great way to share common logic across multi
 
 #### Defining the workflow (reusable-called.yml)
 
-```yml
+```yml hljs
 on:
   workflow_call:
     inputs:
@@ -49,7 +49,7 @@ jobs:
 
 #### Using the workflow (caller.yml)
 
-```yml
+```yml hljs
 jobs:
   build:
     uses: ./.github/workflows/reusable-called.yml
@@ -74,7 +74,7 @@ These are reusable steps. Use a composite action to combine(re-use) multiple ste
 
 #### Defining the action (hello-world-composite-action.yml)
 
-```yml
+```yml hljs
 name: 'Hello World'
 description: 'Greet someone'
 inputs:
@@ -113,7 +113,7 @@ runs:
 
 #### Using the action (caller.yml)
 
-```yml
+```yml hljs
 on: [push]
 
 jobs:
@@ -161,7 +161,7 @@ You can create a workflow template by adding a `.github/workflow-templates` dire
 
 `.github/workflow-templates/octo-organization-ci/octo-organization-ci.yml`
 
-```yml
+```yml hljs
 name: Octo Organization CI
 
 on:
@@ -174,7 +174,7 @@ on:
 
 `.github/workflow-templates/octo-organization-ci/octo-organization-ci.properties.json`
 
-```yml
+```yml hljs
 {
     "name": "Octo Organization Workflow",
     "description": "Octo Organization CI workflow template.",
@@ -205,7 +205,7 @@ A great way to manage updates to your workflows and actions is to use Dependabot
   <summary>Example of using Dependabot to manage updates to your workflows and actions</summary>
 
 `.github/dependabot.yml`
-```yml
+```yml hljs
 # Set update schedule for GitHub Actions
 
 version: 2
@@ -235,7 +235,7 @@ You can use [`on.<push|pull_request|pull_request_target>.<paths|paths-ignore>`](
 <details>
   <summary>Example of using paths to trigger a workflow based on the files changed</summary>
 
-```yml
+```yml hljs
 on:
   push:
     paths:
@@ -249,7 +249,7 @@ There are actions that let you check which files have changed so that you can co
 <details>
   <summary>dorny/paths-filter</summary>
 
-```yml
+```yml hljs
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -284,7 +284,7 @@ jobs:
 <details>
   <summary>tj-actions/changed-files</summary>
 
-```yml
+```yml hljs
 name: CI
 
 on:
@@ -400,7 +400,7 @@ You may also leverage sparse checkout to only checkout the directories that have
 <details>
   <summary>Example of using sparse checkout to only checkout the directories that have changed</summary>
 
-```yml
+```yml hljs
 - uses: actions/checkout@v4
   with:
     sparse-checkout: |
@@ -418,7 +418,7 @@ For a polyrepo you have the opposite problem and may need to pull in code or art
 <details>
   <summary>Example of checkout multiple repos</summary>
 
-```yml
+```yml hljs
 - name: Checkout
   uses: actions/checkout@v4
   with:

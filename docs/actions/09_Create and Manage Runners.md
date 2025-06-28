@@ -85,7 +85,7 @@ You label your runners to make it easier to target them in your workflows.
 <details>
   <summary>Example of using multiple runner labels</summary>
 
-```yml
+```yml hljs
 runs-on: [self-hosted, linux, x64, gpu]
 ```
 </details>

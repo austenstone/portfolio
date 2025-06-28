@@ -33,7 +33,7 @@ THE CONTENT WILL BE MIGRATED BUT THIS DOES NOT NEED TO BE PRESENTED IN THE SAME 
 
 ### About Section:
 - Personal introduction: "Hey👋, I'm Austen. I write code and solve people's business problems."
-- Portrait image from GitHub avatar: https://avatars.githubusercontent.com/u/22425467?v=4
+- Portrait image from GitHub avatar: https://github.com/austenstone.png
 - Social links (GitHub, LinkedIn)
 - Contact email: hi@austen.info
 

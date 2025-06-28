@@ -9,7 +9,7 @@ Artifacts have a retention period which determines when they will expire and be 
 <details>
   <summary>Example of a custom retention period</summary>
 
-```yml
+```yml hljs
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v4
     with:
@@ -26,7 +26,7 @@ You might want to use artifacts to share data between jobs. For example you coul
 <details>
   <summary>Example of sharing artifacts between jobs</summary>
 
-```yml
+```yml hljs
 name: Share data between jobs
 
 on: [push]

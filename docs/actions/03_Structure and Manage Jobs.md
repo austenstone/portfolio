@@ -14,7 +14,7 @@ A matrix strategy is a great way to run the same job multiple times with differe
 <details>
   <summary>Example of a matrix strategy</summary>
 
-```yml
+```yml hljs
 jobs:
   example_matrix:
     strategy:
@@ -33,7 +33,7 @@ You can define the order of the jobs using the `needs` keyword. This is useful i
 <details>
   <summary>Example of linking jobs</summary>
 
-```yml
+```yml hljs
 jobs:
   job1:
   job2:
@@ -70,7 +70,7 @@ Use `jobs.<job_id>.container` to create a container to run any steps in a job th
 <details>
   <summary>Example of running a job within a container</summary>
 
-```yml
+```yml hljs
 name: CI
 on:
   push:
@@ -107,7 +107,7 @@ Service containers let you run a container parallel to your job. This can be hel
 <details>
   <summary>Example of using a service container</summary>
 
-```yml
+```yml hljs
 name: Redis container example
 on: push
 
@@ -135,7 +135,7 @@ Sometimes you will need to authenticate with a container registry to pull an ima
 <details>
   <summary>Example of authenticating with a container registry</summary>
 
-```yml
+```yml hljs
 jobs:
   build:
     services:
@@ -196,14 +196,14 @@ You can create custom deployment protection rules to gate deployments with third
 
 You can use the `if` keyword to conditionally run a job or step.
 
-```yml
+```yml hljs
 if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
 ```
 
 <details>
   <summary>Example of conditional jobs</summary>
 
-```yml
+```yml hljs
 name: example-workflow
 on: [push]
 jobs:
@@ -230,7 +230,7 @@ It's a good idea to limit permissions as much as possible by being explicit.
 <details>
   <summary>Example of limiting permissions</summary>
 
-```yml
+```yml hljs
 jobs:
   stale:
     runs-on: ubuntu-latest
@@ -251,7 +251,7 @@ Using [actions/create-github-app-token](https://github.com/actions/create-github
 <details>
   <summary>Example of using a GitHub App token</summary>
 
-```yml
+```yml hljs
 name: Run tests on staging
 on:
   push:

@@ -1,6 +1,7 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-directives';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -27,6 +28,26 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    format: 'detect',
+    mermaid: true,
+    // preprocessor: processGithubAdmonitions, // Removed to avoid conflict with remark plugin
+    // parseFrontMatter: async (params) => {
+    //   const result = await params.defaultParseFrontMatter(params);
+    //   result.frontMatter.description =
+    //     result.frontMatter.description?.replaceAll('{{MY_VAR}}', 'MY_VALUE');
+    //   return result;
+    // },
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+    anchors: {
+      maintainCase: true,
+    },
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -46,6 +67,7 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/austenstone/portfolio/tree/main/portfolio/',
+          beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
         },
         blog: {
           showReadingTime: true,
@@ -81,14 +103,14 @@ const config: Config = {
         }
       },
       items: [
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
           type: 'docSidebar',
           sidebarId: 'projectsSidebar',
           position: 'left',
           label: 'Projects',
         },
-        {to: '/resume', label: 'Resume', position: 'left'},
+        { to: '/resume', label: 'Resume', position: 'left' },
         {
           href: 'https://github.com/austenstone',
           className: 'header-github-link',
@@ -157,6 +179,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['yaml', 'bash', 'json', 'typescript', 'javascript', 'jsx', 'tsx'],
     },
   } satisfies Preset.ThemeConfig,
 };

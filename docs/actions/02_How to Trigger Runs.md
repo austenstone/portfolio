@@ -17,7 +17,7 @@ For workflows triggered by `workflow_dispatch` inputs are available in the `gith
 <details>
   <summary>Example of on.workflow_dispatch.inputs</summary>
 
-```yml
+```yml hljs
 on:
   workflow_dispatch:
     inputs:
@@ -63,7 +63,7 @@ Workflows triggered by `workflow_call` access their inputs using the `inputs` co
 <details>
   <summary>Example of on.workflow_call.outputs</summary>
 
-```yml
+```yml hljs
 on:
   workflow_call:
     # Map the workflow outputs to job outputs
@@ -87,7 +87,7 @@ The `workflow_run` event allows you to execute a workflow based on execution or 
 <details>
   <summary>Running a workflow based on the conclusion of another workflow</summary>
 
-```yml
+```yml hljs
 on:
   workflow_run:
     workflows: [Build]
@@ -114,7 +114,7 @@ The `schedule` event allows you to trigger a workflow at a scheduled time.
 <details>
   <summary>Running a workflow on a schedule</summary>
 
-```yml
+```yml hljs
 on:
   schedule:
             ┌───────────── minute (0 - 59)
@@ -144,7 +144,7 @@ GitHub Actions also allows you to control the concurrency of workflow runs, so t
 <details>
   <summary>Example: Concurrency groups</summary>
 
-```yml
+```yml hljs
 on:
   push:
     branches:
@@ -159,7 +159,7 @@ concurrency:
 <details>
   <summary>Example: Using concurrency to cancel any in-progress job or run</summary>
 
-```yml
+```yml hljs
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
