@@ -1,3 +1,14 @@
+austen:
+  name: Austen Stone
+  title: Senior Solutions Engineer @ GitHub
+  url: https://github.com/austenstone
+  image_url: https://avatars.githubusercontent.com/u/22425467?v=4
+  email: hi@austen.info
+  page: true
+  socials:
+    github: austenstone
+    linkedin: austenstone
+
 yangshun:
   name: Yangshun Tay
   title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd

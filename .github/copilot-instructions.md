@@ -26,6 +26,9 @@ I need links to my socials:
 
 The old site (`/old`) is an Angular 17 application that contains the following content and functionality that needs to be migrated:
 
+THIS IS NOT A COPY/PASTE. TAKE THE OPPORTUNITY TO REWRITE AND IMPROVE THE CONTENT AND CODE.
+THE CONTENT WILL BE MIGRATED BUT THIS DOES NOT NEED TO BE PRESENTED IN THE SAME WAY.
+
 ## Content to Migrate:
 
 ### About Section:

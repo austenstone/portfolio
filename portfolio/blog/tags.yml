@@ -1,19 +1,44 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+introduction:
+  label: Introduction
+  permalink: /introduction
+  description: Introduction and welcome posts
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+portfolio:
+  label: Portfolio
+  permalink: /portfolio
+  description: Portfolio updates and announcements
+
+github-actions:
+  label: GitHub Actions
+  permalink: /github-actions
+  description: GitHub Actions related posts
+
+automation:
+  label: Automation
+  permalink: /automation
+  description: Development automation and CI/CD
+
+ci-cd:
+  label: CI/CD
+  permalink: /ci-cd
+  description: Continuous Integration and Continuous Deployment
+
+enterprise:
+  label: Enterprise
+  permalink: /enterprise
+  description: Enterprise development and solutions
+
+development:
+  label: Development
+  permalink: /development
+  description: Software development topics
+
+projects:
+  label: Projects
+  permalink: /projects
+  description: Project updates and releases
 
 docusaurus:
   label: Docusaurus
   permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+  description: Docusaurus framework and static site generation

@@ -1,0 +1,100 @@
+.resumeContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: var(--ifm-color-content);
+}
+
+.resumeContainer h1 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.resumeContainer h2 {
+  color: var(--ifm-color-secondary-dark);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.resumeContainer h3 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.resumeContainer blockquote {
+  background-color: var(--ifm-background-surface-color);
+  border-left: 4px solid var(--ifm-color-primary);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+.contactSection {
+  background-color: var(--ifm-background-surface-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.contactSection ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contactSection li {
+  margin: 0.5rem 0;
+}
+
+.skillsSection {
+  background-color: var(--ifm-background-surface-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.resumeContainer hr {
+  border: none;
+  height: 1px;
+  background-color: var(--ifm-color-emphasis-200);
+  margin: 2rem 0;
+}
+
+.resumeContainer strong {
+  color: var(--ifm-color-primary);
+}
+
+.resumeContainer a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.resumeContainer a:hover {
+  text-decoration: underline;
+}
+
+@media print {
+  .resumeContainer {
+    max-width: none;
+    padding: 0;
+    color: black;
+  }
+  
+  .contactSection,
+  .skillsSection {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+  }
+  
+  .resumeContainer blockquote {
+    background-color: #f8f9fa;
+    border-left-color: #007acc;
+  }
+}
