@@ -11,7 +11,25 @@ run-name: Learning GitHub Actions workflow triggered by ${{ github.actor }}
 on:
   # Trigger on push to main branch
   push:
-    branches: [main]
+    # Path filters
+    paths:
+      - "src/**" # Any file in src/ and subdirectories
+      - "docs/*.md" # Markdown files in docs/ only
+      - "**.js" # JavaScript files anywhere
+      - "!src/test/**" # Exclude test files
+      - "config/[a-z]*.yml" # YAML files starting with lowercase letter
+
+    # Branch filters
+    branches:
+      - main
+      - "release/v[0-9].[0-9]" # release/v1.0, release/v2.1, etc.
+      - "feature/*" # Any feature branch
+      - "!experimental" # Exclude experimental branch
+
+    # Tag filters
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+" # Semantic version tags
+      - "!*-alpha" # Exclude alpha tags
 
   # Trigger on pull requests to main
   pull_request:
@@ -19,6 +37,13 @@ on:
 
   # Trigger manually from the GitHub UI
   workflow_dispatch:
+    # Optional: Define inputs for manual trigger
+    inputs:
+      example-input:
+        description: "An example input for manual trigger"
+        required: false # Whether this input is required
+        default: "default-value"
+        type: string # type can be string, boolean, choice, environment, or number
 
   # Trigger on a schedule (cron syntax)
   schedule:
@@ -26,13 +51,14 @@ on:
 
 # Environment variables available to all jobs
 env:
-  NODE_VERSION: "18"
+  NODE_VERSION: 18
   PYTHON_VERSION: "3.9"
 
 # Use permissions to modify the default permissions granted to the GITHUB_TOKEN
 
 # Permissions define what the GITHUB_TOKEN can do
-permissions: write-all # write-all|read-all or disable with {}
+permissions:
+  write-all # write-all|read-all or disable with {}
   # actions: read|write|none
   # attestations: read|write|none
   # checks: read|write|none
@@ -78,7 +104,7 @@ jobs:
 
     # Conditionally run this job
     if: 1 == 1
-    
+
     # Outputs from this job can be used by other jobs
     outputs:
       example-output: "Hello, World!"
@@ -91,8 +117,8 @@ jobs:
         name: My first step
         with:
           # Inputs are parameters passed to the action
-          who-to-greet: 'Mona the Octocat'
-          
+          who-to-greet: "Mona the Octocat"
+
       # Reference a specific commit
       - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
       # Reference the major version of a release
@@ -128,7 +154,7 @@ jobs:
 
       # Use the outputs from a previous step
       - run: echo "${{ steps.example-step.outputs.step-output }}"
-      
+
       # Conditionally run a step
       # The github context contains information about the workflow run and the event that triggered the run.
       - if: ${{ github.ref == 'refs/heads/main' }}
@@ -236,6 +262,21 @@ jobs:
           echo "Build time: ${{ steps.vars.outputs.build-time }}"
           echo "Commit SHA: ${{ steps.vars.outputs.commit-sha }}"
 
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: node:18
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/volume_mount
+      options: --cpus 1
+    steps:
+      - name: Check for dockerenv file
+        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+
   # Job demonstrating services (databases, caches, etc.)
   services-example:
     name: Services Example
@@ -312,6 +353,227 @@ jobs:
           echo "Artifact contents:"
           cat ./artifacts/output.txt
           # Your deployment commands would go here
+
+  secrets-example:
+    name: Using Secrets
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use repository secret
+        run: echo "Using secret value"
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Use secret in action input
+        uses: some-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          api-key: ${{ secrets.EXTERNAL_API_KEY }}
+
+  call-workflow-explicit-secrets:
+    name: Call Workflow with Explicit Secrets
+    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
+    secrets:
+      # Map calling workflow secrets to called workflow secret names
+      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      api-key: ${{ secrets.EXTERNAL_API_KEY }}
+      database-url: ${{ secrets.DATABASE_URL }}
+
+  # Method 2: Inherit all available secrets (recommended for same organization)
+  call-workflow-inherit-secrets:
+    name: Call Workflow with Inherited Secrets
+    uses: ./.github/workflows/called-workflow.yml
+    secrets: inherit # Passes ALL available secrets to the called workflow
+
+  environment-secrets-example:
+    name: Environment Secrets
+    runs-on: ubuntu-latest
+    environment: production # Environment secrets are only available in this environment
+    steps:
+      - name: Deploy with environment secrets
+        run: |
+          echo "Deploying to production..."
+          echo "Using production database credentials"
+        env:
+          # These secrets are defined at the environment level
+          PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
+          PROD_API_KEY: ${{ secrets.PROD_API_KEY }}
+
+  secrets-best-practices:
+    name: Secrets Best Practices
+    runs-on: ubuntu-latest
+    steps:
+      - name: Correct secret usage
+        run: |
+          # Secret is automatically masked in logs
+          curl -H "Authorization: Bearer $API_TOKEN" https://api.example.com
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+
+      - name: Use secret only when needed
+        if: github.ref == 'refs/heads/main'
+        run: deploy-to-production.sh
+        env:
+          DEPLOY_KEY: ${{ secrets.PRODUCTION_DEPLOY_KEY }}
+
+  # Job summaries allow you to display custom Markdown on workflow run summary pages
+  job-summaries-example:
+    name: Job Summaries Example
+    runs-on: ubuntu-latest
+    steps:
+      - name: Basic job summary
+        run: |
+          echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "This workflow completed successfully!" >> $GITHUB_STEP_SUMMARY
+
+      - name: Generate multiline Markdown content
+        run: |
+          echo "## Test Results Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY # blank line
+          echo "- ✅ Unit tests: **PASSED**" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Integration tests: **PASSED**" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Security scan: **PASSED**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Total test duration:** 5 minutes 32 seconds" >> $GITHUB_STEP_SUMMARY
+
+      - name: Conditional summary with variables
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "🚀 **Deployed to Production**" >> $GITHUB_STEP_SUMMARY
+            echo "- Environment: Production" >> $GITHUB_STEP_SUMMARY
+            echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Triggered by: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "🔧 **Development Build**" >> $GITHUB_STEP_SUMMARY
+            echo "- Branch: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Build number: ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Overwrite previous summary content
+        run: |
+          echo "Initial content" >> $GITHUB_STEP_SUMMARY
+          echo "Oops, need to replace this with better content..." > $GITHUB_STEP_SUMMARY
+          echo "## Final Summary" >> $GITHUB_STEP_SUMMARY
+          echo "This overwrote the previous content." >> $GITHUB_STEP_SUMMARY
+
+      - name: Remove summary if error occurs
+        run: |
+          echo "Starting process..." >> $GITHUB_STEP_SUMMARY
+          # Simulate some work that might fail
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "❌ Process failed, removing summary" >> $GITHUB_STEP_SUMMARY
+            rm $GITHUB_STEP_SUMMARY  # Remove the summary file
+          else
+            echo "✅ Process completed successfully" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      # Example with tables and more complex Markdown
+      - name: Complex Markdown summary
+        run: |
+          echo "## Build Metrics" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Build Time | 3m 45s |" >> $GITHUB_STEP_SUMMARY
+          echo "| Bundle Size | 2.4 MB |" >> $GITHUB_STEP_SUMMARY
+          echo "| Test Coverage | 92% |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Code Quality" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          echo '{"linting": "passed", "security": "passed", "performance": "A+"}' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+  # Workflow commands for communicating with the runner
+  workflow-commands-example:
+    name: Workflow Commands
+    runs-on: ubuntu-latest
+    steps:
+      # Setting environment variables
+      - name: Set environment variables
+        run: |
+          echo "MY_ENV_VAR=production" >> $GITHUB_ENV
+          echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
+
+      # Using environment variables
+      - name: Use environment variables
+        run: |
+          echo "Environment: $MY_ENV_VAR"
+          echo "Build: $BUILD_NUMBER"
+
+      # Setting step outputs
+      - name: Set step outputs
+        id: step-outputs
+        run: |
+          echo "timestamp=$(date)" >> $GITHUB_OUTPUT
+          echo "status=success" >> $GITHUB_OUTPUT
+
+      # Adding to system PATH
+      - name: Add to PATH
+        run: |
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+          echo "Custom path added"
+
+      # Debug messages (requires ACTIONS_STEP_DEBUG=true secret)
+      - name: Debug messages
+        run: |
+          echo "::debug::This is a debug message"
+          echo "::debug::Variables: MY_ENV_VAR=$MY_ENV_VAR"
+
+      # Notice, warning, and error annotations
+      - name: Create annotations
+        run: |
+          echo "::notice file=app.js,line=1,col=5,title=Code Notice::Consider optimizing this function"
+          echo "::warning file=app.js,line=10,title=Deprecation Warning::This method will be removed in v2.0"
+          echo "::error file=app.js,line=15,col=3,title=Syntax Error::Missing semicolon"
+
+      # Grouping log output
+      - name: Grouped output
+        run: |
+          echo "::group::Installing dependencies"
+          echo "Installing package 1..."
+          echo "Installing package 2..."
+          echo "Installing package 3..."
+          echo "::endgroup::"
+          
+          echo "::group::Running tests"
+          echo "Running unit tests..."
+          echo "Running integration tests..."
+          echo "::endgroup::"
+
+      # Masking sensitive values
+      - name: Mask sensitive data
+        run: |
+          SECRET_VALUE="super-secret-token-123"
+          echo "::add-mask::$SECRET_VALUE"
+          echo "Token: $SECRET_VALUE"  # Will show as ***
+
+      # Multiline environment variables
+      - name: Multiline environment variables
+        run: |
+          {
+            echo 'JSON_CONFIG<<EOF'
+            echo '{'
+            echo '  "environment": "production",'
+            echo '  "debug": false'
+            echo '}'
+            echo 'EOF'
+          } >> $GITHUB_ENV
+
+      # Use multiline variable
+      - name: Use multiline variable
+        run: |
+          echo "Configuration:"
+          echo "$JSON_CONFIG"
+
+      # Stop/start workflow commands
+      - name: Stop and start commands
+        run: |
+          echo "::warning::This warning will show"
+          stopMarker=$(uuidgen)
+          echo "::stop-commands::$stopMarker"
+          echo "::warning::This warning will NOT show"
+          echo "::$stopMarker::"
+          echo "::notice::Commands are active again"
 
 # Common GitHub Actions expressions and contexts:
 
@@ -396,16 +658,31 @@ jobs:
 # - Use GITHUB_TOKEN instead of personal access tokens when possible
 # - Review third-party actions before using them
 
-# Workflow optimization:
-# - Use caching for dependencies
-# - Use matrix builds for parallel execution
-# - Use artifacts to share data between jobs
-# - Set appropriate timeouts
-# - Use conditions to skip unnecessary work
-# - Use fail-fast: false for matrix builds when appropriate
-
-# Debugging workflows:
-# - Enable debug logging with secrets.ACTIONS_STEP_DEBUG = true
-# - Use 'tmate' action for SSH debugging
-# - Check workflow run logs in the Actions tab
-# - Use workflow_dispatch for manual testing
+# WORKFLOW COMMANDS REFERENCE:
+# 
+# Environment Variables:
+# echo "name=value" >> $GITHUB_ENV              - Set environment variable
+# echo "name<<EOF" >> $GITHUB_ENV; echo "multi"; echo "line"; echo "EOF" >> $GITHUB_ENV
+#
+# Step Outputs: 
+# echo "name=value" >> $GITHUB_OUTPUT           - Set step output
+#
+# System PATH:
+# echo "/path/to/add" >> $GITHUB_PATH           - Add directory to PATH
+#
+# Job Summary:
+# echo "# Markdown content" >> $GITHUB_STEP_SUMMARY  - Add to job summary
+# echo "content" > $GITHUB_STEP_SUMMARY         - Overwrite job summary
+# rm $GITHUB_STEP_SUMMARY                      - Remove job summary
+#
+# Annotations:
+# echo "::debug::message"                       - Debug message (needs ACTIONS_STEP_DEBUG=true)
+# echo "::notice::message"                      - Notice annotation
+# echo "::warning::message"                     - Warning annotation  
+# echo "::error::message"                       - Error annotation
+# echo "::notice file=f.js,line=1,col=5,title=Title::message" - Annotation with location
+#
+# Log Grouping:
+# echo "::group::Group Title"                   - Start collapsible group
+# echo "::endgroup::"                           - End group
+#
