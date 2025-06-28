@@ -73,28 +73,30 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/social-card.jpg',
     navbar: {
-      title: 'Austen Stone',
+      // title: 'Austen Stone',
       logo: {
-        alt: 'Austen Stone Logo',
-        src: 'img/logo.svg',
+        src: '/img/ChatGPT Image Jun 28, 2025, 07_40_28 AM.png',
+        style: {
+          'border-radius': '50%',
+        }
       },
       items: [
+        {to: '/blog', label: 'Blog', position: 'left'},
         {
           type: 'docSidebar',
           sidebarId: 'projectsSidebar',
           position: 'left',
           label: 'Projects',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {to: '/resume', label: 'Resume', position: 'left'},
         {
           href: 'https://github.com/austenstone',
-          label: 'GitHub',
+          className: 'header-github-link',
           position: 'right',
         },
         {
           href: 'https://www.linkedin.com/in/austenstone/',
-          label: 'LinkedIn',
+          className: 'header-linkedin-link',
           position: 'right',
         },
       ],

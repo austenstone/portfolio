@@ -4,95 +4,90 @@ sidebar_position: 3
 
 # deviceWISE View
 
-A powerful **no-code dashboard builder** that generated over **$1M+ in revenue**. Visualize your data or create UI's by simply dragging and dropping widgets into a canvas.
+A **no-code Industrial IoT dashboard and HMI builder** that I created from the ground up during my time at Telit. This platform enables industrial engineers to create SCADA visualizations and machine interfaces without writing custom code.
 
 ![deviceWISE View](/assets/screenshots/chrome_EWhfXl9Ecn.png)
 
-## Overview
+## Project Overview
 
-deviceWISE View is an enterprise-grade dashboard builder that empowers users to create sophisticated data visualizations and user interfaces without writing a single line of code. The platform has been used by major corporations to monitor and control industrial systems worldwide.
+deviceWISE View is an industrial data visualization platform that I designed and developed as both a SCADA (Supervisory Control and Data Acquisition) system and HMI (Human-Machine Interface) builder. The platform was created to help manufacturing companies digitize their operations by providing real-time monitoring and control capabilities through customizable dashboards.
 
-## Key Features
+## My Role as Creator
 
-### Drag & Drop Interface
-- **Intuitive Design** - Simple drag-and-drop widget placement
-- **Real-time Preview** - See changes as you build
-- **Responsive Layout** - Automatically adapts to different screen sizes
-- **Widget Library** - Extensive collection of pre-built components
+As the **sole creator and architect** of deviceWISE View during my tenure at Telit (2018-2021), I was responsible for the entire product lifecycle from concept to enterprise deployment. I have since transitioned the project to a dedicated team for ongoing development and support.
 
-### Data Connectivity
-- **Multiple Data Sources** - Connect to databases, APIs, IoT devices
-- **Real-time Updates** - Live data streaming and updates
-- **Data Transformation** - Built-in tools for data processing
-- **Secure Connections** - Enterprise-grade security protocols
+### Creation & Development
+- **Product Vision** - Conceived the no-code approach to industrial dashboard creation
+- **Technical Architecture** - Designed the drag-and-drop interface and widget system
+- **Full-Stack Development** - Built the complete platform from frontend UI to backend data processing
+- **Industrial Integration** - Implemented native support for industrial protocols and machine connectivity
+- **User Experience Design** - Created intuitive interfaces specifically for industrial environments
 
-### Enterprise Features
-- **Multi-user Collaboration** - Team-based dashboard development
-- **Role-based Access** - Granular permission controls
-- **Version Control** - Track changes and rollback capabilities
-- **Export Options** - Multiple format support for sharing
+### Enterprise Impact & Success
+- **Market Validation** - Successfully deployed across multiple industrial customers
+- **Revenue Generation** - Platform contributed significantly to Telit's IoT platform revenue
+- **Customer Adoption** - Proven demand in manufacturing, energy, and process industries
+- **Team Transition** - Successfully handed off the project to a dedicated development team for continued growth
+
+### Innovation & Problem-Solving
+- **No-Code Pioneer** - Addressed the gap between technical complexity and domain expertise in industrial settings
+- **User-Centric Design** - Created interfaces that industrial engineers could use without programming knowledge
+- **Performance Optimization** - Engineered real-time data processing for industrial-grade performance requirements
+- **Scalable Architecture** - Designed the platform to handle enterprise-scale deployments
+
+## Business Impact
+
+### Market Success
+Creating deviceWISE View from concept to commercial product demonstrated my ability to:
+- **Identify Market Opportunities** - Recognized the need for accessible industrial IoT tools
+- **Execute Product Vision** - Delivered a complete platform that solved real customer problems
+- **Drive Commercial Value** - Built a product that generated substantial revenue for Telit
+- **Enable Customer Success** - Empowered industrial companies to accelerate their digital transformation
+
+### Competitive Advantage
+The platform's unique no-code approach provided significant advantages:
+- **Faster Implementation** - Reduced dashboard development time from weeks to hours
+- **Lower Barriers to Entry** - Enabled domain experts to create solutions without programming
+- **Rapid Prototyping** - Allowed customers to quickly validate concepts and iterate
+- **Cost Effectiveness** - Eliminated the need for custom development resources
 
 ## Technical Capabilities
 
-### Widget Types
-- **Charts & Graphs** - Line charts, bar charts, pie charts, scatter plots
-- **Gauges & Meters** - Analog and digital displays
-- **Data Tables** - Sortable and filterable data grids
-- **Controls** - Buttons, sliders, input fields for interactivity
-- **Media** - Images, videos, and embedded content
-- **Custom Widgets** - Extensible framework for custom components
+### Core Features I Built
+- **Drag-and-Drop Interface** - Intuitive widget-based dashboard creation without coding
+- **Industrial Protocol Support** - Native drivers for common industrial communication protocols
+- **Real-Time Data Visualization** - Live streaming of machine and sensor data
+- **Mobile-Responsive Design** - Dashboards accessible on tablets and mobile devices
+- **Bidirectional Control** - Both monitoring and machine control capabilities
 
-### Integration Points
-- **Industrial Protocols** - Modbus, OPC-UA, MQTT, and more
-- **Cloud Platforms** - AWS, Azure, Google Cloud integration
-- **Databases** - SQL Server, MySQL, PostgreSQL, MongoDB
-- **REST APIs** - Connect to any web service
-- **IoT Devices** - Direct device connectivity
+### Industrial Applications
+- **Manufacturing Dashboards** - Production line monitoring and KPI visualization
+- **Preventive Maintenance** - Equipment health monitoring and alert systems
+- **Energy Management** - Power consumption tracking and optimization
+- **Quality Control** - Real-time process monitoring and compliance tracking
 
-## Industry Impact
+## Platform Architecture
 
-### Revenue Generation
-The platform has generated over **$1 million in revenue**, demonstrating its value proposition to enterprise customers across various industries.
+### Technology Stack I Designed
+- **Frontend** - Web-based responsive interface built for industrial environments
+- **Backend** - Integration with deviceWISE IoT platform with edge computing capabilities
+- **Communication** - Support for industrial protocols (Modbus, OPC, MQTT, etc.)
+- **Deployment** - On-premises, cloud, or hybrid deployment options
 
-### Customer Success Stories
-Major deployments include:
-- **IBM** - Factory monitoring and control systems
-- **Siemens** - Industrial automation dashboards  
-- **Amazon** - Logistics and warehouse management
-- **Dell** - Manufacturing process visualization
-- **Ford** - Automotive production monitoring
-- **Caterpillar** - Heavy machinery telemetry
+### Integration Capabilities
+- **Machine Connectivity** - Direct connection to PLCs, sensors, and industrial equipment
+- **Enterprise Systems** - Integration with ERP, MES, and other business systems
+- **Database Support** - Real-time and historical data storage and retrieval
+- **API Access** - RESTful APIs for custom integrations and extensions
 
-## Demo & Documentation
+## Resources & Demo
 
 ### Live Demo
-Experience deviceWISE View firsthand:
-- **Demo URL:** [view.devicewise.com](https://view.devicewise.com/login?user=demo&pass=demo)
-- **Username:** demo
-- **Password:** demo
+- **Demo Environment:** [view.devicewise.com](https://view.devicewise.com/login?user=demo&pass=demo)
+- **Credentials:** Username: `demo` | Password: `demo`
 
 ### Documentation
-Comprehensive documentation is available:
-- **User Guide:** [deviceWISE View Documentation](https://docs.devicewise.com/Content/Products/GatewayDevelopersGuide/deviceWISE_View/deviceWISE-View.htm)
-- **API Reference:** Complete developer documentation
-- **Tutorials:** Step-by-step implementation guides
+- **Developer Guide:** [deviceWISE View Documentation](https://docs.devicewise.com/Content/Products/GatewayDevelopersGuide/deviceWISE_View/deviceWISE-View.htm)
+- **Video Overview:** [YouTube Demo](https://youtu.be/Gh3EXo6ZuYE)
 
-### Video Overview
-Watch the platform in action:
-- **Demo Video:** [YouTube Tutorial](https://youtu.be/Gh3EXo6ZuYE)
 
-## Technical Architecture
-
-Built with modern web technologies for scalability and performance:
-- **Frontend:** Angular-based single-page application
-- **Backend:** Node.js with real-time WebSocket connections
-- **Database:** Multi-database support with connection pooling
-- **Security:** OAuth2, RBAC, and encrypted communications
-- **Deployment:** Docker containerization with Kubernetes orchestration
-
-## Awards & Recognition
-
-The success of deviceWISE View has contributed to several professional achievements:
-- Key factor in promotion to Solutions Expert role
-- Recognized for innovation in no-code platform development
-- Customer testimonials highlighting ease of use and rapid deployment

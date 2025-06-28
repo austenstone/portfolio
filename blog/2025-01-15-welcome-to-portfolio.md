@@ -20,7 +20,7 @@ My old Angular site served me well, but I wanted something that would be:
 ## What You'll Find Here
 
 ### Projects
-I've documented all my major projects with detailed explanations, screenshots, and links to live demos. From my GitHub Actions marketplace presence to the deviceWISE View dashboard builder that generated over $1M in revenue.
+I've documented all my major projects with detailed explanations, screenshots, and links to live demos.
 
 ### Blog
 I'll be sharing thoughts on software engineering, GitHub Actions, developer tools, and my experiences working with enterprise customers at GitHub.

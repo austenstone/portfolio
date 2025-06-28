@@ -1,232 +1,86 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Minimal homepage inspired by Jake Ginesin's design
  */
 
-.heroBanner {
-  padding: 4rem 0;
+/* Hide navbar on homepage only */
+.homepageContainer :global(.navbar) {
+  display: none !important;
+}
+
+/* Hide footer on homepage only */
+.homepageContainer :global(.footer) {
+  display: none !important;
+}
+
+.minimalContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.content {
   text-align: left;
-  position: relative;
-  overflow: hidden;
+  width: 23%;
+  min-width: 300px;
 }
 
-.heroContent {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
 }
 
-.heroText {
-  flex: 1;
+.tilde {
+  color: var(--ifm-color-primary);
+  margin-right: 0.5rem;
 }
 
-.heroImage {
-  flex: 0 0 auto;
+.email {
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  color: var(--ifm-color-secondary);
 }
 
-.profileImage {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.profileImage:hover {
-  transform: scale(1.05);
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-}
-
-.socialLinks {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-}
-
-.socialLink {
-  padding: 0.5rem 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  border-radius: 6px;
-  text-decoration: none;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
-
-.socialLink:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: white;
-  color: white;
-  text-decoration: none;
-  transform: translateY(-2px);
+.section {
+  margin-bottom: 3rem;
 }
 
 .sectionTitle {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 2.5rem;
-}
-
-.mainProjects {
-  padding: 4rem 0;
-  background-color: var(--ifm-background-surface-color);
-}
-
-.projectsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.projectCard {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid var(--ifm-color-emphasis-200);
-}
-
-.projectCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-}
-
-.projectImage {
-  height: 200px;
-  overflow: hidden;
-}
-
-.projectImage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.projectCard:hover .projectImage img {
-  transform: scale(1.05);
-}
-
-.projectContent {
-  padding: 1.5rem;
-}
-
-.projectContent h3 {
-  margin: 0 0 1rem 0;
-  color: var(--ifm-color-primary);
   font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.projectContent p {
-  margin: 0 0 1.5rem 0;
-  color: var(--ifm-color-content);
-  line-height: 1.6;
-  font-size: 1rem;
   font-weight: 400;
-}
-
-.projectLinks {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.otherProjects {
-  padding: 4rem 0;
-}
-
-.projectsList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
-}
-
-.projectItem {
-  padding: 2rem;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 12px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.projectItem:hover {
-  border-color: var(--ifm-color-primary);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.projectItem h3 {
-  margin: 0 0 1rem 0;
+  margin-bottom: 1rem;
   color: var(--ifm-color-primary);
-  font-weight: 600;
 }
 
-.projectItem p {
-  margin: 0 0 1.5rem 0;
-  color: var(--ifm-color-content);
-  line-height: 1.6;
-  font-weight: 400;
-}
-
-.sponsors {
-  padding: 4rem 0;
-  background-color: var(--ifm-background-surface-color);
-}
-
-.sponsorContent {
+.linksList {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
 }
 
+.link {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--ifm-color-primary-light);
+  text-decoration: none;
+}
+
+/* Mobile adjustments */
 @media screen and (max-width: 768px) {
-  .heroBanner {
-    padding: 2rem 0;
-    text-align: center;
+  .title {
+    font-size: 2rem;
   }
   
-  .heroContent {
-    flex-direction: column;
+  .minimalContainer {
+    padding: 1rem;
   }
-  
-  .profileImage {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .projectsGrid {
-    grid-template-columns: 1fr;
-  }
-  
-  .projectsList {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Dark mode support for project cards */
-[data-theme='dark'] .projectCard {
-  background: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-300);
-}
-
-[data-theme='dark'] .projectContent p {
-  color: var(--ifm-color-content);
-}
-
-[data-theme='dark'] .projectItem {
-  background: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-300);
 }
