@@ -3,6 +3,8 @@ slug: welcome-to-my-portfolio
 title: Welcome to My Portfolio
 authors: austen
 tags: [introduction, portfolio, docusaurus]
+date: 2025-06-26
+description: A brief introduction to my new portfolio website built with Docusaurus, showcasing my projects and blog.
 ---
 
 Welcome to my new portfolio website! After years of using my old Angular-based site, I've migrated everything to Docusaurus to create a better experience for showcasing my projects and sharing my thoughts.

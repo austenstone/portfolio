@@ -1,37 +1,3 @@
-```yml hljs
-name: example-workflow
-on: [push]
-jobs:
-  production-deploy:
-    if: github.repository == 'octo-org/octo-repo-prod'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-```
-
-```yml hljs
-name: example-workflow
-on: [push]
-jobs:
-  production-deploy:
-    if: github.repository == 'octo-org/octo-repo-prod'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-```
-
-```js hljs
-console.log('Hello, world!');
-```
-
 # Intro to Concepts
 
 There are a few concepts that are important to understand when working with GitHub Actions.

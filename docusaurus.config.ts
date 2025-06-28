@@ -106,9 +106,9 @@ const config: Config = {
         { to: '/blog', label: 'Blog', position: 'left' },
         {
           type: 'docSidebar',
-          sidebarId: 'projectsSidebar',
+          sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Projects',
+          label: 'Docs',
         },
         { to: '/resume', label: 'Resume', position: 'left' },
         {
