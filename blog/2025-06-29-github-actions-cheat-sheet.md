@@ -1,7 +1,6 @@
 ---
 slug: github-actions-cheat-sheet
 title: Learn GitHub Actions in Y Minutes
-authors: austen
 tags: [github-actions, ci-cd, devops, cheat-sheet]
 image: /assets/screenshots/chrome_nSvEKPj2YO.png
 date: 2025-06-29

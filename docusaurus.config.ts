@@ -97,7 +97,7 @@ const config: Config = {
     navbar: {
       // title: 'Austen Stone',
       logo: {
-        src: '/img/ChatGPT Image Jun 28, 2025, 07_40_28 AM.png',
+        src: '/img/ChatGPT Image Jun 28, 2025, 04_41_42 PM.png',
         style: {
           'border-radius': '50%',
         }
@@ -173,7 +173,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Austen Stone. Built with Docusaurus.`,
+      copyright: `${new Date().getFullYear()}-2024 © Austen Stone`,
     },
     prism: {
       theme: prismThemes.github,
@@ -181,6 +181,30 @@ const config: Config = {
       additionalLanguages: ['yaml', 'bash', 'json', 'typescript', 'javascript', 'jsx', 'tsx'],
     },
   } satisfies Preset.ThemeConfig,
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap',
+        rel: 'stylesheet',
+      },
+    },
+  ]
 };
 
 export default config;

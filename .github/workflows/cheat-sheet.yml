@@ -265,7 +265,7 @@ jobs:
       max-parallel: 10
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [16, 18, 20]
+        node-version: [18, 20, 22]
         # Exclude specific combinations
         exclude:
           - os: windows-latest
@@ -384,7 +384,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
+
       # Download artifacts from previous jobs
       - name: Download artifacts
         uses: actions/download-artifact@v4

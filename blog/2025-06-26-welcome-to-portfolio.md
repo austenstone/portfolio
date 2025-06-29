@@ -1,7 +1,6 @@
 ---
 slug: welcome-to-my-portfolio
 title: Welcome to My Portfolio
-authors: austen
 tags: [introduction, portfolio, docusaurus]
 image: https://austenstone.com/img/docusaurus/docusaurus-social-card.jpg
 date: 2025-06-26

@@ -1,7 +1,6 @@
 ---
 slug: github-copilot-agent-mcp
 title: Supercharging Development with GitHub Copilot Agent Mode and MCP
-authors: austen
 tags: [github-copilot, mcp, agent-mode, workflow, productivity]
 image: /assets/screenshots/chrome_nSvEKPj2YO.png
 date: 2025-06-30
