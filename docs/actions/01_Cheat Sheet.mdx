@@ -1,0 +1,133 @@
+---
+language: GitHub Actions
+filename: learngithubactions.yml
+contributors:
+    - ["Austen Stone", "https://github.com/austenstone"]
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import CheatSheetSource from '!!raw-loader!../../.github/workflows/cheat-sheet.yml';
+
+# GitHub Actions Cheat Sheet
+
+GitHub Actions is a CI/CD platform that allows you to automate your software development workflows right in your GitHub repository. With GitHub Actions, you can build, test, and deploy your code, as well as automate any other repository management tasks.
+
+## Complete Workflow Example
+
+The following is a comprehensive GitHub Actions workflow that demonstrates all the key concepts and features. This is sourced directly from the actual workflow file in this repository:
+
+<CodeBlock language="yaml" title=".github/workflows/cheat-sheet.yml" showLineNumbers metastring="hljs">{CheatSheetSource}</CodeBlock>
+
+## Key Concepts Explained
+
+### Workflow Structure
+- **name**: The workflow name shown in the Actions tab
+- **run-name**: Dynamic name shown for each run
+- **on**: Events that trigger the workflow
+- **jobs**: The work units that run in parallel or sequence
+
+### Common Triggers
+- `push`: When code is pushed to specified branches
+- `pull_request`: When PRs are opened, updated, or closed
+- `workflow_dispatch`: Manual trigger from GitHub UI
+- `schedule`: Time-based triggers using cron syntax
+
+### Job Configuration
+- **runs-on**: The runner environment (ubuntu-latest, windows-latest, macos-latest)
+- **needs**: Job dependencies (this job waits for others)
+- **if**: Conditional execution
+- **strategy.matrix**: Run job with multiple configurations
+
+### Common GitHub Actions Expressions
+
+```yaml
+# Context variables
+${{ github.actor }}           # User who triggered the workflow
+${{ github.event_name }}      # Event that triggered the workflow
+${{ github.ref }}             # Git reference (branch/tag)
+${{ github.sha }}             # Commit SHA
+${{ github.repository }}      # Repository name (owner/repo)
+${{ github.workspace }}       # Workspace directory path
+${{ github.run_number }}      # Unique run number
+${{ github.run_id }}          # Unique run ID
+
+# Environment and secrets
+${{ env.VARIABLE_NAME }}      # Environment variable
+${{ secrets.SECRET_NAME }}    # Repository/organization secret
+${{ vars.VARIABLE_NAME }}     # Repository/organization variable
+
+# Step and job outputs
+${{ steps.step-id.outputs.output-name }}  # Step output
+${{ jobs.job-id.outputs.output-name }}    # Job output
+${{ needs.job-id.result }}                # Job result
+
+# Matrix variables
+${{ matrix.variable }}        # Matrix variable
+${{ strategy.job-index }}     # Job index in matrix
+```
+
+### Useful Functions
+
+```yaml
+# String functions
+${{ contains('hello world', 'hello') }}   # true
+${{ startsWith('hello world', 'hello') }} # true
+${{ endsWith('hello world', 'world') }}   # true
+${{ format('Hello {0}!', 'world') }}      # "Hello world!"
+
+# Array and object functions
+${{ join(array, ',') }}                   # Join array elements
+${{ toJSON(object) }}                     # Convert to JSON string
+${{ fromJSON(string) }}                   # Parse JSON string
+```
+
+### Popular Actions from the Marketplace
+
+```yaml
+# Essential actions
+actions/checkout@v4          # Checkout repository
+actions/setup-node@v4        # Setup Node.js
+actions/setup-python@v4      # Setup Python
+actions/cache@v3             # Cache dependencies
+actions/upload-artifact@v4   # Upload build artifacts
+actions/download-artifact@v4 # Download artifacts
+
+# Language-specific setup
+actions/setup-java@v4        # Setup Java
+actions/setup-go@v4          # Setup Go
+actions/setup-dotnet@v4      # Setup .NET
+```
+
+### Security Best Practices
+
+- Use specific action versions (e.g., `@v4`, not `@main`)
+- Limit permissions with the `permissions` key
+- Use environments for sensitive deployments
+- Store sensitive data in secrets, not variables
+- Use `GITHUB_TOKEN` instead of personal access tokens when possible
+- Review third-party actions before using them
+
+### Workflow Optimization Tips
+
+- Use caching for dependencies to speed up builds
+- Use matrix builds for parallel execution
+- Use artifacts to share data between jobs
+- Set appropriate timeouts to prevent hanging jobs
+- Use conditions to skip unnecessary work
+- Use `fail-fast: false` for matrix builds when appropriate
+
+### Debugging Workflows
+
+- Enable debug logging with `secrets.ACTIONS_STEP_DEBUG = true`
+- Use `tmate` action for SSH debugging
+- Check workflow run logs in the Actions tab
+- Use `workflow_dispatch` for manual testing
+- Add strategic `echo` statements to understand variable values
+
+## More Resources
+
++ [GitHub Actions Documentation](https://docs.github.com/en/actions)
++ [Workflow Syntax Reference](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
++ [GitHub Actions Marketplace](https://github.com/marketplace?type=actions)
++ [Learning Lab: GitHub Actions](https://lab.github.com/githubtraining/github-actions:-hello-world)
++ [Awesome Actions Collection](https://github.com/sdras/awesome-actions)

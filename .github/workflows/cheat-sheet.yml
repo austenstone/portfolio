@@ -1,5 +1,6 @@
 # This is a GitHub Actions workflow file
 # Workflows are defined in YAML files in your repository's .github/workflows/ directory
+# Comments in YAML look like this.
 
 # Required: Name of the workflow (displayed in the Actions tab)
 name: Learn GitHub Actions
@@ -55,8 +56,6 @@ env:
   PYTHON_VERSION: "3.9"
 
 # Use permissions to modify the default permissions granted to the GITHUB_TOKEN
-
-# Permissions define what the GITHUB_TOKEN can do
 permissions:
   write-all # write-all|read-all or disable with {}
   # actions: read|write|none

@@ -11,9 +11,9 @@ THE FILE IS CURRENTLY LOCATED AT .github/workflows/cheat-sheet.yml
 
 # Create a learnXinY file for GitHub Actions
 
-# File: learnxiny-gha.md
+# File: cheat-sheet.yml
 
-Create a learnXinY file for GitHub Actions. The file should be named `learnxiny-gha.md`.
+Create a learnXinY file for GitHub Actions. The file should be named `cheat-sheet.yml`.
 
 The file should be structured similarly to other learnXinY files, with a clear introduction, sections for key concepts, and examples.
 
