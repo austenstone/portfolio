@@ -97,6 +97,11 @@ jobs:
 
     # The type of runner to use
     runs-on: ubuntu-latest
+    timeout-minutes: 10 # Maximum time this job can run before being cancelled
+
+    permissions: # Permissions for the GITHUB_TOKEN in this job
+      contents: read # Read access to repository contents
+      issues: write # Write access to issues
 
     # Job level environment variables
     env:
@@ -112,9 +117,10 @@ jobs:
     # List of steps to execute
     steps:
       # GitHub Actions are called with the uses keyword
-      - uses: sormuras/hello-world-java-action@v1
-        # Steps can have names for better readability
-        name: My first step
+      - uses: sormuras/hello-world-java-action@v1 # {owner}/{repo}/{path}@{ref}
+        name: My first step # Steps can have names for better readability
+        timeout-minutes: 5 # The maximum time this step can run before being cancelled
+        continue-on-error: true # Whether to continue running the workflow if this step fails
         with:
           # Inputs are parameters passed to the action
           who-to-greet: "Mona the Octocat"
@@ -133,37 +139,64 @@ jobs:
 
       # Run multiple commands
       - run: |
-          echo "Line 1"
-          echo "Line 2"
           echo "Current directory: $(pwd)"
           echo "Files: $(ls -la)"
-          echo "Node version: $NODE_VERSION"
-          echo "STEP_ENV: $STEP_ENV"
-          echo "step-output=Hello, World!" >> $GITHUB_OUTPUT
+          echo "Node version: $NODE_VERSION" # print job level environment variable
+          echo "Value: $myIntegerNumber" # print step level environment variable
+          echo "step-output=Hello, World!" >> $GITHUB_OUTPUT # Set step output
+          echo "::group::Examples"
+          echo "::add-mask::This is secret and masked"
+          echo "::debug::This is a debug message"
+          echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+          stopMarker=$(uuidgen)
+          echo "::stop-commands::$stopMarker"
+          echo '::error:: This will NOT be rendered as a error, because stop-commands has been invoked.'
+          echo "::$stopMarker::"
+          echo '::warning:: This is a warning again, because stop-commands has been turned off.'
+          echo "::endgroup::"
+          echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY # Create a job summary
+        # Step-level environment variable
+        env:
+          # As part of an expression, you can use boolean, null, number, or string data types.
+          myNull: ${{ null }}
+          myBoolean: ${{ false }}
+          myIntegerNumber: ${{ 711 }}
+          myFloatNumber: ${{ -9.2 }}
+          myHexNumber: ${{ 0xff }}
+          myExponentialNumber: ${{ -2.99e-2 }}
+          myString: Mona the Octocat
+          myStringInBraces: ${{ 'It''s open source!' }}
         # use the id to reference this step later
         id: example-step
-        # The maximum time this step can run before being cancelled
-        timeout-minutes: 5
-        # Whether to continue running the workflow if this step fails
-        continue-on-error: true
-        env:
-          # Step-level environment variable
-          STEP_ENV: "step-value"
         # Specify the working directory for this step
         working-directory: ./scripts
 
       # Use the outputs from a previous step
       - run: echo "${{ steps.example-step.outputs.step-output }}"
 
+      # Step that continues on error
+      - name: Step that might fail
+        continue-on-error: true
+        run: exit 1
+
+      # Upload artifacts
+      - name: Create artifact
+        run: |
+          mkdir -p artifacts
+          echo "Build artifact" > artifacts/output.txt
+          echo "Build number: ${{ github.run_number }}" >> artifacts/output.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: artifacts/
+          retention-days: 30
+
       # Conditionally run a step
       # The github context contains information about the workflow run and the event that triggered the run.
       - if: ${{ github.ref == 'refs/heads/main' }}
         run: echo "Deploying to production server on branch $GITHUB_REF"
-
-      # Create output example-output
-      - name: Create output
-        id: example-output
-        run: echo "example-output=Hello, World!" >> $GITHUB_OUTPUT
 
   # Job with conditions and matrix strategy
   build-matrix:
@@ -192,77 +225,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
+      - run: npm ci
+      - run: npm test
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
-
-  # Job demonstrating various GitHub Actions features
-  advanced-features:
-    name: Advanced Features
-    runs-on: ubuntu-latest
-
-    # Set permissions for the GITHUB_TOKEN
-    permissions:
-      contents: read
-      pull-requests: write
-      issues: write
-
-    # Use outputs from other jobs
-    needs: basic-job
-
-    # Timeout after 10 minutes
-    timeout-minutes: 10
-
-    steps:
-      - uses: actions/checkout@v4
-
-      # Use conditional steps
-      - name: Only on main branch
-        if: github.ref == 'refs/heads/main'
-        run: echo "This only runs on main branch"
-
-      # Step that continues on error
-      - name: Step that might fail
-        continue-on-error: true
-        run: exit 1
-
-      # Upload artifacts
-      - name: Create artifact
-        run: |
-          mkdir -p artifacts
-          echo "Build artifact" > artifacts/output.txt
-          echo "Build number: ${{ github.run_number }}" >> artifacts/output.txt
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifacts
-          path: artifacts/
-          retention-days: 30
-
-      # Set job outputs
-      - name: Set outputs
-        id: vars
-        run: |
-          echo "build-time=$(date)" >> $GITHUB_OUTPUT
-          echo "commit-sha=${{ github.sha }}" >> $GITHUB_OUTPUT
-
-      # Use step outputs
-      - name: Use outputs
-        run: |
-          echo "Build time: ${{ steps.vars.outputs.build-time }}"
-          echo "Commit SHA: ${{ steps.vars.outputs.commit-sha }}"
-
-  container-test-job:
+  container-job:
     runs-on: ubuntu-latest
     container:
       image: node:18
@@ -278,7 +249,7 @@ jobs:
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
 
   # Job demonstrating services (databases, caches, etc.)
-  services-example:
+  services-job:
     name: Services Example
     runs-on: ubuntu-latest
 
@@ -311,13 +282,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-
       - name: Test database connection
         run: |
           sudo apt-get update
           sudo apt-get install -y postgresql-client
           PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d testdb -c '\l'
-
       - name: Test Redis connection
         run: |
           sudo apt-get install -y redis-tools
@@ -330,23 +299,21 @@ jobs:
 
     # Only run on main branch and after other jobs succeed
     if: github.ref == 'refs/heads/main'
-    needs: [build-matrix, advanced-features, services-example]
+    needs: [build-matrix]
 
-    # Use environment for deployment protection rules
+    # Use environments to track deployments and protect sensitive operations
     environment:
       name: production
       url: https://myapp.example.com
 
     steps:
       - uses: actions/checkout@v4
-
       # Download artifacts from previous jobs
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
           name: build-artifacts
           path: ./artifacts
-
       - name: Deploy to production
         run: |
           echo "Deploying to production..."
@@ -354,226 +321,12 @@ jobs:
           cat ./artifacts/output.txt
           # Your deployment commands would go here
 
-  secrets-example:
-    name: Using Secrets
-    runs-on: ubuntu-latest
-    steps:
-      - name: Use repository secret
-        run: echo "Using secret value"
-        env:
-          API_KEY: ${{ secrets.API_KEY }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-
-      - name: Use secret in action input
-        uses: some-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          api-key: ${{ secrets.EXTERNAL_API_KEY }}
-
-  call-workflow-explicit-secrets:
-    name: Call Workflow with Explicit Secrets
-    uses: octo-org/example-repo/.github/workflows/called-workflow.yml@main
-    secrets:
-      # Map calling workflow secrets to called workflow secret names
-      access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      api-key: ${{ secrets.EXTERNAL_API_KEY }}
-      database-url: ${{ secrets.DATABASE_URL }}
-
-  # Method 2: Inherit all available secrets (recommended for same organization)
-  call-workflow-inherit-secrets:
-    name: Call Workflow with Inherited Secrets
-    uses: ./.github/workflows/called-workflow.yml
-    secrets: inherit # Passes ALL available secrets to the called workflow
-
-  environment-secrets-example:
-    name: Environment Secrets
-    runs-on: ubuntu-latest
-    environment: production # Environment secrets are only available in this environment
-    steps:
-      - name: Deploy with environment secrets
-        run: |
-          echo "Deploying to production..."
-          echo "Using production database credentials"
-        env:
-          # These secrets are defined at the environment level
-          PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
-          PROD_API_KEY: ${{ secrets.PROD_API_KEY }}
-
-  secrets-best-practices:
-    name: Secrets Best Practices
-    runs-on: ubuntu-latest
-    steps:
-      - name: Correct secret usage
-        run: |
-          # Secret is automatically masked in logs
-          curl -H "Authorization: Bearer $API_TOKEN" https://api.example.com
-        env:
-          API_TOKEN: ${{ secrets.API_TOKEN }}
-
-      - name: Use secret only when needed
-        if: github.ref == 'refs/heads/main'
-        run: deploy-to-production.sh
-        env:
-          DEPLOY_KEY: ${{ secrets.PRODUCTION_DEPLOY_KEY }}
-
-  # Job summaries allow you to display custom Markdown on workflow run summary pages
-  job-summaries-example:
-    name: Job Summaries Example
-    runs-on: ubuntu-latest
-    steps:
-      - name: Basic job summary
-        run: |
-          echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
-          echo "This workflow completed successfully!" >> $GITHUB_STEP_SUMMARY
-
-      - name: Generate multiline Markdown content
-        run: |
-          echo "## Test Results Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY # blank line
-          echo "- ✅ Unit tests: **PASSED**" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Integration tests: **PASSED**" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Security scan: **PASSED**" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Total test duration:** 5 minutes 32 seconds" >> $GITHUB_STEP_SUMMARY
-
-      - name: Conditional summary with variables
-        run: |
-          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
-            echo "🚀 **Deployed to Production**" >> $GITHUB_STEP_SUMMARY
-            echo "- Environment: Production" >> $GITHUB_STEP_SUMMARY
-            echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
-            echo "- Triggered by: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "🔧 **Development Build**" >> $GITHUB_STEP_SUMMARY
-            echo "- Branch: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
-            echo "- Build number: ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
-          fi
-
-      - name: Overwrite previous summary content
-        run: |
-          echo "Initial content" >> $GITHUB_STEP_SUMMARY
-          echo "Oops, need to replace this with better content..." > $GITHUB_STEP_SUMMARY
-          echo "## Final Summary" >> $GITHUB_STEP_SUMMARY
-          echo "This overwrote the previous content." >> $GITHUB_STEP_SUMMARY
-
-      - name: Remove summary if error occurs
-        run: |
-          echo "Starting process..." >> $GITHUB_STEP_SUMMARY
-          # Simulate some work that might fail
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "❌ Process failed, removing summary" >> $GITHUB_STEP_SUMMARY
-            rm $GITHUB_STEP_SUMMARY  # Remove the summary file
-          else
-            echo "✅ Process completed successfully" >> $GITHUB_STEP_SUMMARY
-          fi
-
-      # Example with tables and more complex Markdown
-      - name: Complex Markdown summary
-        run: |
-          echo "## Build Metrics" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
-          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Build Time | 3m 45s |" >> $GITHUB_STEP_SUMMARY
-          echo "| Bundle Size | 2.4 MB |" >> $GITHUB_STEP_SUMMARY
-          echo "| Test Coverage | 92% |" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Code Quality" >> $GITHUB_STEP_SUMMARY
-          echo '```json' >> $GITHUB_STEP_SUMMARY
-          echo '{"linting": "passed", "security": "passed", "performance": "A+"}' >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-
-  # Workflow commands for communicating with the runner
-  workflow-commands-example:
-    name: Workflow Commands
-    runs-on: ubuntu-latest
-    steps:
-      # Setting environment variables
-      - name: Set environment variables
-        run: |
-          echo "MY_ENV_VAR=production" >> $GITHUB_ENV
-          echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
-
-      # Using environment variables
-      - name: Use environment variables
-        run: |
-          echo "Environment: $MY_ENV_VAR"
-          echo "Build: $BUILD_NUMBER"
-
-      # Setting step outputs
-      - name: Set step outputs
-        id: step-outputs
-        run: |
-          echo "timestamp=$(date)" >> $GITHUB_OUTPUT
-          echo "status=success" >> $GITHUB_OUTPUT
-
-      # Adding to system PATH
-      - name: Add to PATH
-        run: |
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-          echo "Custom path added"
-
-      # Debug messages (requires ACTIONS_STEP_DEBUG=true secret)
-      - name: Debug messages
-        run: |
-          echo "::debug::This is a debug message"
-          echo "::debug::Variables: MY_ENV_VAR=$MY_ENV_VAR"
-
-      # Notice, warning, and error annotations
-      - name: Create annotations
-        run: |
-          echo "::notice file=app.js,line=1,col=5,title=Code Notice::Consider optimizing this function"
-          echo "::warning file=app.js,line=10,title=Deprecation Warning::This method will be removed in v2.0"
-          echo "::error file=app.js,line=15,col=3,title=Syntax Error::Missing semicolon"
-
-      # Grouping log output
-      - name: Grouped output
-        run: |
-          echo "::group::Installing dependencies"
-          echo "Installing package 1..."
-          echo "Installing package 2..."
-          echo "Installing package 3..."
-          echo "::endgroup::"
-          
-          echo "::group::Running tests"
-          echo "Running unit tests..."
-          echo "Running integration tests..."
-          echo "::endgroup::"
-
-      # Masking sensitive values
-      - name: Mask sensitive data
-        run: |
-          SECRET_VALUE="super-secret-token-123"
-          echo "::add-mask::$SECRET_VALUE"
-          echo "Token: $SECRET_VALUE"  # Will show as ***
-
-      # Multiline environment variables
-      - name: Multiline environment variables
-        run: |
-          {
-            echo 'JSON_CONFIG<<EOF'
-            echo '{'
-            echo '  "environment": "production",'
-            echo '  "debug": false'
-            echo '}'
-            echo 'EOF'
-          } >> $GITHUB_ENV
-
-      # Use multiline variable
-      - name: Use multiline variable
-        run: |
-          echo "Configuration:"
-          echo "$JSON_CONFIG"
-
-      # Stop/start workflow commands
-      - name: Stop and start commands
-        run: |
-          echo "::warning::This warning will show"
-          stopMarker=$(uuidgen)
-          echo "::stop-commands::$stopMarker"
-          echo "::warning::This warning will NOT show"
-          echo "::$stopMarker::"
-          echo "::notice::Commands are active again"
+  # Reusable workflow example
+  reusable-workflow:
+    uses: austenstone/actions-playground/.github/workflows/reusable-called.yml@main
+    with:
+      username: ${{ github.actor }} # Pass the GitHub actor as input to the reusable workflow
+    secrets: inherit # Pass all secrets from the calling workflow to the reusable workflow
 
 # Common GitHub Actions expressions and contexts:
 
@@ -650,21 +403,13 @@ jobs:
 #     - run: echo "Hello ${{ inputs.input-name }}"
 #       shell: bash
 
-# Security best practices:
-# - Use specific action versions (e.g., @v4, not @main)
-# - Limit permissions with the 'permissions' key
-# - Use environments for sensitive deployments
-# - Store sensitive data in secrets, not variables
-# - Use GITHUB_TOKEN instead of personal access tokens when possible
-# - Review third-party actions before using them
-
 # WORKFLOW COMMANDS REFERENCE:
-# 
+#
 # Environment Variables:
 # echo "name=value" >> $GITHUB_ENV              - Set environment variable
 # echo "name<<EOF" >> $GITHUB_ENV; echo "multi"; echo "line"; echo "EOF" >> $GITHUB_ENV
 #
-# Step Outputs: 
+# Step Outputs:
 # echo "name=value" >> $GITHUB_OUTPUT           - Set step output
 #
 # System PATH:
@@ -678,7 +423,7 @@ jobs:
 # Annotations:
 # echo "::debug::message"                       - Debug message (needs ACTIONS_STEP_DEBUG=true)
 # echo "::notice::message"                      - Notice annotation
-# echo "::warning::message"                     - Warning annotation  
+# echo "::warning::message"                     - Warning annotation
 # echo "::error::message"                       - Error annotation
 # echo "::notice file=f.js,line=1,col=5,title=Title::message" - Annotation with location
 #

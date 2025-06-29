@@ -1,366 +1,284 @@
----
-language: GitHub Actions
-filename: learngithubactions.yml
-contributors:
-    - ["Austen Stone", "https://github.com/austenstone"]
----
+# Learn GitHub Actions in Y Minutes
+# Based on learnxinyminutes.com docs
+# MIT License
 
-GitHub Actions is a CI/CD platform that allows you to automate your software development workflows right in your GitHub repository. With GitHub Actions, you can build, test, and deploy your code, as well as automate any other repository management tasks.
+# Prereqs: you already know programming basics—this is just syntax.
+# ## 1. Hello World - Basic Workflow
+name: Learn GitHub Actions                    # workflow name
+run-name: Run by ${{ github.actor }}         # custom run display name
 
-```yaml
-# This is a GitHub Actions workflow file
-# Workflows are defined in YAML files in your repository's .github/workflows/ directory
+on: push                                      # trigger on any push
 
-# Required: Name of the workflow (displayed in the Actions tab)
-name: Learn GitHub Actions
-
-# Optional: Description of what this workflow does
-run-name: Learning GitHub Actions workflow triggered by ${{ github.actor }}
-
-# Required: Events that trigger the workflow
-on:
-  # Trigger on push to main branch
-  push:
-    branches: [ main ]
-  
-  # Trigger on pull requests to main
-  pull_request:
-    branches: [ main ]
-  
-  # Trigger manually from the GitHub UI
-  workflow_dispatch:
-  
-  # Trigger on a schedule (cron syntax)
-  schedule:
-    - cron: '0 0 * * *'  # Daily at midnight UTC
-
-# Define environment variables available to all jobs
-env:
-  NODE_VERSION: '18'
-  PYTHON_VERSION: '3.9'
-
-# Jobs are the core building blocks of workflows
 jobs:
-  # Job ID (can be referenced by other jobs)
-  basic-job:
-    # Human-readable name for the job
-    name: Basic Job Example
-    
-    # Required: The type of runner to use
-    runs-on: ubuntu-latest
-    
-    # Optional: Environment variables specific to this job
-    env:
-      JOB_ENV: 'development'
-    
-    # Required: List of steps to execute
+  hello:
+    runs-on: ubuntu-latest                    # runner environment
     steps:
-      # Step 1: Checkout the repository code
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      
-      # Step 2: Run a simple shell command
-      - name: Say hello
-        run: echo "Hello, GitHub Actions!"
-      
-      # Step 3: Run multiple commands
-      - name: Multi-line script
-        run: |
-          echo "Line 1"
-          echo "Line 2"
-          echo "Current directory: $(pwd)"
-          echo "Files: $(ls -la)"
-      
-      # Step 4: Use environment variables
-      - name: Use environment variables
-        run: |
-          echo "Node version: $NODE_VERSION"
-          echo "Job environment: $JOB_ENV"
-        env:
-          # Step-level environment variable
-          STEP_ENV: 'step-value'
+      - run: echo "Hello, GitHub Actions!"    # simple command
 
-  # Job with conditions and matrix strategy
-  build-matrix:
-    name: Build Matrix
-    runs-on: ${{ matrix.os }}
-    
-    # Run this job only if the basic-job succeeds
-    needs: basic-job
-    
-    # Run this job only on push events (not PRs)
-    if: github.event_name == 'push'
-    
-    # Matrix strategy: run job multiple times with different configurations
+# ## 2. Triggers & Events
+on:
+  push:                                       # git push
+    branches: [main, develop]                 # specific branches
+    paths: ['src/**', '!docs/**']            # path filters
+  pull_request:                              # PRs
+    branches: [main]
+  workflow_dispatch:                         # manual trigger
+    inputs:
+      environment:
+        description: 'Environment to deploy'
+        required: true
+        default: 'staging'
+        type: choice
+        options: [staging, production]
+  schedule:
+    - cron: '0 9 * * 1'                      # mondays at 9am UTC
+
+# ## 3. Environment & Variables
+env:
+  NODE_VERSION: 18                           # workflow-level env vars
+  API_URL: https://api.example.com
+
+jobs:
+  variables:
+    runs-on: ubuntu-latest
+    env:
+      JOB_ENV: development                   # job-level env vars
+    steps:
+      - run: |
+          echo "NODE_VERSION: $NODE_VERSION"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Actor: ${{ github.actor }}"
+        env:
+          STEP_ENV: local                    # step-level env vars
+
+# ## 4. Job Dependencies & Outputs
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.get-version.outputs.version }}
+    steps:
+      - id: get-version
+        run: echo "version=1.2.3" >> $GITHUB_OUTPUT
+
+  build:
+    needs: setup                             # wait for setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building version ${{ needs.setup.outputs.version }}"
+
+  deploy:
+    needs: [setup, build]                    # wait for multiple jobs
+    if: github.ref == 'refs/heads/main'     # conditional execution
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production"
+
+# ## 5. Matrix Strategy
+jobs:
+  test:
     strategy:
-      # Don't cancel other matrix jobs if one fails
-      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [16, 18, 20]
-        # Exclude specific combinations
+        node: [16, 18, 20]
         exclude:
           - os: windows-latest
-            node-version: 16
-    
+            node: 16
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
+
+# ## 6. Actions & Marketplace
+jobs:
+  actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4            # checkout code
+      - uses: actions/setup-node@v4          # setup runtime
+        with:
+          node-version: 18
+          cache: npm
+      - uses: actions/cache@v3               # cache dependencies
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+      - run: npm ci
+      - run: npm test
+
+# ## 7. Artifacts & Sharing
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - run: |
+          mkdir dist
+          echo "Built app" > dist/app.js
+      - uses: actions/upload-artifact@v4     # upload artifacts
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Run tests
-        run: npm test
+          name: build-files
+          path: dist/
 
-  # Job demonstrating various GitHub Actions features
-  advanced-features:
-    name: Advanced Features
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
-    
-    # Set permissions for the GITHUB_TOKEN
-    permissions:
+    steps:
+      - uses: actions/download-artifact@v4   # download artifacts
+        with:
+          name: build-files
+          path: dist/
+      - run: ls -la dist/
+
+# ## 8. Secrets & Security
+jobs:
+  secure:
+    runs-on: ubuntu-latest
+    permissions:                             # minimal permissions
       contents: read
-      pull-requests: write
       issues: write
-    
-    # Use outputs from other jobs
-    needs: basic-job
-    
-    # Timeout after 10 minutes
-    timeout-minutes: 10
-    
     steps:
-      - uses: actions/checkout@v4
-      
-      # Use conditional steps
-      - name: Only on main branch
-        if: github.ref == 'refs/heads/main'
-        run: echo "This only runs on main branch"
-      
-      # Step with custom shell
-      - name: PowerShell example
-        shell: pwsh
-        run: |
-          Write-Host "Running in PowerShell"
-          Get-Date
-      
-      # Step that continues on error
-      - name: Step that might fail
-        continue-on-error: true
-        run: exit 1
-      
-      # Upload artifacts
-      - name: Create artifact
-        run: |
-          mkdir -p artifacts
-          echo "Build artifact" > artifacts/output.txt
-          echo "Build number: ${{ github.run_number }}" >> artifacts/output.txt
-      
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifacts
-          path: artifacts/
-          retention-days: 30
-      
-      # Set job outputs
-      - name: Set outputs
-        id: vars
-        run: |
-          echo "build-time=$(date)" >> $GITHUB_OUTPUT
-          echo "commit-sha=${{ github.sha }}" >> $GITHUB_OUTPUT
-      
-      # Use step outputs
-      - name: Use outputs
-        run: |
-          echo "Build time: ${{ steps.vars.outputs.build-time }}"
-          echo "Commit SHA: ${{ steps.vars.outputs.commit-sha }}"
+      - run: |
+          curl -H "Authorization: Bearer $API_TOKEN" api.example.com
+        env:
+          API_TOKEN: ${{ secrets.API_TOKEN }} # use secrets
 
-  # Job demonstrating services (databases, caches, etc.)
-  services-example:
-    name: Services Example
+# ## 9. Services & Containers
+jobs:
+  test-with-db:
     runs-on: ubuntu-latest
-    
-    # Define service containers
     services:
-      # PostgreSQL service
-      postgres:
+      postgres:                              # service container
         image: postgres:13
         env:
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: testdb
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
         ports:
           - 5432:5432
-      
-      # Redis service
-      redis:
-        image: redis:6
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        ports:
-          - 6379:6379
-    
+        options: --health-cmd pg_isready --health-interval 10s
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Test database connection
-        run: |
-          sudo apt-get update
+      - run: |
           sudo apt-get install -y postgresql-client
-          PGPASSWORD=postgres psql -h localhost -p 5432 -U postgres -d testdb -c '\l'
-      
-      - name: Test Redis connection
-        run: |
-          sudo apt-get install -y redis-tools
-          redis-cli -h localhost -p 6379 ping
+          PGPASSWORD=postgres psql -h localhost -U postgres -c 'SELECT 1'
 
-  # Job for deployment (typically runs after tests pass)
-  deploy:
-    name: Deploy Application
+  container-job:
     runs-on: ubuntu-latest
-    
-    # Only run on main branch and after other jobs succeed
-    if: github.ref == 'refs/heads/main'
-    needs: [build-matrix, advanced-features, services-example]
-    
-    # Use environment for deployment protection rules
-    environment:
+    container:                               # job in container
+      image: node:18
+      env:
+        NODE_ENV: production
+    steps:
+      - run: node --version
+
+# ## 10. Workflow Commands
+jobs:
+  commands:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "MY_VAR=hello" >> $GITHUB_ENV          # set env var
+          echo "result=success" >> $GITHUB_OUTPUT     # set output
+          echo "$HOME/bin" >> $GITHUB_PATH            # add to PATH
+          echo "::notice::Build completed"            # annotations
+          echo "::warning::Deprecated feature used"
+          echo "::error::Build failed"
+          echo "::group::Installing deps"             # group logs
+          echo "Installing..."
+          echo "::endgroup::"
+          echo "## Summary" >> $GITHUB_STEP_SUMMARY   # job summary
+          echo "Build successful! 🎉" >> $GITHUB_STEP_SUMMARY
+
+# ## 11. Advanced Patterns
+concurrency:                                # prevent concurrent runs
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:                                   # default settings
+  run:
+    shell: bash
+    working-directory: ./src
+
+jobs:
+  advanced:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30                     # job timeout
+    environment:                            # deployment environment
       name: production
-      url: https://myapp.example.com
-    
+      url: https://myapp.com
     steps:
       - uses: actions/checkout@v4
-      
-      # Download artifacts from previous jobs
-      - name: Download artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-artifacts
-          path: ./artifacts
-      
-      - name: Deploy to production
-        run: |
-          echo "Deploying to production..."
-          echo "Artifact contents:"
-          cat ./artifacts/output.txt
-          # Your deployment commands would go here
+      - run: echo "Building..."
+        timeout-minutes: 5                  # step timeout
+        continue-on-error: true             # don't fail job
+      - if: failure()                       # conditional on failure
+        run: echo "Build failed, but continuing"
 
-# Common GitHub Actions expressions and contexts:
+# ## 12. Reusable Workflows
+# .github/workflows/reusable.yml
+on:
+  workflow_call:                            # callable workflow
+    inputs:
+      environment:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
 
-# ${{ github.actor }}           - User who triggered the workflow
-# ${{ github.event_name }}      - Event that triggered the workflow
-# ${{ github.ref }}             - Git reference (branch/tag)
-# ${{ github.sha }}             - Commit SHA
-# ${{ github.repository }}      - Repository name (owner/repo)
-# ${{ github.workspace }}       - Workspace directory path
-# ${{ github.run_number }}      - Unique run number
-# ${{ github.run_id }}          - Unique run ID
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to ${{ inputs.environment }}"
 
-# ${{ env.VARIABLE_NAME }}      - Environment variable
-# ${{ secrets.SECRET_NAME }}    - Repository/organization secret
-# ${{ vars.VARIABLE_NAME }}     - Repository/organization variable
+# Call reusable workflow
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      environment: production
+    secrets:
+      token: ${{ secrets.DEPLOY_TOKEN }}
 
-# ${{ steps.step-id.outputs.output-name }}  - Step output
-# ${{ jobs.job-id.outputs.output-name }}    - Job output
-# ${{ needs.job-id.result }}                - Job result (success, failure, cancelled, skipped)
+# ## 13. Expressions & Functions
+jobs:
+  expressions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "${{ github.event_name }}"              # context access
+          echo "${{ toJSON(github) }}"                 # convert to JSON
+          echo "${{ fromJSON('{"key":"value"}').key }}" # parse JSON
+          echo "${{ format('Hello {0}!', 'world') }}"   # format string
+          echo "${{ contains('hello world', 'hello') }}" # string functions
+          echo "${{ startsWith(github.ref, 'refs/heads/') }}"
+          echo "${{ hashFiles('package*.json') }}"      # file hashing
 
-# ${{ matrix.variable }}        - Matrix variable
-# ${{ strategy.job-index }}     - Job index in matrix
+# ## 14. Common Contexts
+# ${{ github.actor }}          - user who triggered
+# ${{ github.event_name }}     - push, pull_request, etc
+# ${{ github.ref }}            - refs/heads/main
+# ${{ github.ref_name }}       - main
+# ${{ github.sha }}            - commit SHA
+# ${{ github.repository }}     - owner/repo
+# ${{ github.run_number }}     - auto-incrementing number
+# ${{ runner.os }}             - Linux, Windows, macOS
+# ${{ env.VAR_NAME }}          - environment variables
+# ${{ secrets.SECRET_NAME }}   - repository secrets
+# ${{ steps.step-id.outputs.name }} - step outputs
+# ${{ needs.job-id.outputs.name }}  - job outputs
 
-# Functions available in expressions:
-# ${{ contains('hello world', 'hello') }}   - true
-# ${{ startsWith('hello world', 'hello') }} - true
-# ${{ endsWith('hello world', 'world') }}   - true
-# ${{ format('Hello {0}!', 'world') }}      - "Hello world!"
-# ${{ join(array, ',') }}                   - Join array elements
-# ${{ toJSON(object) }}                     - Convert to JSON string
-# ${{ fromJSON(string) }}                   - Parse JSON string
+# ## 15. Gotchas & Best Practices
+# - Use specific action versions: @v4, not @main
+# - Set minimal permissions for GITHUB_TOKEN
+# - Use environments for production deployments
+# - Cache dependencies to speed up builds
+# - Use matrix strategy for multi-platform testing
+# - Pin runner versions: ubuntu-22.04 vs ubuntu-latest
+# - Secrets are automatically masked in logs
+# - Steps run in the same runner but jobs run in parallel
+# - Use continue-on-error sparingly
+# - workflow_dispatch enables manual triggers
 
-# Common workflow triggers:
-# on: push                      - Any push
-# on: pull_request             - PR opened, synchronized, reopened
-# on: release                  - Release published
-# on: issues                   - Issue opened, edited, etc.
-# on: workflow_dispatch        - Manual trigger
-# on: repository_dispatch      - External API trigger
-# on: schedule                 - Cron schedule
-
-# Path filtering:
-# on:
-#   push:
-#     paths: ['src/**', '!src/docs/**']  - Only changes to src/ except docs
-
-# Common actions from the marketplace:
-# actions/checkout@v4          - Checkout repository
-# actions/setup-node@v4        - Setup Node.js
-# actions/setup-python@v4      - Setup Python
-# actions/cache@v3             - Cache dependencies
-# actions/upload-artifact@v4   - Upload build artifacts
-# actions/download-artifact@v4 - Download artifacts
-
-# Creating custom actions:
-# You can create JavaScript, Docker, or composite actions
-# Place action.yml in the root of your action repository
-
-# Example action.yml for a composite action:
-# name: 'My Custom Action'
-# description: 'A custom composite action'
-# inputs:
-#   input-name:
-#     description: 'Input description'
-#     required: true
-#     default: 'default-value'
-# outputs:
-#   output-name:
-#     description: 'Output description'
-#     value: ${{ steps.step-id.outputs.value }}
-# runs:
-#   using: 'composite'
-#   steps:
-#     - run: echo "Hello ${{ inputs.input-name }}"
-#       shell: bash
-
-# Security best practices:
-# - Use specific action versions (e.g., @v4, not @main)
-# - Limit permissions with the 'permissions' key
-# - Use environments for sensitive deployments
-# - Store sensitive data in secrets, not variables
-# - Use GITHUB_TOKEN instead of personal access tokens when possible
-# - Review third-party actions before using them
-
-# Workflow optimization:
-# - Use caching for dependencies
-# - Use matrix builds for parallel execution
-# - Use artifacts to share data between jobs
-# - Set appropriate timeouts
-# - Use conditions to skip unnecessary work
-# - Use fail-fast: false for matrix builds when appropriate
-
-# Debugging workflows:
-# - Enable debug logging with secrets.ACTIONS_STEP_DEBUG = true
-# - Use 'tmate' action for SSH debugging
-# - Check workflow run logs in the Actions tab
-# - Use workflow_dispatch for manual testing
-```
-
-## More Resources
-
-+ [GitHub Actions Documentation](https://docs.github.com/en/actions)
-+ [Workflow Syntax Reference](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
-+ [GitHub Actions Marketplace](https://github.com/marketplace?type=actions)
-+ [Learning Lab: GitHub Actions](https://lab.github.com/githubtraining/github-actions:-hello-world)
-+ [Awesome Actions Collection](https://github.com/sdras/awesome-actions)
+# End of file – you just learned GitHub Actions in Y minutes!
