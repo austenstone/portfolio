@@ -74,6 +74,10 @@
   text-decoration: none;
 }
 
+.linkDir {
+  color: var(--ifm-font-color-base);
+}
+
 /* Mobile adjustments */
 @media screen and (max-width: 768px) {
   .title {

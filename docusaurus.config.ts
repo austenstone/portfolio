@@ -179,7 +179,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `${new Date().getFullYear()}-2024 © Austen Stone`,
+      copyright: `2024-${new Date().getFullYear()} © Austen Stone`,
     },
     prism: {
       theme: prismThemes.vsLight,

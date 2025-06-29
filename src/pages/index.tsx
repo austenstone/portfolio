@@ -22,10 +22,10 @@ function MinimalHomepage() {
           {/* <h2 className={styles.sectionTitle}>links</h2> */}
           <div className={styles.linksList}>
             <Link href="/blog" className={styles.link}>
-              blog
+              blog<span className={styles.linkDir}>/</span>
             </Link>
-            <Link href="/guides" className={styles.link}>
-              guides
+            <Link href="/docs/category/github-actions" className={styles.link}>
+              guides<span className={styles.linkDir}>/</span>
             </Link>
             <Link href="https://github.com/austenstone" className={styles.link}>
               github
@@ -36,8 +36,8 @@ function MinimalHomepage() {
             <Link href="/resume" className={styles.link}>
               resume
             </Link>
-            <Link href="/projects" className={styles.link}>
-              view projects
+            <Link href="/docs/projects/github-actions" className={styles.link}>
+              projects<span className={styles.linkDir}>/</span>
             </Link>
           </div>
         </div>
