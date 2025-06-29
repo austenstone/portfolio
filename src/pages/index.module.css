@@ -1,7 +1,3 @@
-/**
- * Minimal homepage inspired by Jake Ginesin's design
- */
-
 /* Hide navbar on homepage only */
 .homepageContainer :global(.navbar) {
   display: none !important;

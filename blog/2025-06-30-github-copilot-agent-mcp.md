@@ -25,12 +25,10 @@ This foundation allows me to create specialized AI assistants for different phas
 
 ### Phase 1: Planning with Gemini 2.5 Pro + MCP Tools
 
-I start every project with a custom chat mode I call "plan" that uses Gemini 2.5 Pro in agent mode. This planning phase is supercharged with several MCP tools:
+I start every project in a [custom chat mode](https://code.visualstudio.com/docs/copilot/chat/chat-modes) called "plan" that I have in my user space. The tools I want for research are already selected and copilot can't edit my code even if it wanted to because I took away that tool. I find `Gemini 2.5 Pro` to be the best model for planning.
 
-- **Sequential Thinking**: Breaks down complex problems into structured thought processes
-- **Web Search**: Gathers current information about technologies and best practices
-- **Fetch**: Retrieves specific documentation or examples from URLs
-- **Playwright**: Understands existing UI context for feature additions
+<details>
+  <summary>Plan Chat Mode</summary>
 
 ```markdown title=".github/chatmodes/plan.chatmode.md"
 ---
@@ -119,29 +117,25 @@ Structure your plans in a format for to prompt an AI agent.
 
 Think step by step through each planning phase, and always prioritize thorough analysis over speed. For complex problems that require deep reasoning, evolving understanding, or exploration of multiple approaches, utilize the sequential-thinking tool to maintain context and generate well-reasoned solutions. A well-researched plan prevents costly implementation mistakes and ensures successful project outcomes.
 ```
+</details>
 
 The goal of this phase is to generate a comprehensive `.prompt.md` file in `.github/prompts/` that serves as a detailed blueprint for the implementation.
 
-Here's what a typical planning session looks like:
+:::tip
 
-```markdown
-# Feature: User Authentication System
+You can use the Command Palette (`ctrl+shift+p`) in VS Code to quickly create new chat modes and prompts.
 
-## Context
-Building a secure authentication system for our React/TypeScript application...
+:::
 
-## Implementation Steps
-1. Set up JWT token handling
-2. Create login/logout components
-3. Implement protected routes
-4. Add user session management
-5. Write comprehensive tests
+```markdown title=".github/prompts/github-admonitions.prompt.md" noInline
+---
+mode: agent
+---
 
-## Technical Requirements
-- Use React Hook Form for form validation
-- Implement proper error handling
-- Follow our existing TypeScript patterns
-- Ensure accessibility compliance
+# Goal
+Implement complete GitHub-style admonitions support in Docusaurus using TypeScript. Transform GitHub's blockquote syntax (`> [!TYPE]`) into Docusaurus native admonitions (`:::type`) while maintaining visual parity with GitHub's styling.
+
+...
 ```
 
 ### Phase 2: Implementation with Claude Sonnet 4
@@ -166,13 +160,15 @@ Finally, I use additional chat modes and predefined prompts to generate comprehe
 
 ## The Magic of MCP Integration
 
-The Model Context Protocol is what makes this workflow truly powerful. MCP provides a standardized way for AI models to interact with external tools and data sources. Some of the MCP servers I regularly use include:
+The [Model Context Protocol](https://modelcontextprotocol.io/introduction) is what makes this workflow truly powerful. MCP provides a standardized way for AI models to interact with external tools and data sources. Some of the MCP servers I regularly use include:
 
-- **Sequential Thinking**: For structured problem-solving
-- **Web Search & Fetch**: For real-time information gathering
-- **Playwright**: For UI testing and interaction
-- **File System**: For project structure understanding
-- **Git**: For version control operations
+- [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking): For structured problem-solving
+- [Fetch](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch)
+- [SearXNG](https://github.com/ihor-sokoliuk/mcp-searxng): For web search capabilities
+- [Playwright](https://github.com/executeautomation/mcp-playwright): For UI testing and interaction
+- [Git](https://github.com/modelcontextprotocol/servers/tree/main/src/git): For version control operations
+- [Time](https://github.com/modelcontextprotocol/servers/tree/main/src/time): For getting the current time and date
+- [GitHub](https://github.com/github/github-mcp-server): For interacting with the GitHub platform
 
 These tools extend the AI's capabilities far beyond just code generation, creating a true development partner. You can explore the full collection of available MCP servers in the [official Model Context Protocol servers repository](https://github.com/modelcontextprotocol/servers).
 
