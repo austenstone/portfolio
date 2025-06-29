@@ -176,8 +176,8 @@ const config: Config = {
       copyright: `${new Date().getFullYear()}-2024 © Austen Stone`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.vsLight,
+      darkTheme: prismThemes.vsDark,
       additionalLanguages: ['yaml', 'bash', 'json', 'typescript', 'javascript', 'jsx', 'tsx'],
     },
   } satisfies Preset.ThemeConfig,

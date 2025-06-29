@@ -27,11 +27,11 @@ function MinimalHomepage() {
             <Link href="https://github.com/austenstone" className={styles.link}>
               github
             </Link>
-            <Link href="/resume" className={styles.link}>
-              resume
-            </Link>
             <Link href="https://www.linkedin.com/in/austenstone/" className={styles.link}>
               linkedin
+            </Link>
+            <Link href="/resume" className={styles.link}>
+              resume
             </Link>
             <Link href="/docs/category/projects" className={styles.link}>
               view projects
