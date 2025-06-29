@@ -110,7 +110,6 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        { to: '/resume', label: 'Resume', position: 'left' },
         {
           href: 'https://github.com/austenstone',
           className: 'header-github-link',

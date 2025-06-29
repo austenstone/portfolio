@@ -2,15 +2,15 @@
 # Workflows are defined in YAML files in your repository's .github/workflows/ directory
 # Comments in YAML look like this.
 
-# Required: Name of the workflow (displayed in the Actions tab)
+# Name of the workflow (displayed in the Actions tab)
 name: Learn GitHub Actions
 
-# Optional: Description of what this workflow does
+# Optional: The name for workflow runs generated from the workflow.
 run-name: Learning GitHub Actions workflow triggered by ${{ github.actor }}
 
-# Required: Events that trigger the workflow
+# Events that trigger the workflow
 on:
-  # Trigger on push to main branch
+  # Trigger on push
   push:
     # Path filters
     paths:
@@ -23,7 +23,7 @@ on:
 
     # Branch filters
     branches:
-      - main
+      - main # main branch
       - "release/v[0-9].[0-9]" # release/v1.0, release/v2.1, etc.
       - "feature/*" # Any feature branch
       - "!experimental" # Exclude experimental branch
@@ -33,9 +33,9 @@ on:
       - "v[0-9]+.[0-9]+.[0-9]+" # Semantic version tags
       - "!*-alpha" # Exclude alpha tags
 
-  # Trigger on pull requests to main
+  # Trigger on pull requests targeting main
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
   # Trigger manually from the GitHub UI
   workflow_dispatch:
@@ -74,7 +74,7 @@ permissions:
   # security-events: read|write|none
   # statuses: read|write|none
 
-# provide defaults for steps
+# Provide defaults for steps
 defaults:
   run:
     shell: bash # Default shell for all run steps
@@ -137,11 +137,13 @@ jobs:
       # Run a simple shell command
       - run: echo "Hello, GitHub Actions!"
 
-      # Run multiple commands
-      - run: |
+      # Run multiple commands with literal data types
+      - name: Demonstrate data types and basic commands
+        run: |
           echo "Current directory: $(pwd)"
           echo "Files: $(ls -la)"
           echo "Node version: $NODE_VERSION" # print job level environment variable
+          echo "GitHub Token: ${{ secrets.GITHUB_TOKEN }}" # Secrets are automatically masked in logs
           echo "Value: $myIntegerNumber" # print step level environment variable
           echo "step-output=Hello, World!" >> $GITHUB_OUTPUT # Set step output
           echo "::group::Examples"
@@ -155,9 +157,15 @@ jobs:
           echo '::warning:: This is a warning again, because stop-commands has been turned off.'
           echo "::endgroup::"
           echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY # Create a job summary
-        # Step-level environment variable
+          echo "Contains: ${{ contains('hello world', 'hello') }}"
+          echo "Starts with: ${{ startsWith('hello world', 'hello') }}"
+          echo "Ends with: ${{ endsWith('hello world', 'world') }}"
+          echo "Format: ${{ format('Hello {0}!', 'world') }}"
+          echo "Join: ${{ join(fromJSON('["apple", "banana", "cherry"]'), ', ') }}"
+          echo "Object to JSON: ${{ toJSON(fromJSON('{"name": "octocat", "type": "mascot"}')) }}"
+          echo "Hash Files: ${{ hashFiles('**/package-lock.json') }}"
         env:
-          # As part of an expression, you can use boolean, null, number, or string data types.
+          # Literal data types in expressions
           myNull: ${{ null }}
           myBoolean: ${{ false }}
           myIntegerNumber: ${{ 711 }}
@@ -166,10 +174,26 @@ jobs:
           myExponentialNumber: ${{ -2.99e-2 }}
           myString: Mona the Octocat
           myStringInBraces: ${{ 'It''s open source!' }}
-        # use the id to reference this step later
+          # Secrets are automatically masked in logs
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         id: example-step
-        # Specify the working directory for this step
         working-directory: ./
+
+        # Contexts are a way to access information about workflow runs
+      - name: Dump GitHub context
+        run: |
+          echo '${{ toJSON(github) }}'
+          echo '${{ toJSON(env) }}'
+          echo '${{ toJSON(vars) }}'
+          echo '${{ toJSON(job) }}'
+          echo '${{ toJSON(steps) }}'
+          echo '${{ toJSON(runner) }}'
+          echo '${{ toJSON(secrets) }}'
+          echo '${{ toJSON(strategy) }}'
+          echo '${{ toJSON(matrix) }}'
+          echo '${{ toJSON(needs) }}'
+          echo '${{ toJSON(inputs) }}'
+          printenv
 
       # Use the outputs from a previous step
       - run: echo "${{ steps.example-step.outputs.step-output }}"
@@ -195,8 +219,28 @@ jobs:
 
       # Conditionally run a step
       # The github context contains information about the workflow run and the event that triggered the run.
-      - if: ${{ github.ref == 'refs/heads/main' }}
+      - if: contains(fromJSON('["push", "pull_request"]'), github.event_name)
         run: echo "Deploying to production server on branch $GITHUB_REF"
+
+      - if: ${{ always() }}
+        run: echo "This step always runs"
+      
+      - if: ${{ cancelled() }}
+        run: echo "This step runs if the workflow is cancelled"
+
+      - if: ${{ failure() }}
+        run: echo "This step runs if any previous step failed"
+
+        # Object Filter Example
+      - if: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'bug') }}
+        run: echo "This PR has a bug label" 
+
+        # Composite actions let your group multiple steps into a single yml file
+      - name: Inline Composite Action
+        uses: ./.github/actions/hello-world
+        with:
+          name: "GitHub Actions"
+          greeting: "Hello"
 
   # Job with conditions and matrix strategy
   build-matrix:
@@ -230,7 +274,28 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: npm ci
+      # Leverage caching to speed up builds
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v4
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+
+      - run: npm i
+      - run: npm run build
       - run: npm test
 
   container-job:
@@ -292,6 +357,13 @@ jobs:
           sudo apt-get install -y redis-tools
           redis-cli -h localhost -p 6379 ping
 
+  # Reusable workflows are reusable jobs
+  reusable-job:
+    uses: austenstone/actions-playground/.github/workflows/reusable-called.yml@main
+    with:
+      username: "GitHub Actions User"
+    secrets: inherit # You must pass secrets explicitly to reusable workflows
+
   # Job for deployment (typically runs after tests pass)
   deploy:
     name: Deploy Application
@@ -303,7 +375,7 @@ jobs:
 
     # Use environments to track deployments and protect sensitive operations
     environment:
-      name: production
+      name: github-pages
       url: https://myapp.example.com
 
     steps:
@@ -320,114 +392,3 @@ jobs:
           echo "Artifact contents:"
           cat ./artifacts/output.txt
           # Your deployment commands would go here
-
-  # Reusable workflow example
-  reusable-workflow:
-    uses: austenstone/actions-playground/.github/workflows/reusable-called.yml@main
-    with:
-      username: ${{ github.actor }} # Pass the GitHub actor as input to the reusable workflow
-    secrets: inherit # Pass all secrets from the calling workflow to the reusable workflow
-
-# Common GitHub Actions expressions and contexts:
-
-# ${{ github.actor }}           - User who triggered the workflow
-# ${{ github.event_name }}      - Event that triggered the workflow
-# ${{ github.ref }}             - Git reference (branch/tag)
-# ${{ github.sha }}             - Commit SHA
-# ${{ github.repository }}      - Repository name (owner/repo)
-# ${{ github.workspace }}       - Workspace directory path
-# ${{ github.run_number }}      - Unique run number
-# ${{ github.run_id }}          - Unique run ID
-
-# ${{ env.VARIABLE_NAME }}      - Environment variable
-# ${{ secrets.SECRET_NAME }}    - Repository/organization secret
-# ${{ vars.VARIABLE_NAME }}     - Repository/organization variable
-
-# ${{ steps.step-id.outputs.output-name }}  - Step output
-# ${{ jobs.job-id.outputs.output-name }}    - Job output
-# ${{ needs.job-id.result }}                - Job result (success, failure, cancelled, skipped)
-
-# ${{ matrix.variable }}        - Matrix variable
-# ${{ strategy.job-index }}     - Job index in matrix
-
-# Functions available in expressions:
-# ${{ contains('hello world', 'hello') }}   - true
-# ${{ startsWith('hello world', 'hello') }} - true
-# ${{ endsWith('hello world', 'world') }}   - true
-# ${{ format('Hello {0}!', 'world') }}      - "Hello world!"
-# ${{ join(array, ',') }}                   - Join array elements
-# ${{ toJSON(object) }}                     - Convert to JSON string
-# ${{ fromJSON(string) }}                   - Parse JSON string
-
-# Common workflow triggers:
-# on: push                      - Any push
-# on: pull_request             - PR opened, synchronized, reopened
-# on: release                  - Release published
-# on: issues                   - Issue opened, edited, etc.
-# on: workflow_dispatch        - Manual trigger
-# on: repository_dispatch      - External API trigger
-# on: schedule                 - Cron schedule
-
-# Path filtering:
-# on:
-#   push:
-#     paths: ['src/**', '!src/docs/**']  - Only changes to src/ except docs
-
-# Common actions from the marketplace:
-# actions/checkout@v4          - Checkout repository
-# actions/setup-node@v4        - Setup Node.js
-# actions/setup-python@v4      - Setup Python
-# actions/cache@v3             - Cache dependencies
-# actions/upload-artifact@v4   - Upload build artifacts
-# actions/download-artifact@v4 - Download artifacts
-
-# Creating custom actions:
-# You can create JavaScript, Docker, or composite actions
-# Place action.yml in the root of your action repository
-
-# Example action.yml for a composite action:
-# name: 'My Custom Action'
-# description: 'A custom composite action'
-# inputs:
-#   input-name:
-#     description: 'Input description'
-#     required: true
-#     default: 'default-value'
-# outputs:
-#   output-name:
-#     description: 'Output description'
-#     value: ${{ steps.step-id.outputs.value }}
-# runs:
-#   using: 'composite'
-#   steps:
-#     - run: echo "Hello ${{ inputs.input-name }}"
-#       shell: bash
-
-# WORKFLOW COMMANDS REFERENCE:
-#
-# Environment Variables:
-# echo "name=value" >> $GITHUB_ENV              - Set environment variable
-# echo "name<<EOF" >> $GITHUB_ENV; echo "multi"; echo "line"; echo "EOF" >> $GITHUB_ENV
-#
-# Step Outputs:
-# echo "name=value" >> $GITHUB_OUTPUT           - Set step output
-#
-# System PATH:
-# echo "/path/to/add" >> $GITHUB_PATH           - Add directory to PATH
-#
-# Job Summary:
-# echo "# Markdown content" >> $GITHUB_STEP_SUMMARY  - Add to job summary
-# echo "content" > $GITHUB_STEP_SUMMARY         - Overwrite job summary
-# rm $GITHUB_STEP_SUMMARY                      - Remove job summary
-#
-# Annotations:
-# echo "::debug::message"                       - Debug message (needs ACTIONS_STEP_DEBUG=true)
-# echo "::notice::message"                      - Notice annotation
-# echo "::warning::message"                     - Warning annotation
-# echo "::error::message"                       - Error annotation
-# echo "::notice file=f.js,line=1,col=5,title=Title::message" - Annotation with location
-#
-# Log Grouping:
-# echo "::group::Group Title"                   - Start collapsible group
-# echo "::endgroup::"                           - End group
-#

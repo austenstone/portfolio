@@ -3,47 +3,33 @@ slug: welcome-to-my-portfolio
 title: Welcome to My Portfolio
 authors: austen
 tags: [introduction, portfolio, docusaurus]
+image: https://austenstone.com/img/docusaurus/docusaurus-social-card.jpg
 date: 2025-06-26
 description: A brief introduction to my new portfolio website built with Docusaurus, showcasing my projects and blog.
 ---
 
-Welcome to my new portfolio website! After years of using my old Angular-based site, I've migrated everything to Docusaurus to create a better experience for showcasing my projects and sharing my thoughts.
+I've migrated my portfolio from Angular to [Docusaurus](https://docusaurus.io/docs) to focus more on content and less on maintenance.
+
+![Docusaurus Social Card](/img/docusaurus/undraw_docusaurus_react.svg)
 
 <!--truncate-->
 
-## Why the Migration?
+## Why Docusaurus?
 
-My old Angular site served me well, but I wanted something that would be:
-- **Easier to maintain** - Markdown-based content is much simpler to update
-- **Better for SEO** - Server-side generation and proper meta tags
-- **More accessible** - Built-in accessibility features and semantic HTML
-- **Documentation-friendly** - Perfect for detailed project explanations
+[Docusaurus](https://docusaurus.io/) is built specifically for content creators who want to focus on writing rather than wrestling with complex build systems. Here's what makes it perfect for my needs:
 
-## What You'll Find Here
+**Content-First Approach**: Writing in Markdown is a game-changer. Instead of wrestling with Angular components for every blog post, I can now focus purely on content. This means more frequent updates, better documentation for my projects, and less time spent on the technical overhead of publishing.
 
-### Projects
-I've documented all my major projects with detailed explanations, screenshots, and links to live demos.
+**Built for Performance**: Docusaurus follows the PRPL Pattern for lightning-fast loading, generates static HTML for SEO, and provides client-side routing for a smooth single-page app experience.
 
-### Blog
-I'll be sharing thoughts on software engineering, GitHub Actions, developer tools, and my experiences working with enterprise customers at GitHub.
+**Developer Experience**: Hot reloading, MDX support for interactive components, and sensible defaults mean I can ship content quickly without sacrificing functionality.
 
-### Resume
-My professional experience and skills are now presented in a clean, easy-to-read format.
+GitHub Copilot's agentic mode was incredibly helpful during the migration - it handled a lot of the repetitive work and helped me understand Docusaurus patterns quickly.
 
-## Technical Stack
+## What's Here
 
-This new site is built with:
-- **[Docusaurus](https://docusaurus.io/)** - The static site generator that powers this site
-- **TypeScript & React** - For type safety and component-based development  
-- **GitHub Pages** - For reliable hosting and deployment
-- **Modern CSS** - Responsive design with custom styling
+- **Projects**: Detailed documentation of my GitHub Actions, DeviceWISE View, and other work
+- **Blog**: Technical insights and experiences from my role at GitHub
+- **Resume**: Professional experience and skills
 
-## What's Next?
-
-I'll be regularly updating this site with:
-- New project documentation as I build things
-- Blog posts about interesting technical challenges
-- Updates to existing projects and their impact
-- Insights from my work at GitHub
-
-Thanks for visiting, and feel free to [reach out](mailto:hi@austen.info) if you'd like to connect!
+Ready to ship more content! 🚀
