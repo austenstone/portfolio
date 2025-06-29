@@ -1,0 +1,175 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #007acc;
+  --ifm-color-primary-dark: #006bb8;
+  --ifm-color-primary-darker: #0066ad;
+  --ifm-color-primary-darkest: #00548f;
+  --ifm-color-primary-light: #0089e0;
+  --ifm-color-primary-lighter: #008eeb;
+  --ifm-color-primary-lightest: #1a9eff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  --color-canvas-subtle: #f6f8fa;
+  --color-prettylights-syntax-comment: #57606a;
+  --color-prettylights-syntax-constant: #0550ae;
+  --color-prettylights-syntax-entity: #6639ba;
+  --color-prettylights-syntax-storage-modifier-import: #24292f;
+  --color-prettylights-syntax-entity-tag: #116329;
+  --color-prettylights-syntax-keyword: #cf222e;
+  --color-prettylights-syntax-string: #0a3069;
+  --color-prettylights-syntax-variable: #953800;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+  --color-prettylights-syntax-carriage-return-bg: #cf222e;
+  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-markup-list: #3b2300;
+  --color-prettylights-syntax-markup-heading: #0550ae;
+  --color-prettylights-syntax-markup-italic: #24292f;
+  --color-prettylights-syntax-markup-bold: #24292f;
+  --color-prettylights-syntax-markup-deleted-text: #82071e;
+  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+  --color-prettylights-syntax-markup-inserted-text: #116329;
+  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+  --color-prettylights-syntax-markup-changed-text: #953800;
+  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+  --color-prettylights-syntax-meta-diff-range: #8250df;
+  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #4fc3f7;
+  --ifm-color-primary-dark: #29b6f6;
+  --ifm-color-primary-darker: #1e88e5;
+  --ifm-color-primary-darkest: #1976d2;
+  --ifm-color-primary-light: #81d4fa;
+  --ifm-color-primary-lighter: #b3e5fc;
+  --ifm-color-primary-lightest: #e1f5fe;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --color-canvas-subtle: #161b22;
+  --color-prettylights-syntax-comment: #8b949e;
+  --color-prettylights-syntax-constant: #79c0ff;
+  --color-prettylights-syntax-entity: #d2a8ff;
+  --color-prettylights-syntax-storage-modifier-import: #c9d1d9;
+  --color-prettylights-syntax-entity-tag: #7ee787;
+  --color-prettylights-syntax-keyword: #ff7b72;
+  --color-prettylights-syntax-string: #a5d6ff;
+  --color-prettylights-syntax-variable: #ffa657;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #f85149;
+  --color-prettylights-syntax-invalid-illegal-text: #f0f6fc;
+  --color-prettylights-syntax-invalid-illegal-bg: #8e1519;
+  --color-prettylights-syntax-carriage-return-text: #f0f6fc;
+  --color-prettylights-syntax-carriage-return-bg: #b62324;
+  --color-prettylights-syntax-string-regexp: #7ee787;
+  --color-prettylights-syntax-markup-list: #f2cc60;
+  --color-prettylights-syntax-markup-heading: #1f6feb;
+  --color-prettylights-syntax-markup-italic: #c9d1d9;
+  --color-prettylights-syntax-markup-bold: #c9d1d9;
+  --color-prettylights-syntax-markup-deleted-text: #ffdcd7;
+  --color-prettylights-syntax-markup-deleted-bg: #67060c;
+  --color-prettylights-syntax-markup-inserted-text: #aff5b4;
+  --color-prettylights-syntax-markup-inserted-bg: #033a16;
+  --color-prettylights-syntax-markup-changed-text: #ffdfb6;
+  --color-prettylights-syntax-markup-changed-bg: #5a1e02;
+  --color-prettylights-syntax-markup-ignored-text: #c9d1d9;
+  --color-prettylights-syntax-markup-ignored-bg: #1158c7;
+  --color-prettylights-syntax-meta-diff-range: #d2a8ff;
+  --color-prettylights-syntax-brackethighlighter-angle: #8b949e;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #484f58;
+  --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
+}
+
+.header-github-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background-color: var(--ifm-navbar-link-color);
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.header-github-link:hover::before {
+  background-color: var(--ifm-navbar-link-hover-color);
+}
+
+.header-linkedin-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background-color: var(--ifm-navbar-link-color);
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E");
+  transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.header-linkedin-link:hover::before {
+  background-color: var(--ifm-navbar-link-hover-color);
+}
+
+/* Custom styles for better visual hierarchy */
+.markdown h1 {
+  border-bottom: 2px solid var(--ifm-color-primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.markdown h2 {
+  color: var(--ifm-color-primary);
+  margin-top: 2rem;
+}
+
+/* Enhanced code block styling */
+.prism-code {
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Improve navbar styling */
+.navbar {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced footer */
+.footer {
+  background: linear-gradient(135deg, var(--ifm-color-primary-dark) 0%, var(--ifm-color-primary) 100%);
+}
+
+/* Better spacing for content */
+.container {
+  max-width: 1200px;
+}
+
+/* Improve image styling */
+.markdown img {
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+}
+
+/* Enhanced link styling */
+.markdown a {
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.markdown a:hover {
+  border-bottom-color: var(--ifm-color-primary);
+}

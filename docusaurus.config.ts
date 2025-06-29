@@ -1,0 +1,187 @@
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-directives';
+
+// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+const config: Config = {
+  title: 'Austen Stone',
+  tagline: 'Software Engineer who writes code and solves business problems',
+  favicon: 'img/favicon.ico',
+
+  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
+  future: {
+    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+  },
+
+  // Set the production url of your site here
+  url: 'https://austen.info',
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
+  baseUrl: '/',
+
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
+  organizationName: 'austenstone', // Usually your GitHub org/user name.
+  projectName: 'portfolio', // Usually your repo name.
+
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    format: 'detect',
+    mermaid: true,
+    // preprocessor: processGithubAdmonitions, // Removed to avoid conflict with remark plugin
+    // parseFrontMatter: async (params) => {
+    //   const result = await params.defaultParseFrontMatter(params);
+    //   result.frontMatter.description =
+    //     result.frontMatter.description?.replaceAll('{{MY_VAR}}', 'MY_VALUE');
+    //   return result;
+    // },
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
+    anchors: {
+      maintainCase: true,
+    },
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.ts',
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/austenstone/portfolio/tree/main/portfolio/',
+          beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
+        },
+        blog: {
+          showReadingTime: true,
+          feedOptions: {
+            type: ['rss', 'atom'],
+            xslt: true,
+          },
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/austenstone/portfolio/tree/main/portfolio/',
+          // Useful options to enforce blogging best practices
+          onInlineTags: 'warn',
+          onInlineAuthors: 'warn',
+          onUntruncatedBlogPosts: 'warn',
+        },
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
+
+  themeConfig: {
+    // Replace with your project's social card
+    image: 'img/social-card.jpg',
+    navbar: {
+      // title: 'Austen Stone',
+      logo: {
+        src: '/img/ChatGPT Image Jun 28, 2025, 07_40_28 AM.png',
+        style: {
+          'border-radius': '50%',
+        }
+      },
+      items: [
+        { to: '/blog', label: 'Blog', position: 'left' },
+        {
+          type: 'docSidebar',
+          sidebarId: 'docsSidebar',
+          position: 'left',
+          label: 'Docs',
+        },
+        { to: '/resume', label: 'Resume', position: 'left' },
+        {
+          href: 'https://github.com/austenstone',
+          className: 'header-github-link',
+          position: 'right',
+        },
+        {
+          href: 'https://www.linkedin.com/in/austenstone/',
+          className: 'header-linkedin-link',
+          position: 'right',
+        },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Connect',
+          items: [
+            {
+              label: 'GitHub',
+              href: 'https://github.com/austenstone',
+            },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/austenstone/',
+            },
+            {
+              label: 'Email',
+              href: 'mailto:hi@austen.info',
+            },
+          ],
+        },
+        {
+          title: 'Projects',
+          items: [
+            {
+              label: 'GitHub Actions',
+              href: 'https://github.com/marketplace?query=austenstone',
+            },
+            {
+              label: 'GitHub Usage Report',
+              href: 'https://austenstone.github.io/github-actions-usage-report/',
+            },
+            {
+              label: 'Game of Life',
+              href: 'https://life.austen.info',
+            },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
+            {
+              label: 'Blog',
+              to: '/blog',
+            },
+            {
+              label: 'Resume',
+              to: '/resume',
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} Austen Stone. Built with Docusaurus.`,
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['yaml', 'bash', 'json', 'typescript', 'javascript', 'jsx', 'tsx'],
+    },
+  } satisfies Preset.ThemeConfig,
+};
+
+export default config;

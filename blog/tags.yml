@@ -1,0 +1,44 @@
+introduction:
+  label: Introduction
+  permalink: /introduction
+  description: Introduction and welcome posts
+
+portfolio:
+  label: Portfolio
+  permalink: /portfolio
+  description: Portfolio updates and announcements
+
+github-actions:
+  label: GitHub Actions
+  permalink: /github-actions
+  description: GitHub Actions related posts
+
+automation:
+  label: Automation
+  permalink: /automation
+  description: Development automation and CI/CD
+
+ci-cd:
+  label: CI/CD
+  permalink: /ci-cd
+  description: Continuous Integration and Continuous Deployment
+
+enterprise:
+  label: Enterprise
+  permalink: /enterprise
+  description: Enterprise development and solutions
+
+development:
+  label: Development
+  permalink: /development
+  description: Software development topics
+
+projects:
+  label: Projects
+  permalink: /projects
+  description: Project updates and releases
+
+docusaurus:
+  label: Docusaurus
+  permalink: /docusaurus
+  description: Docusaurus framework and static site generation

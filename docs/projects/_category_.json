@@ -1,0 +1,9 @@
+{
+  "label": "Projects",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Explore my projects, showcasing my skills"
+  },
+  "collapsed": true
+}

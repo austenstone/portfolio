@@ -1,0 +1,86 @@
+/**
+ * Minimal homepage inspired by Jake Ginesin's design
+ */
+
+/* Hide navbar on homepage only */
+.homepageContainer :global(.navbar) {
+  display: none !important;
+}
+
+/* Hide footer on homepage only */
+.homepageContainer :global(.footer) {
+  display: none !important;
+}
+
+.minimalContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.content {
+  text-align: left;
+  width: 23%;
+  min-width: 300px;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.tilde {
+  color: var(--ifm-color-primary);
+  margin-right: 0.5rem;
+}
+
+.email {
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  color: var(--ifm-color-secondary);
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.link {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--ifm-color-primary-light);
+  text-decoration: none;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .minimalContainer {
+    padding: 1rem;
+  }
+}

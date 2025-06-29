@@ -1,0 +1,186 @@
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+from https://unpkg.com/highlight.js@9.15.8/styles/github.css
+
+*/
+
+.hljs {
+  display: block;
+  padding: 0.5em;
+  color: var(--color-fg-default);
+  background: var(--color-canvas-subtle);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--color-prettylights-syntax-comment);
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: var(--color-prettylights-syntax-keyword);
+}
+
+.hljs-string,
+.hljs-doctag,
+.hljs-template-variable {
+  color: var(--color-prettylights-syntax-string);
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: var(--color-prettylights-syntax-markup-heading);
+}
+
+.hljs-section {
+  font-weight: bold;
+}
+
+.hljs-type,
+.hljs-class,
+.hljs-variable {
+  color: var(--color-prettylights-syntax-variable);
+}
+
+.hljs-language,
+.hljs-subst {
+  color: var(--color-prettylights-syntax-storage-modifier-import);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-property,
+.hljs-constant {
+  color: var(--color-prettylights-syntax-constant);
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute,
+.hljs-attr {
+  color: var(--color-prettylights-syntax-entity-tag);
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: var(--color-prettylights-syntax-string-regexp);
+}
+
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-function {
+  color: var(--color-prettylights-syntax-entity);
+}
+
+.hljs-deletion {
+  background: var(--color-prettylights-syntax-markup-deleted-bg);
+}
+
+.hljs-addition {
+  background: var(--color-prettylights-syntax-markup-inserted-bg);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* GitHub Docs-style code block wrapper */
+.hljs-wrapper {
+  border: 0.8px solid #d0d7de;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+[data-theme='dark'] .hljs-wrapper {
+  border-color: #30363d;
+}
+
+.hljs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  color: transparent;
+  border-bottom: 1px solid #d0d7de;
+  font-size: 12px;
+  color: #656d76;
+  background: #ffffff;
+}
+
+[data-theme='dark'] .hljs-header {
+  border-bottom-color: #30363d;
+  color: #8b949e;
+  background: #0d1117;
+}
+
+.hljs-language-label {
+  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  color: #656d76;
+  text-transform: uppercase;
+}
+
+[data-theme='dark'] .hljs-language-label {
+  color: #8b949e;
+}
+
+.hljs-copy-button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #656d76;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hljs-copy-button:hover {
+  background: #f3f4f6;
+  color: #24292f;
+}
+
+.hljs-copy-button:active {
+  background: #e5e7eb;
+}
+
+[data-theme='dark'] .hljs-copy-button {
+  color: #8b949e;
+}
+
+[data-theme='dark'] .hljs-copy-button:hover {
+  background: #30363d;
+  color: #f0f6fc;
+}
+
+[data-theme='dark'] .hljs-copy-button:active {
+  background: #21262d;
+}
+
+.hljs-copy-button svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Update the hljs pre styles to work with wrapper */
+.hljs-wrapper .hljs {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  background: #f6f8fa;
+}
+
+[data-theme='dark'] .hljs-wrapper .hljs {
+  background: var(--color-canvas-subtle);
+}

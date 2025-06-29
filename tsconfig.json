@@ -1,28 +1,8 @@
 {
-  "compileOnSave": false,
+  // This file is not used in compilation. It is here just for a nice editor experience.
+  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "./",
-    "downlevelIteration": true,
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "module": "es2020",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "useDefineForClassFields": false
+    "baseUrl": "."
   },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "preserveWhitespaces": true,
-    "strictTemplates": true
-  }
+  "exclude": [".docusaurus", "build"]
 }
