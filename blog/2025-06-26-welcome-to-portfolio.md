@@ -1,7 +1,7 @@
 ---
 slug: welcome-to-my-portfolio
 title: Welcome to My Portfolio
-tags: [introduction, portfolio, docusaurus]
+tags: [website, development]
 image: https://austenstone.com/img/docusaurus/docusaurus-social-card.jpg
 date: 2025-06-26
 description: A brief introduction to my new portfolio website built with Docusaurus, showcasing my projects and blog.

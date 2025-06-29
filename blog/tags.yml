@@ -1,79 +1,44 @@
-introduction:
-  label: Introduction
-  permalink: /introduction
-  description: Introduction and welcome posts
+website:
+  label: Website
+  permalink: /website
+  description: Website updates and announcements
 
-portfolio:
-  label: Portfolio
-  permalink: /portfolio
-  description: Portfolio updates and announcements
-
-github-actions:
-  label: GitHub Actions
-  permalink: /github-actions
-  description: GitHub Actions related posts
-
-automation:
-  label: Automation
-  permalink: /automation
-  description: Development automation and CI/CD
-
-ci-cd:
-  label: CI/CD
-  permalink: /ci-cd
-  description: Continuous Integration and Continuous Deployment
-
-enterprise:
-  label: Enterprise
-  permalink: /enterprise
-  description: Enterprise development and solutions
-
-development:
-  label: Development
-  permalink: /development
-  description: Software development topics
-
-projects:
-  label: Projects
-  permalink: /projects
-  description: Project updates and releases
-
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus framework and static site generation
+github:
+  label: GitHub
+  permalink: /github
+  description: GitHub related
 
 github-copilot:
   label: GitHub Copilot
   permalink: /github-copilot
   description: GitHub Copilot and AI-assisted development
 
-mcp:
-  label: MCP
-  permalink: /mcp
-  description: Microsoft Certified Professional content
+github-actions:
+  label: GitHub Actions
+  permalink: /github-actions
+  description: GitHub Actions related posts
 
-agent-mode:
-  label: Agent Mode
-  permalink: /agent-mode
-  description: AI agent technologies and implementations
+development:
+  label: Development
+  permalink: /development
+  description: Software development topics
 
-workflow:
-  label: Workflow
-  permalink: /workflow
-  description: Development workflows and productivity techniques
-
-productivity:
-  label: Productivity
-  permalink: /productivity
-  description: Tools and methods to improve development productivity
-
-devops:
-  label: DevOps
-  permalink: /devops
-  description: DevOps practices, tools, and culture
+ai:
+  label: AI
+  permalink: /ai
+  description: AI technologies and implementations
 
 tldr:
   label: TLDR
   permalink: /tldr
   description: Too long; didn't read - quick reference guides
+
+travel:
+  label: Travel
+  permalink: /travel
+  description: Travel adventures and experiences
+
+photography:
+  label: Photography
+  permalink: /photography
+  description: Photography
