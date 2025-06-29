@@ -19,6 +19,7 @@ on:
       - "**.js" # JavaScript files anywhere
       - "!src/test/**" # Exclude test files
       - "config/[a-z]*.yml" # YAML files starting with lowercase letter
+      - ".github/workflows/**" # Any workflow file changes
 
     # Branch filters
     branches:
@@ -168,7 +169,7 @@ jobs:
         # use the id to reference this step later
         id: example-step
         # Specify the working directory for this step
-        working-directory: /src
+        working-directory: /
 
       # Use the outputs from a previous step
       - run: echo "${{ steps.example-step.outputs.step-output }}"
