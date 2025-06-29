@@ -15,9 +15,9 @@
 .minimalContainer {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 2rem;
+  padding: 8rem 2rem 2rem 2rem;
 }
 
 .content {
@@ -85,6 +85,6 @@
   }
   
   .minimalContainer {
-    padding: 1rem;
+    padding: 4rem 1rem 1rem 1rem;
   }
 }
