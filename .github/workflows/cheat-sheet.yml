@@ -73,11 +73,11 @@ permissions:
   # security-events: read|write|none
   # statuses: read|write|none
 
-# provide default shell and working-directory options for all run steps
+# provide defaults for steps
 defaults:
   run:
-    shell: bash
-    working-directory: ./scripts
+    shell: bash # Default shell for all run steps
+    working-directory: / # Default working directory for all run steps
 
 # Concurrency allows you to control the concurrency of workflow runs.
 concurrency:
@@ -168,7 +168,7 @@ jobs:
         # use the id to reference this step later
         id: example-step
         # Specify the working directory for this step
-        working-directory: ./scripts
+        working-directory: /src
 
       # Use the outputs from a previous step
       - run: echo "${{ steps.example-step.outputs.step-output }}"
