@@ -299,7 +299,7 @@ jobs:
 
     # Only run on main branch and after other jobs succeed
     if: github.ref == 'refs/heads/main'
-    needs: [build-matrix]
+    needs: [basic-job, build-matrix]
 
     # Use environments to track deployments and protect sensitive operations
     environment:
