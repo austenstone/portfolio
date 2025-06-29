@@ -24,6 +24,9 @@ function MinimalHomepage() {
             <Link href="/blog" className={styles.link}>
               blog
             </Link>
+            <Link href="/guides" className={styles.link}>
+              guides
+            </Link>
             <Link href="https://github.com/austenstone" className={styles.link}>
               github
             </Link>
@@ -33,7 +36,7 @@ function MinimalHomepage() {
             <Link href="/resume" className={styles.link}>
               resume
             </Link>
-            <Link href="/docs/category/projects" className={styles.link}>
+            <Link href="/projects" className={styles.link}>
               view projects
             </Link>
           </div>
@@ -48,7 +51,7 @@ export default function Home(): ReactNode {
   return (
     <div className={styles.homepageContainer}>
       <Layout
-        title={`${siteConfig.title} - Software Engineer`}
+        title={siteConfig.title}
         description="Passionate developer focused on using cutting edge technology to solve business problems">
         <MinimalHomepage />
       </Layout>

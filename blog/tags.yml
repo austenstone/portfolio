@@ -42,3 +42,38 @@ docusaurus:
   label: Docusaurus
   permalink: /docusaurus
   description: Docusaurus framework and static site generation
+
+github-copilot:
+  label: GitHub Copilot
+  permalink: /github-copilot
+  description: GitHub Copilot and AI-assisted development
+
+mcp:
+  label: MCP
+  permalink: /mcp
+  description: Microsoft Certified Professional content
+
+agent-mode:
+  label: Agent Mode
+  permalink: /agent-mode
+  description: AI agent technologies and implementations
+
+workflow:
+  label: Workflow
+  permalink: /workflow
+  description: Development workflows and productivity techniques
+
+productivity:
+  label: Productivity
+  permalink: /productivity
+  description: Tools and methods to improve development productivity
+
+devops:
+  label: DevOps
+  permalink: /devops
+  description: DevOps practices, tools, and culture
+
+tldr:
+  label: TLDR
+  permalink: /tldr
+  description: Too long; didn't read - quick reference guides

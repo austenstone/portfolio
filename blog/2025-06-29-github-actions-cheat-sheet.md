@@ -1,7 +1,7 @@
 ---
 slug: github-actions-cheat-sheet
 title: Learn GitHub Actions in Y Minutes
-tags: [github-actions, ci-cd, devops, cheat-sheet]
+tags: [github-actions, ci-cd, devops, tldr]
 image: /assets/screenshots/chrome_nSvEKPj2YO.png
 date: 2025-06-29
 description: A comprehensive GitHub Actions cheat sheet inspired by Learn X in Y Minutes - everything you need to know in one commented YAML file.

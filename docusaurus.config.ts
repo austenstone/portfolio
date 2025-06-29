@@ -106,9 +106,15 @@ const config: Config = {
         { to: '/blog', label: 'Blog', position: 'left' },
         {
           type: 'docSidebar',
-          sidebarId: 'docsSidebar',
+          sidebarId: 'guides',
           position: 'left',
-          label: 'Docs',
+          label: 'Guides',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'projects',
+          position: 'left',
+          label: 'Projects',
         },
         {
           href: 'https://github.com/austenstone',
