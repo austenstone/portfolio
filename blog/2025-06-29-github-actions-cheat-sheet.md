@@ -7,7 +7,7 @@ date: 2025-06-29
 description: A comprehensive GitHub Actions cheat sheet inspired by Learn X in Y Minutes - everything you need to know in one commented YAML file.
 ---
 
-I've created a comprehensive [GitHub Actions cheat sheet](/docs/actions/Cheat%20Sheet) inspired by the excellent [Learn X in Y Minutes](https://learnxinyminutes.com/) format.
+I've created a comprehensive [GitHub Actions cheat sheet](/docs/actions/Cheat%20Sheet) inspired by the [Learn X in Y Minutes](https://learnxinyminutes.com/) format.
 
 <!--truncate-->
 
