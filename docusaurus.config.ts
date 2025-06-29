@@ -93,7 +93,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus/docusaurus-social-card.jpg',
+    image: 'assets/img/japaneese_garden_small.jpg',
     navbar: {
       // title: 'Austen Stone',
       logo: {
