@@ -35,7 +35,11 @@ on:
 
   # Trigger on pull requests targeting main
   pull_request:
-    branches: [ main ]
+    branches: [main]
+
+  # Trigger on pull request reviews
+  pull_request_review:
+    types: [submitted]
 
   # Trigger manually from the GitHub UI
   workflow_dispatch:
@@ -224,7 +228,7 @@ jobs:
 
       - if: ${{ always() }}
         run: echo "This step always runs"
-      
+
       - if: ${{ cancelled() }}
         run: echo "This step runs if the workflow is cancelled"
 
@@ -233,7 +237,7 @@ jobs:
 
         # Object Filter Example
       - if: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'bug') }}
-        run: echo "This PR has a bug label" 
+        run: echo "This PR has a bug label"
 
         # Composite actions let your group multiple steps into a single yml file
       - name: Inline Composite Action
@@ -380,6 +384,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
       # Download artifacts from previous jobs
       - name: Download artifacts
         uses: actions/download-artifact@v4
@@ -391,4 +396,24 @@ jobs:
           echo "Deploying to production..."
           echo "Artifact contents:"
           cat ./artifacts/output.txt
-          # Your deployment commands would go here
+
+      # The GitHub CLI is pre-installed on GitHub-hosted runners
+      - run: |
+          gh pr comment ${{ github.event.pull_request.number }} \
+            --body "🚀 **Deployment Successful!**
+        if: github.event_name == 'pull_request' && success()
+        # To use the GitHub CLI, you need to authenticate with a token
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Basic GitHub Script example - create an issue comment
+      - name: Comment on issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Comment from github-script!'
+            })
