@@ -144,6 +144,8 @@ It comes up with the idea to use Giscus as a commenting service.
 
 > To add comments to your Docusaurus blog, you'll need to use a third-party commenting service because Docusaurus generates a static site. A highly recommended option that integrates perfectly with your existing GitHub-based project is Giscus.
 
+[Full chat export](https://github.com/austenstone/portfolio/blob/main/blog/2025-06-30-github-copilot-agent-mcp/_prompts/chat1.json)
+
 ### Phase 1: Planning
 
 Now I switch to `plan` chat mode.
@@ -172,9 +174,33 @@ Now I can switch to Claude Sonnet 4 and run the generated prompt file.
 /implement-giscus
 ```
 
+[Full chat export](https://github.com/austenstone/portfolio/blob/main/blog/2025-06-30-github-copilot-agent-mcp/_prompts/chat1.json)
+
 ### Phase 3: Course Correction
 
-I'm watching the agent work.
+I'm watching the agent work and it got hung up on how to pass front matter metadata to the Giscus component.
+
+I paused and asked it to look at document on the topic
+```
+look at how blog posts can do front matter
+https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog#markdown-front-matter
+```
+
+Copilot looked at my resource and found even more resources to help it understand how to access blog post metadata.
+
+> I'll examine how to properly access blog post front matter in Docusaurus by checking the documentation and updating the implementation accordingly.
+> 
+> Fetched https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog#markdown-front-matter
+>
+> Now let me check the Docusaurus documentation about how to access blog post metadata in components:
+>
+> Fetched https://docusaurus.io/docs/blog#accessing-blog-post-information
+>
+> Let me search for Docusaurus documentation specifically about the useBlogPost hook:
+> 
+> ...
+
+Copilot figured out that the ideal solution was the reactHook [`useBlogPost()`](https://github.com/austenstone/portfolio/pull/36/files#diff-6324df17a3dc2a08f453a5faaa507164572fb47b545db0c902dfa9386e9b7a43R11) which I totally agree with.
 
 ### Phase 4: Validation & Testing
 
@@ -184,10 +210,23 @@ I want to ensure the Giscus comments are working correctly so I ask Copilot to b
 check that the giscus comments are working
 browse to http://localhost:3000/blog/github-copilot-agent-mcp
 test functionality
-#changes 
+#changes
 ```
 
-The
+This tested the comments were working but I wanted it to actually make a comment on the blog post.
+
+```
+Test the comments by making comments on this blog post
+http://localhost:3000/blog/github-copilot-agent-mcp
+
+Make the comment about the blog post and say that it's coming from github copilot using playwright
+```
+
+The [comment](https://github.com/austenstone/portfolio/discussions/35#discussioncomment-13621611) on this blog post was actually the output of this prompt.
+
+### Real Example
+
+Copilot did complete my feature completely.
 
 The full PR can be found at [austenstone/portfolio/pull/36](https://github.com/austenstone/portfolio/pull/36).
 

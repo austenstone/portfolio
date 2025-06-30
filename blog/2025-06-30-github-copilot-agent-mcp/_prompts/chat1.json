@@ -1,0 +1,1815 @@
+{
+  "requesterUsername": "austenstone",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/22425467",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "panel",
+  "requests": [
+    {
+      "requestId": "request_a6a4d452-9f9e-49d2-8eab-5d1ebd8ef02f",
+      "message": {
+        "text": "How would I add comments to my blog posts in this Docusaurus site?",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 66
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 67
+            },
+            "text": "How would I add comments to my blog posts in this Docusaurus site?",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `sequentialthinking`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `sequentialthinking` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "originMessage": {
+            "value": "[sequential\\-thinking \\(MCP Server\\)](command:workbench.mcp.showConfiguration?%255B%2522mcp.config.usrlocal%2522%252C%2522mcp.config.usrlocal.sequential-thinking%2522%255D)",
+            "isTrusted": true,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "isConfirmed": true,
+          "isComplete": true,
+          "resultDetails": {
+            "input": "{\n  \"nextThoughtNeeded\": true,\n  \"thought\": \"I need to research how to add comments to a Docusaurus blog. I will start by searching for \\\"Docusaurus add comments to blog\\\" to get an overview of the available options. Then, I will identify the most common solutions, evaluate their pros and cons, and check the official Docusaurus documentation for recommendations. Finally, I will synthesize the findings and provide a recommendation to the user, likely focusing on a GitHub-based solution like Giscus since the user is already using GitHub.\",\n  \"thoughtNumber\": 1,\n  \"totalThoughts\": 5\n}",
+            "output": [
+              {
+                "isText": true,
+                "value": "{\n  \"thoughtNumber\": 1,\n  \"totalThoughts\": 5,\n  \"nextThoughtNeeded\": true,\n  \"branches\": [],\n  \"thoughtHistoryLength\": 4\n}"
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "nextThoughtNeeded": true,
+              "thought": "I need to research how to add comments to a Docusaurus blog. I will start by searching for \"Docusaurus add comments to blog\" to get an overview of the available options. Then, I will identify the most common solutions, evaluate their pros and cons, and check the official Docusaurus documentation for recommendations. Finally, I will synthesize the findings and provide a recommendation to the user, likely focusing on a GitHub-based solution like Giscus since the user is already using GitHub.",
+              "thoughtNumber": 1,
+              "totalThoughts": 5
+            }
+          },
+          "toolCallId": "5278f210-5545-4783-aac0-f23124b64023",
+          "toolId": "mcp_sequential-th_sequentialthinking"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `sequentialthinking`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `sequentialthinking` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "originMessage": {
+            "value": "[sequential\\-thinking \\(MCP Server\\)](command:workbench.mcp.showConfiguration?%255B%2522mcp.config.usrlocal%2522%252C%2522mcp.config.usrlocal.sequential-thinking%2522%255D)",
+            "isTrusted": true,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "isConfirmed": true,
+          "isComplete": true,
+          "resultDetails": {
+            "input": "{\n  \"nextThoughtNeeded\": true,\n  \"thought\": \"I have a good understanding of the user's request. Now I will execute the plan. I will start by searching the web for 'Docusaurus add comments to blog' to find out the available options.\",\n  \"thoughtNumber\": 2,\n  \"totalThoughts\": 5\n}",
+            "output": [
+              {
+                "isText": true,
+                "value": "{\n  \"thoughtNumber\": 2,\n  \"totalThoughts\": 5,\n  \"nextThoughtNeeded\": true,\n  \"branches\": [],\n  \"thoughtHistoryLength\": 5\n}"
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "nextThoughtNeeded": true,
+              "thought": "I have a good understanding of the user's request. Now I will execute the plan. I will start by searching the web for 'Docusaurus add comments to blog' to find out the available options.",
+              "thoughtNumber": 2,
+              "totalThoughts": 5
+            }
+          },
+          "toolCallId": "0328300e-95d7-472b-b4fc-e186c00e31d5",
+          "toolId": "mcp_sequential-th_sequentialthinking"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `searxng_web_search`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `searxng_web_search` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "originMessage": {
+            "value": "[searxng \\(MCP Server\\)](command:workbench.mcp.showConfiguration?%255B%2522mcp.config.usrlocal%2522%252C%2522mcp.config.usrlocal.searxng%2522%255D)",
+            "isTrusted": true,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "isConfirmed": true,
+          "isComplete": true,
+          "resultDetails": {
+            "input": "{\n  \"query\": \"Docusaurus add comments to blog\"\n}",
+            "output": [
+              {
+                "isText": true,
+                "value": "Title: Comments in documents or blogs - Feedback | Docusaurus\nDescription: We may not build our own comment system plugin, but we'll make the integration easier and most importantly document how to add a comment system to your blog.\nURL: https://docusaurus.io/feature-requests/p/comments-in-documents-or-blogs\n\nTitle: Add comments to your Docusaurus website in 5 minutes - DEV Community\nDescription: Enabling comments on your blog welcomes healthy discussions and brainstorming between your community members. Prerequisites Before proceeding with this guide, you must have your Docusaurus project setup locally. To collect comments, likes, and dislikes you'll use docsly.dev. docsly is a user feedback tool for documentation.\nURL: https://dev.to/anshuman_bhardwaj/add-comments-to-your-docusaurus-website-in-5-minutes-3pck\n\nTitle: Is it possible to support visitor comments in Docusaurus? - Stack Overflow\nDescription: Check my blog post where you can test it live and find a step-by-step description of how to add Giscus, a commenting system powered by GitHub Discussions, to a static website generated by Docusaurus.\nURL: https://stackoverflow.com/questions/57564623/is-it-possible-to-support-visitor-comments-in-docusaurus\n\nTitle: Learn how to add a comment section in Docusaurus using commentbox.io | Yayo Code\nDescription: Copy your project ID, we will use ... in our Docusaurus project. During development, type localhost in the Website Domain field. When you release to production make sure the Website Domain matches your own domain, for example, in my case yayocode.com. Use the following command to install the commentbox.io package from NPM: ... We will use swizzling to add the comments section to our blog and ...\nURL: https://yayocode.com/2024/03/28/adding_a_comment_section_in_docusaurus/\n\nTitle: How to add Giscus comments to Docusaurus - DEV Community\nDescription: Oct 30, 2022 — This post is a step-by-step description of how to add Giscus, a commenting system powered by GitHub Discussions, to a static website generated by Docusaurus.\nURL: https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h\n\nTitle: Adding Comments to Docusaurus Sites | AlexFornuto.com\nDescription: It uses GitHub's API to treat the ... for comments. While I have my own issues with GitHub post-acquisition, it's a far better solution than tying in Discus, Google, or Facebook to my site. And since I use Docusaurus for professional documentation sites, it's a nice lower barrier to entry for non-technical folks to engage with content, and only one extra click to turn a discussion item into an issue. So my blog made for a ...\nURL: https://alexfornuto.com/blog/2024/04/01/giscus/\n\nTitle: Blog | Docusaurus\nDescription: Jun 6, 2025 ... You can add another blog by specifying another blog plugin in the plugins option for docusaurus.config.js . Set the routeBasePath to the URL ...\nURL: https://docusaurus.io/docs/blog\n\nTitle: Add Disqus Comments to Docusaurus Blog Posts (archived) | Madrus's Webdings\nDescription: Run your Docusaurus project locally running either yarn start or npm run start in your terminal. Browse to http://localhost:3000/blog and make sure you see at least one blog post. Choose one of them to work with. Open the chosen blog post file in your editor of choice and add the following ...\nURL: https://madrus4u.com/blog/blog-comments\n\nTitle: Add comments to your Docusaurus website in 5 minutes | by Anshuman Bhardwaj | Medium\nDescription: Docusaurus is one of the best static site generators for blogs and documentation projects. Docusaurus is backed by the Meta Open Source team and is quite popular among developer communities for great performance and simple setup. In this guide, you’ll add comments to your Docusaurus documentation ...\nURL: https://anshuman-bhardwaj.medium.com/add-comments-to-your-docusaurus-website-in-5-minutes-dd9fa593d6f5\n\nTitle: How to write comments? · facebook docusaurus · Discussion #3557\nDescription: On Docusaurus 2 website I know there are comments using this syntax: # Markdown page <!-- TODO. -->\nURL: https://github.com/facebook/docusaurus/discussions/3557\n\nTitle: Feedback widget - Docusaurus\nDescription: Here I made a post about how to add feedback widget to docs using swizzle: https://happyreact.com/blog/feedback-widget-in-docusaurus. 1 like. ·. June 13, 2022.\nURL: https://docusaurus.io/feature-requests/p/feedback-widget\n\nTitle: Comments in documents or blogs | Feature Requests | Docusaurus\nDescription: I created a tutorial to add a comment section to documents and blog articles. You can try it yourself in the tutorial. https://yayocode.com/2024/03/28/adding_a_comment_section_in_docusaurus\nURL: https://docusaurus.canny.io/feature-requests/p/comments-in-documents-or-blogs\n\nTitle: How to add a comments section to doc pages and blog entries using giscus | Software Engineering Handbook\nDescription: This post details how to outfit your Docusaurus site's doc pages and blog posts with a comments section using giscus.\nURL: https://dwf.dev/blog/2022/10/27/2022/giscus-comments/\n\nTitle: Adding Comments to Docusaurus - The DAX Shepherd\nDescription: Here is how I added comments to Docusaurus for my blog. Swizzling To enhance the layout of Docusaurus we need to modify the theme component with our changes. In Hugo, this meant we usually just copied the file from the theme and made the changes to the file.\nURL: https://thedaxshepherd.com/2023/01/24/docu-adding-comments/\n\nTitle: Adding Comments to Docusaurus Blogs - kevinwilliams.dev\nDescription: Technology Adding Comments to Docusaurus Blogs The features that docusaurus comes with out of the box are great, but there's one piece that's missing, especially for a blog - comments.\nURL: https://kevinwilliams.dev/blog/docusaurus-comments/\n\nTitle: Make Docusaurus Better: Comment System Launched on SQYBI.com | SQYBI.com\nDescription: I wonder if anyone else uses Docusaurus to build a blog and has done so much secondary development. If so, I'd like to check out their site. ... First, let's briefly introduce the main features and highlight the design of this new comment system. The most basic functionality, of course, is posting comments. ... I've specially adjusted all colors of the comment box to be similar to the new theme of the blog while removing all existing borders. Additionally...\nURL: https://sqybi.com/en-US/blog/make-docusaurus-better-comment-system-launched/\n\nTitle: Add Disqus Comments to Docusaurus Blog Posts (archived)\nDescription: Searching on adding e.g. Disqus blog comments in Docusaurus brought back more questions than answers. (see some references at the end of this post) The closest I could get to the solution was How to add forum to Docusaurus using Utterances comments via GitHub issues. I got the gist but the vendor binding was too big to my taste.\nURL: https://madrus4u.vercel.app/blog/blog-comments\n\nTitle: Enable comments on blog post · Issue #667 · facebook/docusaurus\nDescription: It is very common to create/read/update/delete comments on a blog, and Docusaurus seems to lack that feature. Fortunately, Facebook SDK is already integrated to Docusaurus, so adding Facebook Comments will be easy.\nURL: https://github.com/facebook/docusaurus/issues/667\n\nTitle: Proposal: Add support for comments powered by Discourse · Issue #738 · facebook/docusaurus\nDescription: Discourse is open source forum software. The way it works is similar to how Facebook commenting works: you load a piece of JavaScript[1] and it will allow people to comment (example). Would a pull request be accepted that adds support for configuring Discourse comments for Docusaurus blog posts?\nURL: https://github.com/facebook/docusaurus/issues/738\n\nTitle: Blog | Madrus's Webdings\nDescription: TL;DR Recently I have switched from Jekyll to Docusaurus for my personal website. And immediately noticed the issue with letting the visitors place comments to blog posts. It seems that the comments work out of the box only for Facebook comments and then only if one has a registered FB business site (according to this PR). Searching on adding ...\nURL: https://madrus4u.com/blog\n\nTitle: How to add Giscus comments to Docusaurus | {m19v}\nDescription: Create BlogPostItem component to wrap blog posts with Giscus commenting system as follows: npm run swizzle [theme name] [component name] -- --wrap # Example: npm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap\nURL: https://m19v.github.io/blog/how-to-add-giscus-to-docusaurus\n\nTitle: Adding Comment Functionality to Docusaurus | Alan Wang\nDescription: Adding Giscus comment functionality to blogs and documentation through Docusaurus Swizzling\nURL: https://www.alanwang.site/en/posts/blog-guides/docusaurus-comment\n\nTitle: Add Giscus Comments to Docusaurus 3 Blog Posts and Doc Pages | Riku Block\nDescription: Giscus is a handy open-source web application that effortlessly integrates GitHub Discussions into external platforms.\nURL: https://rikublock.dev/docs/tutorials/giscus-integration/\n\nTitle: Comments can end up displaying inside description meta · Issue #6108 · facebook/docusaurus\nDescription: Have you read the Contributing Guidelines on issues? I have read the Contributing Guidelines on issues. Prerequisites I'm using the latest version of Docusaurus. I have tried the npm run clear ...\nURL: https://github.com/facebook/docusaurus/issues/6108"
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "query": "Docusaurus add comments to blog"
+            }
+          },
+          "toolCallId": "89c4cf43-fe5b-4d6b-84d2-ce9f195f6c00",
+          "toolId": "mcp_searxng_searxng_web_search"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `sequentialthinking`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `sequentialthinking` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "originMessage": {
+            "value": "[sequential\\-thinking \\(MCP Server\\)](command:workbench.mcp.showConfiguration?%255B%2522mcp.config.usrlocal%2522%252C%2522mcp.config.usrlocal.sequential-thinking%2522%255D)",
+            "isTrusted": true,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "isConfirmed": true,
+          "isComplete": true,
+          "resultDetails": {
+            "input": "{\n  \"nextThoughtNeeded\": true,\n  \"thought\": \"The initial search has provided several options for adding comments to a Docusaurus blog. Giscus, which is based on GitHub Discussions, appears to be the most suitable choice given the user's existing use of GitHub. I will now delve deeper into the implementation of Giscus by reading a detailed guide. This will help me provide the user with a clear and actionable recommendation.\",\n  \"thoughtNumber\": 3,\n  \"totalThoughts\": 5\n}",
+            "output": [
+              {
+                "isText": true,
+                "value": "{\n  \"thoughtNumber\": 3,\n  \"totalThoughts\": 5,\n  \"nextThoughtNeeded\": true,\n  \"branches\": [],\n  \"thoughtHistoryLength\": 6\n}"
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "nextThoughtNeeded": true,
+              "thought": "The initial search has provided several options for adding comments to a Docusaurus blog. Giscus, which is based on GitHub Discussions, appears to be the most suitable choice given the user's existing use of GitHub. I will now delve deeper into the implementation of Giscus by reading a detailed guide. This will help me provide the user with a clear and actionable recommendation.",
+              "thoughtNumber": 3,
+              "totalThoughts": 5
+            }
+          },
+          "toolCallId": "16ed2673-e7e7-4ae4-a1b4-bc9d632150b2",
+          "toolId": "mcp_sequential-th_sequentialthinking"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `web_url_read`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `web_url_read` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "originMessage": {
+            "value": "[searxng \\(MCP Server\\)](command:workbench.mcp.showConfiguration?%255B%2522mcp.config.usrlocal%2522%252C%2522mcp.config.usrlocal.searxng%2522%255D)",
+            "isTrusted": true,
+            "supportThemeIcons": false,
+            "supportHtml": false
+          },
+          "isConfirmed": true,
+          "isComplete": true,
+          "resultDetails": {
+            "input": "{\n  \"url\": \"https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h\"\n}",
+            "output": [
+              {
+                "isText": true,
+                "value": "[Skip to content](#main-content) \n\nNavigation menu [ ![DEV Community](https://media2.dev.to/dynamic/image/quality=100/https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png) ](/) \n\nSearch [ Powered bySearch  Algolia](https://www.algolia.com/developers/?utm%5Fsource=devto&utm%5Fmedium=referral) \n\n[ Log in](https://dev.to/enter) [ Create account](https://dev.to/enter?state=new-user) \n\n## DEV Community\n\nClose \n\n![](https://assets.dev.to/assets/heart-plus-active-9ea3b22f2bc311281db911d416166c5f430636e76b15cd5df6b3b841d830eefa.svg)  Add reaction \n\n![](https://assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg)  Like ![](https://assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg)  Unicorn ![](https://assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg)  Exploding Head ![](https://assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg)  Raised Hands ![](https://assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg)  Fire \n\n Jump to Comments  Save  Boost \n\nMore... \n\n Moderate \n\nCopy link Copy link \n\nCopied to Clipboard\n\n[ Share to X](https://twitter.com/intent/tweet?text=%22How%20to%20add%20Giscus%20comments%20to%20Docusaurus%22%20by%20m19v%20%23DEVCommunity%20https%3A%2F%2Fdev.to%2Fm19v%2Fhow-to-add-giscus-comments-to-docusaurus-439h) [ Share to LinkedIn](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdev.to%2Fm19v%2Fhow-to-add-giscus-comments-to-docusaurus-439h&title=How%20to%20add%20Giscus%20comments%20to%20Docusaurus&summary=Goal%20%20%20This%20post%20is%20a%20step-by-step%20description%20of%20how%20to%20add%20Giscus%2C%20a%20commenting%20system...&source=DEV%20Community) [ Share to Facebook](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.to%2Fm19v%2Fhow-to-add-giscus-comments-to-docusaurus-439h) [ Share to Mastodon](https://toot.kytta.dev/?text=https%3A%2F%2Fdev.to%2Fm19v%2Fhow-to-add-giscus-comments-to-docusaurus-439h) \n\n[Share Post via...](#) [Report Abuse](/report-abuse) \n\n[ ![Cover image for How to add Giscus comments to Docusaurus](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F118bzzd8liya1913o8d4.png) ](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F118bzzd8liya1913o8d4.png) \n\n[![m19v](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)](/m19v) \n\n[m19v](/m19v) \n\n Posted on Oct 30, 2022 • Edited on Mar 26, 2023 \n\n![](https://assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg) ![](https://assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg) ![](https://assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg) ![](https://assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg) ![](https://assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg) \n\n#  How to add Giscus comments to Docusaurus\n\n[#docusaurus](/t/docusaurus) [#giscus](/t/giscus) [#blogging](/t/blogging) \n\n## [ ](#goal) Goal\n\nThis post is a step-by-step description of how to add [Giscus](https://giscus.app/), a commenting system powered by GitHub Discussions, to a static website generated by Docusaurus.\n\n## [ ](#setup-giscus) Setup Giscus\n\nFollow the steps in the sections of the current chapter to set up Giscus and connect it to the GitHub discussions.\n\n### [ ](#enable-github-discussion) Enable GitHub discussion\n\n* Create Github repository in your Github account where comments are stored in Discussion section.\n* In the main page of created repository go to Settings.\n* Under \"Features\" section, click \"Set up discussions\".\n* Edit the template in \"Start a new discussion\" and click \"Start discussion\".\n\n### [ ](#enable-giscus) Enable Giscus\n\n* [Configure](https://github.com/apps/giscus) giscus in your GitHub account.\n* In Section \"Repository access\" add **only** created repository from previous step to be accessed by giscus and click \"Save\".\n\n### [ ](#get-repository-api-key) Get repository API key\n\n* Login with GitHub account in [GraphQL API Explorer](https://docs.github.com/en/graphql/overview/explorer).\n* Use following query to fetch the id of created repository, discussion categories with its details (e.g. id and name). **Note!** Replace`owner`and`name`with your GitHub account name and name of repository you created.\n\n```\nquery { \n  repository(owner: \"nameOfYourGitHubAccount\", name:\"nameOfCreatedRepository\"){\n    id\n    discussionCategories(first:10) {\n      edges {\n        node {\n          id\n          name\n        }\n      }\n    }\n  }\n}\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\nThe result json object will be similar to:  \n\n```\n{\n  \"data\": {\n    \"repository\": {\n      \"id\": \"R_kgDOIVqhTg\",\n      \"discussionCategories\": {\n        \"edges\": [\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSES\",\n              \"name\": \"Announcements\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSET\",\n              \"name\": \"General\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSEV\",\n              \"name\": \"Ideas\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSEX\",\n              \"name\": \"Polls\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSEU\",\n              \"name\": \"Q&A\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSEW\",\n              \"name\": \"Show and tell\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\n## [ ](#create-giscus-component) Create Giscus component\n\n* Install @giscus/react package\n\n```\nnpm i @giscus/react\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\n* Create Giscus Component, e.g. under`/src/components/GiscusComponent`as follows:\n\n```\nimport React from 'react';\nimport Giscus from \"@giscus/react\";\nimport { useColorMode } from '@docusaurus/theme-common';\n\nexport default function GiscusComponent() {\n  const { colorMode } = useColorMode();\n\n  return (\n    <Giscus    \n      repo=\"nameOfYourGitHubAccount/nameOfCreatedRepository\"\n      repoId=\"idOfCreatedRepo\"\n      category=\"General\"\n      categoryId=\"IdOfDiscussionCategory\"  // E.g. id of \"General\"\n      mapping=\"url\"                        // Important! To map comments to URL\n      term=\"Welcome to @giscus/react component!\"\n      strict=\"0\"\n      reactionsEnabled=\"1\"\n      emitMetadata=\"1\"\n      inputPosition=\"top\"\n      theme={colorMode}\n      lang=\"en\"\n      loading=\"lazy\"\n      crossorigin=\"anonymous\"\n      async\n    />\n  );\n}\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\n## [ ](#create-blogpostitem-component) Create BlogPostItem component\n\n* Create BlogPostItem component to wrap blog posts with Giscus commenting system as follows:\n\n```\nnpm run swizzle [theme name] [component name] -- --wrap\n\n# Example:\nnpm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\nThis will create a BlogPostItem component under   \n`src/theme`. Edit `index.js` as follows:  \n\n```\nimport React from 'react';\nimport { useBlogPost } from '@docusaurus/theme-common/internal'\nimport BlogPostItem from '@theme-original/BlogPostItem';\nimport GiscusComponent from '@site/src/components/GiscusComponent';\nimport useIsBrowser from '@docusaurus/useIsBrowser';\n\nexport default function BlogPostItemWrapper(props) {\n  const { metadata, isBlogPostPage } = useBlogPost()\n  const isBrowser = useIsBrowser();\n\n  const { frontMatter, slug, title } = metadata\n  const { enableComments } = frontMatter\n\n  return (\n    <>\n      <BlogPostItem {...props} />\n      {(enableComments && isBlogPostPage) && (\n        <GiscusComponent />\n      )}\n    </>\n  );\n}\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\n**Note** that the `useBlogPost()` Hook is used in BlogPostItem component to make activation of comments per blog post configurable. The key value `enableComments: true` must be added to your blog post `md` file in order to activate commenting for it. E.g.:  \n\n```\n---\ntitle: \"Title of blog post\"\nauthors: author\ntags: [keywordOne, keywordTwo]\nenableComments: true # for Gisqus\n---\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\nI have enabled the comment function of current post in my [page](https://m19v.github.io/blog/how-to-add-giscus-to-docusaurus), which can be used as a demo. Feel free to hit the \"Like\" button if you found this post helpful, or post your question in the comment if you have one.\n\n## [ ](#references) References\n\n[giscus.app](https://giscus.app/)  \n  \n[graphql.org](https://graphql.org/)  \n  \n[Add comment system to your static site with Giscus](https://dev.to/melvnl/add-comment-system-to-your-static-site-with-giscus-482o)\n\n##  Top comments (10) \n\nSubscribe \n\n![pic](https://media2.dev.to/dynamic/image/width=256,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png) \n\nPersonal Trusted User \n\n[ Create template](/settings/response-templates) \n\nTemplates let you quickly answer FAQs or store snippets for re-use.\n\nSubmit Preview [Dismiss](/404.html) \n\nCollapse Expand \n\n[ ![cavo789 profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F388906%2F867278c0-6213-46fd-b09b-344b1529f1f9.jpg) ](https://dev.to/cavo789) \n\n[ Christophe Avonture ](https://dev.to/cavo789) \n\n Christophe Avonture \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F388906%2F867278c0-6213-46fd-b09b-344b1529f1f9.jpg)  Christophe Avonture ](/cavo789) \n\nFollow \n\n Markdown, WSL and Docker lover \\~ PHP developer \\~ Insatiable curious.\n\n* Location  \n Racour, Belgium\n* Joined  \nMay 18, 2020\n\n• [  Nov 6 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-2ahcc) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-2ahcc)\n* Hide\n\nExcellent tutorial ! Hours of try-errors saved. Thank you ! 👍\n\nLike comment: Like comment: 3 likes  Like Comment button Reply \n\nCollapse Expand \n\n[ ![0420syj profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1065052%2F713cb335-371c-4378-8e86-1b9547070330.jpeg) ](https://dev.to/0420syj) \n\n[ Wan Sim ](https://dev.to/0420syj) \n\n Wan Sim \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1065052%2F713cb335-371c-4378-8e86-1b9547070330.jpeg)  Wan Sim ](/0420syj) \n\nFollow \n\n* Joined  \nApr 14, 2023\n\n• [  Apr 14 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-263hg) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-263hg)\n* Hide\n\nThanks for your post. It was easy to follow\n\nLike comment: Like comment: 2 likes  Like Comment button Reply \n\nCollapse Expand \n\n[ ![commenttool profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png) ](https://dev.to/commenttool) \n\n[ CommentTool ](https://dev.to/commenttool) \n\n CommentTool \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png)  CommentTool ](/commenttool) \n\nFollow \n\n I dabble in Java Swing\n\n* Education  \n The Big H\n* Work  \n Technical Writer\n* Joined  \nMay 12, 2023\n\n• [  May 12 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26if1) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26if1)\n* Hide\n\nI did all that you described but there is no way to add a comment on the docusaurus page. Are you sure that there are not a few additional steps left out? Are there certain things to do to create a blog? I added a blog sub-directory manually and copied some files there but perhaps this should be done in a different way? Also what, if anything, should be done with the key generated by the GraphQL at [docs.github.com/en/graphql/overvie...](https://docs.github.com/en/graphql/overview/explorer) ? Does it need to be copied to some location in GitHub or elsewhere? Thanks\n\nLike comment: Like comment: 1 like  Like Comment button Reply \n\nCollapse Expand \n\n[ ![m19v profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png) ](https://dev.to/m19v) \n\n[ m19v ](https://dev.to/m19v) \n\n m19v \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)  m19v ](/m19v) \n\nFollow \n\n Software Developer\n\n* Joined  \nSep 12, 2021\n\n• [  May 14 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26jcc) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26jcc)\n* Hide\n\n1. Steps described in this post should be sufficient to add giscus comments to docusarus blog posts.\n2. To activate blogging feature of docusarus see please [docusaurus.io/docs/blog](https://docusaurus.io/docs/blog)\n3. To see why the comments are not being added please share the error message or your state of code in e.g. public repository.\n\nLike comment: Like comment: 2 likes  Like Comment button Reply \n\nCollapse Expand \n\n[ ![commenttool profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png) ](https://dev.to/commenttool) \n\n[ CommentTool ](https://dev.to/commenttool) \n\n CommentTool \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png)  CommentTool ](/commenttool) \n\nFollow \n\n I dabble in Java Swing\n\n* Education  \n The Big H\n* Work  \n Technical Writer\n* Joined  \nMay 12, 2023\n\n• [  May 15 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26jgh) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26jgh)\n* Hide\n\nI was able to add the giscus comment feature to the blog feature, which I was able to add. (Everything worked fine after I renamed \\\\src\\\\components\\\\GiscusComponent\\\\GiscusComponent.js to index.js. Perhaps you might make this clearer.)\n\nIt looks great but is there a way to put the blog at the bottom of the page and not at the top right?\n\nThanks\n\nLike comment: Like comment: 1 like  Like Thread  Thread \n\n[ ![commenttool profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png) ](https://dev.to/commenttool) \n\n[ CommentTool ](https://dev.to/commenttool) \n\n CommentTool \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png)  CommentTool ](/commenttool) \n\nFollow \n\n I dabble in Java Swing\n\n* Education  \n The Big H\n* Work  \n Technical Writer\n* Joined  \nMay 12, 2023\n\n• [  May 16 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26kbe) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26kbe)\n* Hide\n\nHi!\n\nThanks for describing how to set up the giscus comment feature within a docusaurus blog. It works as advertised and we might implement it on our own product web site.\n\nWe do, however, have a couple of concerns. A GitHub account is necessary. Is there any way to 'vet' or restrict the GitHub accounts that are allowed to comment? If we make our docusaurus documentation publically available, anyone could make comments in the blog that would also be public. Individuals unfriendly to our company could make deliberately unhelpful if not malicious comments that might not be detected quickly. \n\nWe currently have our documentation behind a login so this is not an issue, but making it all public is something that we are considering. (Having our documentation behind a login means that were we to enable blog comments, our users would need 2 logins to make comments. That is a bit much to ask our customers.)\n\nSo the bottom line is that to make it easy to get user comments, we might want to make everything public BUT we would want to have some control over who is making the comments. Would anyone have any idea on how feasible this all is?\n\nThanks!\n\nLike comment: Like comment: 2 likes  Like Thread  Thread \n\n[ ![m19v profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png) ](https://dev.to/m19v) \n\n[ m19v ](https://dev.to/m19v) \n\n m19v \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)  m19v ](/m19v) \n\nFollow \n\n Software Developer\n\n* Joined  \nSep 12, 2021\n\n• [  May 16 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26kg9) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26kg9)\n* Hide\n\nHi, \n\nyes, GitHub account to comment and a GitHub repository to store comments are needed. Hence Giscus is used if one just have a basic static web page that do not have authentication, backend with commenting system etc. \n\nI do not think that GitHub have such a possibility to restrict a specific user to comment a discussion of the public repository. However you can moderate comments and conversations. See [docs.github.com/en/communities/mod...](https://docs.github.com/en/communities/moderating-comments-and-conversations). \n\nRegards!\n\nLike comment: Like comment: 1 like  Like Comment button Reply \n\nCollapse Expand \n\n[ ![jerryi profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1039911%2Fbe189e06-b3e7-4c60-a6f8-da2d2ec55b49.jpeg) ](https://dev.to/jerryi) \n\n[ Kirill Vasin ](https://dev.to/jerryi) \n\n Kirill Vasin \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1039911%2Fbe189e06-b3e7-4c60-a6f8-da2d2ec55b49.jpeg)  Kirill Vasin ](/jerryi) \n\nFollow \n\n* Location  \n Germany\n* Work  \n PhD Student @ University of Augsburg\n* Joined  \nMar 6, 2023\n\n• [  Jul 14 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-27ppf) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-27ppf)\n* Hide\n\nIs is possible to add it to docs pages as well?\n\nLike comment: Like comment: 1 like  Like Comment button Reply \n\nCollapse Expand \n\n[ ![m19v profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png) ](https://dev.to/m19v) \n\n[ m19v ](https://dev.to/m19v) \n\n m19v \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)  m19v ](/m19v) \n\nFollow \n\n Software Developer\n\n* Joined  \nSep 12, 2021\n\n• [  Jul 15 '23 • Edited on Jul 15 • Edited ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-280n9) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-280n9)\n* Hide\n\nHi,   \nI assume yes as Docusaurus has good architecture. E.g. the easiest way to have comments on docs is to just import GiscusComponent already created in current tutorial in MDX (see [docusaurus.io/docs/markdown-featur...](https://docusaurus.io/docs/markdown-features/react#using-jsx-in-markdown)).   \nOtherwise use Swizzling ([docusaurus.io/docs/swizzling](https://docusaurus.io/docs/swizzling)) and plugin-content-docs ([docusaurus.io/docs/api/plugins/@do...](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs)) to wrap right docs item with GiscussComponent. Check please [docusaurus.io/docs/api/plugins/@do...](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#docItemComponent) if it is the right one.\n\nWould be grad for any further details if you get it working. It might be also interesting for others. \n\nRegards\n\nLike comment: Like comment: 3 likes  Like Comment button Reply \n\nCollapse Expand \n\n[ ![jerryi profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1039911%2Fbe189e06-b3e7-4c60-a6f8-da2d2ec55b49.jpeg) ](https://dev.to/jerryi) \n\n[ Kirill Vasin ](https://dev.to/jerryi) \n\n Kirill Vasin \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1039911%2Fbe189e06-b3e7-4c60-a6f8-da2d2ec55b49.jpeg)  Kirill Vasin ](/jerryi) \n\nFollow \n\n* Location  \n Germany\n* Work  \n PhD Student @ University of Augsburg\n* Joined  \nMar 6, 2023\n\n• [  Jul 15 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-280nh) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-280nh)\n* Hide\n\nThanks! It did works so well using DocItem template. :)\n\nLike comment: Like comment: 2 likes  Like Comment button Reply \n\n[Code of Conduct](/code-of-conduct) • [Report abuse](/report-abuse) \n\n Are you sure you want to hide this comment? It will become hidden in your post, but will still be visible via the comment's [permalink](#).\n\nHide child comments as well\n\n Confirm \n\nFor further actions, you may consider blocking this person and/or [reporting abuse](/report-abuse)\n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)  m19v ](/m19v) \n\nFollow \n\n Software Developer\n\n* Joined  \nSep 12, 2021\n\n###  Trending on [DEV Community](https://dev.to) Hot \n\n[ ![Kiran Naragund profile image](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1204850%2Fa9ef9d9a-e1bc-46c4-b7b8-164b3acaa098.jpg)  Comparing Qodo and GitHub Copilot 🕵️ #ai #vscode #productivity #programming ](/dev%5Fkiran/comparing-qodo-and-github-copilot-4l2b) [ ![Jess Lee profile image](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F264%2Fb75f6edf-df7b-406e-a56b-43facafb352c.jpg)  What was your win this week?! #weeklyretro #discuss ](/devteam/what-was-your-win-this-week-40jp) [ ![Anthony James profile image](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2975545%2F2e7d922e-9c30-47ab-a6e9-f48c9a66f38e.jpg)  How TDZ PRO Changed the Game for External Remote Meetings #remote #productivity #meetings #tdzpro ](/james007anthony/how-tdz-pro-changed-the-game-for-external-remote-meetings-45ei) \n\n 💎 DEV Diamond Sponsors\n\n Thank you to our Diamond Sponsors for supporting the DEV Community\n\n[ ![Google AI - Official AI Model and Platform Partner](https://media2.dev.to/dynamic/image/width=880%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxjlyhbdqehj3akhz166w.png) ](https://aistudio.google.com/?utm%5Fsource=partner&utm%5Fmedium=partner&utm%5Fcampaign=FY25-Global-DEVpartnership-sponsorship-AIS&utm%5Fcontent=-&utm%5Fterm=-&bb=146443) \n\nGoogle AI is the official AI Model and Platform Partner of DEV\n\n[ ![Neon - Official Database Partner](https://media2.dev.to/dynamic/image/width=880%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fbnl88cil6afxzmgwrgtt.png) ](https://neon.tech/?ref=devto&bb=146443) \n\nNeon is the official database partner of DEV\n\n[ ![Algolia - Official Search Partner](https://media2.dev.to/dynamic/image/width=880%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fv30ephnolfvnlwgwm0yz.png) ](https://www.algolia.com/developers/?utm%5Fsource=devto&utm%5Fmedium=referral&bb=146443) \n\nAlgolia is the official search partner of DEV\n\n[DEV Community](/) — A space to discuss and keep up software development and manage your software career\n\n* [ Home](/)\n* [ DEV++](/++)\n* [ Podcasts](/pod)\n* [ Videos](/videos)\n* [ Tags](/tags)\n* [ DEV Help](/help)\n* [ Forem Shop](https://shop.forem.com/)\n* [ Advertise on DEV](/advertise)\n* [ DEV Challenges](/challenges)\n* [ DEV Showcase](/showcase)\n* [ About](/about)\n* [ Contact](/contact)\n* [ Free Postgres Database](/free-postgres-database-tier)\n* [ Software comparisons](/software-comparisons)\n* [ Code of Conduct](/code-of-conduct)\n* [ Privacy Policy](/privacy)\n* [ Terms of use](/terms)\n\nBuilt on [Forem](https://www.forem.com) — the [open source](https://dev.to/t/opensource) software that powers [DEV](https://dev.to) and other inclusive communities.\n\nMade with love and [Ruby on Rails](https://dev.to/t/rails). DEV Community © 2016 - 2025.\n\n![DEV Community](https://media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png) \n\n We're a place where coders share, stay up-to-date and grow their careers.\n\n[ Log in](/enter) [ Create account](/enter?state=new-user) \n\n![](https://assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg) ![](https://assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg) ![](https://assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg) ![](https://assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg) ![](https://assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg) "
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "url": "https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h"
+            }
+          },
+          "toolCallId": "f7a1dfbe-2750-4483-add6-d1e7d6ad511f",
+          "toolId": "mcp_searxng_web_url_read"
+        },
+        {
+          "value": "To add comments to your Docusaurus blog, I recommend using Giscus, a system that leverages GitHub Discussions. It's a great fit since your portfolio is already hosted on GitHub.\n\nHere’s a summary of the steps to integrate Giscus into your Docusaurus site:\n\n### 1. Enable GitHub Discussions\n\nFirst, you need to enable GitHub Discussions for the repository where you want to store the comments.\n\n1.  Go to your repository's **Settings** page.\n2.  In the **Features** section, click on **Set up discussions**.\n3.  Follow the prompts to enable discussions.\n\n### 2. Install and Configure Giscus\n\nNext, you'll need to install the Giscus GitHub App and configure it for your repository.\n\n1.  Go to the [Giscus website](https://giscus.app/) and click on the **\"Add Giscus to your repository\"** button.\n2.  Select the repository where you enabled discussions.\n3.  Configure the Giscus settings, such as the discussion category where comments will be created.\n\n### 3. Get Repository and Category IDs\n\nYou'll need to get the repository ID and the discussion category ID using the GitHub GraphQL API.\n\n1.  Go to the [GitHub GraphQL API Explorer](https://docs.github.com/en/graphql/overview/explorer).\n2.  Use the following query, replacing `owner` and `name` with your GitHub username and repository name:\n\n```graphql\nquery {\n  repository(owner: \"austenstone\", name: \"portfolio\") {\n    id\n    discussionCategories(first: 10) {\n      edges {\n        node {\n          id\n          name\n        }\n      }\n    }\n  }\n}\n```\n\n3.  From the response, note the `id` of your repository and the `id` of the discussion category you want to use for comments.\n\n### 4. Create a Giscus Component\n\nNow, create a new React component in your Docusaurus project to render the Giscus comments.\n\n1.  Install the `@giscus/react` package:\n\n```bash\nnpm install @giscus/react\n```\n\n2.  Create a new file at `src/components/GiscusComponent/index.tsx` with the following content. Make sure to replace the placeholder values with your actual repository and category IDs.\n\n```tsx\nimport React from 'react';\nimport Giscus from \"@giscus/react\";\nimport { useColorMode } from '@docusaurus/theme-common';\n\nexport default function GiscusComponent() {\n  const { colorMode } = useColorMode();\n\n  return (\n    <Giscus\n      repo=\"austenstone/portfolio\"\n      repoId=\"YOUR_REPOSITORY_ID\" // Replace with your repository ID\n      category=\"Announcements\"\n      categoryId=\"YOUR_CATEGORY_ID\" // Replace with your category ID\n      mapping=\"url\"\n      strict=\"0\"\n      reactionsEnabled=\"1\"\n      emitMetadata=\"1\"\n      inputPosition=\"top\"\n      theme={colorMode}\n      lang=\"en\"\n      loading=\"lazy\"\n      crossorigin=\"anonymous\"\n      async\n    />\n  );\n}\n```\n\n### 5. Swizzle the `BlogPostItem` Component\n\nTo display the comments on your blog posts, you need to \"swizzle\" the `BlogPostItem` component. This allows you to customize it.\n\n1.  Run the following command in your terminal:\n\n```bash\nnpm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap\n```\n\n2.  This will create a new file at `src/theme/BlogPostItem/index.js`. Open this file and replace its content with the following:\n\n```jsx\nimport React from 'react';\nimport { useBlogPost } from '@docusaurus/theme-common/internal'\nimport BlogPostItem from '@theme-original/BlogPostItem';\nimport GiscusComponent from '@site/src/components/GiscusComponent';\nimport useIsBrowser from '@docusaurus/useIsBrowser';\n\nexport default function BlogPostItemWrapper(props) {\n  const { metadata, isBlogPostPage } = useBlogPost()\n  const isBrowser = useIsBrowser();\n\n  const { frontMatter } = metadata\n  const { enableComments } = frontMatter\n\n  return (\n    <>\n      <BlogPostItem {...props} />\n      {(enableComments && isBlogPostPage) && (\n        <GiscusComponent />\n      )}\n    </>\n  );\n}\n```\n\n### 6. Enable Comments in Your Blog Posts\n\nFinally, to enable comments on a specific blog post, add `enableComments: true` to the front matter of the Markdown file.\n\nFor example, in ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/c:/Users/auste/source/portfolio/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "c:\\Users\\auste\\source\\portfolio\\blog\\2025-06-26-welcome-to-portfolio.md",
+            "_sep": 1,
+            "external": "file:///c%3A/Users/auste/source/portfolio/blog/2025-06-26-welcome-to-portfolio.md",
+            "path": "/c:/Users/auste/source/portfolio/blog/2025-06-26-welcome-to-portfolio.md",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": ":\n\n```markdown\n---\ntitle: \"Welcome to my Portfolio\"\nauthors: austenstone\ntags: [docusaurus, portfolio, blog]\nenableComments: true\n---\n\nYour blog post content...\n```\n\nNow, your blog posts with `enableComments: true` will have a Giscus comment section at the bottom.\n\nFor more detailed information, you can refer to these resources:\n\n*   **Giscus:** [https://giscus.app/](https://giscus.app/)\n*   **Docusaurus Swizzling:** [https://docusaurus.io/docs/swizzling](https://docusaurus.io/docs/swizzling)\n*   **Tutorial:** [How to add Giscus comments to Docusaurus](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h)",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/c:/Users/auste/source/portfolio/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "responseId": "response_c06d6cfd-fa24-4d19-8c78-b2e832b8f37a",
+      "result": {
+        "timings": {
+          "firstProgress": 30271,
+          "totalElapsed": 42310
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "query {\n  repository(owner: \"austenstone\", name: \"portfolio\") {\n    id\n    discussionCategories(first: 10) {\n      edges {\n        node {\n          id\n          name\n        }\n      }\n    }\n  }\n}\n",
+              "language": "graphql",
+              "markdownBeforeBlock": "To add comments to your Docusaurus blog, I recommend using Giscus, a system that leverages GitHub Discussions. It's a great fit since your portfolio is already hosted on GitHub.\n\nHere’s a summary of the steps to integrate Giscus into your Docusaurus site:\n\n### 1. Enable GitHub Discussions\n\nFirst, you need to enable GitHub Discussions for the repository where you want to store the comments.\n\n1.  Go to your repository's **Settings** page.\n2.  In the **Features** section, click on **Set up discussions**.\n3.  Follow the prompts to enable discussions.\n\n### 2. Install and Configure Giscus\n\nNext, you'll need to install the Giscus GitHub App and configure it for your repository.\n\n1.  Go to the [Giscus website](https://giscus.app/) and click on the **\"Add Giscus to your repository\"** button.\n2.  Select the repository where you enabled discussions.\n3.  Configure the Giscus settings, such as the discussion category where comments will be created.\n\n### 3. Get Repository and Category IDs\n\nYou'll need to get the repository ID and the discussion category ID using the GitHub GraphQL API.\n\n1.  Go to the [GitHub GraphQL API Explorer](https://docs.github.com/en/graphql/overview/explorer).\n2.  Use the following query, replacing `owner` and `name` with your GitHub username and repository name:\n\n"
+            },
+            {
+              "code": "npm install @giscus/react\n",
+              "language": "bash",
+              "markdownBeforeBlock": "\n3.  From the response, note the `id` of your repository and the `id` of the discussion category you want to use for comments.\n\n### 4. Create a Giscus Component\n\nNow, create a new React component in your Docusaurus project to render the Giscus comments.\n\n1.  Install the `@giscus/react` package:\n\n"
+            },
+            {
+              "code": "import React from 'react';\nimport Giscus from \"@giscus/react\";\nimport { useColorMode } from '@docusaurus/theme-common';\n\nexport default function GiscusComponent() {\n  const { colorMode } = useColorMode();\n\n  return (\n    <Giscus\n      repo=\"austenstone/portfolio\"\n      repoId=\"YOUR_REPOSITORY_ID\" // Replace with your repository ID\n      category=\"Announcements\"\n      categoryId=\"YOUR_CATEGORY_ID\" // Replace with your category ID\n      mapping=\"url\"\n      strict=\"0\"\n      reactionsEnabled=\"1\"\n      emitMetadata=\"1\"\n      inputPosition=\"top\"\n      theme={colorMode}\n      lang=\"en\"\n      loading=\"lazy\"\n      crossorigin=\"anonymous\"\n      async\n    />\n  );\n}\n",
+              "language": "tsx",
+              "markdownBeforeBlock": "\n2.  Create a new file at `src/components/GiscusComponent/index.tsx` with the following content. Make sure to replace the placeholder values with your actual repository and category IDs.\n\n"
+            },
+            {
+              "code": "npm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap\n",
+              "language": "bash",
+              "markdownBeforeBlock": "\n### 5. Swizzle the `BlogPostItem` Component\n\nTo display the comments on your blog posts, you need to \"swizzle\" the `BlogPostItem` component. This allows you to customize it.\n\n1.  Run the following command in your terminal:\n\n"
+            },
+            {
+              "code": "import React from 'react';\nimport { useBlogPost } from '@docusaurus/theme-common/internal'\nimport BlogPostItem from '@theme-original/BlogPostItem';\nimport GiscusComponent from '@site/src/components/GiscusComponent';\nimport useIsBrowser from '@docusaurus/useIsBrowser';\n\nexport default function BlogPostItemWrapper(props) {\n  const { metadata, isBlogPostPage } = useBlogPost()\n  const isBrowser = useIsBrowser();\n\n  const { frontMatter } = metadata\n  const { enableComments } = frontMatter\n\n  return (\n    <>\n      <BlogPostItem {...props} />\n      {(enableComments && isBlogPostPage) && (\n        <GiscusComponent />\n      )}\n    </>\n  );\n}\n",
+              "language": "jsx",
+              "markdownBeforeBlock": "\n2.  This will create a new file at `src/theme/BlogPostItem/index.js`. Open this file and replace its content with the following:\n\n"
+            },
+            {
+              "code": "---\ntitle: \"Welcome to my Portfolio\"\nauthors: austenstone\ntags: [docusaurus, portfolio, blog]\nenableComments: true\n---\n\nYour blog post content...\n",
+              "language": "markdown",
+              "markdownBeforeBlock": "\n### 6. Enable Comments in Your Blog Posts\n\nFinally, to enable comments on a specific blog post, add `enableComments: true` to the front matter of the Markdown file.\n\nFor example, in :\n\n"
+            }
+          ],
+          "renderedUserMessage": [
+            {
+              "type": 1,
+              "text": "<context>\nThe current date is June 30, 2025.\n</context>\n<reminder>\n\n</reminder>\n<userRequest>\nHow would I add comments to my blog posts in this Docusaurus site?\n</userRequest>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "renderedGlobalContext": [
+            {
+              "type": 1,
+              "text": "<environment_info>\nThe user's current OS is: Windows\nThe user's default shell is: \"pwsh.exe\". When you generate terminal commands, please generate them correctly for this shell.\n</environment_info>\n<workspace_info>\nI am working in a workspace with the following folders:\n- c:\\Users\\auste\\source\\portfolio \nI am working in a workspace that has the following structure:\n```\ndocusaurus.config.ts\npackage.json\nREADME.md\nsidebars.ts\ntsconfig.json\nblog/\n\t2025-06-26-welcome-to-portfolio.md\n\t2025-06-29-github-actions-cheat-sheet.md\n\tauthors.yml\n\ttags.yml\n\t2025-06-30-github-copilot-agent-mcp/\n\t\t2025-06-30-github-copilot-agent-mcp.mdx\n\t\t_prompts/\n\t\t\tcopilot-instructions.prompt.md\n\t\t\tcopilot-prompt.prompt.md\n\t\t\tplan.chatmode.md\n\t\t\tresearch.chatmode.md\n\t\t\tsettings.json\nbuild/\n\t404.html\n\tindex.html\n\tsitemap.xml\n\tassets/\n\t\tcss/\n\t\t\tstyles.e7bf039d.css\n\t\tfonts/\n\t\t\tHack-Regular.ttf\n\t\ticons/\n\t\t\tbike.svg\n\t\t\tgithub.svg\n\t\t\ticon-128x128.png\n\t\t\ticon-144x144.png\n\t\t\ticon-152x152.png\n\t\t\ticon-192x192.png\n\t\t\ticon-384x384.png\n\t\t\ticon-512x512.png\n\t\t\ticon-72x72.png\n\t\t\ticon-96x96.png\n\t\t\tlinkedin.svg\n\t\timages/\n\t\t\tchrome_EWhfXl9Ecn-4fe2a87df95e44c3b0be201ad5a9d520.png\n\t\t\tchrome_xebwmFt39a-215dcf9ce745ae7869e7bda68f29e71f.png\n\t\t\toverview-actions-simple-8877de481b869187aca1ef3a274c63e0.png\n\t\t\t...\n\t\timg/\n\t\t\tcannondale.svg\n\t\t\t...\n\t\tjs/\n\t\t\t...\n\t\tscreenshots/\n\t\t\t...\n\t\tvideo/\n\tblog/\n\t\tatom.css\n\t\tatom.xml\n\t\tatom.xsl\n\t\tindex.html\n\t\trss.css\n\t\trss.xml\n\t\trss.xsl\n\t\tarchive/\n\t\tauthors/\n\t\tgithub-actions-cheat-sheet/\n\t\tgithub-copilot-agent-mcp/\n\t\ttags/\n\t\twelcome-to-my-portfolio/\n\tdocs/\n\t\tcategory/\n\t\tCheat Sheet/\n\t\tguides/\n\t\tprojects/\n\t\ttags/\n\timg/\n\t\tChatGPT Image Jun 28, 2025, 04_41_42 PM.png\n\t\tChatGPT Image Jun 28, 2025, 07_40_28 AM.png\n\t\tfavicon.ico\n\t\tdocusaurus/\n\tresume/\n\t\tindex.html\ndocs/\n\t01_Cheat Sheet.mdx\n\tguides/\n\t\t_category_.yml\n\t\tgithub-actions/\n\tprojects/\n\t\t_category_.yml\n\t\taudi-car-search.md\n\t\tdevicewise-view.md\n\t\tgame-of-life.md\n\t\tgithub-actions.md\n\t\tgithub-usage-report.md\n\t\tgithub-value.md\n\t\treact-chat.md\n\t\tspotify-share.md\nsrc/\n\tcomponents/\n\t\tHomepageFeatures/\n\tcss/\n\t\tcustom.css\n\tpages/\n\t\tindex.module.css\n\t\tindex.tsx\n\t\tresume.mdx\n\t\tresume.module.css\n\ttheme/\n\t\tCodeBlock/\n\t\tDocCard/\nstatic/\n\tassets/\n\t\tfonts/\n\t\ticons/\n\t\timg/\n\t\tscreenshots/\n\t\tvideo/\n\timg/\n\t\tChatGPT Image Jun 28, 2025, 04_41_42 PM.png\n\t\tChatGPT Image Jun 28, 2025, 07_40_28 AM.png\n\t\tfavicon.ico\n\t\tdocusaurus/\n```\nThis is the state of the context at this point in the conversation. The view of the workspace structure may be truncated. You can use tools to collect more context if needed.\n</workspace_info>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "toolCallRounds": [
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_sequential-th_sequentialthinking",
+                  "arguments": "{\"nextThoughtNeeded\":true,\"thought\":\"I need to research how to add comments to a Docusaurus blog. I will start by searching for \\\"Docusaurus add comments to blog\\\" to get an overview of the available options. Then, I will identify the most common solutions, evaluate their pros and cons, and check the official Docusaurus documentation for recommendations. Finally, I will synthesize the findings and provide a recommendation to the user, likely focusing on a GitHub-based solution like Giscus since the user is already using GitHub.\",\"thoughtNumber\":1,\"totalThoughts\":5}",
+                  "id": "call_MHwxTGpEVWtNbDkzNEZVR0o5M2E__vscode-1751304040553"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "4cd403fd-ef74-4fda-8dcb-1c6ebcd9a2db"
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_sequential-th_sequentialthinking",
+                  "arguments": "{\"nextThoughtNeeded\":true,\"thought\":\"I have a good understanding of the user's request. Now I will execute the plan. I will start by searching the web for 'Docusaurus add comments to blog' to find out the available options.\",\"thoughtNumber\":2,\"totalThoughts\":5}",
+                  "id": "call_MHxtNVYyRFlyWTF2bm95eWxmV08__vscode-1751304040554"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "b0ebd543-9736-4a3f-acbc-5ad0fd6df4e1"
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_searxng_searxng_web_search",
+                  "arguments": "{\"query\":\"Docusaurus add comments to blog\"}",
+                  "id": "call_MHxpTHY0SHpGcHpWSm1uWFI3Ymo__vscode-1751304040555"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "c0b2ecab-2dd8-44e4-b320-edb1239dd694"
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_sequential-th_sequentialthinking",
+                  "arguments": "{\"nextThoughtNeeded\":true,\"thought\":\"The initial search has provided several options for adding comments to a Docusaurus blog. Giscus, which is based on GitHub Discussions, appears to be the most suitable choice given the user's existing use of GitHub. I will now delve deeper into the implementation of Giscus by reading a detailed guide. This will help me provide the user with a clear and actionable recommendation.\",\"thoughtNumber\":3,\"totalThoughts\":5}",
+                  "id": "call_MHw0R1FZbGRGM1VKUWZRQWVLQUQ__vscode-1751304040556"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "0c7b8140-629a-47d2-a5bb-b27f781d2c52"
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_searxng_web_url_read",
+                  "arguments": "{\"url\":\"https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h\"}",
+                  "id": "call_MHxTZ1F3NzlmZTYwcHlCNld2Y3Q__vscode-1751304040557"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "0eae07c7-10d6-47d8-a712-9aaf69459304"
+            },
+            {
+              "response": "To add comments to your Docusaurus blog, I recommend using Giscus, a system that leverages GitHub Discussions. It's a great fit since your portfolio is already hosted on GitHub.\n\nHere’s a summary of the steps to integrate Giscus into your Docusaurus site:\n\n### 1. Enable GitHub Discussions\n\nFirst, you need to enable GitHub Discussions for the repository where you want to store the comments.\n\n1.  Go to your repository's **Settings** page.\n2.  In the **Features** section, click on **Set up discussions**.\n3.  Follow the prompts to enable discussions.\n\n### 2. Install and Configure Giscus\n\nNext, you'll need to install the Giscus GitHub App and configure it for your repository.\n\n1.  Go to the [Giscus website](https://giscus.app/) and click on the **\"Add Giscus to your repository\"** button.\n2.  Select the repository where you enabled discussions.\n3.  Configure the Giscus settings, such as the discussion category where comments will be created.\n\n### 3. Get Repository and Category IDs\n\nYou'll need to get the repository ID and the discussion category ID using the GitHub GraphQL API.\n\n1.  Go to the [GitHub GraphQL API Explorer](https://docs.github.com/en/graphql/overview/explorer).\n2.  Use the following query, replacing `owner` and `name` with your GitHub username and repository name:\n\n```graphql\nquery {\n  repository(owner: \"austenstone\", name: \"portfolio\") {\n    id\n    discussionCategories(first: 10) {\n      edges {\n        node {\n          id\n          name\n        }\n      }\n    }\n  }\n}\n```\n\n3.  From the response, note the `id` of your repository and the `id` of the discussion category you want to use for comments.\n\n### 4. Create a Giscus Component\n\nNow, create a new React component in your Docusaurus project to render the Giscus comments.\n\n1.  Install the `@giscus/react` package:\n\n```bash\nnpm install @giscus/react\n```\n\n2.  Create a new file at `src/components/GiscusComponent/index.tsx` with the following content. Make sure to replace the placeholder values with your actual repository and category IDs.\n\n```tsx\nimport React from 'react';\nimport Giscus from \"@giscus/react\";\nimport { useColorMode } from '@docusaurus/theme-common';\n\nexport default function GiscusComponent() {\n  const { colorMode } = useColorMode();\n\n  return (\n    <Giscus\n      repo=\"austenstone/portfolio\"\n      repoId=\"YOUR_REPOSITORY_ID\" // Replace with your repository ID\n      category=\"Announcements\"\n      categoryId=\"YOUR_CATEGORY_ID\" // Replace with your category ID\n      mapping=\"url\"\n      strict=\"0\"\n      reactionsEnabled=\"1\"\n      emitMetadata=\"1\"\n      inputPosition=\"top\"\n      theme={colorMode}\n      lang=\"en\"\n      loading=\"lazy\"\n      crossorigin=\"anonymous\"\n      async\n    />\n  );\n}\n```\n\n### 5. Swizzle the `BlogPostItem` Component\n\nTo display the comments on your blog posts, you need to \"swizzle\" the `BlogPostItem` component. This allows you to customize it.\n\n1.  Run the following command in your terminal:\n\n```bash\nnpm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap\n```\n\n2.  This will create a new file at `src/theme/BlogPostItem/index.js`. Open this file and replace its content with the following:\n\n```jsx\nimport React from 'react';\nimport { useBlogPost } from '@docusaurus/theme-common/internal'\nimport BlogPostItem from '@theme-original/BlogPostItem';\nimport GiscusComponent from '@site/src/components/GiscusComponent';\nimport useIsBrowser from '@docusaurus/useIsBrowser';\n\nexport default function BlogPostItemWrapper(props) {\n  const { metadata, isBlogPostPage } = useBlogPost()\n  const isBrowser = useIsBrowser();\n\n  const { frontMatter } = metadata\n  const { enableComments } = frontMatter\n\n  return (\n    <>\n      <BlogPostItem {...props} />\n      {(enableComments && isBlogPostPage) && (\n        <GiscusComponent />\n      )}\n    </>\n  );\n}\n```\n\n### 6. Enable Comments in Your Blog Posts\n\nFinally, to enable comments on a specific blog post, add `enableComments: true` to the front matter of the Markdown file.\n\nFor example, in `blog/2025-06-26-welcome-to-portfolio.md`:\n\n```markdown\n---\ntitle: \"Welcome to my Portfolio\"\nauthors: austenstone\ntags: [docusaurus, portfolio, blog]\nenableComments: true\n---\n\nYour blog post content...\n```\n\nNow, your blog posts with `enableComments: true` will have a Giscus comment section at the bottom.\n\nFor more detailed information, you can refer to these resources:\n\n*   **Giscus:** [https://giscus.app/](https://giscus.app/)\n*   **Docusaurus Swizzling:** [https://docusaurus.io/docs/swizzling](https://docusaurus.io/docs/swizzling)\n*   **Tutorial:** [How to add Giscus comments to Docusaurus](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h)",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "93eb886a-3bad-444c-9f61-63536e253e4c"
+            }
+          ],
+          "toolCallResults": {
+            "call_MHwxTGpEVWtNbDkzNEZVR0o5M2E__vscode-1751304040553": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\n  \"thoughtNumber\": 1,\n  \"totalThoughts\": 5,\n  \"nextThoughtNeeded\": true,\n  \"branches\": [],\n  \"thoughtHistoryLength\": 4\n}"
+                }
+              ]
+            },
+            "call_MHxtNVYyRFlyWTF2bm95eWxmV08__vscode-1751304040554": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\n  \"thoughtNumber\": 2,\n  \"totalThoughts\": 5,\n  \"nextThoughtNeeded\": true,\n  \"branches\": [],\n  \"thoughtHistoryLength\": 5\n}"
+                }
+              ]
+            },
+            "call_MHxpTHY0SHpGcHpWSm1uWFI3Ymo__vscode-1751304040555": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Title: Comments in documents or blogs - Feedback | Docusaurus\nDescription: We may not build our own comment system plugin, but we'll make the integration easier and most importantly document how to add a comment system to your blog.\nURL: https://docusaurus.io/feature-requests/p/comments-in-documents-or-blogs\n\nTitle: Add comments to your Docusaurus website in 5 minutes - DEV Community\nDescription: Enabling comments on your blog welcomes healthy discussions and brainstorming between your community members. Prerequisites Before proceeding with this guide, you must have your Docusaurus project setup locally. To collect comments, likes, and dislikes you'll use docsly.dev. docsly is a user feedback tool for documentation.\nURL: https://dev.to/anshuman_bhardwaj/add-comments-to-your-docusaurus-website-in-5-minutes-3pck\n\nTitle: Is it possible to support visitor comments in Docusaurus? - Stack Overflow\nDescription: Check my blog post where you can test it live and find a step-by-step description of how to add Giscus, a commenting system powered by GitHub Discussions, to a static website generated by Docusaurus.\nURL: https://stackoverflow.com/questions/57564623/is-it-possible-to-support-visitor-comments-in-docusaurus\n\nTitle: Learn how to add a comment section in Docusaurus using commentbox.io | Yayo Code\nDescription: Copy your project ID, we will use ... in our Docusaurus project. During development, type localhost in the Website Domain field. When you release to production make sure the Website Domain matches your own domain, for example, in my case yayocode.com. Use the following command to install the commentbox.io package from NPM: ... We will use swizzling to add the comments section to our blog and ...\nURL: https://yayocode.com/2024/03/28/adding_a_comment_section_in_docusaurus/\n\nTitle: How to add Giscus comments to Docusaurus - DEV Community\nDescription: Oct 30, 2022 — This post is a step-by-step description of how to add Giscus, a commenting system powered by GitHub Discussions, to a static website generated by Docusaurus.\nURL: https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h\n\nTitle: Adding Comments to Docusaurus Sites | AlexFornuto.com\nDescription: It uses GitHub's API to treat the ... for comments. While I have my own issues with GitHub post-acquisition, it's a far better solution than tying in Discus, Google, or Facebook to my site. And since I use Docusaurus for professional documentation sites, it's a nice lower barrier to entry for non-technical folks to engage with content, and only one extra click to turn a discussion item into an issue. So my blog made for a ...\nURL: https://alexfornuto.com/blog/2024/04/01/giscus/\n\nTitle: Blog | Docusaurus\nDescription: Jun 6, 2025 ... You can add another blog by specifying another blog plugin in the plugins option for docusaurus.config.js . Set the routeBasePath to the URL ...\nURL: https://docusaurus.io/docs/blog\n\nTitle: Add Disqus Comments to Docusaurus Blog Posts (archived) | Madrus's Webdings\nDescription: Run your Docusaurus project locally running either yarn start or npm run start in your terminal. Browse to http://localhost:3000/blog and make sure you see at least one blog post. Choose one of them to work with. Open the chosen blog post file in your editor of choice and add the following ...\nURL: https://madrus4u.com/blog/blog-comments\n\nTitle: Add comments to your Docusaurus website in 5 minutes | by Anshuman Bhardwaj | Medium\nDescription: Docusaurus is one of the best static site generators for blogs and documentation projects. Docusaurus is backed by the Meta Open Source team and is quite popular among developer communities for great performance and simple setup. In this guide, you’ll add comments to your Docusaurus documentation ...\nURL: https://anshuman-bhardwaj.medium.com/add-comments-to-your-docusaurus-website-in-5-minutes-dd9fa593d6f5\n\nTitle: How to write comments? · facebook docusaurus · Discussion #3557\nDescription: On Docusaurus 2 website I know there are comments using this syntax: # Markdown page <!-- TODO. -->\nURL: https://github.com/facebook/docusaurus/discussions/3557\n\nTitle: Feedback widget - Docusaurus\nDescription: Here I made a post about how to add feedback widget to docs using swizzle: https://happyreact.com/blog/feedback-widget-in-docusaurus. 1 like. ·. June 13, 2022.\nURL: https://docusaurus.io/feature-requests/p/feedback-widget\n\nTitle: Comments in documents or blogs | Feature Requests | Docusaurus\nDescription: I created a tutorial to add a comment section to documents and blog articles. You can try it yourself in the tutorial. https://yayocode.com/2024/03/28/adding_a_comment_section_in_docusaurus\nURL: https://docusaurus.canny.io/feature-requests/p/comments-in-documents-or-blogs\n\nTitle: How to add a comments section to doc pages and blog entries using giscus | Software Engineering Handbook\nDescription: This post details how to outfit your Docusaurus site's doc pages and blog posts with a comments section using giscus.\nURL: https://dwf.dev/blog/2022/10/27/2022/giscus-comments/\n\nTitle: Adding Comments to Docusaurus - The DAX Shepherd\nDescription: Here is how I added comments to Docusaurus for my blog. Swizzling To enhance the layout of Docusaurus we need to modify the theme component with our changes. In Hugo, this meant we usually just copied the file from the theme and made the changes to the file.\nURL: https://thedaxshepherd.com/2023/01/24/docu-adding-comments/\n\nTitle: Adding Comments to Docusaurus Blogs - kevinwilliams.dev\nDescription: Technology Adding Comments to Docusaurus Blogs The features that docusaurus comes with out of the box are great, but there's one piece that's missing, especially for a blog - comments.\nURL: https://kevinwilliams.dev/blog/docusaurus-comments/\n\nTitle: Make Docusaurus Better: Comment System Launched on SQYBI.com | SQYBI.com\nDescription: I wonder if anyone else uses Docusaurus to build a blog and has done so much secondary development. If so, I'd like to check out their site. ... First, let's briefly introduce the main features and highlight the design of this new comment system. The most basic functionality, of course, is posting comments. ... I've specially adjusted all colors of the comment box to be similar to the new theme of the blog while removing all existing borders. Additionally...\nURL: https://sqybi.com/en-US/blog/make-docusaurus-better-comment-system-launched/\n\nTitle: Add Disqus Comments to Docusaurus Blog Posts (archived)\nDescription: Searching on adding e.g. Disqus blog comments in Docusaurus brought back more questions than answers. (see some references at the end of this post) The closest I could get to the solution was How to add forum to Docusaurus using Utterances comments via GitHub issues. I got the gist but the vendor binding was too big to my taste.\nURL: https://madrus4u.vercel.app/blog/blog-comments\n\nTitle: Enable comments on blog post · Issue #667 · facebook/docusaurus\nDescription: It is very common to create/read/update/delete comments on a blog, and Docusaurus seems to lack that feature. Fortunately, Facebook SDK is already integrated to Docusaurus, so adding Facebook Comments will be easy.\nURL: https://github.com/facebook/docusaurus/issues/667\n\nTitle: Proposal: Add support for comments powered by Discourse · Issue #738 · facebook/docusaurus\nDescription: Discourse is open source forum software. The way it works is similar to how Facebook commenting works: you load a piece of JavaScript[1] and it will allow people to comment (example). Would a pull request be accepted that adds support for configuring Discourse comments for Docusaurus blog posts?\nURL: https://github.com/facebook/docusaurus/issues/738\n\nTitle: Blog | Madrus's Webdings\nDescription: TL;DR Recently I have switched from Jekyll to Docusaurus for my personal website. And immediately noticed the issue with letting the visitors place comments to blog posts. It seems that the comments work out of the box only for Facebook comments and then only if one has a registered FB business site (according to this PR). Searching on adding ...\nURL: https://madrus4u.com/blog\n\nTitle: How to add Giscus comments to Docusaurus | {m19v}\nDescription: Create BlogPostItem component to wrap blog posts with Giscus commenting system as follows: npm run swizzle [theme name] [component name] -- --wrap # Example: npm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap\nURL: https://m19v.github.io/blog/how-to-add-giscus-to-docusaurus\n\nTitle: Adding Comment Functionality to Docusaurus | Alan Wang\nDescription: Adding Giscus comment functionality to blogs and documentation through Docusaurus Swizzling\nURL: https://www.alanwang.site/en/posts/blog-guides/docusaurus-comment\n\nTitle: Add Giscus Comments to Docusaurus 3 Blog Posts and Doc Pages | Riku Block\nDescription: Giscus is a handy open-source web application that effortlessly integrates GitHub Discussions into external platforms.\nURL: https://rikublock.dev/docs/tutorials/giscus-integration/\n\nTitle: Comments can end up displaying inside description meta · Issue #6108 · facebook/docusaurus\nDescription: Have you read the Contributing Guidelines on issues? I have read the Contributing Guidelines on issues. Prerequisites I'm using the latest version of Docusaurus. I have tried the npm run clear ...\nURL: https://github.com/facebook/docusaurus/issues/6108"
+                }
+              ]
+            },
+            "call_MHw0R1FZbGRGM1VKUWZRQWVLQUQ__vscode-1751304040556": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\n  \"thoughtNumber\": 3,\n  \"totalThoughts\": 5,\n  \"nextThoughtNeeded\": true,\n  \"branches\": [],\n  \"thoughtHistoryLength\": 6\n}"
+                }
+              ]
+            },
+            "call_MHxTZ1F3NzlmZTYwcHlCNld2Y3Q__vscode-1751304040557": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "[Skip to content](#main-content) \n\nNavigation menu [ ![DEV Community](https://media2.dev.to/dynamic/image/quality=100/https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png) ](/) \n\nSearch [ Powered bySearch  Algolia](https://www.algolia.com/developers/?utm%5Fsource=devto&utm%5Fmedium=referral) \n\n[ Log in](https://dev.to/enter) [ Create account](https://dev.to/enter?state=new-user) \n\n## DEV Community\n\nClose \n\n![](https://assets.dev.to/assets/heart-plus-active-9ea3b22f2bc311281db911d416166c5f430636e76b15cd5df6b3b841d830eefa.svg)  Add reaction \n\n![](https://assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg)  Like ![](https://assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg)  Unicorn ![](https://assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg)  Exploding Head ![](https://assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg)  Raised Hands ![](https://assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg)  Fire \n\n Jump to Comments  Save  Boost \n\nMore... \n\n Moderate \n\nCopy link Copy link \n\nCopied to Clipboard\n\n[ Share to X](https://twitter.com/intent/tweet?text=%22How%20to%20add%20Giscus%20comments%20to%20Docusaurus%22%20by%20m19v%20%23DEVCommunity%20https%3A%2F%2Fdev.to%2Fm19v%2Fhow-to-add-giscus-comments-to-docusaurus-439h) [ Share to LinkedIn](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdev.to%2Fm19v%2Fhow-to-add-giscus-comments-to-docusaurus-439h&title=How%20to%20add%20Giscus%20comments%20to%20Docusaurus&summary=Goal%20%20%20This%20post%20is%20a%20step-by-step%20description%20of%20how%20to%20add%20Giscus%2C%20a%20commenting%20system...&source=DEV%20Community) [ Share to Facebook](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.to%2Fm19v%2Fhow-to-add-giscus-comments-to-docusaurus-439h) [ Share to Mastodon](https://toot.kytta.dev/?text=https%3A%2F%2Fdev.to%2Fm19v%2Fhow-to-add-giscus-comments-to-docusaurus-439h) \n\n[Share Post via...](#) [Report Abuse](/report-abuse) \n\n[ ![Cover image for How to add Giscus comments to Docusaurus](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F118bzzd8liya1913o8d4.png) ](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F118bzzd8liya1913o8d4.png) \n\n[![m19v](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)](/m19v) \n\n[m19v](/m19v) \n\n Posted on Oct 30, 2022 • Edited on Mar 26, 2023 \n\n![](https://assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg) ![](https://assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg) ![](https://assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg) ![](https://assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg) ![](https://assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg) \n\n#  How to add Giscus comments to Docusaurus\n\n[#docusaurus](/t/docusaurus) [#giscus](/t/giscus) [#blogging](/t/blogging) \n\n## [ ](#goal) Goal\n\nThis post is a step-by-step description of how to add [Giscus](https://giscus.app/), a commenting system powered by GitHub Discussions, to a static website generated by Docusaurus.\n\n## [ ](#setup-giscus) Setup Giscus\n\nFollow the steps in the sections of the current chapter to set up Giscus and connect it to the GitHub discussions.\n\n### [ ](#enable-github-discussion) Enable GitHub discussion\n\n* Create Github repository in your Github account where comments are stored in Discussion section.\n* In the main page of created repository go to Settings.\n* Under \"Features\" section, click \"Set up discussions\".\n* Edit the template in \"Start a new discussion\" and click \"Start discussion\".\n\n### [ ](#enable-giscus) Enable Giscus\n\n* [Configure](https://github.com/apps/giscus) giscus in your GitHub account.\n* In Section \"Repository access\" add **only** created repository from previous step to be accessed by giscus and click \"Save\".\n\n### [ ](#get-repository-api-key) Get repository API key\n\n* Login with GitHub account in [GraphQL API Explorer](https://docs.github.com/en/graphql/overview/explorer).\n* Use following query to fetch the id of created repository, discussion categories with its details (e.g. id and name). **Note!** Replace`owner`and`name`with your GitHub account name and name of repository you created.\n\n```\nquery { \n  repository(owner: \"nameOfYourGitHubAccount\", name:\"nameOfCreatedRepository\"){\n    id\n    discussionCategories(first:10) {\n      edges {\n        node {\n          id\n          name\n        }\n      }\n    }\n  }\n}\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\nThe result json object will be similar to:  \n\n```\n{\n  \"data\": {\n    \"repository\": {\n      \"id\": \"R_kgDOIVqhTg\",\n      \"discussionCategories\": {\n        \"edges\": [\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSES\",\n              \"name\": \"Announcements\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSET\",\n              \"name\": \"General\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSEV\",\n              \"name\": \"Ideas\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSEX\",\n              \"name\": \"Polls\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSEU\",\n              \"name\": \"Q&A\"\n            }\n          },\n          {\n            \"node\": {\n              \"id\": \"DIC_kwDOIVqhTs4CSSEW\",\n              \"name\": \"Show and tell\"\n            }\n          }\n        ]\n      }\n    }\n  }\n}\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\n## [ ](#create-giscus-component) Create Giscus component\n\n* Install @giscus/react package\n\n```\nnpm i @giscus/react\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\n* Create Giscus Component, e.g. under`/src/components/GiscusComponent`as follows:\n\n```\nimport React from 'react';\nimport Giscus from \"@giscus/react\";\nimport { useColorMode } from '@docusaurus/theme-common';\n\nexport default function GiscusComponent() {\n  const { colorMode } = useColorMode();\n\n  return (\n    <Giscus    \n      repo=\"nameOfYourGitHubAccount/nameOfCreatedRepository\"\n      repoId=\"idOfCreatedRepo\"\n      category=\"General\"\n      categoryId=\"IdOfDiscussionCategory\"  // E.g. id of \"General\"\n      mapping=\"url\"                        // Important! To map comments to URL\n      term=\"Welcome to @giscus/react component!\"\n      strict=\"0\"\n      reactionsEnabled=\"1\"\n      emitMetadata=\"1\"\n      inputPosition=\"top\"\n      theme={colorMode}\n      lang=\"en\"\n      loading=\"lazy\"\n      crossorigin=\"anonymous\"\n      async\n    />\n  );\n}\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\n## [ ](#create-blogpostitem-component) Create BlogPostItem component\n\n* Create BlogPostItem component to wrap blog posts with Giscus commenting system as follows:\n\n```\nnpm run swizzle [theme name] [component name] -- --wrap\n\n# Example:\nnpm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\nThis will create a BlogPostItem component under   \n`src/theme`. Edit `index.js` as follows:  \n\n```\nimport React from 'react';\nimport { useBlogPost } from '@docusaurus/theme-common/internal'\nimport BlogPostItem from '@theme-original/BlogPostItem';\nimport GiscusComponent from '@site/src/components/GiscusComponent';\nimport useIsBrowser from '@docusaurus/useIsBrowser';\n\nexport default function BlogPostItemWrapper(props) {\n  const { metadata, isBlogPostPage } = useBlogPost()\n  const isBrowser = useIsBrowser();\n\n  const { frontMatter, slug, title } = metadata\n  const { enableComments } = frontMatter\n\n  return (\n    <>\n      <BlogPostItem {...props} />\n      {(enableComments && isBlogPostPage) && (\n        <GiscusComponent />\n      )}\n    </>\n  );\n}\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\n**Note** that the `useBlogPost()` Hook is used in BlogPostItem component to make activation of comments per blog post configurable. The key value `enableComments: true` must be added to your blog post `md` file in order to activate commenting for it. E.g.:  \n\n```\n---\ntitle: \"Title of blog post\"\nauthors: author\ntags: [keywordOne, keywordTwo]\nenableComments: true # for Gisqus\n---\n\n```\n\nEnter fullscreen mode Exit fullscreen mode \n\nI have enabled the comment function of current post in my [page](https://m19v.github.io/blog/how-to-add-giscus-to-docusaurus), which can be used as a demo. Feel free to hit the \"Like\" button if you found this post helpful, or post your question in the comment if you have one.\n\n## [ ](#references) References\n\n[giscus.app](https://giscus.app/)  \n  \n[graphql.org](https://graphql.org/)  \n  \n[Add comment system to your static site with Giscus](https://dev.to/melvnl/add-comment-system-to-your-static-site-with-giscus-482o)\n\n##  Top comments (10) \n\nSubscribe \n\n![pic](https://media2.dev.to/dynamic/image/width=256,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png) \n\nPersonal Trusted User \n\n[ Create template](/settings/response-templates) \n\nTemplates let you quickly answer FAQs or store snippets for re-use.\n\nSubmit Preview [Dismiss](/404.html) \n\nCollapse Expand \n\n[ ![cavo789 profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F388906%2F867278c0-6213-46fd-b09b-344b1529f1f9.jpg) ](https://dev.to/cavo789) \n\n[ Christophe Avonture ](https://dev.to/cavo789) \n\n Christophe Avonture \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F388906%2F867278c0-6213-46fd-b09b-344b1529f1f9.jpg)  Christophe Avonture ](/cavo789) \n\nFollow \n\n Markdown, WSL and Docker lover \\~ PHP developer \\~ Insatiable curious.\n\n* Location  \n Racour, Belgium\n* Joined  \nMay 18, 2020\n\n• [  Nov 6 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-2ahcc) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-2ahcc)\n* Hide\n\nExcellent tutorial ! Hours of try-errors saved. Thank you ! 👍\n\nLike comment: Like comment: 3 likes  Like Comment button Reply \n\nCollapse Expand \n\n[ ![0420syj profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1065052%2F713cb335-371c-4378-8e86-1b9547070330.jpeg) ](https://dev.to/0420syj) \n\n[ Wan Sim ](https://dev.to/0420syj) \n\n Wan Sim \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1065052%2F713cb335-371c-4378-8e86-1b9547070330.jpeg)  Wan Sim ](/0420syj) \n\nFollow \n\n* Joined  \nApr 14, 2023\n\n• [  Apr 14 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-263hg) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-263hg)\n* Hide\n\nThanks for your post. It was easy to follow\n\nLike comment: Like comment: 2 likes  Like Comment button Reply \n\nCollapse Expand \n\n[ ![commenttool profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png) ](https://dev.to/commenttool) \n\n[ CommentTool ](https://dev.to/commenttool) \n\n CommentTool \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png)  CommentTool ](/commenttool) \n\nFollow \n\n I dabble in Java Swing\n\n* Education  \n The Big H\n* Work  \n Technical Writer\n* Joined  \nMay 12, 2023\n\n• [  May 12 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26if1) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26if1)\n* Hide\n\nI did all that you described but there is no way to add a comment on the docusaurus page. Are you sure that there are not a few additional steps left out? Are there certain things to do to create a blog? I added a blog sub-directory manually and copied some files there but perhaps this should be done in a different way? Also what, if anything, should be done with the key generated by the GraphQL at [docs.github.com/en/graphql/overvie...](https://docs.github.com/en/graphql/overview/explorer) ? Does it need to be copied to some location in GitHub or elsewhere? Thanks\n\nLike comment: Like comment: 1 like  Like Comment button Reply \n\nCollapse Expand \n\n[ ![m19v profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png) ](https://dev.to/m19v) \n\n[ m19v ](https://dev.to/m19v) \n\n m19v \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)  m19v ](/m19v) \n\nFollow \n\n Software Developer\n\n* Joined  \nSep 12, 2021\n\n• [  May 14 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26jcc) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26jcc)\n* Hide\n\n1. Steps described in this post should be sufficient to add giscus comments to docusarus blog posts.\n2. To activate blogging feature of docusarus see please [docusaurus.io/docs/blog](https://docusaurus.io/docs/blog)\n3. To see why the comments are not being added please share the error message or your state of code in e.g. public repository.\n\nLike comment: Like comment: 2 likes  Like Comment button Reply \n\nCollapse Expand \n\n[ ![commenttool profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png) ](https://dev.to/commenttool) \n\n[ CommentTool ](https://dev.to/commenttool) \n\n CommentTool \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png)  CommentTool ](/commenttool) \n\nFollow \n\n I dabble in Java Swing\n\n* Education  \n The Big H\n* Work  \n Technical Writer\n* Joined  \nMay 12, 2023\n\n• [  May 15 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26jgh) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26jgh)\n* Hide\n\nI was able to add the giscus comment feature to the blog feature, which I was able to add. (Everything worked fine after I renamed \\\\src\\\\components\\\\GiscusComponent\\\\GiscusComponent.js to index.js. Perhaps you might make this clearer.)\n\nIt looks great but is there a way to put the blog at the bottom of the page and not at the top right?\n\nThanks\n\nLike comment: Like comment: 1 like  Like Thread  Thread \n\n[ ![commenttool profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png) ](https://dev.to/commenttool) \n\n[ CommentTool ](https://dev.to/commenttool) \n\n CommentTool \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1081464%2Fa54b3370-81a5-4b17-82f3-a8db5da0145d.png)  CommentTool ](/commenttool) \n\nFollow \n\n I dabble in Java Swing\n\n* Education  \n The Big H\n* Work  \n Technical Writer\n* Joined  \nMay 12, 2023\n\n• [  May 16 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26kbe) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26kbe)\n* Hide\n\nHi!\n\nThanks for describing how to set up the giscus comment feature within a docusaurus blog. It works as advertised and we might implement it on our own product web site.\n\nWe do, however, have a couple of concerns. A GitHub account is necessary. Is there any way to 'vet' or restrict the GitHub accounts that are allowed to comment? If we make our docusaurus documentation publically available, anyone could make comments in the blog that would also be public. Individuals unfriendly to our company could make deliberately unhelpful if not malicious comments that might not be detected quickly. \n\nWe currently have our documentation behind a login so this is not an issue, but making it all public is something that we are considering. (Having our documentation behind a login means that were we to enable blog comments, our users would need 2 logins to make comments. That is a bit much to ask our customers.)\n\nSo the bottom line is that to make it easy to get user comments, we might want to make everything public BUT we would want to have some control over who is making the comments. Would anyone have any idea on how feasible this all is?\n\nThanks!\n\nLike comment: Like comment: 2 likes  Like Thread  Thread \n\n[ ![m19v profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png) ](https://dev.to/m19v) \n\n[ m19v ](https://dev.to/m19v) \n\n m19v \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)  m19v ](/m19v) \n\nFollow \n\n Software Developer\n\n* Joined  \nSep 12, 2021\n\n• [  May 16 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26kg9) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-26kg9)\n* Hide\n\nHi, \n\nyes, GitHub account to comment and a GitHub repository to store comments are needed. Hence Giscus is used if one just have a basic static web page that do not have authentication, backend with commenting system etc. \n\nI do not think that GitHub have such a possibility to restrict a specific user to comment a discussion of the public repository. However you can moderate comments and conversations. See [docs.github.com/en/communities/mod...](https://docs.github.com/en/communities/moderating-comments-and-conversations). \n\nRegards!\n\nLike comment: Like comment: 1 like  Like Comment button Reply \n\nCollapse Expand \n\n[ ![jerryi profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1039911%2Fbe189e06-b3e7-4c60-a6f8-da2d2ec55b49.jpeg) ](https://dev.to/jerryi) \n\n[ Kirill Vasin ](https://dev.to/jerryi) \n\n Kirill Vasin \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1039911%2Fbe189e06-b3e7-4c60-a6f8-da2d2ec55b49.jpeg)  Kirill Vasin ](/jerryi) \n\nFollow \n\n* Location  \n Germany\n* Work  \n PhD Student @ University of Augsburg\n* Joined  \nMar 6, 2023\n\n• [  Jul 14 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-27ppf) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-27ppf)\n* Hide\n\nIs is possible to add it to docs pages as well?\n\nLike comment: Like comment: 1 like  Like Comment button Reply \n\nCollapse Expand \n\n[ ![m19v profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png) ](https://dev.to/m19v) \n\n[ m19v ](https://dev.to/m19v) \n\n m19v \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)  m19v ](/m19v) \n\nFollow \n\n Software Developer\n\n* Joined  \nSep 12, 2021\n\n• [  Jul 15 '23 • Edited on Jul 15 • Edited ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-280n9) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-280n9)\n* Hide\n\nHi,   \nI assume yes as Docusaurus has good architecture. E.g. the easiest way to have comments on docs is to just import GiscusComponent already created in current tutorial in MDX (see [docusaurus.io/docs/markdown-featur...](https://docusaurus.io/docs/markdown-features/react#using-jsx-in-markdown)).   \nOtherwise use Swizzling ([docusaurus.io/docs/swizzling](https://docusaurus.io/docs/swizzling)) and plugin-content-docs ([docusaurus.io/docs/api/plugins/@do...](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs)) to wrap right docs item with GiscussComponent. Check please [docusaurus.io/docs/api/plugins/@do...](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#docItemComponent) if it is the right one.\n\nWould be grad for any further details if you get it working. It might be also interesting for others. \n\nRegards\n\nLike comment: Like comment: 3 likes  Like Comment button Reply \n\nCollapse Expand \n\n[ ![jerryi profile image](https://media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1039911%2Fbe189e06-b3e7-4c60-a6f8-da2d2ec55b49.jpeg) ](https://dev.to/jerryi) \n\n[ Kirill Vasin ](https://dev.to/jerryi) \n\n Kirill Vasin \n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1039911%2Fbe189e06-b3e7-4c60-a6f8-da2d2ec55b49.jpeg)  Kirill Vasin ](/jerryi) \n\nFollow \n\n* Location  \n Germany\n* Work  \n PhD Student @ University of Augsburg\n* Joined  \nMar 6, 2023\n\n• [  Jul 15 '23 ](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-280nh) \n\nDropdown menu \n\n* [Copy link](https://dev.to/m19v/how-to-add-giscus-comments-to-docusaurus-439h#comment-280nh)\n* Hide\n\nThanks! It did works so well using DocItem template. :)\n\nLike comment: Like comment: 2 likes  Like Comment button Reply \n\n[Code of Conduct](/code-of-conduct) • [Report abuse](/report-abuse) \n\n Are you sure you want to hide this comment? It will become hidden in your post, but will still be visible via the comment's [permalink](#).\n\nHide child comments as well\n\n Confirm \n\nFor further actions, you may consider blocking this person and/or [reporting abuse](/report-abuse)\n\n[ ![](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F704680%2Ffc4ed564-cc3a-495c-ac1c-e9baa88cd6cf.png)  m19v ](/m19v) \n\nFollow \n\n Software Developer\n\n* Joined  \nSep 12, 2021\n\n###  Trending on [DEV Community](https://dev.to) Hot \n\n[ ![Kiran Naragund profile image](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F1204850%2Fa9ef9d9a-e1bc-46c4-b7b8-164b3acaa098.jpg)  Comparing Qodo and GitHub Copilot 🕵️ #ai #vscode #productivity #programming ](/dev%5Fkiran/comparing-qodo-and-github-copilot-4l2b) [ ![Jess Lee profile image](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F264%2Fb75f6edf-df7b-406e-a56b-43facafb352c.jpg)  What was your win this week?! #weeklyretro #discuss ](/devteam/what-was-your-win-this-week-40jp) [ ![Anthony James profile image](https://media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F2975545%2F2e7d922e-9c30-47ab-a6e9-f48c9a66f38e.jpg)  How TDZ PRO Changed the Game for External Remote Meetings #remote #productivity #meetings #tdzpro ](/james007anthony/how-tdz-pro-changed-the-game-for-external-remote-meetings-45ei) \n\n 💎 DEV Diamond Sponsors\n\n Thank you to our Diamond Sponsors for supporting the DEV Community\n\n[ ![Google AI - Official AI Model and Platform Partner](https://media2.dev.to/dynamic/image/width=880%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxjlyhbdqehj3akhz166w.png) ](https://aistudio.google.com/?utm%5Fsource=partner&utm%5Fmedium=partner&utm%5Fcampaign=FY25-Global-DEVpartnership-sponsorship-AIS&utm%5Fcontent=-&utm%5Fterm=-&bb=146443) \n\nGoogle AI is the official AI Model and Platform Partner of DEV\n\n[ ![Neon - Official Database Partner](https://media2.dev.to/dynamic/image/width=880%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fbnl88cil6afxzmgwrgtt.png) ](https://neon.tech/?ref=devto&bb=146443) \n\nNeon is the official database partner of DEV\n\n[ ![Algolia - Official Search Partner](https://media2.dev.to/dynamic/image/width=880%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fv30ephnolfvnlwgwm0yz.png) ](https://www.algolia.com/developers/?utm%5Fsource=devto&utm%5Fmedium=referral&bb=146443) \n\nAlgolia is the official search partner of DEV\n\n[DEV Community](/) — A space to discuss and keep up software development and manage your software career\n\n* [ Home](/)\n* [ DEV++](/++)\n* [ Podcasts](/pod)\n* [ Videos](/videos)\n* [ Tags](/tags)\n* [ DEV Help](/help)\n* [ Forem Shop](https://shop.forem.com/)\n* [ Advertise on DEV](/advertise)\n* [ DEV Challenges](/challenges)\n* [ DEV Showcase](/showcase)\n* [ About](/about)\n* [ Contact](/contact)\n* [ Free Postgres Database](/free-postgres-database-tier)\n* [ Software comparisons](/software-comparisons)\n* [ Code of Conduct](/code-of-conduct)\n* [ Privacy Policy](/privacy)\n* [ Terms of use](/terms)\n\nBuilt on [Forem](https://www.forem.com) — the [open source](https://dev.to/t/opensource) software that powers [DEV](https://dev.to) and other inclusive communities.\n\nMade with love and [Ruby on Rails](https://dev.to/t/rails). DEV Community © 2016 - 2025.\n\n![DEV Community](https://media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png) \n\n We're a place where coders share, stay up-to-date and grow their careers.\n\n[ Log in](/enter) [ Create account](/enter?state=new-user) \n\n![](https://assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg) ![](https://assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg) ![](https://assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg) ![](https://assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg) ![](https://assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg) "
+                }
+              ]
+            }
+          },
+          "modelMessageId": "01774321-a6a9-4508-bc65-41539b735b7a",
+          "responseId": "85fe51e4-cefc-47fd-a29d-b3f1920a68a3",
+          "sessionId": "42b78d2a-0050-451a-9fc6-be0328b5e441",
+          "agentId": "github.copilot.editsAgent"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editsAgent",
+        "description": "Edit files in your workspace in agent mode",
+        "when": "config.chat.agent.enabled && !chatAgentModeDisallowed",
+        "metadata": {
+          "themeIcon": {
+            "id": "tools"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false,
+          "additionalWelcomeMessage": {
+            "value": "As an internal user, additional telemetry is collected. If you work on a project that contains customer content, you must [disable telemetry](command:workbench.action.openSettings?%5B%22telemetry.telemetryLevel%22%5D).",
+            "isTrusted": {
+              "enabledCommands": [
+                "workbench.action.openSettings"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:workbench.action.openSettings?%5B%22telemetry.telemetryLevel%22%5D": {
+                "$mid": 1,
+                "external": "command:workbench.action.openSettings?%5B%22telemetry.telemetryLevel%22%5D",
+                "path": "workbench.action.openSettings",
+                "scheme": "command",
+                "query": "[\"telemetry.telemetryLevel\"]"
+              }
+            }
+          }
+        },
+        "name": "agent",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "agent"
+        ],
+        "slashCommands": [
+          {
+            "name": "list"
+          }
+        ],
+        "disambiguation": []
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "c:\\Users\\auste\\source\\portfolio\\.github\\copilot-instructions.md",
+            "_sep": 1,
+            "external": "file:///c%3A/Users/auste/source/portfolio/.github/copilot-instructions.md",
+            "path": "/c:/Users/auste/source/portfolio/.github/copilot-instructions.md",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "\\github.copilot.chat.codeGeneration.instructions",
+            "_sep": 1,
+            "external": "vscode://settings/github.copilot.chat.codeGeneration.instructions",
+            "path": "/github.copilot.chat.codeGeneration.instructions",
+            "scheme": "vscode",
+            "authority": "settings"
+          }
+        }
+      ],
+      "codeCitations": [
+        {
+          "kind": "codeCitation",
+          "value": {
+            "$mid": 1,
+            "path": "/hhkaos/hhkaos.github.io/blob/ee50cdac8bf1fa0a7e50dc59a4ec5166cf8bb8f7/src/theme/BlogPostItem/index.js",
+            "scheme": "https",
+            "authority": "github.com"
+          },
+          "license": "unknown",
+          "snippet": "{ useBlogPost } from '@docusaurus/theme-common/internal'\nimport BlogPostItem from '@theme-"
+        },
+        {
+          "kind": "codeCitation",
+          "value": {
+            "$mid": 1,
+            "path": "/hhkaos/hhkaos.github.io/blob/ee50cdac8bf1fa0a7e50dc59a4ec5166cf8bb8f7/src/theme/BlogPostItem/index.js",
+            "scheme": "https",
+            "authority": "github.com"
+          },
+          "license": "unknown",
+          "snippet": "{ useBlogPost } from '@docusaurus/theme-common/internal'\nimport BlogPostItem from '@theme-original/BlogPostItem';\nimport GiscusComponent from '@site/src/components/GiscusComponent';\nimport useIsBrowser from '@docusaurus/useIsBrowser';\n\nexport default function BlogPostItemWrapper(props) {\n  const { metadata, isBlogPostPage } = useBlogPost()\n  const is"
+        },
+        {
+          "kind": "codeCitation",
+          "value": {
+            "$mid": 1,
+            "path": "/hhkaos/hhkaos.github.io/blob/ee50cdac8bf1fa0a7e50dc59a4ec5166cf8bb8f7/src/theme/BlogPostItem/index.js",
+            "scheme": "https",
+            "authority": "github.com"
+          },
+          "license": "unknown",
+          "snippet": "{ useBlogPost } from '@docusaurus/theme-common/internal'\nimport BlogPostItem from '@theme-original/BlogPostItem';\nimport GiscusComponent from '@site/src/components/GiscusComponent';\nimport useIsBrowser from '@docusaurus/useIsBrowser';\n\nexport default function BlogPostItemWrapper(props) {\n  const { metadata, isBlogPostPage } = useBlogPost()\n  const isBrowser = useIsBrowser();\n\n  const { frontMatter"
+        }
+      ],
+      "timestamp": 1751311663388
+    },
+    {
+      "requestId": "request_6b8d661c-283a-4a48-b075-2dc24f9422c3",
+      "message": {
+        "text": "Create a plan to implement this feature",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 39
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 40
+            },
+            "text": "Create a plan to implement this feature",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "value": "Here is a plan to implement the Giscus commenting feature on your Docusaurus blog.\n\n### Overview\n\nThis plan outlines the steps to integrate Giscus, a comment system powered by GitHub Discussions, into your Docusaurus portfolio website. This will allow visitors to leave comments on your blog posts using their GitHub accounts, with the comments stored directly in your site's GitHub repository.\n\n### Requirements\n\n*   The comment system must be free and integrate with the existing GitHub repository.\n*   Users must be able to log in and comment using their GitHub accounts.\n*   Comments must be tied to specific blog post URLs.\n*   The comment section's theme should automatically adapt to the website's light and dark modes.\n*   The feature should be enabled on a per-post basis via front matter.\n\n### Implementation Steps\n\n1.  **Configure GitHub Repository**\n    *   **Enable Discussions:** In your `austenstone/portfolio` GitHub repository settings, enable the \"Discussions\" feature.\n    *   **Create a Category:** Create a new discussion category specifically for blog comments (e.g., \"Blog Comments\") to keep them organized.\n\n2.  **Set Up Giscus**\n    *   **Install Giscus App:** Go to the [Giscus website](https://giscus.app/) and install the Giscus GitHub App.\n    *   **Grant Repository Access:** Authorize the app to access your `austenstone/portfolio` repository.\n    *   **Configuration:** On the Giscus configuration page, select your repository and the newly created \"Blog Comments\" discussion category.\n    *   **Get IDs:** Copy the generated Repository ID and Category ID provided by Giscus. These will be needed for the component.\n\n3.  **Create the Giscus React Component**\n    *   **Install Dependency:** Add the `@giscus/react` package to your project by running `npm install @giscus/react`.\n    *   **Create Component File:** Create a new file at `src/components/GiscusComponent/index.tsx`.\n    *   **Implement Component Logic:** In this file, create a React component that uses the `<Giscus />` component from the installed package.\n        *   Pass the Repository ID and Category ID from the previous step as props.\n        *   Use the `useColorMode` hook from Docusaurus to dynamically set the Giscus `theme` prop, ensuring it matches the site's current theme.\n        *   Configure other Giscus settings like `mapping`, `reactionsEnabled`, etc., as required.\n\n4.  **Integrate Component into Blog Posts**\n    *   **Swizzle `BlogPostItem`:** Use the Docusaurus swizzle command to create a customizable wrapper for the blog post component:\n        ```bash\n        npm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap\n        ```\n    *   **Modify Swizzled Component:** Edit the newly created file at `src/theme/BlogPostItem/index.js` (or `index.tsx`).\n        *   Import your `GiscusComponent`.\n        *   Use the `useBlogPost()` hook to access the current post's metadata and determine if it's a blog post page (`isBlogPostPage`).\n        *   Add logic to conditionally render the `GiscusComponent` only when `isBlogPostPage` is `true` and the post's front matter contains `enableComments: true`.\n\n5.  **Enable Comments in Content**\n    *   **Update a Blog Post:** Select a blog post to test with, for example, ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/c:/Users/auste/source/portfolio/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "c:\\Users\\auste\\source\\portfolio\\blog\\2025-06-26-welcome-to-portfolio.md",
+            "_sep": 1,
+            "external": "file:///c%3A/Users/auste/source/portfolio/blog/2025-06-26-welcome-to-portfolio.md",
+            "path": "/c:/Users/auste/source/portfolio/blog/2025-06-26-welcome-to-portfolio.md",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": ".\n    *   **Add Front Matter:** Add the field `enableComments: true` to the front matter of the selected blog post file.\n\n### Testing\n\n1.  **Local Development:**\n    *   Start the development server using `npm run start`.\n    *   Navigate to the blog post where comments have been enabled and verify that the Giscus widget loads correctly.\n    *   Navigate to a different blog post without the `enableComments` flag and confirm the widget does not appear.\n    *   Post a test comment to ensure it appears on the page and in the corresponding GitHub Discussion.\n2.  **Theme Verification:**\n    *   Toggle the website between light and dark modes to ensure the Giscus component's theme updates accordingly.\n3.  **Production Build:**\n    *   Run `npm run build` to create a production build of the site.\n    *   Serve the build locally (e.g., using `npm run serve`) and repeat the verification steps to ensure everything works as expected in the production environment.",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/c:/Users/auste/source/portfolio/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "responseId": "response_455bb710-7a4c-4504-a086-05fc07b37113",
+      "result": {
+        "timings": {
+          "firstProgress": 10285,
+          "totalElapsed": 19665
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "renderedUserMessage": [
+            {
+              "type": 1,
+              "text": "<context>\nThe current date is June 30, 2025.\n</context>\n<reminder>\n\n</reminder>\n<userRequest>\nCreate a plan to implement this feature\n</userRequest>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "modelMessageId": "a1c51d98-6cfe-4764-a249-eb656496a3a8",
+          "responseId": "d4108471-70bf-4ab7-8bd0-c59a082bfc46",
+          "sessionId": "42b78d2a-0050-451a-9fc6-be0328b5e441",
+          "agentId": "github.copilot.editsAgent"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editsAgent",
+        "description": "Edit files in your workspace in agent mode",
+        "when": "config.chat.agent.enabled && !chatAgentModeDisallowed",
+        "metadata": {
+          "themeIcon": {
+            "id": "tools"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false,
+          "additionalWelcomeMessage": {
+            "value": "As an internal user, additional telemetry is collected. If you work on a project that contains customer content, you must [disable telemetry](command:workbench.action.openSettings?%5B%22telemetry.telemetryLevel%22%5D).",
+            "isTrusted": {
+              "enabledCommands": [
+                "workbench.action.openSettings"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:workbench.action.openSettings?%5B%22telemetry.telemetryLevel%22%5D": {
+                "$mid": 1,
+                "external": "command:workbench.action.openSettings?%5B%22telemetry.telemetryLevel%22%5D",
+                "path": "workbench.action.openSettings",
+                "scheme": "command",
+                "query": "[\"telemetry.telemetryLevel\"]"
+              }
+            }
+          }
+        },
+        "name": "agent",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "agent"
+        ],
+        "slashCommands": [
+          {
+            "name": "list"
+          }
+        ],
+        "disambiguation": []
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "c:\\Users\\auste\\source\\portfolio\\.github\\copilot-instructions.md",
+            "_sep": 1,
+            "external": "file:///c%3A/Users/auste/source/portfolio/.github/copilot-instructions.md",
+            "path": "/c:/Users/auste/source/portfolio/.github/copilot-instructions.md",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "\\github.copilot.chat.codeGeneration.instructions",
+            "_sep": 1,
+            "external": "vscode://settings/github.copilot.chat.codeGeneration.instructions",
+            "path": "/github.copilot.chat.codeGeneration.instructions",
+            "scheme": "vscode",
+            "authority": "settings"
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1751311768404
+    },
+    {
+      "requestId": "request_e07133db-757f-4d65-a360-a1ea54bc65f8",
+      "message": {
+        "text": "Create the plan as a prompt file. Be as detailed as possible.",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 61
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 62
+            },
+            "text": "Create the plan as a prompt file. Be as detailed as possible.",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "vscode.prompt.instructions.root__vscode-userdata:/c%3A/Users/auste/AppData/Roaming/Code/User/prompts/copilot-prompt.prompt.md",
+            "name": "prompt:copilot-prompt.prompt.md",
+            "value": {
+              "$mid": 1,
+              "fsPath": "c:\\Users\\auste\\AppData\\Roaming\\Code\\User\\prompts\\copilot-prompt.prompt.md",
+              "_sep": 1,
+              "external": "vscode-userdata:/c%3A/Users/auste/AppData/Roaming/Code/User/prompts/copilot-prompt.prompt.md",
+              "path": "/C:/Users/auste/AppData/Roaming/Code/User/prompts/copilot-prompt.prompt.md",
+              "scheme": "vscode-userdata"
+            },
+            "kind": "file",
+            "modelDescription": "Prompt instructions file",
+            "isRoot": true
+          }
+        ]
+      },
+      "response": [
+        {
+          "value": "Of course. I will create a new prompt file with the plan to implement Giscus comments. ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/c:/Users/auste/source/portfolio/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "prepareToolInvocation",
+          "toolName": "copilot_createFile"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Creating [](file:///c%3A/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md)",
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "file:///c%3A/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md": {
+                "$mid": 1,
+                "path": "/c:/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md",
+                "scheme": "file"
+              }
+            }
+          },
+          "pastTenseMessage": {
+            "value": "Created [](file:///c%3A/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md)",
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "file:///c%3A/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md": {
+                "$mid": 1,
+                "external": "file:///c%3A/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md",
+                "path": "/c:/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md",
+                "scheme": "file"
+              }
+            }
+          },
+          "isConfirmed": true,
+          "isComplete": true,
+          "toolCallId": "432adf19-0e80-44b0-b16c-a9883f1b1a0b",
+          "toolId": "copilot_createFile"
+        },
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "c:\\Users\\auste\\source\\portfolio\\.github\\prompts\\implement-giscus-comments.prompt.md",
+            "_sep": 1,
+            "external": "file:///c%3A/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md",
+            "path": "/c:/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "---",
+                "range": {
+                  "startLineNumber": 1,
+                  "startColumn": 1,
+                  "endLineNumber": 1,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\nmode: agent",
+                "range": {
+                  "startLineNumber": 2,
+                  "startColumn": 1,
+                  "endLineNumber": 2,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\ndescription: \"A prompt to implement Giscus comments on the Docusaurus blog.\"",
+                "range": {
+                  "startLineNumber": 3,
+                  "startColumn": 1,
+                  "endLineNumber": 3,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n---",
+                "range": {
+                  "startLineNumber": 4,
+                  "startColumn": 1,
+                  "endLineNumber": 4,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 5,
+                  "startColumn": 1,
+                  "endLineNumber": 5,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n# Plan: Implement Giscus Comments in Docusaurus",
+                "range": {
+                  "startLineNumber": 6,
+                  "startColumn": 1,
+                  "endLineNumber": 6,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 7,
+                  "startColumn": 1,
+                  "endLineNumber": 7,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\nThis plan outlines the steps to integrate Giscus, a comment system powered by GitHub Discussions, into your Docusaurus portfolio website. This will allow visitors to leave comments on your blog posts using their GitHub accounts, with the comments stored directly in your site's GitHub repository.",
+                "range": {
+                  "startLineNumber": 8,
+                  "startColumn": 1,
+                  "endLineNumber": 8,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 9,
+                  "startColumn": 1,
+                  "endLineNumber": 9,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n## Requirements",
+                "range": {
+                  "startLineNumber": 10,
+                  "startColumn": 1,
+                  "endLineNumber": 10,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 11,
+                  "startColumn": 1,
+                  "endLineNumber": 11,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- The comment system must be free and integrate with the existing GitHub repository.",
+                "range": {
+                  "startLineNumber": 12,
+                  "startColumn": 1,
+                  "endLineNumber": 12,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- Users must be able to log in and comment using their GitHub accounts.",
+                "range": {
+                  "startLineNumber": 13,
+                  "startColumn": 1,
+                  "endLineNumber": 13,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- Comments must be tied to specific blog post URLs.",
+                "range": {
+                  "startLineNumber": 14,
+                  "startColumn": 1,
+                  "endLineNumber": 14,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- The comment section's theme should automatically adapt to the website's light and dark modes.",
+                "range": {
+                  "startLineNumber": 15,
+                  "startColumn": 1,
+                  "endLineNumber": 15,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- The feature should be enabled on a per-post basis via front matter.",
+                "range": {
+                  "startLineNumber": 16,
+                  "startColumn": 1,
+                  "endLineNumber": 16,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 17,
+                  "startColumn": 1,
+                  "endLineNumber": 17,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n## Implementation Steps",
+                "range": {
+                  "startLineNumber": 18,
+                  "startColumn": 1,
+                  "endLineNumber": 18,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 19,
+                  "startColumn": 1,
+                  "endLineNumber": 19,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n### 1. Configure GitHub Repository",
+                "range": {
+                  "startLineNumber": 20,
+                  "startColumn": 1,
+                  "endLineNumber": 20,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 21,
+                  "startColumn": 1,
+                  "endLineNumber": 21,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Enable Discussions:** In your `austenstone/portfolio` GitHub repository settings, enable the \"Discussions\" feature.",
+                "range": {
+                  "startLineNumber": 22,
+                  "startColumn": 1,
+                  "endLineNumber": 22,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Create a Category:** Create a new discussion category specifically for blog comments (e.g., \"Blog Comments\") to keep them organized.",
+                "range": {
+                  "startLineNumber": 23,
+                  "startColumn": 1,
+                  "endLineNumber": 23,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 24,
+                  "startColumn": 1,
+                  "endLineNumber": 24,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n### 2. Set Up Giscus",
+                "range": {
+                  "startLineNumber": 25,
+                  "startColumn": 1,
+                  "endLineNumber": 25,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 26,
+                  "startColumn": 1,
+                  "endLineNumber": 26,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Install Giscus App:** Go to the [Giscus website](https://giscus.app/) and install the Giscus GitHub App.",
+                "range": {
+                  "startLineNumber": 27,
+                  "startColumn": 1,
+                  "endLineNumber": 27,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Grant Repository Access:** Authorize the app to access your `austenstone/portfolio` repository.",
+                "range": {
+                  "startLineNumber": 28,
+                  "startColumn": 1,
+                  "endLineNumber": 28,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Configuration:** On the Giscus configuration page, select your repository and the newly created \"Blog Comments\" discussion category.",
+                "range": {
+                  "startLineNumber": 29,
+                  "startColumn": 1,
+                  "endLineNumber": 29,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Get IDs:** Copy the generated Repository ID and Category ID provided by Giscus. These will be needed for the component.",
+                "range": {
+                  "startLineNumber": 30,
+                  "startColumn": 1,
+                  "endLineNumber": 30,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 31,
+                  "startColumn": 1,
+                  "endLineNumber": 31,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n### 3. Create the Giscus React Component",
+                "range": {
+                  "startLineNumber": 32,
+                  "startColumn": 1,
+                  "endLineNumber": 32,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 33,
+                  "startColumn": 1,
+                  "endLineNumber": 33,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Install Dependency:** Add the `@giscus/react` package to your project by running `npm install @giscus/react`.",
+                "range": {
+                  "startLineNumber": 34,
+                  "startColumn": 1,
+                  "endLineNumber": 34,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Create Component File:** Create a new file at `src/components/GiscusComponent/index.tsx`.",
+                "range": {
+                  "startLineNumber": 35,
+                  "startColumn": 1,
+                  "endLineNumber": 35,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Implement Component Logic:** In this file, create a React component that uses the `<Giscus />` component from the installed package.",
+                "range": {
+                  "startLineNumber": 36,
+                  "startColumn": 1,
+                  "endLineNumber": 36,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Pass the Repository ID and Category ID from the previous step as props.",
+                "range": {
+                  "startLineNumber": 37,
+                  "startColumn": 1,
+                  "endLineNumber": 37,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Use the `useColorMode` hook from Docusaurus to dynamically set the Giscus `theme` prop, ensuring it matches the site's current theme.",
+                "range": {
+                  "startLineNumber": 38,
+                  "startColumn": 1,
+                  "endLineNumber": 38,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Configure other Giscus settings like `mapping`, `reactionsEnabled`, etc., as required.",
+                "range": {
+                  "startLineNumber": 39,
+                  "startColumn": 1,
+                  "endLineNumber": 39,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 40,
+                  "startColumn": 1,
+                  "endLineNumber": 40,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n### 4. Integrate Component into Blog Posts",
+                "range": {
+                  "startLineNumber": 41,
+                  "startColumn": 1,
+                  "endLineNumber": 41,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 42,
+                  "startColumn": 1,
+                  "endLineNumber": 42,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Swizzle `BlogPostItem`:** Use the Docusaurus swizzle command to create a customizable wrapper for the blog post component:",
+                "range": {
+                  "startLineNumber": 43,
+                  "startColumn": 1,
+                  "endLineNumber": 43,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ```bash",
+                "range": {
+                  "startLineNumber": 44,
+                  "startColumn": 1,
+                  "endLineNumber": 44,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    npm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap",
+                "range": {
+                  "startLineNumber": 45,
+                  "startColumn": 1,
+                  "endLineNumber": 45,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    ```",
+                "range": {
+                  "startLineNumber": 46,
+                  "startColumn": 1,
+                  "endLineNumber": 46,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Modify Swizzled Component:** Edit the newly created file at `src/theme/BlogPostItem/index.js` (or `index.tsx`).",
+                "range": {
+                  "startLineNumber": 47,
+                  "startColumn": 1,
+                  "endLineNumber": 47,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Import your `GiscusComponent`.",
+                "range": {
+                  "startLineNumber": 48,
+                  "startColumn": 1,
+                  "endLineNumber": 48,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Use the `useBlogPost()` hook to access the current post's metadata and determine if it's a blog post page (`isBlogPostPage`).",
+                "range": {
+                  "startLineNumber": 49,
+                  "startColumn": 1,
+                  "endLineNumber": 49,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Add logic to conditionally render the `GiscusComponent` only when `isBlogPostPage` is `true` and the post's front matter contains `enableComments: true`.",
+                "range": {
+                  "startLineNumber": 50,
+                  "startColumn": 1,
+                  "endLineNumber": 50,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 51,
+                  "startColumn": 1,
+                  "endLineNumber": 51,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n### 5. Enable Comments in Content",
+                "range": {
+                  "startLineNumber": 52,
+                  "startColumn": 1,
+                  "endLineNumber": 52,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 53,
+                  "startColumn": 1,
+                  "endLineNumber": 53,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Update a Blog Post:** Select a blog post to test with, for example, `blog/2025-06-26-welcome-to-portfolio.md`.",
+                "range": {
+                  "startLineNumber": 54,
+                  "startColumn": 1,
+                  "endLineNumber": 54,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n- **Add Front Matter:** Add the field `enableComments: true` to the front matter of the selected blog post file.",
+                "range": {
+                  "startLineNumber": 55,
+                  "startColumn": 1,
+                  "endLineNumber": 55,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 56,
+                  "startColumn": 1,
+                  "endLineNumber": 56,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n## Testing",
+                "range": {
+                  "startLineNumber": 57,
+                  "startColumn": 1,
+                  "endLineNumber": 57,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 58,
+                  "startColumn": 1,
+                  "endLineNumber": 58,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n1.  **Local Development:**",
+                "range": {
+                  "startLineNumber": 59,
+                  "startColumn": 1,
+                  "endLineNumber": 59,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Start the development server using `npm run start`.",
+                "range": {
+                  "startLineNumber": 60,
+                  "startColumn": 1,
+                  "endLineNumber": 60,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Navigate to the blog post where comments have been enabled and verify that the Giscus widget loads correctly.",
+                "range": {
+                  "startLineNumber": 61,
+                  "startColumn": 1,
+                  "endLineNumber": 61,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Navigate to a different blog post without the `enableComments` flag and confirm the widget does not appear.",
+                "range": {
+                  "startLineNumber": 62,
+                  "startColumn": 1,
+                  "endLineNumber": 62,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Post a test comment to ensure it appears on the page and in the corresponding GitHub Discussion.",
+                "range": {
+                  "startLineNumber": 63,
+                  "startColumn": 1,
+                  "endLineNumber": 63,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n2.  **Theme Verification:**",
+                "range": {
+                  "startLineNumber": 64,
+                  "startColumn": 1,
+                  "endLineNumber": 64,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Toggle the website between light and dark modes to ensure the Giscus component's theme updates accordingly.",
+                "range": {
+                  "startLineNumber": 65,
+                  "startColumn": 1,
+                  "endLineNumber": 65,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n3.  **Production Build:**",
+                "range": {
+                  "startLineNumber": 66,
+                  "startColumn": 1,
+                  "endLineNumber": 66,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Run `npm run build` to create a production build of the site.",
+                "range": {
+                  "startLineNumber": 67,
+                  "startColumn": 1,
+                  "endLineNumber": 67,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    - Serve the build locally (e.g., using `npm run serve`) and repeat the verification steps to ensure everything works as expected in the production environment.",
+                "range": {
+                  "startLineNumber": 68,
+                  "startColumn": 1,
+                  "endLineNumber": 68,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 69,
+                  "startColumn": 1,
+                  "endLineNumber": 69,
+                  "endColumn": 1
+                }
+              }
+            ],
+            []
+          ],
+          "done": true
+        },
+        {
+          "value": "I have created the plan as a prompt file, as you requested. You can find it at ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/c:/Users/auste/source/portfolio/",
+            "scheme": "file"
+          },
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "c:\\Users\\auste\\source\\portfolio\\.github\\prompts\\implement-giscus-comments.prompt.md",
+            "_sep": 1,
+            "external": "file:///c%3A/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md",
+            "path": "/c:/Users/auste/source/portfolio/.github/prompts/implement-giscus-comments.prompt.md",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": ".\n\nYou can now run this prompt in the chat to start the implementation process. Let me know if you have any other questions.",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/c:/Users/auste/source/portfolio/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "responseId": "response_c186dd6e-c7a8-4711-a053-76bc887cb00c",
+      "result": {
+        "timings": {
+          "firstProgress": 4022,
+          "totalElapsed": 17668
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "renderedUserMessage": [
+            {
+              "type": 1,
+              "text": "<instructions>\n<attachment id=\"prompt:copilot-prompt.prompt.md\" filePath=\"vscode-userdata:/c%3A/Users/auste/AppData/Roaming/Code/User/prompts/copilot-prompt.prompt.md\">\nPrompt instructions file:\n````prompt\n---\r\nmode: agent\r\ndescription: \"Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (what should be done).\"\r\n---\r\n\r\nCreate a prompt file in the `.github/prompts` directory that implements all previous conversation and context.\r\n\r\nAdd as much context and information as possible.\r\n\r\n# Information\r\n\r\n## Prompt files\r\nDefine reusable prompts for common tasks like generating code or performing a code review. Prompt files are standalone prompts that you can run directly in chat. They describe the task to be performed (what should be done). Optionally, you can include tasks-specific guidelines about how the task should be performed, or you can reference custom instructions in the prompt file.\r\n\r\n## Prompt file structure\r\n\r\nA prompt file is a Markdown file with the .prompt.md file suffix. It has the following two main sections:\r\n\r\n- (Optional) Header with metadata (Front Matter syntax)\r\n  - mode: The chat mode to use when running the prompt: ask, edit, or agent (default).\r\n  - description: A short description of the prompt.\r\n- Body with the prompt content\r\n  - Prompt files mimic the format of writing prompts in chat. This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies. You can use Markdown formatting to structure the prompt content, including headings, lists, and code blocks.\r\n\r\nYou can reference other workspace files, prompt files, or instructions files by using Markdown links. Use relative paths to reference these files, and ensure that the paths are correct based on the location of the prompt file.\r\n\r\nWithin a prompt file, you can reference variables by using the ${variableName} syntax. You can reference the following variables:\r\n\r\n- Workspace variables - ${workspaceFolder}, ${workspaceFolderBasename}\r\n- Selection variables - ${selection}, ${selectedText}\r\n- File context variables - ${file}, ${fileBasename}, ${fileDirname}, ${fileBasenameNoExtension}\r\n- Input variables - ${input:variableName}, ${input:variableName:placeholder} (pass values to the prompt from the chat input field)\r\n\r\n# Example\r\n\r\n```\r\n---\r\nmode: 'agent'\r\ndescription: ''\r\n---\r\n<content goes here>\r\n```\n````\n</attachment>\n\n</instructions>\n<context>\nThe current date is June 30, 2025.\n</context>\n<reminder>\nWhen using the insert_edit_into_file tool, avoid repeating existing code, instead use a line comment with \\`...existing code...\\` to represent regions of unchanged code.\n</reminder>\n<userRequest>\nCreate the plan as a prompt file. Be as detailed as possible.\n</userRequest>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "toolCallRounds": [
+            {
+              "response": "Of course. I will create a new prompt file with the plan to implement Giscus comments. ",
+              "toolCalls": [
+                {
+                  "name": "create_file",
+                  "arguments": "{\"content\":\"---\\nmode: agent\\ndescription: \\\"A prompt to implement Giscus comments on the Docusaurus blog.\\\"\\n---\\n\\n# Plan: Implement Giscus Comments in Docusaurus\\n\\nThis plan outlines the steps to integrate Giscus, a comment system powered by GitHub Discussions, into your Docusaurus portfolio website. This will allow visitors to leave comments on your blog posts using their GitHub accounts, with the comments stored directly in your site's GitHub repository.\\n\\n## Requirements\\n\\n- The comment system must be free and integrate with the existing GitHub repository.\\n- Users must be able to log in and comment using their GitHub accounts.\\n- Comments must be tied to specific blog post URLs.\\n- The comment section's theme should automatically adapt to the website's light and dark modes.\\n- The feature should be enabled on a per-post basis via front matter.\\n\\n## Implementation Steps\\n\\n### 1. Configure GitHub Repository\\n\\n- **Enable Discussions:** In your `austenstone/portfolio` GitHub repository settings, enable the \\\"Discussions\\\" feature.\\n- **Create a Category:** Create a new discussion category specifically for blog comments (e.g., \\\"Blog Comments\\\") to keep them organized.\\n\\n### 2. Set Up Giscus\\n\\n- **Install Giscus App:** Go to the [Giscus website](https://giscus.app/) and install the Giscus GitHub App.\\n- **Grant Repository Access:** Authorize the app to access your `austenstone/portfolio` repository.\\n- **Configuration:** On the Giscus configuration page, select your repository and the newly created \\\"Blog Comments\\\" discussion category.\\n- **Get IDs:** Copy the generated Repository ID and Category ID provided by Giscus. These will be needed for the component.\\n\\n### 3. Create the Giscus React Component\\n\\n- **Install Dependency:** Add the `@giscus/react` package to your project by running `npm install @giscus/react`.\\n- **Create Component File:** Create a new file at `src/components/GiscusComponent/index.tsx`.\\n- **Implement Component Logic:** In this file, create a React component that uses the `\\u003cGiscus /\\u003e` component from the installed package.\\n    - Pass the Repository ID and Category ID from the previous step as props.\\n    - Use the `useColorMode` hook from Docusaurus to dynamically set the Giscus `theme` prop, ensuring it matches the site's current theme.\\n    - Configure other Giscus settings like `mapping`, `reactionsEnabled`, etc., as required.\\n\\n### 4. Integrate Component into Blog Posts\\n\\n- **Swizzle `BlogPostItem`:** Use the Docusaurus swizzle command to create a customizable wrapper for the blog post component:\\n    ```bash\\n    npm run swizzle @docusaurus/theme-classic BlogPostItem -- --wrap\\n    ```\\n- **Modify Swizzled Component:** Edit the newly created file at `src/theme/BlogPostItem/index.js` (or `index.tsx`).\\n    - Import your `GiscusComponent`.\\n    - Use the `useBlogPost()` hook to access the current post's metadata and determine if it's a blog post page (`isBlogPostPage`).\\n    - Add logic to conditionally render the `GiscusComponent` only when `isBlogPostPage` is `true` and the post's front matter contains `enableComments: true`.\\n\\n### 5. Enable Comments in Content\\n\\n- **Update a Blog Post:** Select a blog post to test with, for example, `blog/2025-06-26-welcome-to-portfolio.md`.\\n- **Add Front Matter:** Add the field `enableComments: true` to the front matter of the selected blog post file.\\n\\n## Testing\\n\\n1.  **Local Development:**\\n    - Start the development server using `npm run start`.\\n    - Navigate to the blog post where comments have been enabled and verify that the Giscus widget loads correctly.\\n    - Navigate to a different blog post without the `enableComments` flag and confirm the widget does not appear.\\n    - Post a test comment to ensure it appears on the page and in the corresponding GitHub Discussion.\\n2.  **Theme Verification:**\\n    - Toggle the website between light and dark modes to ensure the Giscus component's theme updates accordingly.\\n3.  **Production Build:**\\n    - Run `npm run build` to create a production build of the site.\\n    - Serve the build locally (e.g., using `npm run serve`) and repeat the verification steps to ensure everything works as expected in the production environment.\\n\",\"filePath\":\"c:\\\\Users\\\\auste\\\\source\\\\portfolio\\\\.github\\\\prompts\\\\implement-giscus-comments.prompt.md\"}",
+                  "id": "call_MHxoYUQ3S1Vmc2lwNExXaFQ2Rlg__vscode-1751304040558"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "6762e1d7-bec5-4a2d-842b-5cb9e4733b6b"
+            },
+            {
+              "response": "I have created the plan as a prompt file, as you requested. You can find it at `.github/prompts/implement-giscus-comments.prompt.md`.\n\nYou can now run this prompt in the chat to start the implementation process. Let me know if you have any other questions.",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "bd09ab36-4b74-4f3e-b9e3-883b804902bc"
+            }
+          ],
+          "toolCallResults": {
+            "call_MHxoYUQ3S1Vmc2lwNExXaFQ2Rlg__vscode-1751304040558": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 22,
+                  "value": {
+                    "node": {
+                      "type": 1,
+                      "ctor": 2,
+                      "ctorName": "Zm",
+                      "children": [
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "The following files were successfully edited:",
+                          "lineBreakBefore": false
+                        },
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "\n",
+                          "lineBreakBefore": false
+                        },
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "c:\\Users\\auste\\source\\portfolio\\.github\\prompts\\implement-giscus-comments.prompt.md",
+                          "lineBreakBefore": false
+                        },
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "\n",
+                          "lineBreakBefore": false
+                        }
+                      ],
+                      "props": {},
+                      "references": []
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "modelMessageId": "71eef94b-9110-453a-bf37-ca50fb279ab3",
+          "responseId": "a1c8b839-6937-4046-b39e-1fdfec95e901",
+          "sessionId": "42b78d2a-0050-451a-9fc6-be0328b5e441",
+          "agentId": "github.copilot.editsAgent"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editsAgent",
+        "description": "Edit files in your workspace in agent mode",
+        "when": "config.chat.agent.enabled && !chatAgentModeDisallowed",
+        "metadata": {
+          "themeIcon": {
+            "id": "tools"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false,
+          "additionalWelcomeMessage": {
+            "value": "As an internal user, additional telemetry is collected. If you work on a project that contains customer content, you must [disable telemetry](command:workbench.action.openSettings?%5B%22telemetry.telemetryLevel%22%5D).",
+            "isTrusted": {
+              "enabledCommands": [
+                "workbench.action.openSettings"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:workbench.action.openSettings?%5B%22telemetry.telemetryLevel%22%5D": {
+                "$mid": 1,
+                "external": "command:workbench.action.openSettings?%5B%22telemetry.telemetryLevel%22%5D",
+                "path": "workbench.action.openSettings",
+                "scheme": "command",
+                "query": "[\"telemetry.telemetryLevel\"]"
+              }
+            }
+          }
+        },
+        "name": "agent",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "agent"
+        ],
+        "slashCommands": [
+          {
+            "name": "list"
+          }
+        ],
+        "disambiguation": []
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "c:\\Users\\auste\\source\\portfolio\\.github\\copilot-instructions.md",
+            "_sep": 1,
+            "external": "file:///c%3A/Users/auste/source/portfolio/.github/copilot-instructions.md",
+            "path": "/c:/Users/auste/source/portfolio/.github/copilot-instructions.md",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "\\github.copilot.chat.codeGeneration.instructions",
+            "_sep": 1,
+            "external": "vscode://settings/github.copilot.chat.codeGeneration.instructions",
+            "path": "/github.copilot.chat.codeGeneration.instructions",
+            "scheme": "vscode",
+            "authority": "settings"
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1751311891613
+    }
+  ]
+}
