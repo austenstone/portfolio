@@ -35,7 +35,7 @@ export default function CodeBlockWrapper(props: Props): React.JSX.Element {
   }, [children]);
 
   const lang = (className || '').replace(/^language-/, '');
-  const displayLang = lang ? lang.toUpperCase() : 'CODE';
+  const displayLang = lang ? lang.toUpperCase() : '';
 
   const handleCopy = () => {
     if (typeof children === 'string') {
