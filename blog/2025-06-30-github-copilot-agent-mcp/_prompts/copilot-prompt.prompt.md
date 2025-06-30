@@ -5,6 +5,8 @@ description: "Prompt files are standalone prompts that you can run directly in c
 
 Create a prompt file in the `.github/prompts` directory that implements all previous conversation and context.
 
+Add as much context and information as possible.
+
 # Information
 
 ## Prompt files
