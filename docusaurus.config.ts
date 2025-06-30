@@ -74,7 +74,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/austenstone/portfolio/tree/main/portfolio/',
+            'https://github.com/austenstone/portfolio/tree/main/',
           beforeDefaultRemarkPlugins: [remarkGithubAdmonitionsToDirectives],
         },
         blog: {
@@ -86,7 +86,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/austenstone/portfolio/tree/main/portfolio/',
+            'https://github.com/austenstone/portfolio/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -157,20 +157,8 @@ const config: Config = {
           ],
         },
         {
-          title: 'Projects',
+          title: ' ',
           items: [
-            {
-              label: 'GitHub Actions',
-              href: 'https://github.com/marketplace?query=austenstone',
-            },
-            {
-              label: 'GitHub Usage Report',
-              href: 'https://austenstone.github.io/github-actions-usage-report/',
-            },
-            {
-              label: 'Game of Life',
-              href: 'https://life.austen.info',
-            },
           ],
         },
         {
@@ -183,6 +171,10 @@ const config: Config = {
             {
               label: 'Resume',
               to: '/resume',
+            },
+            {
+              label: 'Source Code',
+              href: 'https://github.com/austenstone/portfolio/',
             },
           ],
         },

@@ -15,12 +15,7 @@ export default function BlogPostItemWrapper(props: Props): ReactNode {
   return (
     <>
       <BlogPostItem {...props} />
-      {enableComments && isBlogPostPage && (
-        <div style={{ marginTop: '2rem' }}>
-          <h2>Comments</h2>
-          <GiscusComponent />
-        </div>
-      )}
+      {enableComments && isBlogPostPage && <GiscusComponent />}
     </>
   );
 }

@@ -1,6 +1,6 @@
 ---
 slug: welcome-to-my-portfolio
-title: Welcome to My Portfolio
+title: I Rebuilt the Website
 tags: [website, development]
 image: /img/docusaurus/undraw_docusaurus_react.svg
 date: 2025-06-26
