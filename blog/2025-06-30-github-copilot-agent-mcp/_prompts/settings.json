@@ -1,0 +1,122 @@
+{
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.enable": {
+    "*": true
+  },
+  "github.copilot.renameSuggestions.triggerAutomatically": true,
+  "github.copilot.editor.enableCodeActions": true,
+  "github.copilot.chat.startDebugging.enabled": true,
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".copilot-instructions.md"
+    },
+    {
+      "text": "Prefer to use TypeScript over Javascript"
+    },
+    {
+      "text": "My github username is austenstone."
+    }
+  ],
+  "github.copilot.chat.testGeneration.instructions": [],
+  "github.copilot.chat.reviewSelection.instructions": [],
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": ".copilot-commit-message-instructions.md"
+    },
+    {
+      "text": "Keep the commit message short and concise. Use imperative mood and avoid unnecessary details."
+    }
+  ],
+  "github.copilot.chat.reviewSelection.enabled": true,
+  "github.copilot.chat.setupTests.enabled": true,
+  "github.copilot.chat.useProjectTemplates": true,
+  "github.copilot.chat.generateTests.codeLens": true,
+  "github.copilot.chat.edits.temporalContext.enabled": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "github.copilot.chat.completionContext.typescript.mode": "sidecar",
+  "github.copilot.chat.editor.temporalContext.enabled": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.newWorkspaceCreation.enabled": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.nextEditSuggestions.fixes": true,
+  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
+  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
+  "github.copilot.chat.notebook.followCellExecution.enabled": true,
+  "chat.editing.autoAcceptDelay": 5, // Delay in seconds before automatically accepting edits
+  "chat.tools.autoApprove": true, // Automatically approve run commands and tool requests
+  "chat.agent.maxRequests": 100, // Maximum iterations before asking to continue
+  "chat.renderRelatedFiles": true,
+  "chat.setup.continueLaterIndicator": true,
+  "inlineChat.enableV2": true,
+  "inlineChat.hideOnRequest": true,
+  "inlineChat.finishOnType": true,
+  "inlineChat.lineEmptyHint": true,
+  "mcp": {
+    "servers": {
+      "playwright": { // Useful for operating browser
+        "command": "npx",
+        "args": [
+          "@playwright/mcp@latest"
+        ]
+      },
+      "serena": { // An entirely separate coding assistant than copilot
+        "command": "uvx",
+        "args": [
+          "--from",
+          "git+https://github.com/oraios/serena",
+          "serena-mcp-server.exe"
+        ]
+      },
+      "time": { // Get the current time
+        "command": "uvx",
+        "args": [
+          "mcp-server-time",
+          "--local-timezone",
+          "America/New_York"
+        ]
+      },
+      "searxng": { // Search the web using SearxNG
+        "command": "npx",
+        "args": [
+          "-y",
+          "mcp-searxng"
+        ],
+        "env": {
+          "SEARXNG_URL": "http://localhost/"
+        }
+      },
+      "sequential-thinking": { // Sequential thinking tool for reasoning
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-sequential-thinking"
+        ]
+      },
+      "supabase": { // Supabase tool for database operations
+        "command": "npx",
+        "args": [
+          "-y",
+          "@supabase/mcp-server-supabase@latest",
+          "--read-only"
+        ],
+        "env": {
+          "SUPABASE_ACCESS_TOKEN": "${env:SUPABASE_ACCESS_TOKEN}"
+        }
+      },
+      "github": { // Interact with the GitHub platform
+        "url": "https://api.githubcopilot.com/mcp/",
+        "headers": {
+          "Authorization": "Bearer ${input:github_mcp_pat}"
+        }
+      }
+    },
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "github_mcp_pat",
+        "description": "GitHub Personal Access Token",
+        "password": true
+      }
+    ]
+  }
+}

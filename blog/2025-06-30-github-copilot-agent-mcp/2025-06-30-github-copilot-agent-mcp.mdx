@@ -1,0 +1,228 @@
+---
+slug: github-copilot-agent-mcp
+title: Supercharging Development with GitHub Copilot Agent Mode and MCP
+tags: [github-copilot, ai, development]
+image: /assets/screenshots/chrome_nSvEKPj2YO.png
+date: 2025-06-30
+description: How I'm using GitHub Copilot agent mode with MCP to supercharge my development workflow through structured planning, implementation, and testing.
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import ChatModeResearch from '!!raw-loader!./_prompts/research.chatmode.md';
+import ChatModePlan from '!!raw-loader!./_prompts/plan.chatmode.md';
+import Settings from '!!raw-loader!./_prompts/settings.json';
+import CopilotPromptPrompt from '!!raw-loader!./_prompts/copilot-prompt.prompt.md';
+
+I'm always looking for ways to work more efficiently and deliver better code faster. Recently, The NEW [GitHub Copilot Agent Mode](https://code.visualstudio.com/blogs/2025/04/07/agentMode) in combination with [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) has transformed my development workflow.
+
+## Customizing Copilot
+
+The magic starts with [Customizing AI responses in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization). Instead of repeatedly explaining my preferences to the AI, I can now define:
+
+- **Custom instructions** for consistent coding practices
+- **Custom prompts** for reusable task templates  
+- **Custom chat modes** with specific tool configurations
+
+This foundation allows me to create specialized AI assistants for different phases of development.
+
+### VS Code Settings
+
+Here are my VS Code settings. I have enabled experimental features and changed some settings to allow the agent to run without my intervention.
+
+<details>
+ <summary>VS Code Settings</summary>
+<CodeBlock language="json" title="settings.json" showLineNumbers>{Settings}</CodeBlock>
+</details>
+
+- `github.copilot.chat.codeGeneration.instructions` - I have custom instructions personal to me
+- `chat.agent.maxRequests` - Let's me allow the agent to run longer without asking for permission
+- `chat.tools.autoApprove` - Automatically approves run commands and tool requests from the agent
+
+### MCP Tools
+
+The [Using Model Context Protocol (MCP) in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) allows me to provide the agent with access to external tools and data sources. Go to [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) to find servers.
+
+Some of the MCP servers I use include:
+
+- [Sequential Thinking](https://github.com/modelcontextprotocol/servers/blob/main/src/sequentialthinking) - Dynamic and reflective problem-solving through thought sequences
+- [SearXNG](https://github.com/ihor-sokoliuk/mcp-searxng) - Integrates the SearXNG API, providing web search capabilities.
+- [Playwright](https://github.com/executeautomation/mcp-playwright) - This MCP Server will help you run browser automation and webscraping using Playwright
+- [GitHub](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github) - Repository management, file operations, and GitHub API integration
+- [time](https://github.com/modelcontextprotocol/servers/blob/main/src/time) - For getting the current time and date
+- [Fetch](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#fetch) - Web content fetching and conversion for efficient LLM usage
+
+## Development Workflow
+
+### Research
+
+Before diving into coding, I often need to research new concepts or technologies. For this, I use a custom chat mode called `research` that includes tools like web search, and sequential thinking.
+
+<details>
+ <summary>Research Chat Mode</summary>
+<CodeBlock language="yaml" title="research.chatmode.md" showLineNumbers>{ChatModeResearch}</CodeBlock>
+</details>
+
+### Planning with Gemini 2.5 Pro
+
+I start every project in a [custom chat mode](https://code.visualstudio.com/docs/copilot/chat/chat-modes) called `plan` that I have in my user space. The tools I want for are already selected and copilot can't edit my code even if it wanted to because I took away that tool. I find `Gemini 2.5 Pro` to be the best model for planning.
+
+<details>
+  <summary>Plan Chat Mode</summary>
+
+<CodeBlock language="yaml" title="plan.chatmode.md" showLineNumbers>{ChatModePlan}</CodeBlock>
+
+</details>
+
+<details>
+  <summary>Prompt Creation Prompt</summary>
+
+<CodeBlock language="yaml" title="copilot-prompt.prompt.md" showLineNumbers>{CopilotPromptPrompt}</CodeBlock>
+
+</details>
+
+The goal of this phase is to generate a comprehensive `.prompt.md` file in `.github/prompts/` that serves as a detailed blueprint for the implementation.
+
+:::tip
+
+You can use the Command Palette (`ctrl+shift+p`) in VS Code to quickly create new chat modes and prompts.
+
+:::
+
+### Implementation with Claude Sonnet
+
+Once I have my planning prompt ready, I switch to regular agent mode with Claude Sonnet 4 and simply run `/prompt-name`. The beauty of this approach is that the AI has all the context it needs to execute the plan methodically.
+
+The prompt file acts as a contract between the planning phase and implementation phase, ensuring consistency and reducing the need for back-and-forth clarification.
+
+#### Course Correction
+
+When the agent deviates from the desired behavior (which occasionally happens), I have a simple recovery process:
+
+1. Clear my git diff to reset the changes
+2. Modify the prompt file based on what I learned
+3. Restart the implementation from scratch
+
+This iterative refinement of prompts means I'm constantly improving my templates for future use.
+
+### Testing and Validation
+
+Finally, I use additional chat modes and predefined prompts to generate comprehensive tests. The `playwright` MCP tool is particularly valuable here because it gives the agent deep understanding of the actual UI behavior, allowing it to write more realistic and comprehensive tests.
+
+## Example
+
+Let's walk though a real-world example. I want to add comments to my blog you're viewing right now.
+
+### Phase 0: Research
+
+I start by in `research` mode using Gemini 2.5 Pro with a question:
+
+```md
+How would I add comments to my blog posts in this Docusaurus site?
+```
+
+Copilot starts by using `sequentialthinking` think about how to perform research
+```json title="sequentialthinking"
+{
+  "nextThoughtNeeded": true,
+  "thought": "I need to research how to add comments to a Docusaurus blog. I will start by searching for \"Docusaurus blog comments\" and analyze the results. I will look for official documentation and popular third-party solutions like Giscus, Disqus, or Utterances. Finally, I will synthesize the findings to provide a clear recommendation.",
+  "thoughtNumber": 1,
+  "totalThoughts": 2
+}
+```
+
+Then Copilot starts searching the web using `searxng_web_search` and `web_url_read` tools.
+```json title="searxng_web_search"
+{
+  "query": "Docusaurus blog comments"
+}
+```
+
+It comes up with the idea to use Giscus as a commenting service.
+
+> To add comments to your Docusaurus blog, you'll need to use a third-party commenting service because Docusaurus generates a static site. A highly recommended option that integrates perfectly with your existing GitHub-based project is Giscus.
+
+### Phase 1: Planning
+
+Now I switch to `plan` chat mode.
+
+```
+Create a plan based on your research
+```
+
+Copilot comes up with a structured plan for me.
+
+### Phase 2: Implementation
+
+Now I switch to regular `agent` mode.
+
+We're going to reuse our prompt file from earlier to write the plan as a `.prompt.md` file.
+
+```
+/copilot-prompt
+```
+
+Copilot creates the `.github/prompts/implement-giscus.prompt.md` file.
+
+Now I can switch to Claude Sonnet 4 and run the generated prompt file.
+
+```
+/implement-giscus
+```
+
+### Phase 3: Course Correction
+
+I'm watching the agent work.
+
+### Phase 4: Validation & Testing
+
+I want to ensure the Giscus comments are working correctly, so I switch to a chat mode that uses the `playwright` MCP tool.
+
+## The Magic of MCP Integration
+
+The [Model Context Protocol](https://modelcontextprotocol.io/introduction) is what makes this workflow truly powerful. MCP provides a standardized way for AI models to interact with external tools and data sources. Some of the MCP servers I regularly use include:
+
+- [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking): For structured problem-solving
+- [Fetch](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch)
+- [SearXNG](https://github.com/ihor-sokoliuk/mcp-searxng): For web search capabilities
+- [Playwright](https://github.com/executeautomation/mcp-playwright): For UI testing and interaction
+- [Git](https://github.com/modelcontextprotocol/servers/tree/main/src/git): For version control operations
+- [Time](https://github.com/modelcontextprotocol/servers/tree/main/src/time): For getting the current time and date
+- [GitHub](https://github.com/github/github-mcp-server): For interacting with the GitHub platform
+
+These tools extend the AI's capabilities far beyond just code generation, creating a true development partner. You can explore the full collection of available MCP servers in the [official Model Context Protocol servers repository](https://github.com/modelcontextprotocol/servers).
+
+## Benefits I've Experienced
+
+This workflow has transformed how I approach development:
+
+1. **Consistency**: Custom instructions ensure all generated code follows my patterns
+2. **Efficiency**: Pre-planned prompts eliminate repetitive explanations
+3. **Quality**: Structured thinking leads to better architectural decisions
+4. **Testability**: UI-aware testing tools create more comprehensive test suites
+5. **Reproducibility**: Documented prompts make complex tasks repeatable
+
+## Getting Started
+
+To implement a similar workflow:
+
+1. **Enable MCP in VS Code**: Install MCP servers for your preferred tools
+2. **Create custom instructions**: Define your coding standards in `.github/copilot-instructions.md`
+3. **Build prompt templates**: Start with simple prompts in `.github/prompts/`
+4. **Configure chat modes**: Set up specialized modes for planning vs. implementation
+5. **Iterate and improve**: Refine your prompts based on real usage
+
+:::tip
+
+You can use `ctrl+shift+p` in VS Code to quickly create new chat modes and prompts.
+
+:::
+
+## The Future of Development
+
+This combination of Agent Mode and MCP represents a fundamental shift in how we can work with AI. Instead of treating AI as a simple code completion tool, we can create sophisticated, context-aware development partners that understand our specific needs and workflows.
+
+The key insight is that the AI becomes more valuable when it has more context about our intentions, constraints, and environment. MCP provides that context, while custom prompts ensure consistent, high-quality outputs.
+
+---
+
+*Have you experimented with Agent Mode and MCP in your development workflow? I'd love to hear about your experiences and any creative tool combinations you've discovered. Connect with me on [GitHub](https://github.com/austenstone) or [LinkedIn](https://www.linkedin.com/in/austenstone/) to continue the conversation.*
