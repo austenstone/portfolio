@@ -15,6 +15,8 @@ import CopilotPromptPrompt from '!!raw-loader!./_prompts/copilot-prompt.prompt.m
 
 I'm always looking for ways to work more efficiently and deliver better code faster. Recently, The NEW [GitHub Copilot Agent Mode](https://code.visualstudio.com/blogs/2025/04/07/agentMode) in combination with [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) has transformed my development workflow.
 
+{/* truncate */}
+
 ## Customizing Copilot
 
 The magic starts with [Customizing AI responses in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization). Instead of repeatedly explaining my preferences to the AI, I can now define:
@@ -177,20 +179,6 @@ I'm watching the agent work.
 
 I want to ensure the Giscus comments are working correctly, so I switch to a chat mode that uses the `playwright` MCP tool.
 
-## The Magic of MCP Integration
-
-The [Model Context Protocol](https://modelcontextprotocol.io/introduction) is what makes this workflow truly powerful. MCP provides a standardized way for AI models to interact with external tools and data sources. Some of the MCP servers I regularly use include:
-
-- [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking): For structured problem-solving
-- [Fetch](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch)
-- [SearXNG](https://github.com/ihor-sokoliuk/mcp-searxng): For web search capabilities
-- [Playwright](https://github.com/executeautomation/mcp-playwright): For UI testing and interaction
-- [Git](https://github.com/modelcontextprotocol/servers/tree/main/src/git): For version control operations
-- [Time](https://github.com/modelcontextprotocol/servers/tree/main/src/time): For getting the current time and date
-- [GitHub](https://github.com/github/github-mcp-server): For interacting with the GitHub platform
-
-These tools extend the AI's capabilities far beyond just code generation, creating a true development partner. You can explore the full collection of available MCP servers in the [official Model Context Protocol servers repository](https://github.com/modelcontextprotocol/servers).
-
 ## Benefits I've Experienced
 
 This workflow has transformed how I approach development:
@@ -200,22 +188,6 @@ This workflow has transformed how I approach development:
 3. **Quality**: Structured thinking leads to better architectural decisions
 4. **Testability**: UI-aware testing tools create more comprehensive test suites
 5. **Reproducibility**: Documented prompts make complex tasks repeatable
-
-## Getting Started
-
-To implement a similar workflow:
-
-1. **Enable MCP in VS Code**: Install MCP servers for your preferred tools
-2. **Create custom instructions**: Define your coding standards in `.github/copilot-instructions.md`
-3. **Build prompt templates**: Start with simple prompts in `.github/prompts/`
-4. **Configure chat modes**: Set up specialized modes for planning vs. implementation
-5. **Iterate and improve**: Refine your prompts based on real usage
-
-:::tip
-
-You can use `ctrl+shift+p` in VS Code to quickly create new chat modes and prompts.
-
-:::
 
 ## The Future of Development
 
