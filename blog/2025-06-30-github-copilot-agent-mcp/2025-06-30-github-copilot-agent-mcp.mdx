@@ -1,6 +1,6 @@
 ---
 slug: github-copilot-agent-mcp
-title: Supercharging Development with GitHub Copilot Agent Mode and MCP
+title: Developing with GitHub Copilot Agent Mode and MCP
 tags: [github-copilot, ai, development]
 image: https://code.visualstudio.com/assets/blogs/2025/02/24/diagram.png
 date: 2025-06-30
@@ -41,9 +41,11 @@ Here are my VS Code settings. I have enabled experimental features and changed s
 - `chat.agent.maxRequests` - Let's me allow the agent to run longer without asking for permission
 - `chat.tools.autoApprove` - Automatically approves run commands and tool requests from the agent
 
+[GitHub Copilot in VS Code settings reference](https://code.visualstudio.com/docs/copilot/reference/copilot-settings#_chat-settings)
+
 ### MCP Tools
 
-The [Using Model Context Protocol (MCP) in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) allows me to provide the agent with access to external tools and data sources. Go to [`modelcontextprotocol/servers`](https://github.com/modelcontextprotocol/servers) to find servers.
+The [Using Model Context Protocol (MCP) in VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) allows me to provide the agent with access to external tools and data sources.
 
 Some of the MCP servers I use include:
 
@@ -53,6 +55,8 @@ Some of the MCP servers I use include:
 - [GitHub](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/github) - Repository management, file operations, and GitHub API integration
 - [time](https://github.com/modelcontextprotocol/servers/blob/main/src/time) - For getting the current time and date
 - [Fetch](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#fetch) - Web content fetching and conversion for efficient LLM usage
+
+The repo [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) contains a list of available MCP servers.
 
 ## Development Workflow
 
@@ -65,7 +69,7 @@ Before diving into coding, I often need to research new concepts or technologies
 <CodeBlock language="yaml" title="research.chatmode.md" showLineNumbers>{ChatModeResearch}</CodeBlock>
 </details>
 
-### Planning with Gemini 2.5 Pro
+### Planning
 
 I start every project in a [custom chat mode](https://code.visualstudio.com/docs/copilot/chat/chat-modes) called `plan` that I have in my user space. The tools I want for are already selected and copilot can't edit my code even if it wanted to because I took away that tool. I find `Gemini 2.5 Pro` to be the best model for planning.
 
@@ -91,13 +95,15 @@ You can use the Command Palette (`ctrl+shift+p`) in VS Code to quickly create ne
 
 :::
 
-### Implementation with Claude Sonnet
+### Implementation
 
 Once I have my planning prompt ready, I switch to regular agent mode with Claude Sonnet 4 and simply run `/prompt-name`. The beauty of this approach is that the AI has all the context it needs to execute the plan methodically.
 
 The prompt file acts as a contract between the planning phase and implementation phase, ensuring consistency and reducing the need for back-and-forth clarification.
 
 #### Course Correction
+
+If the agent is close I will sometimes pause it and ask it to look at a specific resource or document to help it understand the problem better.
 
 When the agent deviates from the desired behavior (which occasionally happens), I have a simple recovery process:
 
@@ -107,17 +113,19 @@ When the agent deviates from the desired behavior (which occasionally happens), 
 
 This iterative refinement of prompts means I'm constantly improving my templates for future use.
 
-### Testing and Validation
+### Validation
 
-Finally, I use additional chat modes and predefined prompts to generate comprehensive tests. The `playwright` MCP tool is particularly valuable here because it gives the agent deep understanding of the actual UI behavior, allowing it to write more realistic and comprehensive tests.
+Finally (or maybe first if we're following TDD) I want to ensure the implementation works as expected. Ideally our output is testable but sometimes this is hard.
+
+For browser interactions, I use the `playwright` MCP tool to automate testing. This is really cool because the agent can use a browser just like I can! This lets it understand how the UI works and what it looks like.
 
 ## Example
 
 Let's walk though a real-world example. I want to add comments to my blog you're viewing right now.
 
-### Phase 0: Research
+### 1. Research
 
-I start by in `research` mode using Gemini 2.5 Pro with a question:
+I start by in [`research`](#Research) mode using Gemini 2.5 Pro with a question:
 
 ```md
 How would I add comments to my blog posts in this Docusaurus site?
@@ -146,9 +154,9 @@ It comes up with the idea to use Giscus as a commenting service.
 
 [Full chat export](https://github.com/austenstone/portfolio/blob/main/blog/2025-06-30-github-copilot-agent-mcp/_prompts/chat1.json)
 
-### Phase 1: Planning
+### 2. Planning
 
-Now I switch to `plan` chat mode.
+Now I switch to [`plan`](#Planning) chat mode.
 
 ```
 Create a plan based on your research
@@ -156,7 +164,7 @@ Create a plan based on your research
 
 Copilot comes up with a structured plan for me.
 
-### Phase 2: Implementation
+### 3. Implementation
 
 Now I switch to regular `agent` mode.
 
@@ -176,7 +184,7 @@ Now I can switch to Claude Sonnet 4 and run the generated prompt file.
 
 [Full chat export](https://github.com/austenstone/portfolio/blob/main/blog/2025-06-30-github-copilot-agent-mcp/_prompts/chat1.json)
 
-### Phase 3: Course Correction
+#### Course Correction
 
 I'm watching the agent work and it got hung up on how to pass front matter metadata to the Giscus component.
 
@@ -202,7 +210,7 @@ Copilot looked at my resource and found even more resources to help it understan
 
 Copilot figured out that the ideal solution was the reactHook [`useBlogPost()`](https://github.com/austenstone/portfolio/pull/36/files#diff-6324df17a3dc2a08f453a5faaa507164572fb47b545db0c902dfa9386e9b7a43R11) which I totally agree with.
 
-### Phase 4: Validation & Testing
+### 4. Validation
 
 I want to ensure the Giscus comments are working correctly so I ask Copilot to browse to a link knowing it will use the `playwright` MCP tool.
 
@@ -230,7 +238,7 @@ Copilot did complete my feature completely.
 
 The full PR can be found at [austenstone/portfolio/pull/36](https://github.com/austenstone/portfolio/pull/36).
 
-## Benefits I've Experienced
+## Benefits
 
 This workflow has transformed how I approach development:
 
@@ -240,7 +248,9 @@ This workflow has transformed how I approach development:
 4. **Testability**: UI-aware testing tools create more comprehensive test suites
 5. **Reproducibility**: Documented prompts make complex tasks repeatable
 
-## The Future of Development
+Ultimately I can spend more time on high-level design and less on low-level implementation details. The AI handles the grunt work, allowing me to focus on delivering value.
+
+## The Future
 
 This combination of Agent Mode and MCP represents a fundamental shift in how we can work with AI. Instead of treating AI as a simple code completion tool, we can create sophisticated, context-aware development partners that understand our specific needs and workflows.
 
