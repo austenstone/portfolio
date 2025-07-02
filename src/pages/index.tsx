@@ -24,7 +24,7 @@ function MinimalHomepage() {
             <Link href="/blog" className={styles.link}>
               blog<span className={styles.linkDir}>/</span>
             </Link>
-            <Link href="/docs/category/github-actions" className={styles.link}>
+            <Link href="/docs/category/github" className={styles.link}>
               guides<span className={styles.linkDir}>/</span>
             </Link>
             <Link href="https://github.com/austenstone" className={styles.link}>

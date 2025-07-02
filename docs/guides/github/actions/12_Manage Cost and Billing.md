@@ -6,7 +6,7 @@ GitHub Actions is a metered product so we need to be careful about how we use it
 
 GitHub Actions is free for public repositories. For private repositories, GitHub offers a range of pricing plans based on usage.
 
-See [Cost](/docs/guides/github-actions/Intro%20to%20Concepts#Cost) for more information on pricing.
+See [Cost](/docs/guides/github/actions/Intro%20to%20Concepts#Cost) for more information on pricing.
 
 ## Billing Page in GitHub
 

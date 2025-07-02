@@ -15,14 +15,9 @@ github-copilot:
 
 github-actions:
   label: GitHub Actions
-  permalink: /github-actions
+  permalink: /github/actions
   description: GitHub Actions related posts
-
-development:
-  label: Development
-  permalink: /development
-  description: Software development topics
-
+  
 ai:
   label: AI
   permalink: /ai
