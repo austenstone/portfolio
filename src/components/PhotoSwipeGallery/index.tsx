@@ -10,7 +10,6 @@ interface PhotoSwipeGalleryProps {
 
 const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
   images,
-  thumbnailSize = 300,
   className = '',
 }) => {
   const galleryRef = useRef<HTMLDivElement>(null);
@@ -23,7 +22,6 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
       gallery: galleryRef.current,
       children: 'a',
       pswpModule: () => import('photoswipe'),
-      // Configure PhotoSwipe options
       paddingFn: (viewportSize) => {
         return {
           top: 20,
@@ -34,6 +32,7 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
       },
     });
 
+
     lightboxInstance.init();
     setLightbox(lightboxInstance);
 
@@ -42,73 +41,81 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
     };
   }, []);
 
-  // Generate thumbnail URL from Google Photos URL
-  const getThumbnailUrl = (url: string, size: number) => {
+  const getFullSizeUrl = (url: string, size = 9999) => {
     if (url.includes('googleusercontent.com')) {
-      // Replace the size parameter in Google Photos URLs
       return url.replace(/=w\d+-h\d+$/, `=w${size}-h${size}`);
     }
     return url;
   };
 
-  // Generate full-size URL from Google Photos URL
-  const getFullSizeUrl = (url: string) => {
-    if (url.includes('googleusercontent.com')) {
-      // Use a large size for full-size display
-      return url.replace(/=w\d+-h\d+$/, '=w2048-h2048');
-    }
-    return url;
-  };
-
   return (
-    <div
-      ref={galleryRef}
-      className={`photoswipe-gallery ${className}`}
-      style={{
-        display: 'grid',
-        gridTemplateColumns: `repeat(auto-fill, minmax(${thumbnailSize}px, 1fr))`,
-        gap: '10px',
-        margin: '20px 0',
-      }}
-    >
-      {images.map((imageUrl, index) => (
-        <a
-          key={index}
-          href={getFullSizeUrl(imageUrl)}
-          data-pswp-width="2048"
-          data-pswp-height="2048"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'block',
-            borderRadius: '8px',
-            overflow: 'hidden',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.05)';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.2)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-          }}
-        >
-          <img
-            src={getThumbnailUrl(imageUrl, thumbnailSize)}
-            alt={`Photo ${index + 1}`}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-            }}
-            loading="lazy"
-          />
-        </a>
-      ))}
-    </div>
+    <>
+      <style>{`
+        .image-link {
+          display: block;
+          overflow: hidden;
+          transition: opacity .135s cubic-bezier(0,0,.2,1);
+          box-shadow: none;      
+          position: relative;
+        }
+          
+        .image-link:after {
+          display: block;
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          transition: opacity .135s cubic-bezier(0,0,.2,1);
+          opacity: 0;
+        }
+
+        .image-link:hover:after {
+            opacity: 1;
+            background-image: linear-gradient(to bottom, color-mix(in srgb, var(--gm3-sys-color-scrim, #000) 38%, transparent), transparent 56px, transparent);
+        }
+      `}</style>
+      <div
+        ref={galleryRef}
+        className={`photoswipe-gallery ${className}`}
+        style={{
+          columnCount: 3,
+          columnGap: '5px',
+        }}
+      >
+        {images.map((imageUrl, index) => {
+          return (
+            <a
+              className='image-link'
+              key={index}
+              href={getFullSizeUrl(imageUrl)}
+              data-pswp-width="999"
+              data-pswp-height="999"
+              style={{
+                border: 'none',
+              }}
+            >
+              <img
+                src={getFullSizeUrl(imageUrl, 300)}
+                alt={`Photo ${index + 1}`}
+                style={{
+                  margin: 0,
+                  borderRadius: 0
+                }}
+                loading="lazy"
+                onLoad={(e) => {
+                  const img = e.currentTarget as HTMLImageElement;
+                  const a = img.parentElement as HTMLAnchorElement;
+                  a.setAttribute('data-pswp-width', img.naturalWidth.toString());
+                  a.setAttribute('data-pswp-height', img.naturalHeight.toString());
+                }}
+              />
+            </a>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
