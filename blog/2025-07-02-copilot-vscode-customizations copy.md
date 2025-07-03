@@ -2,7 +2,7 @@
 slug: copilot-vscode-customizations
 title: VS Code Copilot Customizations
 tags: [github-copilot, ai]
-image: https://code.visualstudio.com/assets/blogs/2025/02/24/diagram.png
+image: https://i.ytimg.com/vi/aKx5I0Mrr9g/maxresdefault.jpg
 date: 2025-07-02
 description: VS Code AI Customization - Learn to use custom instructions, prompt files, and custom chat modes to personalize AI code generation, reviews, and chat responses.
 onUntruncatedBlogPosts: ignore

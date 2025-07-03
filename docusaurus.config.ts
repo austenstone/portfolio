@@ -62,12 +62,12 @@ const config: Config = {
       'classic',
       {
         googleAnalytics: {
-          trackingID: 'G-P3MLQ4GJP5', // Replace with your Google Analytics tracking ID
-          anonymizeIP: true, // Should IPs be anonymized?
+          trackingID: 'G-P3MLQ4GJP5',
+          anonymizeIP: true,
         },
         gtag: {
-          trackingID: 'G-P3MLQ4GJP5', // Replace with your Google Analytics tracking ID
-          anonymizeIP: true, // Should IPs be anonymized?
+          trackingID: 'G-P3MLQ4GJP5',
+          anonymizeIP: true,
         },
         docs: {
           sidebarPath: './sidebars.ts',

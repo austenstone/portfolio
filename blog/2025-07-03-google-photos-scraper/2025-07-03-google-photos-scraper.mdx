@@ -1,0 +1,41 @@
+---
+slug: google-photos-scraper
+title: Google Photos Scraper
+tags: [github-copilot, ai]
+image: https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Photos_Hero_1.max-600x600.format-webp.webp
+description: Getting public links to your google photos is harder than it seems
+onUntruncatedBlogPosts: ignore
+---
+
+import PhotoSwipeGallery from '@site/src/components/PhotoSwipeGallery';
+import photoUrls from './photo-urls.json';
+
+I wanted to display some photography on my website but I wasn't interested in hosting the photos. That's what I pay google every month for. So I built an easy to run tool that scrapes your google photos albums for public links. I'll use this tool to get links for albums I create.
+
+{/* truncate */}
+
+I'm kind of into photography. About a year ago I bought this fancy [S5II Full Frame Mirrorless Camera](https://shop.panasonic.com/products/s5m2-full-frame-mirrorless-camera-body). It was mostly to use as a webcam for zoom meetings but I always thought photography and film were really cool. I took a photography class growing up and I took a lot of pictures back when I worked at the PR firm so I had a general sense of how to shoot. I'm still an amuture but It's fun for me.
+
+You've probably seen a theme of me using GitHub Copilot so of course I vibe coded most of this project. I pointed to blog posts I found, asked it to come up with a plan. It wrote the plan to a file. Then I wrote all the code with Claude Sonnet 4.
+
+Claude was caught up on the lazy loading images and scrolling through them properly. It did figure it out but not well enough to exhaustively get a full list of images. I was able to figure out the proper scrolling technique and we continued on with the headless automation solution.
+
+Check out the code on GitHub:
+
+[google-photos-scraper](https://github.com/austenstone/google-photos-scraper)
+
+Or run the tool yourself:
+
+```bash
+npx google-photos-scraper https://photos.app.goo.gl/kXEc4X8Lfrh7qEKdA
+```
+
+It works great and was fairly easy to setup. Here are some pictures from my recent trip to Spain as an example:
+
+<PhotoSwipeGallery images={photoUrls} thumbnailSize={250} />
+
+
+## Inspiration
+
+* [How I used Google Photos to host my website picture gallery](https://medium.com/@ValentinHervieu/how-i-used-google-photos-to-host-my-website-pictures-gallery-d49f037c8e3c)
+* [Get a public link for sharing Google Photos image](https://www.rainsberger.ca/guides/direct-link-for-posting-google-photos-image/)
