@@ -51,6 +51,22 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
   return (
     <>
       <style>{`
+        .photoswipe-gallery {
+          column-count: 3;
+          column-gap: 5px;
+        }
+
+        @media (max-width: 1024px) {
+          .photoswipe-gallery {
+            column-count: 2;
+          }
+        }
+
+        @media (max-width: 512px) {
+          .photoswipe-gallery {
+            column-count: 1;
+          }
+        }
         .image-link {
           display: block;
           overflow: hidden;
@@ -79,10 +95,6 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
       <div
         ref={galleryRef}
         className={`photoswipe-gallery ${className}`}
-        style={{
-          columnCount: 3,
-          columnGap: '5px',
-        }}
       >
         {images.map((imageUrl, index) => {
           return (
