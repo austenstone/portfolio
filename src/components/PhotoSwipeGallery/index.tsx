@@ -117,6 +117,7 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
                   borderRadius: 0
                 }}
                 loading="lazy"
+                // this aint working
                 onLoad={(e) => {
                   const img = e.currentTarget as HTMLImageElement;
                   const a = img.parentElement as HTMLAnchorElement;

@@ -3,7 +3,6 @@ slug: welcome-to-my-portfolio
 title: I Rebuilt the Website
 tags: [website]
 image: /img/docusaurus/undraw_docusaurus_react.svg
-date: 2025-06-26
 description: A brief introduction to my new portfolio website built with Docusaurus, showcasing my projects and blog.
 enableComments: true
 ---
