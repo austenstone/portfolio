@@ -100,6 +100,7 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
                 src={getFullSizeUrl(imageUrl, 300)}
                 alt={`Photo ${index + 1}`}
                 style={{
+                  width: '100%',
                   margin: 0,
                   borderRadius: 0
                 }}
