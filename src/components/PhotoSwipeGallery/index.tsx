@@ -97,7 +97,7 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
               }}
             >
               <img
-                src={getFullSizeUrl(imageUrl, 300)}
+                src={getFullSizeUrl(imageUrl, 9999)}
                 alt={`Photo ${index + 1}`}
                 style={{
                   width: '100%',
@@ -108,8 +108,8 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
                 onLoad={(e) => {
                   const img = e.currentTarget as HTMLImageElement;
                   const a = img.parentElement as HTMLAnchorElement;
-                  a.setAttribute('data-pswp-width', img.naturalWidth.toString());
-                  a.setAttribute('data-pswp-height', img.naturalHeight.toString());
+                  a.setAttribute('data-pswp-width', (img.naturalWidth * 10).toString());
+                  a.setAttribute('data-pswp-height', (img.naturalHeight * 10).toString());
                 }}
               />
             </a>
