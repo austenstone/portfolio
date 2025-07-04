@@ -4,6 +4,7 @@ title: Learn GitHub Actions in Y Minutes
 tags: [github, github-actions, dev, tldr]
 image: https://images.ctfassets.net/8aevphvgewt8/KiQBgcnMQg6dALaS6erGk/f8d49c0cc5a461b903e52d08c3c3b8f6/actions-hero.webp
 description: A comprehensive GitHub Actions cheat sheet inspired by Learn X in Y Minutes - everything you need to know in one commented YAML file.
+enableComments: true
 ---
 
 I've created a comprehensive [GitHub Actions cheat sheet](/docs/guides/github/actions/Cheat%20Sheet) inspired by the [Learn X in Y Minutes](https://learnxinyminutes.com/) format.
