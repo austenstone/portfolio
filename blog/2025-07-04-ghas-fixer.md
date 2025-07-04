@@ -1,6 +1,6 @@
 ---
 slug: ghas-fixer
-title: Autofix GitHub Code Scanning Alerts... Automatically
+title: Autofix GHAS Alerts... Automatically
 tags: [github, dev]
 image: https://github.githubassets.com/assets/hero-bento-1-56db112e1b7d.webp
 description: Automatically fix GitHub Code Scanning alerts in your repositories with ghas-fixer
