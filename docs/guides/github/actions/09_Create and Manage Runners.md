@@ -6,31 +6,7 @@ There are two types of runners: self-hosted and GitHub-hosted. GitHub has standa
 
 GitHub runners are ephemeral meaning they are created on the fly and destroyed when the job is complete. This is the default behavior for GitHub-hosted runners.
 
-## Types and Sizes of Runners
-
-| CPU | Memory (RAM) | Storage (SSD) | Architecture | Operating system (OS) |
-|-----|--------------|---------------|--------------|------------------------|
-| 6   | 14 GB        | 14 GB         | arm64        | macOS                  |
-| 12  | 30 GB        | 14 GB         | x64          | macOS                  |
-| 2   | 8 GB         | 75 GB         | x64, arm64   | Ubuntu                 |
-| 4   | 16 GB        | 150 GB        | x64, arm64   | Ubuntu, Windows        |
-| 8   | 32 GB        | 300 GB        | x64, arm64   | Ubuntu, Windows        |
-| 16  | 64 GB        | 600 GB        | x64, arm64   | Ubuntu, Windows        |
-| 32  | 128 GB       | 1200 GB       | x64, arm64   | Ubuntu, Windows        |
-| 64  | 208 GB       | 2040 GB       | arm64        | Ubuntu, Windows        |
-| 64  | 256 GB       | 2040 GB       | x64          | Ubuntu, Windows        |
-
-> [!NOTE]
-> The 4-vCPU Windows runner only works with the Windows 11 Desktop image.
-
-> [!NOTE]
-> Note: arm64 runners are currently in beta and subject to change.
-
-GPU runners are also available.
-
-| CPU | GPU | GPU card | Memory (RAM) | GPU memory (VRAM) | Storage (SSD) | Operating system (OS) |
-|-----|-----|----------|--------------|-------------------|---------------|------------------------|
-| 4   | 1   | Tesla T4 | 28 GB        | 16 GB             | 176 GB        | Ubuntu, Windows        |
+<!-- ## Types and Sizes of Runners -->
 
 ## Auto-scaling and Scale Limits
 
