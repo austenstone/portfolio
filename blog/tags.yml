@@ -1,8 +1,3 @@
-website:
-  label: Website
-  permalink: /website
-  description: Website updates and announcements
-
 github:
   label: GitHub
   permalink: /github
@@ -37,3 +32,8 @@ photography:
   label: Photography
   permalink: /photography
   description: Photography
+
+dev:
+  label: Development
+  permalink: /dev
+  description: Development related posts

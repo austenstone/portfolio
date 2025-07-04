@@ -1,7 +1,7 @@
 ---
 slug: welcome-to-my-portfolio
 title: I Rebuilt the Website
-tags: [website]
+tags: [dev]
 image: /img/docusaurus/undraw_docusaurus_react.svg
 description: A brief introduction to my new portfolio website built with Docusaurus, showcasing my projects and blog.
 enableComments: true
