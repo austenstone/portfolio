@@ -2,11 +2,11 @@
 
 There are a few concepts that are important to understand when working with GitHub Actions.
 
+![overview-actions-simple](/assets/screenshots/overview-actions-simple.png)
+
 ## Definitions
 
 Some basic definitions to get us started...
-
-![overview-actions-simple](/assets/screenshots/overview-actions-simple.png)
 
 ### [Workflow](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#workflows)
 
