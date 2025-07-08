@@ -82,7 +82,7 @@ const config: Config = {
           showLastUpdateTime: true,
           blogTitle: 'Blog',
           feedOptions: {
-            type: ['rss', 'atom'],
+            type: 'all',
             xslt: true,
           },
           // Please change this to your repo.
