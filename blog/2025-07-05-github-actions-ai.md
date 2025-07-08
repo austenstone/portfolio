@@ -29,5 +29,6 @@ There are a handful of use cases for AI agents in GitHub Actions:
 
 Check out some example workflows, issues, prs:
 
-[GitHub Repository](https://github.com/austenstone/github-actions-ai)
+[Example Workflows](https://github.com/austenstone/github-actions-ai/tree/main/.github/workflows)
 
+[GitHub Repository](https://github.com/austenstone/github-actions-ai)
