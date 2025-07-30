@@ -147,9 +147,9 @@ A new version of branch protection rules called rulesets allows you to require s
 * [Require workflows to pass before merging](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging)
 * [Require status checks to pass before merging](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-status-checks-to-pass-before-merging)
 
-## Starter Workflows
+## Workflow Templates
 
-Workflow templates allow everyone in your organization who has permission to create workflows to do so more quickly and easily. 
+Workflow templates allow everyone in your organization who has permission to create workflows to do so more quickly and easily.
 
 You can create a workflow template by adding a `.github/workflow-templates` directory to your repository. Inside this directory, you can add one or more workflow templates. Each workflow template is a directory that contains a workflow file and a metadata file.
 
@@ -190,6 +190,9 @@ on:
 }
 ```
 </details>
+
+* [Creating workflow templates for your organization](https://docs.github.com/en/actions/how-tos/reuse-automations/create-workflow-templates)
+* [Using workflow templates](https://docs.github.com/en/actions/how-tos/write-workflows/use-workflow-templates)
 
 ## Managing Updates to Workflows/Actions
 

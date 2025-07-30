@@ -84,6 +84,7 @@ const config: Config = {
           feedOptions: {
             type: 'all',
             xslt: true,
+            copyright: `Copyright © ${new Date().getFullYear()} Austen Stone`
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
