@@ -11,7 +11,7 @@ I've been experimenting using AI coding agents in GitHub Actions to automate wor
 
 <!--truncate-->
 
-All the major AI companies now have coding agents:
+All the major AI companies now have agents as CLI tools:
 
 * [Gemini CLI](https://blog.google/technology/developers/introducing-gemini-cli-open-source-ai-agent/)
 * [Claude Code](https://www.anthropic.com/claude-code)
