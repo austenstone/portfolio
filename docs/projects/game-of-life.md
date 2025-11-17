@@ -25,10 +25,10 @@ Conway's Game of Life follows four simple rules:
 
 Despite these simple rules, the Game of Life can produce incredibly complex and beautiful patterns.
 
-## Source Code
+### Source Code
 
 **GitHub Repository:** [github.com/austenstone/game-of-life](https://github.com/austenstone/game-of-life)
 
-## Historical Context
+### Historical Context
 
 The Game of Life was created by John Conway in 1970 and popularized in Martin Gardner's "Mathematical Games" column in Scientific American. It has since become one of the most famous examples of cellular automata and has inspired countless variations and research.

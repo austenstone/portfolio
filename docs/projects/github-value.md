@@ -12,9 +12,7 @@ GitHub Value is a **free and open-source application** designed to help measure 
 
 GitHub Value provides comprehensive analytics and insights into how organizations are using GitHub features, helping leadership understand the return on investment and adoption patterns across their development teams.
 
-## Source Code & Contributions
-
-### Open Source
+### Source Code
 **GitHub Repository:** [github.com/austenstone/github-value](https://github.com/austenstone/github-value)
 
 The GitHub Value project represents a commitment to helping organizations maximize their investment in GitHub while providing transparency into development practices and tool adoption.

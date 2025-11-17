@@ -120,7 +120,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'guides',
           position: 'left',
-          label: 'Guides',
+          label: 'Actions',
         },
         {
           type: 'docSidebar',

@@ -11,8 +11,8 @@ ge usage reports
 
 ## Live Demo & Source
 
-### Try It Now
-**Live Application:** [austenstone.github.io/github-actions-usage-report](https://austenstone.github.io/github-actions-usage-report/)
+### Live Application
+**Try It Now:** [austenstone.github.io/github-actions-usage-report](https://austenstone.github.io/github-actions-usage-report/)
 
 ### Source Code
 **GitHub Repository:** [github.com/austenstone/github-actions-usage-report](https://github.com/austenstone/github-actions-usage-report)
