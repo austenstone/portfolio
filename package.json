@@ -12,7 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",
@@ -35,10 +36,15 @@
     "@docusaurus/module-type-aliases": "3.8.1",
     "@docusaurus/tsconfig": "3.8.1",
     "@docusaurus/types": "3.8.1",
+    "@eslint/js": "^9.39.1",
     "@types/mdast": "^3.0.15",
     "@types/unist": "^2.0.10",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.5.0",
     "mdast-util-directive": "^2.2.4",
     "typescript": "~5.6.2",
+    "typescript-eslint": "^8.46.4",
     "unist-util-visit": "^4.1.2"
   },
   "browserslist": {

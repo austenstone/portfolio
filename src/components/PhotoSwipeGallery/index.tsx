@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 
@@ -13,7 +13,6 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
   className = '',
 }) => {
   const galleryRef = useRef<HTMLDivElement>(null);
-  const [lightbox, setLightbox] = useState<PhotoSwipeLightbox | null>(null);
 
   useEffect(() => {
     if (!galleryRef.current) return;
@@ -22,7 +21,7 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
       gallery: galleryRef.current,
       children: 'a',
       pswpModule: () => import('photoswipe'),
-      paddingFn: (viewportSize) => {
+      paddingFn: () => {
         return {
           top: 20,
           bottom: 20,
@@ -34,7 +33,6 @@ const PhotoSwipeGallery: React.FC<PhotoSwipeGalleryProps> = ({
 
 
     lightboxInstance.init();
-    setLightbox(lightboxInstance);
 
     return () => {
       lightboxInstance.destroy();
