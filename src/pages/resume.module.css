@@ -1,100 +1,185 @@
-.resumeContainer {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  color: var(--ifm-color-content);
+/* Resume page styling to match dark professional layout */
+.resumePage {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  padding: 3rem 2rem;
 }
 
-.resumeContainer h1 {
-  color: var(--ifm-color-primary);
+.resumePage h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
   margin-bottom: 0.5rem;
-  font-size: 2.5rem;
+  border-bottom: none;
 }
 
-.resumeContainer h2 {
-  color: var(--ifm-color-secondary-dark);
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-.resumeContainer h3 {
-  color: var(--ifm-color-primary);
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-
-.resumeContainer blockquote {
-  background-color: var(--ifm-background-surface-color);
-  border-left: 4px solid var(--ifm-color-primary);
-  padding: 1rem 1.5rem;
-  margin: 1.5rem 0;
+.resumePage h1 + blockquote {
+  border-left: 4px solid #4fc3f7;
+  padding-left: 1.5rem;
+  margin: 1.5rem 0 3rem 0;
+  color: #b0b0b0;
+  font-size: 1.1rem;
   font-style: italic;
-  border-radius: 0 8px 8px 0;
 }
 
-.contactSection {
-  background-color: var(--ifm-background-surface-color);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1.5rem 0;
-}
-
-.contactSection ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.contactSection li {
-  margin: 0.5rem 0;
-}
-
-.skillsSection {
-  background-color: var(--ifm-background-surface-color);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin: 1.5rem 0;
-}
-
-.resumeContainer hr {
+.resumePage hr {
   border: none;
-  height: 1px;
-  background-color: var(--ifm-color-emphasis-200);
-  margin: 2rem 0;
+  border-top: 1px solid #404040;
+  margin: 2.5rem 0;
 }
 
-.resumeContainer strong {
-  color: var(--ifm-color-primary);
+.resumePage h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #404040;
+  padding-bottom: 0.75rem;
 }
 
-.resumeContainer a {
-  color: var(--ifm-color-primary);
+.resumePage h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.resumePage h3 a {
+  color: #4fc3f7;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.resumeContainer a:hover {
-  text-decoration: underline;
+.resumePage h3 a:hover {
+  color: #81d4fa;
+}
+
+.resumePage h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.resumePage p,
+.resumePage li {
+  color: #cccccc;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.resumePage em {
+  color: #999999;
+  font-style: italic;
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.resumePage ul {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.resumePage li {
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.resumePage li strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.resumePage a {
+  color: #4fc3f7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.resumePage a:hover {
+  color: #81d4fa;
+}
+
+/* Contact section specific styling */
+.resumePage h2#contact + ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.resumePage h2#contact + ul li {
+  padding-left: 0;
+}
+
+/* Skills section spacing */
+.resumePage h2#skills + p {
+  margin-bottom: 0.5rem;
+}
+
+/* Experience section date styling */
+.resumePage h4 + p:has(em) {
+  margin-top: 0;
+}
+
+/* Education section styling */
+.resumePage h2#education ~ h3 {
+  margin-bottom: 0.5rem;
+}
+
+.resumePage h2#education ~ h3 + p {
+  margin-bottom: 0.5rem;
+}
+
+/* Consistent spacing between sections */
+.resumePage > * + h2 {
+  margin-top: 4rem;
+}
+
+/* Improve readability with max-width */
+.resumePage .markdown {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 @media print {
-  .resumeContainer {
-    max-width: none;
-    padding: 0;
-    color: black;
+  body {
+    color: black !important;
+    background: white !important;
   }
   
-  .contactSection,
-  .skillsSection {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+  nav,
+  footer,
+  .theme-doc-toc-desktop {
+    display: none !important;
   }
-  
-  .resumeContainer blockquote {
-    background-color: #f8f9fa;
-    border-left-color: #007acc;
+
+  /* Force page breaks before major sections */
+  h3:has(a[href="https://www.telit.com/"]) {
+    page-break-before: always;
+  }
+
+  /* Target Austen Stone Tech section - it's the 3rd h3 in Experience */
+  h2#experience ~ h3:nth-of-type(3) {
+    page-break-before: always;
+  }
+
+  .resumePage {
+    background-color: white;
+    padding: 1rem;
+  }
+
+  .resumePage h1,
+  .resumePage h2,
+  .resumePage h3,
+  .resumePage h4,
+  .resumePage p,
+  .resumePage li,
+  .resumePage a {
+    color: black !important;
   }
 }
