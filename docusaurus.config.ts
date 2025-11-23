@@ -28,10 +28,12 @@ const config: Config = {
   deploymentBranch: 'main',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   markdown: {
     format: 'detect',
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
     // preprocessor: processGithubAdmonitions, // Removed to avoid conflict with remark plugin
     // parseFrontMatter: async (params) => {
     //   const result = await params.defaultParseFrontMatter(params);
