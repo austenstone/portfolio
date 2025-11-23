@@ -84,6 +84,7 @@ const config: Config = {
           showReadingTime: true,
           showLastUpdateTime: true,
           blogTitle: 'Blog',
+          blogSidebarCount: 'ALL',
           feedOptions: {
             type: 'all',
             xslt: true,
