@@ -7,7 +7,7 @@ description: A comprehensive GitHub Actions cheat sheet inspired by Learn X in Y
 enableComments: true
 ---
 
-I've created a comprehensive [GitHub Actions cheat sheet](/docs/guides/github/actions/Cheat%20Sheet) inspired by the [Learn X in Y Minutes](https://learnxinyminutes.com/) format.
+I've created a comprehensive [GitHub Actions cheat sheet](/docs/guides/Cheat%20Sheet) inspired by the [Learn X in Y Minutes](https://learnxinyminutes.com/) format.
 
 <!--truncate-->
 
@@ -19,7 +19,7 @@ Every line is annotated so you can skim for syntax or dive deeper into specific 
 
 ## Check It Out
 
-View the complete [GitHub Actions Cheat Sheet](/docs/guides/github/actions/Cheat%20Sheet) in the documentation section.
+View the complete [GitHub Actions Cheat Sheet](/docs/guides/Cheat%20Sheet) in the documentation section.
 
 The format makes complex CI/CD concepts approachable—you'll understand workflows, jobs, and automation patterns in minutes rather than hours.
 
