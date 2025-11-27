@@ -4,12 +4,13 @@ title: The Future of SDLC Automation
 tags: [github, github-actions, ai, dev]
 image: https://images.ctfassets.net/8aevphvgewt8/KiQBgcnMQg6dALaS6erGk/f8d49c0cc5a461b903e52d08c3c3b8f6/actions-hero.webp
 description: How to use AI to enhance your development workflows
-onUntruncatedBlogPosts: ignore
 ---
 
 Discussions around AI frequently revolve around this end goal of automation. Where AI is an autonomous software engineer, a note taker, or even your personal chauffeur.
 
 In reality most people are using AI as a tool to improve aspects of our workflows rather than building full blown automated solutions.
+
+<!--truncate-->
 
 * AI tooling can help us **build** traditional automations **faster**. Writing scripts has never been easier with the help of AI powered development tools.  
 * Developers can incorporate AI directly into their software to perform **inference.** This unlocks new use cases by giving us probabilistic functions instead of just deterministic ones.  
@@ -73,11 +74,11 @@ Using basic Inference allows the user to implement the most basic version of LLM
 * Summarizing content  
 * Mock data generation
 
-## Level 2: Agentic (GitHub Agents)
+## Level 2: Agentic
 
 We are entering a world where AI performs tasks using tools. Unlike simple inference, agents are multi-turn and loop: they try, fail, read the error, correct, and try again. The AI isn't just chatting; it is running the terminal, fetching webpages, and reading or writing files.
 
-### Agentic Tools (GitHub MCP Server)
+### Agentic Tools
 
 Agents typically get their tooling through the Model Context Protocol. This is the USB-C for Agents.
 
@@ -100,23 +101,3 @@ GitHub Actions is the perfect runtime for this because:
 * **Ephemeral & Secure:** The environment is 100% ephemeral and secure by default, using OIDC tokens that are short-lived.  
 * **Human in the Loop:** To solve the problem of agents hallucinating, we can use GitHub Actions "Environments" and "Approvals". We can treat an AI Agent like a junior developer: it can do the work, but it cannot merge to production without a human clicking "Approve" in the interface.  
 * **Deep Context & Integration:** The event context contains tons of useful structured information for agents.
-
-# Demo
-
-## Demo 1: The "Lazy" Triager (Inference)
-
-* **Scenario:** A user opens an angry, vaguely worded issue.  
-* **Action:** A workflow triggers `gpt-4o`.  
-* **Result:** The AI posts a comment: "I'm sorry you're having trouble. Based on your screenshot, it looks like a configuration error. I have labeled this 'question' and 'invalid'." (Show the labels appearing automatically).
-
-## Demo 2: Self-Healing Build (Agentic)
-
-* **Scenario:** You push code that breaks the build (e.g., a missing semicolon or dependency).  
-* **Action:**  
-  1. The standard `build` job fails.  
-  2. `on: workflow_run` triggers the **"Healer Agent"**.  
-  3. The Agent reads the error log using the CLI.  
-  4. The Agent changes the code to fix the error.  
-  5. The Agent pushes the fix to the branch.  
-* **Visual:** Show the red 'X' turn into a green 'Check' without you touching the keyboard.
-
