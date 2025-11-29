@@ -8,7 +8,7 @@ import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-di
 const config: Config = {
   title: 'Austen Stone',
   tagline: 'Software Engineer who writes code and solves business problems',
-  favicon: 'img/favicon.ico',
+  favicon: 'https://avatars.githubusercontent.com/u/22425467?v=4',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -112,7 +112,7 @@ const config: Config = {
     navbar: {
       // title: 'Austen Stone',
       logo: {
-        src: '/img/ChatGPT Image Jun 28, 2025, 04_41_42 PM.png',
+        src: 'https://avatars.githubusercontent.com/u/22425467?v=4',
         style: {
           'border-radius': '50%',
         }

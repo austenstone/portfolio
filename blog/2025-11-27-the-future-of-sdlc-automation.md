@@ -101,3 +101,6 @@ GitHub Actions is the perfect runtime for this because:
 * **Ephemeral & Secure:** The environment is 100% ephemeral and secure by default, using OIDC tokens that are short-lived.  
 * **Human in the Loop:** To solve the problem of agents hallucinating, we can use GitHub Actions "Environments" and "Approvals". We can treat an AI Agent like a junior developer: it can do the work, but it cannot merge to production without a human clicking "Approve" in the interface.  
 * **Deep Context & Integration:** The event context contains tons of useful structured information for agents.
+
+We also need to consider the scalability and maintainability of these agents as they become more complex and integral to our development workflows.
+
