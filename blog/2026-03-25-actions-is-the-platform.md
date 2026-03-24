@@ -3,11 +3,11 @@ slug: actions-is-the-platform
 title: GitHub Actions Is the Platform
 tags: [github, github-actions, ai, dev]
 image: https://images.ctfassets.net/8aevphvgewt8/KiQBgcnMQg6dALaS6erGk/f8d49c0cc5a461b903e52d08c3c3b8f6/actions-hero.webp
-description: Actions isn't just CI/CD. It's the execution layer for the entire GitHub platform, and Copilot, Dependabot, CodeQL, Pages, and Codespaces all run on it.
+description: Actions isn't just CI/CD. It's the execution layer for much of the GitHub platform. Copilot, Dependabot, CodeQL, Pages, and Codespaces all run on it.
 authors: [austen]
 ---
 
-Actions isn't just your CI/CD pipeline. It's the execution layer for the entire GitHub platform, and most developers don't even realize it.
+Actions isn't just your CI/CD pipeline. It's the execution layer for much of the GitHub platform, and most developers don't even realize it.
 
 <!--truncate-->
 
@@ -31,7 +31,7 @@ If you're using Copilot Code Review, that's Actions. Dependabot? Actions. CodeQL
 
 ## The Execution Layer
 
-Actions is the compute substrate that the entire GitHub platform runs on. Every feature listed above is just a workflow triggered by a GitHub event, running on a runner, producing an output. The same primitives you use for CI/CD.
+Actions is the compute substrate that much of the GitHub platform runs on. Every feature listed above is just a workflow triggered by a GitHub event, running on a runner, producing an output. The same primitives you use for CI/CD.
 
 This matters because it means **you can build on that same layer.** The same event triggers, the same runner infrastructure, the same security model that powers GitHub's own features, all available to you.
 
@@ -57,7 +57,7 @@ The fact that Actions is the platform, not just a CI tool, has a compounding eff
 3. **One observability story.** Workflow logs, job summaries, Actions Data Stream, the same tools for CI and for agent monitoring.
 4. **Network effects.** Every improvement GitHub makes to Actions benefits your CI/CD AND your AI automations simultaneously.
 
-Actions isn't competing with AI. It's the layer that makes AI automations safe, observable, and scalable.
+It's the layer that makes AI automations safe, observable, and scalable.
 
 
 *Next up: [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), triggering AI agents on any GitHub event, safely and autonomously.*
