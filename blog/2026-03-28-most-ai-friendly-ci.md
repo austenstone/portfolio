@@ -11,7 +11,7 @@ There's a misconception that AI is going to replace CI/CD. The opposite is true.
 
 <!--truncate-->
 
-*This is part 5 of a series on AI-native CI/CD. See also: [AI Changed the Automation Calculus](/blog/ai-changed-the-automation-calculus), [Actions Is the Platform](/blog/actions-is-the-platform), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
+*This is part 5 of a series on AI-native CI/CD. See also: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice), [Actions Is the Platform](/blog/actions-is-the-platform), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
 
 
 ## The Thesis: AI Makes CI/CD More Critical, Not Less

@@ -1,5 +1,5 @@
 ---
-slug: ai-changed-the-automation-calculus
+slug: automation-is-the-obvious-choice
 title: Automation is The Obvious Choice
 tags: [github, github-actions, ai, dev]
 image: https://images.ctfassets.net/8aevphvgewt8/KiQBgcnMQg6dALaS6erGk/f8d49c0cc5a461b903e52d08c3c3b8f6/actions-hero.webp

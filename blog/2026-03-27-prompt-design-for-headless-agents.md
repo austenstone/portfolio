@@ -11,7 +11,7 @@ When you take an agent out of your IDE and put it on a cron job or a GitHub even
 
 <!--truncate-->
 
-*This is part 4 of a series on AI-native CI/CD. See also: [AI Changed the Automation Calculus](/blog/ai-changed-the-automation-calculus), [Actions Is the Platform](/blog/actions-is-the-platform), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), [The Most AI-Friendly CI](/blog/most-ai-friendly-ci), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
+*This is part 4 of a series on AI-native CI/CD. See also: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice), [Actions Is the Platform](/blog/actions-is-the-platform), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), [The Most AI-Friendly CI](/blog/most-ai-friendly-ci), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
 
 
 ## The Aha Moment
