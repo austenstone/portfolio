@@ -11,7 +11,7 @@ The ROI bar for automation just hit the floor. AI didn't just make coding faster
 
 <!--truncate-->
 
-*This is part 1 of a series on AI-native CI/CD. See also: [Actions Is the Platform](/blog/actions-is-the-platform), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents), [The Most AI-Friendly CI](/blog/most-ai-friendly-ci), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
+*This is part 1 of a series on AI-native CI/CD. See also: [GitHub Actions: The AI-Native Platform](/blog/actions-is-the-ai-native-platform), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
 
 
 ## The Trap: Doing the Same Work Faster
@@ -84,4 +84,4 @@ AI productivity becomes exponential when you stop using it for linear speedups a
 
 📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part1)**
 
-*Next up: [GitHub Actions Is the Platform](/blog/actions-is-the-platform). You'd be surprised what's already running on Actions under the hood.*
+*Next up: [GitHub Actions: The AI-Native Platform](/blog/actions-is-the-ai-native-platform). You'd be surprised what's already running on Actions under the hood.*

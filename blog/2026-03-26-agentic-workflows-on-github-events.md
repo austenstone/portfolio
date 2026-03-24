@@ -11,7 +11,7 @@ Just like you use Copilot in VS Code or the Coding Agent from an issue, you can 
 
 <!--truncate-->
 
-*This is part 3 of a series on AI-native CI/CD. See also: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice), [Actions Is the Platform](/blog/actions-is-the-platform), [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents), [The Most AI-Friendly CI](/blog/most-ai-friendly-ci), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
+*This is part 3 of a series on AI-native CI/CD. See also: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice), [GitHub Actions: The AI-Native Platform](/blog/actions-is-the-ai-native-platform), [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
 
 
 There are five ways to use AI in Actions, from simple inference to full agent frameworks.

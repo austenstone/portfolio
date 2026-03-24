@@ -11,7 +11,7 @@ Your laptop is about to stop being where work happens. As we get more competent 
 
 <!--truncate-->
 
-*This is part 6 of a series on AI-native CI/CD. See also: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice), [Actions Is the Platform](/blog/actions-is-the-platform), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents), and [The Most AI-Friendly CI](/blog/most-ai-friendly-ci).*
+*This is part 5 of a series on AI-native CI/CD. See also: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice), [GitHub Actions: The AI-Native Platform](/blog/actions-is-the-ai-native-platform), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), and [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents).*
 
 
 ## The Local Machine Bottleneck
@@ -112,6 +112,6 @@ You don't have to wait for dedicated agent compute to start building agentic wor
 
 The future of compute is converging. Actions is the foundation everything else builds on. Start there.
 
-📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part6)**
+📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part5)**
 
 *This post is part of a series on AI-native CI/CD. Start from the beginning: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice).*
