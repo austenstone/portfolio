@@ -1,0 +1,15 @@
+name: Hello World
+description: A simple hello world composite action
+inputs:
+  name:
+    description: Who to greet
+    required: true
+  greeting:
+    description: The greeting
+    required: true
+    default: Hello
+runs:
+  using: composite
+  steps:
+    - run: echo "${{ inputs.greeting }}, ${{ inputs.name }}!"
+      shell: bash
