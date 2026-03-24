@@ -44,7 +44,7 @@ GitHub exposes [dozens of webhook events](https://docs.github.com/en/actions/wri
 - `discussion`, `discussion_comment`
 - `schedule`
 - `workflow_dispatch`
-- `repository_dispatch`
+- etc.
 
 Every one of these is a hook you can attach automation to. And with AI agents now cheap enough to run on any event, the question shifts from "what _can_ we automate?" to "what _should_ we automate first?"
 
