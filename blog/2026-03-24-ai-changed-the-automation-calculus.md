@@ -1,6 +1,6 @@
 ---
 slug: ai-changed-the-automation-calculus
-title: AI Changed the Automation Calculus
+title: Automation is The Obvious Choice
 tags: [github, github-actions, ai, dev]
 image: https://images.ctfassets.net/8aevphvgewt8/KiQBgcnMQg6dALaS6erGk/f8d49c0cc5a461b903e52d08c3c3b8f6/actions-hero.webp
 description: The ROI bar for automation just hit the floor. AI didn't just make coding faster, it made building automations so cheap that NOT automating is the expensive choice.
@@ -35,7 +35,7 @@ Everyone should constantly be asking: **"What am I spending my time on, and can 
 
 That's what we do. We're engineers. We solve problems and we automate.
 
-## The Old Automation Calculus
+## The Old Automation Math
 
 Automation was always valuable, but the ROI bar was high. Building an automation had to be worth the time investment. It needed large scale and a long lifetime to justify the cost.
 
@@ -51,7 +51,7 @@ GitHub Actions was built to change this:
 
 But even with Actions, there were limits. It wasn't feasible to automate every task for every repo. Some automations were too bespoke, too context-dependent, too expensive to build. There were always plenty of automations we wished existed but couldn't justify building.
 
-## The Calculus Has Flipped
+## Just Automate it
 
 We've entered a new world. **If a task can be automated, then choosing to automate it is almost always the better choice.** The cost of building automations has collapsed. AI can generate the workflow, write the action, compose the pipeline. The ROI bar that used to filter out 80% of automation ideas? It's basically on the floor.
 
