@@ -28,7 +28,7 @@
     "prism-react-renderer": "^2.4.1",
     "raw-loader": "^4.0.2",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "react-dom": "^19.2.4",
     "rehype-highlight": "^7.0.2",
     "remark-github-admonitions-to-directives": "^2.1.0"
   },
