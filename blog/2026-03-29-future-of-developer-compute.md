@@ -112,6 +112,6 @@ You don't have to wait for dedicated agent compute to start building agentic wor
 
 The future of compute is converging. Actions is the foundation everything else builds on. Start there.
 
-📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part5)**
+📊 **[View the visual presentation →](pathname:///slides/ai-native-cicd-series.html#part5)**
 
 *This post is part of a series on AI-native CI/CD. Start from the beginning: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice).*

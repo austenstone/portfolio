@@ -82,6 +82,6 @@ The question is no longer "is this worth automating?" It almost always is now. T
 
 AI productivity becomes exponential when you stop using it for linear speedups and start using it to build the automation infrastructure that compounds over time.
 
-📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part1)**
+📊 **[View the visual presentation →](pathname:///slides/ai-native-cicd-series.html#part1)**
 
 *Next up: [GitHub Actions: The AI-Native Platform](/blog/actions-is-the-ai-native-platform). You'd be surprised what's already running on Actions under the hood.*

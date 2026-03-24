@@ -191,6 +191,6 @@ No one is watching the terminal. The agent's reasoning must be written to a perm
 
 The prompt IS the configuration. Get it right and the engine runs itself.
 
-📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part4)**
+📊 **[View the visual presentation →](pathname:///slides/ai-native-cicd-series.html#part4)**
 
 *Next up: [The Future of Developer Compute](/blog/future-of-developer-compute). Your laptop is about to stop being where work happens.*

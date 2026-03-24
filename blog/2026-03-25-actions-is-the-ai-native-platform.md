@@ -178,6 +178,6 @@ If networking was your reason for staying on self-hosted runners, that reason is
 
 Convenient? Yes. But the real value is security, availability, and freeing your platform team from runner management.
 
-📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part2)**
+📊 **[View the visual presentation →](pathname:///slides/ai-native-cicd-series.html#part2)**
 
 *Next up: [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events) — triggering AI agents on any GitHub event, safely and autonomously.*
