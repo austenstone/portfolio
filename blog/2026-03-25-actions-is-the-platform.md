@@ -59,5 +59,6 @@ The fact that Actions is the platform, not just a CI tool, has a compounding eff
 
 It's the layer that makes AI automations safe, observable, and scalable.
 
+📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part2)**
 
 *Next up: [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), triggering AI agents on any GitHub event, safely and autonomously.*

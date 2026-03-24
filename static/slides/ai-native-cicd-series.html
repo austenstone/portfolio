@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Native CI/CD Series — Austen Stone</title>
+  <meta name="description" content="A 6-part visual series on AI-native CI/CD: automation, platforms, agentic workflows, prompt design, AI-friendly CI, and the future of developer compute." />
+  <meta property="og:title" content="AI-Native CI/CD Series" />
+  <meta property="og:description" content="Visual presentations by Austen Stone — the complete series" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { theme: { extend: {} } }</script>
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    .animate-float { animation: float 4s ease-in-out infinite; }
+    .animate-float-delayed { animation: float 4s ease-in-out 2s infinite; }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.4); }
+    }
+    .animate-pulse-glow { animation: pulse-glow 3s infinite; }
+
+    @keyframes pulse-glow-emerald {
+      0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.4); }
+    }
+    .animate-pulse-glow-emerald { animation: pulse-glow-emerald 3s infinite; }
+
+    @keyframes pulse-glow-amber {
+      0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.4); }
+    }
+    .animate-pulse-glow-amber { animation: pulse-glow-amber 3s infinite; }
+
+    @keyframes pulse-glow-rose {
+      0%, 100% { box-shadow: 0 0 20px rgba(244, 63, 94, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(244, 63, 94, 0.4); }
+    }
+    .animate-pulse-glow-rose { animation: pulse-glow-rose 3s infinite; }
+
+    @keyframes pulse-glow-cyan {
+      0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.4); }
+    }
+    .animate-pulse-glow-cyan { animation: pulse-glow-cyan 3s infinite; }
+
+    @keyframes pulse-bar {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+    .animate-pulse-bar { animation: pulse-bar 2s ease-in-out infinite; }
+
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #020617; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+    html { scroll-behavior: smooth; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(48px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0) translateX(0) scale(1);
+    }
+    .fade-in-left { transform: translateX(-48px); }
+    .fade-in-right { transform: translateX(48px); }
+    .fade-in-scale { transform: scale(0.95); }
+
+    .part-divider {
+      background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 1) 15%, rgba(15, 23, 42, 1) 85%, transparent 100%);
+    }
+
+    /* Table of contents hover */
+    .toc-card {
+      transition: all 0.3s ease;
+    }
+    .toc-card:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-50 font-sans min-h-screen selection:bg-blue-500/30">
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗ -->
+<!-- ║                     SERIES TITLE / TOC                         ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+
+<section class="min-h-screen flex flex-col items-center justify-center relative px-6">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/30 via-purple-900/10 to-slate-950/0 pointer-events-none"></div>
+
+  <div class="fade-in text-center max-w-5xl z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-800 text-blue-400 font-medium mb-8 text-sm uppercase tracking-widest">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+      6-Part Series
+    </div>
+    <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 leading-tight">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">AI-Native CI/CD</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed mb-16">
+      A visual journey through the new era of automation, platforms, agents, and developer compute.
+    </p>
+
+    <!-- TOC Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto text-left">
+      <a href="#part1" class="toc-card p-5 bg-slate-900/60 border border-slate-800 rounded-2xl hover:border-blue-500/50 group">
+        <span class="text-blue-400 font-mono text-sm">Part 1</span>
+        <p class="text-white font-semibold mt-1 group-hover:text-blue-300 transition-colors">Automation is The Obvious Choice</p>
+      </a>
+      <a href="#part2" class="toc-card p-5 bg-slate-900/60 border border-slate-800 rounded-2xl hover:border-emerald-500/50 group">
+        <span class="text-emerald-400 font-mono text-sm">Part 2</span>
+        <p class="text-white font-semibold mt-1 group-hover:text-emerald-300 transition-colors">Actions Is the Platform</p>
+      </a>
+      <a href="#part3" class="toc-card p-5 bg-slate-900/60 border border-slate-800 rounded-2xl hover:border-purple-500/50 group">
+        <span class="text-purple-400 font-mono text-sm">Part 3</span>
+        <p class="text-white font-semibold mt-1 group-hover:text-purple-300 transition-colors">Agentic Workflows on GitHub Events</p>
+      </a>
+      <a href="#part4" class="toc-card p-5 bg-slate-900/60 border border-slate-800 rounded-2xl hover:border-amber-500/50 group">
+        <span class="text-amber-400 font-mono text-sm">Part 4</span>
+        <p class="text-white font-semibold mt-1 group-hover:text-amber-300 transition-colors">Prompt Design for Headless Agents</p>
+      </a>
+      <a href="#part5" class="toc-card p-5 bg-slate-900/60 border border-slate-800 rounded-2xl hover:border-rose-500/50 group">
+        <span class="text-rose-400 font-mono text-sm">Part 5</span>
+        <p class="text-white font-semibold mt-1 group-hover:text-rose-300 transition-colors">The Most AI-Friendly CI</p>
+      </a>
+      <a href="#part6" class="toc-card p-5 bg-slate-900/60 border border-slate-800 rounded-2xl hover:border-cyan-500/50 group">
+        <span class="text-cyan-400 font-mono text-sm">Part 6</span>
+        <p class="text-white font-semibold mt-1 group-hover:text-cyan-300 transition-colors">The Future of Developer Compute</p>
+      </a>
+    </div>
+  </div>
+
+  <a href="#part1" class="absolute bottom-10 animate-bounce text-slate-500">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+  </a>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗ -->
+<!-- ║          PART 1: AUTOMATION IS THE OBVIOUS CHOICE              ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+
+<!-- Part 1 Divider -->
+<section id="part1" class="py-24 flex items-center justify-center px-6 border-t border-slate-800">
+  <div class="fade-in text-center">
+    <span class="text-blue-400 font-mono text-lg tracking-widest uppercase">Part 1</span>
+    <h2 class="text-5xl md:text-7xl font-extrabold mt-4 mb-6">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Automation is The Obvious Choice</span>
+    </h2>
+    <p class="text-xl text-slate-400 max-w-2xl mx-auto">The ROI bar just hit the floor.</p>
+    <a href="/blog/automation-is-the-obvious-choice" class="inline-block mt-6 text-blue-400 hover:text-blue-300 underline text-sm">Read the full post →</a>
+  </div>
+</section>
+
+<!-- P1 Slide: The Trap -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900 bg-slate-950/50">
+  <div class="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
+    <div class="fade-in fade-in-left">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">The Trap:<br/>Doing the same work <span class="text-emerald-400">faster</span>.</h2>
+      <p class="text-xl text-slate-400 mb-8 leading-relaxed">
+        Crushing Jira tickets with Copilot feels amazing. But writing code faster doesn't mean you ship 10x faster.
+      </p>
+      <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
+        <p class="text-lg text-slate-300 font-mono">"The bottleneck was almost never your programming abilities or typing speed."</p>
+      </div>
+    </div>
+    <div class="fade-in fade-in-right" style="transition-delay: 200ms">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-4 bg-emerald-950/30 border border-emerald-900/50 p-4 rounded-xl">
+          <div class="bg-emerald-500/20 p-3 rounded-lg text-emerald-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          </div>
+          <div class="flex-1">
+            <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-emerald-500 w-full animate-pulse-bar"></div></div>
+          </div>
+          <span class="text-emerald-400 font-bold">10x Speed</span>
+        </div>
+        <div class="flex flex-col items-center py-2 text-slate-600">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="flex items-center gap-4 bg-red-950/30 border border-red-900/50 p-4 rounded-xl">
+          <div class="bg-red-500/20 p-3 rounded-lg text-red-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="flex-1">
+            <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-red-500 w-1/4"></div></div>
+          </div>
+          <span class="text-red-400 font-bold">1x Shipping</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P1 Slide: Where does time go? -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 overflow-hidden relative">
+  <div class="fade-in text-center mb-16 z-10">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">Where is your time <span class="text-blue-400">actually</span> going?</h2>
+    <p class="text-xl text-slate-400">Writing code is maybe 20% of your day. The rest is...</p>
+  </div>
+  <div class="relative w-full max-w-5xl h-[500px] flex items-center justify-center">
+    <div class="fade-in fade-in-scale absolute z-20" style="transition-delay: 200ms">
+      <div class="bg-blue-600 rounded-full w-48 h-48 flex flex-col items-center justify-center shadow-[0_0_50px_rgba(37,99,235,0.4)] border-4 border-slate-950">
+        <span class="text-4xl font-bold text-white mb-1">20%</span>
+        <span class="text-blue-200 font-medium">Writing Code</span>
+      </div>
+    </div>
+    <div class="fade-in absolute top-[10%] left-[20%] z-10 hidden md:block" style="transition-delay: 400ms">
+      <div class="flex items-center gap-3 bg-slate-800/80 backdrop-blur-sm border border-slate-700 px-5 py-3 rounded-full text-slate-300 animate-float">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M11 18H8a2 2 0 0 1-2-2V9"/></svg>
+        <span class="font-medium">Code Reviews</span>
+      </div>
+    </div>
+    <div class="fade-in absolute bottom-[20%] right-[15%] z-10 hidden md:block" style="transition-delay: 500ms">
+      <div class="flex items-center gap-3 bg-slate-800/80 backdrop-blur-sm border border-slate-700 px-5 py-3 rounded-full text-slate-300 animate-float-delayed">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+        <span class="font-medium">Debugging CI</span>
+      </div>
+    </div>
+    <div class="fade-in absolute top-[20%] right-[20%] z-10 hidden md:block" style="transition-delay: 600ms">
+      <div class="flex items-center gap-3 bg-slate-800/80 backdrop-blur-sm border border-slate-700 px-5 py-3 rounded-full text-slate-300 animate-float">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+        <span class="font-medium">Updating Docs</span>
+      </div>
+    </div>
+    <div class="fade-in absolute bottom-[15%] left-[25%] z-10 hidden md:block" style="transition-delay: 700ms">
+      <div class="flex items-center gap-3 bg-slate-800/80 backdrop-blur-sm border border-slate-700 px-5 py-3 rounded-full text-slate-300 animate-float-delayed">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <span class="font-medium">Flaky Tests</span>
+      </div>
+    </div>
+    <div class="fade-in absolute top-[40%] right-[5%] z-10 hidden md:block" style="transition-delay: 800ms">
+      <div class="flex items-center gap-3 bg-slate-800/80 backdrop-blur-sm border border-slate-700 px-5 py-3 rounded-full text-slate-300 animate-float">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+        <span class="font-medium">Provisioning Infra</span>
+      </div>
+    </div>
+    <div class="fade-in absolute top-[50%] left-[5%] z-10 hidden md:block" style="transition-delay: 900ms">
+      <div class="flex items-center gap-3 bg-slate-800/80 backdrop-blur-sm border border-slate-700 px-5 py-3 rounded-full text-slate-300 animate-float-delayed">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+        <span class="font-medium">Context-Switching</span>
+      </div>
+    </div>
+    <div class="flex md:hidden flex-wrap justify-center gap-3 mt-48 z-10 px-4">
+      <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-full text-sm text-slate-300">Code Reviews</span>
+      <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-full text-sm text-slate-300">Debugging CI</span>
+      <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-full text-sm text-slate-300">Updating Docs</span>
+      <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-full text-sm text-slate-300">Flaky Tests</span>
+      <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-full text-sm text-slate-300">Infra</span>
+      <span class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-full text-sm text-slate-300">Context-Switching</span>
+    </div>
+  </div>
+</section>
+
+<!-- P1 Slide: Old Math vs New -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900 bg-slate-900/20">
+  <div class="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-stretch">
+    <div class="fade-in bg-slate-900 border border-slate-800 p-10 rounded-3xl relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-6 opacity-10"><svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg></div>
+      <h3 class="text-2xl font-bold text-slate-400 mb-6">The Old Math</h3>
+      <p class="text-slate-300 mb-8 leading-relaxed">Automation was valuable, but the ROI bar was high. It needed large scale and a long lifetime to justify the cost.</p>
+      <div class="space-y-4">
+        <div class="flex items-center gap-4 text-slate-400"><div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center">1</div><p>Too expensive to build</p></div>
+        <div class="flex items-center gap-4 text-slate-400"><div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center">2</div><p>Manual processes calcify</p></div>
+        <div class="flex items-center gap-4 text-slate-400"><div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center">3</div><p>"That's just how we do it"</p></div>
+      </div>
+    </div>
+    <div class="fade-in bg-gradient-to-br from-blue-900/40 to-purple-900/40 border border-blue-500/30 p-10 rounded-3xl relative overflow-hidden animate-pulse-glow" style="transition-delay: 200ms">
+      <div class="absolute top-0 right-0 p-6 opacity-10"><svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+      <h3 class="text-3xl font-bold text-white mb-6">Just Automate It</h3>
+      <p class="text-blue-100 mb-8 leading-relaxed text-lg">The ROI bar has collapsed. AI can generate the workflow, write the action, and compose the pipeline.</p>
+      <div class="bg-blue-950/50 border border-blue-500/30 p-6 rounded-xl backdrop-blur-sm">
+        <p class="font-semibold text-blue-300 text-lg">"If a task can be automated, then choosing to automate it is almost always the better choice."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P1 Slide: Compounding -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 relative">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-purple-900/20 via-slate-950/0 to-slate-950/0 pointer-events-none"></div>
+  <div class="fade-in text-center mb-16 max-w-3xl z-10">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">The Compounding Factor</h2>
+    <p class="text-xl text-slate-400">This is where it gets exponential, not linear.</p>
+  </div>
+  <div class="w-full max-w-4xl relative z-10">
+    <div class="fade-in grid grid-cols-1 md:grid-cols-3 gap-6 relative" style="transition-delay: 200ms">
+      <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col items-center text-center relative z-10">
+        <div class="w-16 h-16 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/></svg>
+        </div>
+        <h4 class="text-xl font-bold mb-3">AI Builds</h4>
+        <p class="text-slate-400 text-sm">Uses AI to build traditional tools: tests, linters, pipelines.</p>
+      </div>
+      <div class="hidden md:flex absolute top-1/2 left-[33%] -translate-y-1/2 -translate-x-1/2 z-0 text-slate-700">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col items-center text-center relative z-10 md:-translate-y-6 shadow-2xl shadow-purple-900/20">
+        <div class="w-16 h-16 bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
+        </div>
+        <h4 class="text-xl font-bold mb-3">Automation Runs</h4>
+        <p class="text-slate-400 text-sm">Runs thousands of times across dozens of repos automatically.</p>
+      </div>
+      <div class="hidden md:flex absolute top-1/2 left-[66%] -translate-y-1/2 -translate-x-1/2 z-0 text-slate-700">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 p-8 rounded-2xl flex flex-col items-center text-center relative z-10">
+        <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h4 class="text-xl font-bold mb-3">Propels Faster</h4>
+        <p class="text-slate-400 text-sm">Keeps saving manual effort even when the AI is idle.</p>
+      </div>
+    </div>
+    <div class="fade-in mt-12 text-center" style="transition-delay: 600ms">
+      <div class="inline-block px-6 py-3 border border-purple-500/30 bg-purple-500/10 text-purple-300 rounded-full text-sm font-medium tracking-wide">The AI builds the automation, the automation keeps compounding.</div>
+    </div>
+  </div>
+</section>
+
+<!-- P1 Slide: Mental Shift -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 bg-slate-950">
+  <div class="max-w-5xl w-full">
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-4xl md:text-6xl font-extrabold mb-6">The Mental Shift</h2>
+      <p class="text-xl text-slate-400">The question is no longer "is this worth automating?"</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 mb-16">
+      <div class="fade-in p-8 border border-slate-800 rounded-2xl bg-slate-900/50 hover:bg-slate-800 transition-colors" style="transition-delay: 100ms">
+        <h4 class="text-blue-400 font-bold text-lg mb-2">1. Prioritize</h4>
+        <p class="text-white font-medium mb-4">What should I automate first?</p>
+        <p class="text-slate-400 text-sm">Look for highest frequency × highest toil tasks.</p>
+      </div>
+      <div class="fade-in p-8 border border-slate-800 rounded-2xl bg-slate-900/50 hover:bg-slate-800 transition-colors" style="transition-delay: 200ms">
+        <h4 class="text-purple-400 font-bold text-lg mb-2">2. Secure</h4>
+        <p class="text-white font-medium mb-4">How do I make it trustworthy?</p>
+        <p class="text-slate-400 text-sm">Implement proper testing, guardrails, and monitoring.</p>
+      </div>
+      <div class="fade-in p-8 border border-slate-800 rounded-2xl bg-slate-900/50 hover:bg-slate-800 transition-colors" style="transition-delay: 300ms">
+        <h4 class="text-emerald-400 font-bold text-lg mb-2">3. Scale</h4>
+        <p class="text-white font-medium mb-4">How do I scale across the org?</p>
+        <p class="text-slate-400 text-sm">Build reusable workflows, templates, and innersource.</p>
+      </div>
+    </div>
+    <div class="fade-in text-center p-8 bg-gradient-to-r from-blue-900/20 to-purple-900/20 border border-slate-700/50 rounded-3xl backdrop-blur-md" style="transition-delay: 500ms">
+      <p class="text-xl md:text-2xl font-light leading-relaxed text-slate-200">
+        Stop using AI just to write features faster.<br/>
+        <span class="font-bold text-white block mt-4 text-2xl md:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Start using AI to build the automation infrastructure that makes your entire team faster.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗ -->
+<!-- ║          PART 2: ACTIONS IS THE PLATFORM                       ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+
+<section id="part2" class="py-24 flex items-center justify-center px-6 border-t border-slate-800">
+  <div class="fade-in text-center">
+    <span class="text-emerald-400 font-mono text-lg tracking-widest uppercase">Part 2</span>
+    <h2 class="text-5xl md:text-7xl font-extrabold mt-4 mb-6">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-500">Actions Is the Platform</span>
+    </h2>
+    <p class="text-xl text-slate-400 max-w-2xl mx-auto">It's not just CI/CD. It's the execution layer for the entire GitHub platform.</p>
+    <a href="/blog/actions-is-the-platform" class="inline-block mt-6 text-emerald-400 hover:text-emerald-300 underline text-sm">Read the full post →</a>
+  </div>
+</section>
+
+<!-- P2 Slide: What's Already Running -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900 bg-slate-950/50">
+  <div class="max-w-5xl w-full">
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">What's <span class="text-emerald-400">Already Running</span> on Actions</h2>
+      <p class="text-xl text-slate-400">Things you use every day that are Actions under the hood.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 100ms">
+        <div class="text-emerald-400 font-bold text-lg mb-2">🤖 Copilot Code Review</div>
+        <p class="text-slate-400 text-sm">Runs as a PR check via Actions. LLM + CodeQL analyze your PR.</p>
+      </div>
+      <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 200ms">
+        <div class="text-emerald-400 font-bold text-lg mb-2">🧑‍💻 Copilot Coding Agent</div>
+        <p class="text-slate-400 text-sm">Plans, codes, tests, opens PRs — all on GH-hosted runners.</p>
+      </div>
+      <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 300ms">
+        <div class="text-emerald-400 font-bold text-lg mb-2">🔄 Dependabot</div>
+        <p class="text-slate-400 text-sm">Version updates, security alerts, auto-PRs — all via Actions.</p>
+      </div>
+      <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 400ms">
+        <div class="text-emerald-400 font-bold text-lg mb-2">🔒 GHAS / CodeQL</div>
+        <p class="text-slate-400 text-sm">Code scanning, secret scanning, security analysis — Actions workflows.</p>
+      </div>
+      <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 500ms">
+        <div class="text-emerald-400 font-bold text-lg mb-2">💻 Codespace Prebuilds</div>
+        <p class="text-slate-400 text-sm">Dev environment prebuilds run on Actions for instant startup.</p>
+      </div>
+      <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 600ms">
+        <div class="text-emerald-400 font-bold text-lg mb-2">🌐 GitHub Pages</div>
+        <p class="text-slate-400 text-sm">Site builds and deployments run as Actions workflows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P2 Slide: One Execution Layer -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900">
+  <div class="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
+    <div class="fade-in fade-in-left">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">One <span class="text-emerald-400">Execution Layer</span> to Rule Them All</h2>
+      <p class="text-xl text-slate-400 mb-8 leading-relaxed">The same event triggers, runner infrastructure, and security model that powers GitHub's own features — all available to you.</p>
+      <div class="p-6 bg-emerald-950/30 border border-emerald-900/50 rounded-2xl">
+        <p class="text-lg text-emerald-300 font-mono">"If you know how to write a workflow, you know how to orchestrate an AI agent."</p>
+      </div>
+    </div>
+    <div class="fade-in fade-in-right" style="transition-delay: 200ms">
+      <div class="space-y-4">
+        <div class="flex items-center gap-4 bg-slate-900 border border-slate-800 p-5 rounded-xl">
+          <div class="bg-emerald-500/20 p-3 rounded-lg text-emerald-400 text-2xl">🎯</div>
+          <div><p class="text-white font-semibold">One execution model</p><p class="text-slate-400 text-sm">Workflows for CI/CD AND AI agents</p></div>
+        </div>
+        <div class="flex items-center gap-4 bg-slate-900 border border-slate-800 p-5 rounded-xl">
+          <div class="bg-emerald-500/20 p-3 rounded-lg text-emerald-400 text-2xl">🔐</div>
+          <div><p class="text-white font-semibold">One security model</p><p class="text-slate-400 text-sm">Permissions, secrets, OIDC — same everywhere</p></div>
+        </div>
+        <div class="flex items-center gap-4 bg-slate-900 border border-slate-800 p-5 rounded-xl">
+          <div class="bg-emerald-500/20 p-3 rounded-lg text-emerald-400 text-2xl">📊</div>
+          <div><p class="text-white font-semibold">One observability story</p><p class="text-slate-400 text-sm">Logs, summaries, data streams — for CI and agents</p></div>
+        </div>
+        <div class="flex items-center gap-4 bg-slate-900 border border-slate-800 p-5 rounded-xl">
+          <div class="bg-emerald-500/20 p-3 rounded-lg text-emerald-400 text-2xl">🌊</div>
+          <div><p class="text-white font-semibold">Network effects</p><p class="text-slate-400 text-sm">Every Actions improvement benefits CI AND AI automations</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P2 Slide: The Event System -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 bg-slate-900/20">
+  <div class="fade-in text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">The <span class="text-emerald-400">Event System</span></h2>
+    <p class="text-xl text-slate-400">Every GitHub event is a hook you can attach automation to.</p>
+  </div>
+  <div class="w-full max-w-5xl">
+    <div class="fade-in grid grid-cols-2 md:grid-cols-4 gap-4" style="transition-delay: 200ms">
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-center"><code class="text-emerald-400 font-mono">push</code></div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-center"><code class="text-emerald-400 font-mono">pull_request</code></div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-center"><code class="text-emerald-400 font-mono">issues</code></div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-center"><code class="text-emerald-400 font-mono">issue_comment</code></div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-center"><code class="text-emerald-400 font-mono">discussion</code></div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-center"><code class="text-emerald-400 font-mono">schedule</code></div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-center"><code class="text-emerald-400 font-mono">workflow_dispatch</code></div>
+      <div class="bg-slate-900 border border-slate-800 p-5 rounded-xl text-center"><code class="text-emerald-400 font-mono">deployment</code></div>
+    </div>
+    <div class="fade-in mt-12 text-center" style="transition-delay: 500ms">
+      <div class="inline-block px-6 py-3 border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 rounded-full text-sm font-medium tracking-wide">
+        The question shifts from "what <em>can</em> we automate?" to "what <em>should</em> we automate first?"
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗ -->
+<!-- ║   PART 3: AGENTIC WORKFLOWS ON GITHUB EVENTS                  ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+
+<section id="part3" class="py-24 flex items-center justify-center px-6 border-t border-slate-800">
+  <div class="fade-in text-center">
+    <span class="text-purple-400 font-mono text-lg tracking-widest uppercase">Part 3</span>
+    <h2 class="text-5xl md:text-7xl font-extrabold mt-4 mb-6">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-500">Agentic Workflows on GitHub Events</span>
+    </h2>
+    <p class="text-xl text-slate-400 max-w-2xl mx-auto">Run AI agents triggered on any GitHub event. Safe, secure, and ephemeral.</p>
+    <a href="/blog/agentic-workflows-on-github-events" class="inline-block mt-6 text-purple-400 hover:text-purple-300 underline text-sm">Read the full post →</a>
+  </div>
+</section>
+
+<!-- P3 Slide: The 5 Approaches -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 bg-slate-950/50">
+  <div class="fade-in text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">5 Ways to Use <span class="text-purple-400">AI in Actions</span></h2>
+    <p class="text-xl text-slate-400">From simple inference to full agent frameworks.</p>
+  </div>
+  <div class="w-full max-w-5xl">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+      <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl text-center" style="transition-delay: 100ms">
+        <div class="text-3xl mb-3">🔮</div>
+        <h4 class="text-white font-bold mb-2 text-sm">Copilot Models</h4>
+        <p class="text-slate-500 text-xs">Single LLM call. Classify, summarize, label.</p>
+        <div class="mt-3 text-purple-400 text-xs font-mono">Trivial</div>
+      </div>
+      <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl text-center" style="transition-delay: 200ms">
+        <div class="text-3xl mb-3">🤖</div>
+        <h4 class="text-white font-bold mb-2 text-sm">Coding Agent</h4>
+        <p class="text-slate-500 text-xs">Assign issue → agent opens PR. Zero config.</p>
+        <div class="mt-3 text-purple-400 text-xs font-mono">Zero-config</div>
+      </div>
+      <div class="fade-in bg-gradient-to-b from-purple-900/40 to-slate-900 border border-purple-500/30 p-6 rounded-2xl text-center md:-translate-y-4 shadow-2xl shadow-purple-900/20" style="transition-delay: 300ms">
+        <div class="text-3xl mb-3">📋</div>
+        <h4 class="text-white font-bold mb-2 text-sm">gh aw</h4>
+        <p class="text-slate-500 text-xs">Markdown-defined with built-in guardrails. The paved path.</p>
+        <div class="mt-3 text-purple-300 text-xs font-mono font-bold">Recommended</div>
+      </div>
+      <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl text-center" style="transition-delay: 400ms">
+        <div class="text-3xl mb-3">⚡</div>
+        <h4 class="text-white font-bold mb-2 text-sm">Copilot CLI</h4>
+        <p class="text-slate-500 text-xs">Full autopilot with MCP tools. Any CI task.</p>
+        <div class="mt-3 text-purple-400 text-xs font-mono">Medium</div>
+      </div>
+      <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl text-center" style="transition-delay: 500ms">
+        <div class="text-3xl mb-3">🧬</div>
+        <h4 class="text-white font-bold mb-2 text-sm">Copilot SDK</h4>
+        <p class="text-slate-500 text-xs">Raw model APIs. Build your own agent framework.</p>
+        <div class="mt-3 text-purple-400 text-xs font-mono">Full Control</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P3 Slide: The Chain -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900">
+  <div class="max-w-5xl w-full">
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">The Fully Automated <span class="text-purple-400">Chain</span></h2>
+    </div>
+    <div class="fade-in" style="transition-delay: 200ms">
+      <div class="flex flex-col md:flex-row items-stretch gap-4 justify-center">
+        <div class="bg-slate-900 border border-purple-500/30 p-6 rounded-2xl flex-1 text-center">
+          <div class="text-4xl mb-3">📡</div>
+          <p class="text-white font-bold">GitHub Event</p>
+          <p class="text-slate-500 text-sm mt-1">Issue labeled, PR opened, schedule fires</p>
+        </div>
+        <div class="hidden md:flex items-center text-purple-500"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+        <div class="bg-slate-900 border border-purple-500/30 p-6 rounded-2xl flex-1 text-center">
+          <div class="text-4xl mb-3">🤖</div>
+          <p class="text-white font-bold">AI Agent</p>
+          <p class="text-slate-500 text-sm mt-1">Plans, codes, tests on ephemeral runner</p>
+        </div>
+        <div class="hidden md:flex items-center text-purple-500"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+        <div class="bg-slate-900 border border-purple-500/30 p-6 rounded-2xl flex-1 text-center">
+          <div class="text-4xl mb-3">🔀</div>
+          <p class="text-white font-bold">Pull Request</p>
+          <p class="text-slate-500 text-sm mt-1">Code reviewed, tests pass, ready to merge</p>
+        </div>
+        <div class="hidden md:flex items-center text-purple-500"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+        <div class="bg-gradient-to-b from-purple-900/40 to-slate-900 border border-purple-500/30 p-6 rounded-2xl flex-1 text-center animate-pulse-glow">
+          <div class="text-4xl mb-3">👤</div>
+          <p class="text-white font-bold">Human Review</p>
+          <p class="text-slate-500 text-sm mt-1">No human in the loop until merge time</p>
+        </div>
+      </div>
+    </div>
+    <div class="fade-in mt-12 text-center" style="transition-delay: 500ms">
+      <div class="inline-block px-6 py-3 border border-purple-500/30 bg-purple-500/10 text-purple-300 rounded-full text-sm font-medium">
+        Event → Agent → PR → Review. Fully automated until the last mile.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P3 Slide: Use Case Gallery -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 bg-slate-900/20">
+  <div class="fade-in text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6"><span class="text-purple-400">What You Can Build</span></h2>
+  </div>
+  <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 100ms">
+      <h4 class="text-purple-400 font-bold mb-2">🏷️ Issue & PR Management</h4>
+      <p class="text-slate-400 text-sm">Auto-triage, label, assign, coordinate across projects.</p>
+    </div>
+    <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 200ms">
+      <h4 class="text-purple-400 font-bold mb-2">📚 Continuous Documentation</h4>
+      <p class="text-slate-400 text-sm">Keep docs consistent, up-to-date, and auto-maintained.</p>
+    </div>
+    <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 300ms">
+      <h4 class="text-purple-400 font-bold mb-2">⚙️ Continuous Improvement</h4>
+      <p class="text-slate-400 text-sm">Daily code simplification, refactoring, tech debt cleanup.</p>
+    </div>
+    <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 400ms">
+      <h4 class="text-purple-400 font-bold mb-2">📊 Metrics & Analytics</h4>
+      <p class="text-slate-400 text-sm">Daily reports, trend analysis, workflow health monitoring.</p>
+    </div>
+    <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 500ms">
+      <h4 class="text-purple-400 font-bold mb-2">✅ Quality & Testing</h4>
+      <p class="text-slate-400 text-sm">CI failure diagnosis, test improvements, flaky test detection.</p>
+    </div>
+    <div class="fade-in p-6 bg-slate-900 border border-slate-800 rounded-2xl" style="transition-delay: 600ms">
+      <h4 class="text-purple-400 font-bold mb-2">🔗 Multi-Repository</h4>
+      <p class="text-slate-400 text-sm">Feature sync, cross-repo tracking, dependency coordination.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗ -->
+<!-- ║     PART 4: PROMPT DESIGN FOR HEADLESS AGENTS                  ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+
+<section id="part4" class="py-24 flex items-center justify-center px-6 border-t border-slate-800">
+  <div class="fade-in text-center">
+    <span class="text-amber-400 font-mono text-lg tracking-widest uppercase">Part 4</span>
+    <h2 class="text-5xl md:text-7xl font-extrabold mt-4 mb-6">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Prompt Design for Headless Agents</span>
+    </h2>
+    <p class="text-xl text-slate-400 max-w-2xl mx-auto">The prompt architecture that separates reliable agents from unreliable ones.</p>
+    <a href="/blog/prompt-design-for-headless-agents" class="inline-block mt-6 text-amber-400 hover:text-amber-300 underline text-sm">Read the full post →</a>
+  </div>
+</section>
+
+<!-- P4 Slide: The Aha Moment -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900 bg-slate-950/50">
+  <div class="max-w-5xl w-full">
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">The <span class="text-amber-400">Aha Moment</span></h2>
+    </div>
+    <div class="fade-in max-w-3xl mx-auto" style="transition-delay: 200ms">
+      <div class="p-8 bg-gradient-to-br from-amber-900/30 to-slate-900 border border-amber-500/30 rounded-3xl animate-pulse-glow-amber">
+        <p class="text-2xl md:text-3xl text-amber-100 font-light leading-relaxed text-center">
+          "You don't have to build the engine.<br/>
+          <span class="font-bold text-white">You just have to build the guardrails.</span>"
+        </p>
+      </div>
+      <div class="fade-in mt-12 text-center" style="transition-delay: 400ms">
+        <p class="text-lg text-slate-400">You're not writing a traditional "prompt." You're writing a <span class="text-amber-400 font-bold">configuration file for an execution engine</span>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P4 Slide: 5 Interactive Strategies -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900">
+  <div class="fade-in text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">5 Strategies for <span class="text-amber-400">Interactive Agents</span></h2>
+  </div>
+  <div class="w-full max-w-5xl">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+      <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl" style="transition-delay: 100ms">
+        <div class="text-amber-400 font-mono font-bold mb-3">01</div>
+        <h4 class="text-white font-bold text-sm mb-2">Stop Micromanaging</h4>
+        <p class="text-slate-500 text-xs">Define tools + finish line. Let the agent loop natively.</p>
+      </div>
+      <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl" style="transition-delay: 200ms">
+        <div class="text-amber-400 font-mono font-bold mb-3">02</div>
+        <h4 class="text-white font-bold text-sm mb-2">Strict Exit Criteria</h4>
+        <p class="text-slate-500 text-xs">Use agent hooks to enforce with deterministic checks.</p>
+      </div>
+      <div class="fade-in bg-gradient-to-b from-amber-900/30 to-slate-900 border border-amber-500/30 p-6 rounded-2xl md:-translate-y-4 shadow-2xl shadow-amber-900/20" style="transition-delay: 300ms">
+        <div class="text-amber-400 font-mono font-bold mb-3">03</div>
+        <h4 class="text-white font-bold text-sm mb-2">Externalize Memory</h4>
+        <p class="text-slate-500 text-xs">Write state to files. Crash-resistant. Context-window-safe.</p>
+      </div>
+      <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl" style="transition-delay: 400ms">
+        <div class="text-amber-400 font-mono font-bold mb-3">04</div>
+        <h4 class="text-white font-bold text-sm mb-2">Constrain Blast Radius</h4>
+        <p class="text-slate-500 text-xs">Explicit tool whitelist. No rogue grep across workspace.</p>
+      </div>
+      <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl" style="transition-delay: 500ms">
+        <div class="text-amber-400 font-mono font-bold mb-3">05</div>
+        <h4 class="text-white font-bold text-sm mb-2">Yield Protocols</h4>
+        <p class="text-slate-500 text-xs">Define when to stop instead of bashing broken commands.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P4 Slide: The Stop Hook -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900 bg-slate-900/20">
+  <div class="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
+    <div class="fade-in fade-in-left">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">The <span class="text-amber-400">Stop Hook</span></h2>
+      <p class="text-xl text-slate-400 mb-6 leading-relaxed">Prompts are suggestions. Hooks are enforcement.</p>
+      <p class="text-slate-300 mb-8">The Stop hook fires when the agent tries to finish. Your script runs a deterministic check — does the file exist? Does it validate? If it fails, the agent gets told exactly what's missing.</p>
+      <div class="p-6 bg-amber-950/30 border border-amber-900/50 rounded-2xl">
+        <p class="text-lg text-amber-300 font-semibold">The bridge between non-deterministic AI and deterministic automation.</p>
+      </div>
+    </div>
+    <div class="fade-in fade-in-right" style="transition-delay: 200ms">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 font-mono text-sm">
+        <div class="text-slate-500 mb-2">// hooks.json</div>
+        <pre class="text-amber-300 whitespace-pre-wrap">{
+  "hooks": {
+    "Stop": [{
+      "type": "command",
+      "command": "./validate.sh"
+    }]
+  }
+}</pre>
+        <div class="border-t border-slate-800 mt-4 pt-4 text-slate-500 mb-2">// validate.sh returns:</div>
+        <pre class="text-red-400 whitespace-pre-wrap">{
+  "decision": "block",
+  "reason": "output.md missing
+    enterprise_slug field"
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P4 Slide: Going Headless -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 relative">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-amber-900/15 via-slate-950/0 to-slate-950/0 pointer-events-none"></div>
+  <div class="fade-in text-center mb-16 z-10">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">Going <span class="text-amber-400">Headless</span></h2>
+    <p class="text-xl text-slate-400">When there's no human at the keyboard, everything changes.</p>
+  </div>
+  <div class="w-full max-w-5xl z-10 grid grid-cols-1 md:grid-cols-5 gap-4">
+    <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl text-center" style="transition-delay: 100ms">
+      <div class="text-3xl mb-3">🚫</div>
+      <h4 class="text-white font-bold text-sm mb-2">Don't Yield</h4>
+      <p class="text-slate-500 text-xs">Log + terminate. Never ask for input.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl text-center" style="transition-delay: 200ms">
+      <div class="text-3xl mb-3">♻️</div>
+      <h4 class="text-white font-bold text-sm mb-2">Idempotent</h4>
+      <p class="text-slate-500 text-xs">Check if work was already done first.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl text-center" style="transition-delay: 300ms">
+      <div class="text-3xl mb-3">🔑</div>
+      <h4 class="text-white font-bold text-sm mb-2">Pre-Auth</h4>
+      <p class="text-slate-500 text-xs">No browser SSO. Inject tokens before spin-up.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl text-center" style="transition-delay: 400ms">
+      <div class="text-3xl mb-3">🔄</div>
+      <h4 class="text-white font-bold text-sm mb-2">Loop Limits</h4>
+      <p class="text-slate-500 text-xs">Max 10 tool calls. No $50 runaway loops at 3 AM.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-6 rounded-2xl text-center" style="transition-delay: 500ms">
+      <div class="text-3xl mb-3">📝</div>
+      <h4 class="text-white font-bold text-sm mb-2">Audit Logs</h4>
+      <p class="text-slate-500 text-xs">JSON reasoning trail to audit.jsonl.</p>
+    </div>
+  </div>
+</section>
+
+<!-- P4 Slide: The Template -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900 bg-slate-950">
+  <div class="max-w-4xl w-full">
+    <div class="fade-in text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">The Headless <span class="text-amber-400">Prompt Template</span></h2>
+    </div>
+    <div class="fade-in" style="transition-delay: 200ms">
+      <div class="bg-slate-900 border border-amber-500/30 rounded-2xl p-8 font-mono text-sm md:text-base space-y-3">
+        <div class="flex items-start gap-3"><span class="text-amber-400 font-bold w-4 shrink-0">1.</span><span class="text-white">&lt;objective&gt;</span><span class="text-slate-500 ml-2">— The specific, narrow task</span></div>
+        <div class="flex items-start gap-3"><span class="text-amber-400 font-bold w-4 shrink-0">2.</span><span class="text-white">&lt;idempotency_check&gt;</span><span class="text-slate-500 ml-2">— Was this already done?</span></div>
+        <div class="flex items-start gap-3"><span class="text-amber-400 font-bold w-4 shrink-0">3.</span><span class="text-white">&lt;authorized_tools&gt;</span><span class="text-slate-500 ml-2">— Restricted whitelist</span></div>
+        <div class="flex items-start gap-3"><span class="text-amber-400 font-bold w-4 shrink-0">4.</span><span class="text-white">&lt;headless_constraints&gt;</span><span class="text-slate-500 ml-2">— No questions, max N loops</span></div>
+        <div class="flex items-start gap-3"><span class="text-amber-400 font-bold w-4 shrink-0">5.</span><span class="text-white">&lt;failure_protocol&gt;</span><span class="text-slate-500 ml-2">— Log errors, then terminate</span></div>
+        <div class="flex items-start gap-3"><span class="text-amber-400 font-bold w-4 shrink-0">6.</span><span class="text-white">&lt;exit_criteria&gt;</span><span class="text-slate-500 ml-2">— Definition of "done"</span></div>
+      </div>
+    </div>
+    <div class="fade-in mt-10 text-center" style="transition-delay: 500ms">
+      <div class="inline-block px-6 py-3 border border-amber-500/30 bg-amber-500/10 text-amber-300 rounded-full text-sm font-medium">
+        The prompt IS the configuration. Get it right and the engine runs itself.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗ -->
+<!-- ║     PART 5: THE MOST AI-FRIENDLY CI                            ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+
+<section id="part5" class="py-24 flex items-center justify-center px-6 border-t border-slate-800">
+  <div class="fade-in text-center">
+    <span class="text-rose-400 font-mono text-lg tracking-widest uppercase">Part 5</span>
+    <h2 class="text-5xl md:text-7xl font-extrabold mt-4 mb-6">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-500">The Most AI-Friendly CI</span>
+    </h2>
+    <p class="text-xl text-slate-400 max-w-2xl mx-auto">AI won't replace CI/CD — it makes CI/CD the most critical piece of your stack.</p>
+    <a href="/blog/most-ai-friendly-ci" class="inline-block mt-6 text-rose-400 hover:text-rose-300 underline text-sm">Read the full post →</a>
+  </div>
+</section>
+
+<!-- P5 Slide: The Thesis -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900 bg-slate-950/50">
+  <div class="max-w-5xl w-full">
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">The <span class="text-rose-400">Thesis</span></h2>
+    </div>
+    <div class="fade-in max-w-3xl mx-auto" style="transition-delay: 200ms">
+      <div class="p-8 bg-gradient-to-br from-rose-900/30 to-slate-900 border border-rose-500/30 rounded-3xl animate-pulse-glow-rose">
+        <p class="text-xl md:text-2xl text-rose-100 font-light leading-relaxed text-center">
+          AI agents are non-deterministic. They generate different code each time. You need <span class="text-white font-bold">strong deterministic automation</span> wrapped around them to catch what agents get wrong.
+        </p>
+      </div>
+      <div class="fade-in mt-10 text-center" style="transition-delay: 400ms">
+        <p class="text-lg text-slate-400">The better your CI/CD pipeline, the more autonomy you can give your agents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P5 Slide: Why Actions Specifically -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900">
+  <div class="fade-in text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">Why <span class="text-rose-400">Actions</span> Specifically?</h2>
+  </div>
+  <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="fade-in bg-slate-900 border border-slate-800 p-8 rounded-2xl" style="transition-delay: 100ms">
+      <h4 class="text-rose-400 font-bold text-lg mb-3">🧠 LLMs Understand It Best</h4>
+      <p class="text-slate-400">Largest CI usage base = most training data. AI writes better Actions YAML than any other CI system.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-8 rounded-2xl" style="transition-delay: 200ms">
+      <h4 class="text-rose-400 font-bold text-lg mb-3">🧱 Building Block Architecture</h4>
+      <p class="text-slate-400">Composable actions = black boxes with clear interfaces. Perfect for AI reasoning about inputs/outputs.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-8 rounded-2xl" style="transition-delay: 300ms">
+      <h4 class="text-rose-400 font-bold text-lg mb-3">♻️ Reusability = Token Efficiency</h4>
+      <p class="text-slate-400">Call a pre-built action instead of inline script → save tokens AND reduce error surface. 20K+ marketplace blocks.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-8 rounded-2xl" style="transition-delay: 400ms">
+      <h4 class="text-rose-400 font-bold text-lg mb-3">🔐 Secure by Default</h4>
+      <p class="text-slate-400">Per-repo permission model. Agents can experiment freely within safe boundaries. No global admin key.</p>
+    </div>
+  </div>
+</section>
+
+<!-- P5 Slide: GitHub-Hosted Runners -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900 bg-slate-900/20">
+  <div class="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
+    <div class="fade-in fade-in-left">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Why <span class="text-rose-400">GitHub-Hosted</span> Runners</h2>
+      <p class="text-xl text-slate-400 mb-8 leading-relaxed">AI agents run code they generate themselves. They install packages. They make API calls. They iterate.</p>
+      <div class="p-6 bg-rose-950/30 border border-rose-900/50 rounded-2xl">
+        <p class="text-lg text-rose-300 font-semibold">On ephemeral GHRs, every agent run starts clean and ends clean. No persistence, no lateral movement.</p>
+      </div>
+    </div>
+    <div class="fade-in fade-in-right" style="transition-delay: 200ms">
+      <div class="space-y-3">
+        <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 p-4 rounded-xl">
+          <span class="text-rose-400">🛡️</span><span class="text-white font-medium">Ephemeral VMs — fresh every job</span>
+        </div>
+        <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 p-4 rounded-xl">
+          <span class="text-rose-400">🏗️</span><span class="text-white font-medium">Zero maintenance — no patching, no K8s</span>
+        </div>
+        <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 p-4 rounded-xl">
+          <span class="text-rose-400">⚡</span><span class="text-white font-medium">Instant burst — hundreds of concurrent runners</span>
+        </div>
+        <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 p-4 rounded-xl">
+          <span class="text-rose-400">🌐</span><span class="text-white font-medium">VNET injection — reach private resources</span>
+        </div>
+        <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 p-4 rounded-xl">
+          <span class="text-rose-400">📉</span><span class="text-white font-medium">30% price drop — January 2026</span>
+        </div>
+        <div class="flex items-center gap-3 bg-slate-900 border border-slate-800 p-4 rounded-xl">
+          <span class="text-rose-400">📊</span><span class="text-white font-medium">Actions Data Stream — real-time telemetry</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗ -->
+<!-- ║     PART 6: THE FUTURE OF DEVELOPER COMPUTE                    ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+
+<section id="part6" class="py-24 flex items-center justify-center px-6 border-t border-slate-800">
+  <div class="fade-in text-center">
+    <span class="text-cyan-400 font-mono text-lg tracking-widest uppercase">Part 6</span>
+    <h2 class="text-5xl md:text-7xl font-extrabold mt-4 mb-6">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-500">The Future of Developer Compute</span>
+    </h2>
+    <p class="text-xl text-slate-400 max-w-2xl mx-auto">Your laptop is about to stop being where work happens.</p>
+    <a href="/blog/future-of-developer-compute" class="inline-block mt-6 text-cyan-400 hover:text-cyan-300 underline text-sm">Read the full post →</a>
+  </div>
+</section>
+
+<!-- P6 Slide: The Local Machine Bottleneck -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900 bg-slate-950/50">
+  <div class="max-w-6xl w-full grid md:grid-cols-2 gap-16 items-center">
+    <div class="fade-in fade-in-left">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">The Local Machine <span class="text-cyan-400">Bottleneck</span></h2>
+      <p class="text-xl text-slate-400 mb-8 leading-relaxed">
+        Right now, you're running one agent in your IDE. But where this is going is <span class="text-white font-semibold">many agents, working in parallel</span>, each on a different task.
+      </p>
+      <div class="p-6 bg-cyan-950/30 border border-cyan-900/50 rounded-2xl">
+        <p class="text-lg text-cyan-300 font-mono">"What happens when you want 5 agents, each in its own isolated environment, each with scoped permissions?"</p>
+      </div>
+    </div>
+    <div class="fade-in fade-in-right" style="transition-delay: 200ms">
+      <div class="space-y-4">
+        <div class="flex items-center gap-4 bg-red-950/20 border border-red-900/40 p-4 rounded-xl">
+          <span class="text-red-400 text-xl">❌</span>
+          <p class="text-slate-300">Each agent needs its <b class="text-white">own isolated workspace</b></p>
+        </div>
+        <div class="flex items-center gap-4 bg-red-950/20 border border-red-900/40 p-4 rounded-xl">
+          <span class="text-red-400 text-xl">❌</span>
+          <p class="text-slate-300">Different agents need <b class="text-white">different permissions</b></p>
+        </div>
+        <div class="flex items-center gap-4 bg-red-950/20 border border-red-900/40 p-4 rounded-xl">
+          <span class="text-red-400 text-xl">❌</span>
+          <p class="text-slate-300"><b class="text-white">Performance</b> — local CPU/RAM can't scale</p>
+        </div>
+        <div class="flex items-center gap-4 bg-red-950/20 border border-red-900/40 p-4 rounded-xl">
+          <span class="text-red-400 text-xl">❌</span>
+          <p class="text-slate-300"><b class="text-white">Security</b> — LLM-generated code on your machine</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P6 Slide: CI vs Agent Compute -->
+<section class="min-h-screen flex items-center justify-center px-6 border-t border-slate-900">
+  <div class="max-w-5xl w-full">
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">CI Runners vs <span class="text-cyan-400">Agent Compute</span></h2>
+      <p class="text-xl text-slate-400">Agents need fundamentally different compute.</p>
+    </div>
+    <div class="fade-in" style="transition-delay: 200ms">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b border-slate-800">
+              <th class="py-4 px-4 text-slate-500 font-medium"></th>
+              <th class="py-4 px-4 text-slate-400 font-medium">CI/CD Runners</th>
+              <th class="py-4 px-4 text-cyan-400 font-medium">Agent Compute</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr class="border-b border-slate-900"><td class="py-3 px-4 text-slate-500">Startup</td><td class="py-3 px-4 text-slate-300">~10s+ VM provision</td><td class="py-3 px-4 text-cyan-300 font-semibold">Sub-second</td></tr>
+            <tr class="border-b border-slate-900"><td class="py-3 px-4 text-slate-500">State</td><td class="py-3 px-4 text-slate-300">Stateless</td><td class="py-3 px-4 text-cyan-300 font-semibold">Stateful, pause/resume</td></tr>
+            <tr class="border-b border-slate-900"><td class="py-3 px-4 text-slate-500">Execution</td><td class="py-3 px-4 text-slate-300">Fire-and-forget</td><td class="py-3 px-4 text-cyan-300 font-semibold">Interactive, API-driven</td></tr>
+            <tr class="border-b border-slate-900"><td class="py-3 px-4 text-slate-500">Scale</td><td class="py-3 px-4 text-slate-300">Fewer, longer jobs</td><td class="py-3 px-4 text-cyan-300 font-semibold">Swarms of short bursts</td></tr>
+            <tr><td class="py-3 px-4 text-slate-500">Cost</td><td class="py-3 px-4 text-slate-300">Per-minute VMs</td><td class="py-3 px-4 text-cyan-300 font-semibold">MicroVMs, per-invocation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P6 Slide: What Agent Compute Needs -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 bg-slate-900/20">
+  <div class="fade-in text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">What Agent Compute <span class="text-cyan-400">Looks Like</span></h2>
+  </div>
+  <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="fade-in bg-slate-900 border border-slate-800 p-8 rounded-2xl" style="transition-delay: 100ms">
+      <h4 class="text-cyan-400 font-bold text-lg mb-3">⚡ MicroVMs, Not Full VMs</h4>
+      <p class="text-slate-400">Sub-second startup. Hardware-level isolation. Dramatically lower cost per invocation. OCI image support.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-8 rounded-2xl" style="transition-delay: 200ms">
+      <h4 class="text-cyan-400 font-bold text-lg mb-3">⏸️ Snapshot / Resume</h4>
+      <p class="text-slate-400">Save full state. Hand off to human for review. Resume exactly where it left off. The biggest gap in current CI.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-8 rounded-2xl" style="transition-delay: 300ms">
+      <h4 class="text-cyan-400 font-bold text-lg mb-3">🔑 Scoped Permissions</h4>
+      <p class="text-slate-400">Per-agent identity and access control. Agent A reads code. Agent B deploys staging. Agent C can't touch production.</p>
+    </div>
+    <div class="fade-in bg-slate-900 border border-slate-800 p-8 rounded-2xl" style="transition-delay: 400ms">
+      <h4 class="text-cyan-400 font-bold text-lg mb-3">🏛️ Enterprise Governance</h4>
+      <p class="text-slate-400">Auditability, network controls, policy enforcement, cost limits, identity tied to spawning developer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- P6 Slide: The Three Layers -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 relative">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-cyan-900/15 via-slate-950/0 to-slate-950/0 pointer-events-none"></div>
+  <div class="fade-in text-center mb-16 z-10">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6">The <span class="text-cyan-400">Three Compute Layers</span></h2>
+    <p class="text-xl text-slate-400">The modern dev platform needs all three.</p>
+  </div>
+  <div class="w-full max-w-4xl z-10">
+    <div class="space-y-5">
+      <div class="fade-in flex items-center gap-6 bg-slate-900 border border-slate-800 p-6 rounded-2xl" style="transition-delay: 100ms">
+        <div class="bg-rose-500/20 text-rose-400 p-4 rounded-xl text-3xl shrink-0">⚙️</div>
+        <div>
+          <h4 class="text-white font-bold text-lg">CI/CD Compute</h4>
+          <p class="text-slate-400 text-sm">Async, stateless, fire-and-forget. <span class="text-rose-400 font-semibold">→ GitHub Actions</span></p>
+        </div>
+      </div>
+      <div class="fade-in flex items-center gap-6 bg-slate-900 border border-slate-800 p-6 rounded-2xl" style="transition-delay: 200ms">
+        <div class="bg-blue-500/20 text-blue-400 p-4 rounded-xl text-3xl shrink-0">💻</div>
+        <div>
+          <h4 class="text-white font-bold text-lg">Development Compute</h4>
+          <p class="text-slate-400 text-sm">Persistent, interactive, human-driven. <span class="text-blue-400 font-semibold">→ Codespaces</span></p>
+        </div>
+      </div>
+      <div class="fade-in flex items-center gap-6 bg-gradient-to-r from-cyan-900/30 to-slate-900 border border-cyan-500/30 p-6 rounded-2xl animate-pulse-glow-cyan" style="transition-delay: 300ms">
+        <div class="bg-cyan-500/20 text-cyan-400 p-4 rounded-xl text-3xl shrink-0">🤖</div>
+        <div>
+          <h4 class="text-white font-bold text-lg">Agent Compute</h4>
+          <p class="text-slate-400 text-sm">Stateful, sub-second, swarm-scale, pause/resume. <span class="text-cyan-400 font-semibold">→ Coming soon</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- P6 Slide: What To Do Now -->
+<section class="min-h-screen flex flex-col items-center justify-center px-6 border-t border-slate-900 bg-slate-950">
+  <div class="max-w-5xl w-full">
+    <div class="fade-in text-center mb-16">
+      <h2 class="text-4xl md:text-6xl font-extrabold mb-6">What To Do <span class="text-cyan-400">Now</span></h2>
+      <p class="text-xl text-slate-400">You don't have to wait for dedicated agent compute.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 mb-16">
+      <div class="fade-in p-8 border border-slate-800 rounded-2xl bg-slate-900/50 hover:bg-slate-800 transition-colors" style="transition-delay: 100ms">
+        <h4 class="text-cyan-400 font-bold text-lg mb-2">1. Start with Actions</h4>
+        <p class="text-slate-400 text-sm">Run agents in CI today with Copilot CLI or gh aw.</p>
+      </div>
+      <div class="fade-in p-8 border border-slate-800 rounded-2xl bg-slate-900/50 hover:bg-slate-800 transition-colors" style="transition-delay: 200ms">
+        <h4 class="text-cyan-400 font-bold text-lg mb-2">2. Use GitHub-Hosted Runners</h4>
+        <p class="text-slate-400 text-sm">Ephemeral, isolated, zero-maintenance. Ready for agents.</p>
+      </div>
+      <div class="fade-in p-8 border border-slate-800 rounded-2xl bg-slate-900/50 hover:bg-slate-800 transition-colors" style="transition-delay: 300ms">
+        <h4 class="text-cyan-400 font-bold text-lg mb-2">3. Build Prompt Architecture</h4>
+        <p class="text-slate-400 text-sm">Design for headless execution now. Be ready when agent compute arrives.</p>
+      </div>
+      <div class="fade-in p-8 border border-slate-800 rounded-2xl bg-slate-900/50 hover:bg-slate-800 transition-colors" style="transition-delay: 400ms">
+        <h4 class="text-cyan-400 font-bold text-lg mb-2">4. Invest in CI/CD Suites</h4>
+        <p class="text-slate-400 text-sm">Stronger tests/lint/scan = more autonomy for agents.</p>
+      </div>
+    </div>
+    <div class="fade-in text-center p-8 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 border border-slate-700/50 rounded-3xl backdrop-blur-md" style="transition-delay: 600ms">
+      <p class="text-xl md:text-2xl font-light leading-relaxed text-slate-200">
+        The future of compute is converging.<br/>
+        <span class="font-bold text-white block mt-4 text-2xl md:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
+          Actions is the foundation everything else builds on. Start there.
+        </span>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════════╗ -->
+<!-- ║                           FOOTER                               ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+
+<section class="py-24 flex flex-col items-center justify-center px-6 border-t border-slate-800 bg-slate-950">
+  <div class="fade-in text-center max-w-3xl">
+    <p class="text-slate-500 text-sm mb-8">AI-Native CI/CD Series by Austen Stone</p>
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <a href="/blog/automation-is-the-obvious-choice" class="text-blue-400 hover:text-blue-300 underline text-sm">Part 1</a>
+      <span class="text-slate-700">·</span>
+      <a href="/blog/actions-is-the-platform" class="text-emerald-400 hover:text-emerald-300 underline text-sm">Part 2</a>
+      <span class="text-slate-700">·</span>
+      <a href="/blog/agentic-workflows-on-github-events" class="text-purple-400 hover:text-purple-300 underline text-sm">Part 3</a>
+      <span class="text-slate-700">·</span>
+      <a href="/blog/prompt-design-for-headless-agents" class="text-amber-400 hover:text-amber-300 underline text-sm">Part 4</a>
+      <span class="text-slate-700">·</span>
+      <a href="/blog/most-ai-friendly-ci" class="text-rose-400 hover:text-rose-300 underline text-sm">Part 5</a>
+      <span class="text-slate-700">·</span>
+      <a href="/blog/future-of-developer-compute" class="text-cyan-400 hover:text-cyan-300 underline text-sm">Part 6</a>
+    </div>
+    <a href="/" class="text-slate-600 hover:text-slate-400 text-sm transition-colors">← Back to austen.info</a>
+  </div>
+</section>
+
+<!-- Scroll Animation Script -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -134,5 +134,6 @@ If networking was your reason for staying on self-hosted runners, that reason is
 
 Convenient? Yes. But the real value is security, availability, and freeing your platform team from runner management.
 
+📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part5)**
 
 *Next up: [The Future of Developer Compute](/blog/future-of-developer-compute). Your local machine is about to stop being where work happens.*

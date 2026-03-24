@@ -188,5 +188,6 @@ This is the power user escape hatch for teams building custom AI tooling on top 
 
 Start with **Copilot Models** for single inference calls. Use the **Coding Agent** when the task maps to an issue. Reach for **gh aw** for recurring repo automation. Use **Copilot CLI** when you need full CI integration with custom prompts. Drop to the **SDK** when you need complete control.
 
+📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part3)**
 
 *Next up: [Prompt Design for Headless AI Agents](/blog/prompt-design-for-headless-agents), the part nobody talks about. How do you write prompts that work when there's no human at the keyboard?*

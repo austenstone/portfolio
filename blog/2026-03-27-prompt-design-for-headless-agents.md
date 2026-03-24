@@ -191,5 +191,6 @@ No one is watching the terminal. The agent's reasoning must be written to a perm
 
 The prompt IS the configuration. Get it right and the engine runs itself.
 
+📊 **[View the visual presentation →](/slides/ai-native-cicd-series.html#part4)**
 
 *Next up: [Why GitHub Actions Is the Most AI-Friendly CI](/blog/most-ai-friendly-ci). There's a misconception that AI will replace CI/CD. The opposite is true.*
