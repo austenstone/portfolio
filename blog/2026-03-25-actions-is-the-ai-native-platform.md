@@ -3,7 +3,7 @@ slug: actions-is-the-ai-native-platform
 title: "Why GitHub Actions Is the Most AI-Friendly CI"
 tags: [github, github-actions, ai, dev]
 image: https://images.ctfassets.net/8aevphvgewt8/KiQBgcnMQg6dALaS6erGk/f8d49c0cc5a461b903e52d08c3c3b8f6/actions-hero.webp
-description: "Actions isn't just CI/CD — it's the execution layer for the GitHub platform, and it's purpose-built for the agentic era. Here's why, from the platform story to the compute layer."
+description: "It's almost like Actions was made for the agentic era."
 authors: [austen]
 ---
 
@@ -13,6 +13,29 @@ Actions isn't just your CI/CD pipeline. It's the execution layer for much of the
 
 *This is part 2 of a series on AI-native CI/CD. See also: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
 
+## Why Actions Is Purpose-Built for AI
+
+### LLMs Understand It Best
+
+GitHub Actions has the largest usage base of any CI platform, which means the most training data for LLMs. AI models write better Actions YAML than any other CI system because they've seen more of it. More examples, more documentation, more community workflows → better AI-generated output.
+
+### Building Block Architecture Is Perfect for AI
+
+Actions' composable approach (actions, reusable workflows, composite actions) creates **black boxes with clear interfaces**. AIs excel when they can reason about well-defined inputs/outputs without understanding internal complexity.
+
+`uses: actions/checkout@v5` is easier for an LLM than "write the equivalent 20 lines of shell script."
+
+### Reusability = Token Efficiency
+
+Reusable workflows, shared actions, org-level templates → **call once, use everywhere.** Token efficiency matters when agents are running 10x more jobs.
+
+Actions does this better than any competitor: reusable workflows across repos, composite actions, the Actions marketplace with 20K+ pre-built blocks. Every time you call a pre-built action instead of inline script, you save tokens AND reduce error surface.
+
+### Repo-Centric Security = Safe by Default
+
+Actions' limited, per-repo permission model is **secure by default**. No global admin key that unlocks everything. Developers can go wild experimenting → organizational governance via org-level policies, required workflows, IP allow lists.
+
+This is critical for agentic workloads: you WANT agents to experiment freely within a safe boundary. Reduces friction → faster adoption → compounding AI value.
 
 ## What's Already Running on Actions
 
@@ -65,30 +88,6 @@ Without robust CI/CD, you're shipping AI-generated code with no safety net. CI/C
 
 > The more you delegate to agents, the more you need ironclad testing, scanning, and validation to catch what they get wrong. CI/CD isn't a nice-to-have anymore. It's the control plane for AI-generated code.
 
-## Why Actions Is Purpose-Built for AI
-
-### LLMs Understand It Best
-
-GitHub Actions has the largest usage base of any CI platform, which means the most training data for LLMs. AI models write better Actions YAML than any other CI system because they've seen more of it. More examples, more documentation, more community workflows → better AI-generated output.
-
-### Building Block Architecture Is Perfect for AI
-
-Actions' composable approach (actions, reusable workflows, composite actions) creates **black boxes with clear interfaces**. AIs excel when they can reason about well-defined inputs/outputs without understanding internal complexity.
-
-`uses: actions/checkout@v5` is easier for an LLM than "write the equivalent 20 lines of shell script."
-
-### Reusability = Token Efficiency
-
-Reusable workflows, shared actions, org-level templates → **call once, use everywhere.** Token efficiency matters when agents are running 10x more jobs.
-
-Actions does this better than any competitor: reusable workflows across repos, composite actions, the Actions marketplace with 20K+ pre-built blocks. Every time you call a pre-built action instead of inline script, you save tokens AND reduce error surface.
-
-### Repo-Centric Security = Safe by Default
-
-Actions' limited, per-repo permission model is **secure by default**. No global admin key that unlocks everything. Developers can go wild experimenting → organizational governance via org-level policies, required workflows, IP allow lists.
-
-This is critical for agentic workloads: you WANT agents to experiment freely within a safe boundary. Reduces friction → faster adoption → compounding AI value.
-
 ## Why GitHub-Hosted Runners
 
 The platform story matters, but so does _where_ the agents run.
@@ -109,41 +108,24 @@ Now multiply that risk by what agents do. AI agents run code they generate thems
 
 Most teams pick `ubuntu-latest` and never think about it again. That's leaving performance and money on the table.
 
-[`tsviz/actions-runner-telemetry`](https://github.com/marketplace/actions/runner-telemetry-action) — a one-line action with zero config. Monitors CPU, RAM, disk I/O, and network inside the runner during your job. Generates a health grade and upgrade/downgrade recommendations with cost analysis.
+GitHub doesn't offer built-in per-step compute telemetry (CPU, memory, disk I/O) out of the box. But you can add it yourself with [OpenTelemetry](https://opentelemetry.io/). The simplest approach is a drop-in action like [Workflow Telemetry](https://github.com/marketplace/actions/workflow-telemetry):
 
 ```yaml
 steps:
-  - uses: actions/checkout@v4
-  - uses: tsviz/actions-runner-telemetry@v1  # ← that's it
-  - run: npm run build
-  - run: npm test
+  - uses: tsviz/actions-runner-telemetry@v1
 ```
 
-What you might see:
+This gives you per-step CPU usage, memory consumption, disk I/O, and network stats right in your workflow summary. No config, no infrastructure. One line.
 
-```
-🔴 Status: Needs Attention • Duration: 43.6s
-├─ CPU      🔴  100.0% peak  60.4% average
-├─ Memory   🔴   95.6% peak  75.4% average
-⚠️ RECOMMENDATION: Upgrade to Larger Runner
-├─ Suggested: Linux 4-core (4x faster, same cost)
-└─ Value: ~2.0x faster execution
-```
+For deeper instrumentation, the [OpenTelemetry CI/CD Action](https://github.com/marketplace/actions/open-telemetry-ci-cd-action) exports full OTLP traces that you can ship to Datadog, Honeycomb, Grafana, or any OTEL-compatible backend. Now you're not just seeing "this job took 8 minutes," you're seeing *which steps were CPU-bound, which were waiting on network, and where memory peaked.*
 
-Or the opposite — you're overspending:
+If you're using custom runner images (and you should be), you can go even further: install the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) directly on the base image. Every workflow that runs on that image gets telemetry for free without any workflow changes.
 
-```
-🟢 Status: Healthy • Duration: 12.1s
-├─ CPU      🟢  15.1% peak   5.4% average
-├─ Memory   🟢   5.7% peak   5.5% average
-Utilization Score: D (11%) Runner is significantly underutilized
-```
-
-Don't guess. Measure. If work can be parallelized, it should be. Leverage more cores (bigger runner) OR more runners (matrix strategy).
+This data is what lets you right-size. If your 8-core runner is peaking at 30% CPU, drop to a 4-core. If your builds are OOM-killing on a 2-core, step up. Without telemetry, you're guessing. With it, you're making data-driven decisions that directly impact cost and performance.
 
 ### Custom Runner Images
 
-Right-sizing is step one. Step two is what's ON the runner when it starts.
+Step two is what's ON the runner when it starts.
 
 - Pre-install your dependencies, SDKs, build tools in the image
 - Attach caches directly to the image — no download step, no cache miss
@@ -155,13 +137,43 @@ Real example: the `github/github` repo went from ~60 min builds to <10 min build
 
 The #1 objection I hear: "We'd love to use GitHub-hosted runners, but we need to reach private resources."
 
-**Solved.** Azure Private Networking (VNET injection):
-- GHRs run inside YOUR Azure VNET with a private IP
-- Access private container registries, internal APIs, databases — no VPN, no bastion
-- Combine with OIDC for zero-trust auth — no long-lived secrets
+There are multiple ways to solve this depending on your cloud provider, and none of them require self-hosted runners.
+
+#### Azure: VNET Injection
+
+The most native option. Azure Private Networking lets GitHub provision GHRs directly into your Azure VNET with a private NIC. You pick the region, GitHub spins up ephemeral VMs that flow through your private network.
+
+- Access private container registries, internal APIs, databases with no VPN, no bastion
+- Combine with OIDC for zero-trust auth, no long-lived secrets
 - Available for Linux, Windows, AND macOS
 
-If networking was your reason for staying on self-hosted runners, that reason is gone.
+This isn't "connecting" to your network. The runner *is* on your network.
+
+#### AWS & GCP: OIDC + API Gateway
+
+For AWS and GCP, the pattern is OIDC federation paired with an API gateway. GitHub Actions mints a short-lived OIDC token per job. Your cloud provider validates that token and grants scoped, temporary credentials.
+
+**AWS:** Use [OIDC federation with IAM](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) to assume roles. For private resources behind a VPC, front them with API Gateway (with IAM auth) or AWS PrivateLink. The OIDC claims (repo, branch, environment) become your access control policy. No static keys anywhere.
+
+**GCP:** Same concept via [Workload Identity Federation](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-google-cloud-platform). Authenticate as a service account scoped to the specific repo/environment, then hit private resources through Identity-Aware Proxy or a Cloud Endpoints gateway.
+
+In both cases, OIDC claims are the key. You're not granting "GitHub Actions" access to your cloud. You're granting *this specific repo, on this specific branch, in this specific environment* access to exactly the resources it needs.
+
+#### Any Cloud: Tailscale / WireGuard Overlay
+
+For teams that span multiple clouds or have on-prem resources, a mesh VPN overlay like [Tailscale](https://tailscale.com/) or WireGuard is a clean solution. Install the Tailscale client as a workflow step, authenticate via OIDC, and the ephemeral runner joins your tailnet for the duration of the job.
+
+```yaml
+- uses: tailscale/github-action@v3
+  with:
+    oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+    oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+    tags: tag:ci
+```
+
+The runner gets a Tailscale IP, can reach any node on your tailnet, and the connection dies with the VM. Works across AWS, GCP, Azure, and on-prem simultaneously. Most teams combine this OIDC claims.
+
+Whatever your cloud, the networking story is solved.
 
 ### The Full Picture
 
