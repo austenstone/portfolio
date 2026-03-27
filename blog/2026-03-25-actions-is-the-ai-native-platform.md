@@ -1,6 +1,6 @@
 ---
 slug: actions-is-the-ai-native-platform
-title: "GitHub Actions: The AI-Native Platform"
+title: "Why GitHub Actions Is the Most AI-Friendly CI"
 tags: [github, github-actions, ai, dev]
 image: https://images.ctfassets.net/8aevphvgewt8/KiQBgcnMQg6dALaS6erGk/f8d49c0cc5a461b903e52d08c3c3b8f6/actions-hero.webp
 description: "Actions isn't just CI/CD — it's the execution layer for the GitHub platform, and it's purpose-built for the agentic era. Here's why, from the platform story to the compute layer."
