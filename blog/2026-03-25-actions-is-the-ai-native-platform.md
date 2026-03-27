@@ -90,11 +90,11 @@ Without robust CI/CD, you're shipping AI-generated code with no safety net. CI/C
 
 ## Why GitHub-Hosted Runners
 
-The platform story matters, but so does _where_ the agents run.
+The platform story matters, but so does _where_ the agents run. There are five operational concerns that matter when choosing runner infrastructure: **Security, Performance, Availability, Total Cost of Ownership (TCO), and Troubleshooting.** GHRs win on all five.
 
 ### Security: Ephemeral by Default
 
-Imagine someone gets onto a self-hosted runner in your data center through a supply chain attack — a compromised npm package, a malicious action, a poisoned container image. They now have a foothold inside your network. From a self-hosted runner, they can potentially reach your internal services, your databases, your secrets. That runner persists between jobs. It's on your network.
+Imagine someone gets onto a self-hosted runner in your data center through a supply chain attack, a compromised npm package, a malicious action, a poisoned container image. They now have a foothold inside your network. From a self-hosted runner, they can potentially reach your internal services, your databases, your secrets. That runner persists between jobs. It's on your network.
 
 **GitHub-hosted runners (GHRs) eliminate this:**
 - **Ephemeral** — fresh VM every job, destroyed after. No persistence, no lateral movement.
@@ -173,18 +173,54 @@ For teams that span multiple clouds or have on-prem resources, a mesh VPN overla
 
 The runner gets a Tailscale IP, can reach any node on your tailnet, and the connection dies with the VM. Works across AWS, GCP, Azure, and on-prem simultaneously. Most teams combine this OIDC claims.
 
-Whatever your cloud, the networking story is solved.
+Whatever your cloud, the networking story is solved. This is a proper and modern network security model.
+
+### Availability: GitHub Owns the SLA
+
+Self-hosted runner fleets are an operational burden that never sleeps. Someone on your platform team is responsible for uptime, patching, scaling, and disaster recovery. When a runner goes down at 2 AM, that's *your* page.
+
+With GHRs, GitHub owns all of it:
+- **Auto-scaling** — burst from 10 to 500 concurrent runners instantly, no capacity planning
+- **Multi-region** — GitHub provisions in multiple regions, no single point of failure
+- **Zero maintenance** — OS patches, security updates, runner agent upgrades, all handled by GitHub
+- **99.9% SLA** — backed by GitHub's infrastructure team, not your on-call rotation
+
+Your platform engineers should be building internal developer platforms, not babysitting runner fleets.
+
+### TCO: The Buffet Minute
+
+The sticker price of GHRs looks higher per-minute than running your own VMs. But sticker price is the wrong lens. GHRs are an **all-inclusive "buffet minute"**: compute, networking, storage, OS licensing, patching, monitoring, scaling, and incident response are all baked in.
+
+Self-hosted runners carry massive hidden costs:
+- **Headcount** — someone has to manage the fleet (ARC/K8s clusters, VM images, autoscaling)
+- **Idle compute** — you're paying for VMs sitting empty between jobs
+- **Networking egress** — data transfer costs that don't show up on the runner bill
+- **Incident response** — when runners break, your pipeline stops and developers wait
+
+The January 2026 **30% price drop** on GHRs shifted the math dramatically. For most organizations, GHRs are now cheaper than self-hosted when you account for total cost of ownership.
+
+### Troubleshooting: One Pane of Glass
+
+When a build fails on a self-hosted runner, the debugging surface area is enormous. Is it the runner? The network? A stale cache from a previous job? A dependency that was installed by another workflow and left behind? An OS patch that changed behavior?
+
+GHRs collapse the troubleshooting space:
+- **Clean every time** — if it worked yesterday and fails today, the runner isn't the variable
+- **Standardized environment** — same OS, same tools, same network config across all runs
+- **Workflow logs** — complete step-by-step execution logs, no SSH-ing into machines
+- **Actions Data Stream** — real-time telemetry fed into Datadog, Splunk, Elastic for org-wide observability
+- **Job summaries** — structured output right in the PR, no digging through CI artifacts
+
+When something breaks, you're debugging your code, not your infrastructure. That's a fundamentally different (and faster) troubleshooting experience.
 
 ### The Full Picture
 
-| Advantage | Detail |
-|-----------|--------|
-| **More secure** | Ephemeral VMs, SLSA L3, zero persistent attack surface |
-| **More available** | GitHub owns the SLA — no 2 AM pages for runner fleet outages |
-| **Lower queue times** | Burst to hundreds of concurrent runners instantly |
-| **No maintenance** | No patching, no image updates, no K8s cluster management |
-| **30% price drop** | January 2026 — the math has shifted dramatically |
-| **Full visibility** | Actions Data Stream — real-time usage data fed into Datadog, Splunk, Elastic |
+| Concern | GHR | SHR |
+|---------|-----|-----|
+| **Security** | Ephemeral VMs, SLSA L3, zero persistent attack surface | Persistent VMs on your network, shared state between jobs |
+| **Performance** | Right-size with telemetry, custom images, 2-64 vCPU options | Full control but you own image management and scaling |
+| **Availability** | GitHub SLA, auto-scaling, multi-region, zero maintenance | Your team's on-call, your capacity planning, your patches |
+| **TCO** | All-inclusive buffet minute, 30% price drop (Jan 2026) | Hidden costs: headcount, idle compute, networking, incidents |
+| **Troubleshooting** | Clean VMs, standardized env, Actions Data Stream | Debugging infra + code simultaneously, stale state issues |
 
 Convenient? Yes. But the real value is security, availability, and freeing your platform team from runner management.
 
