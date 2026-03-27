@@ -57,15 +57,13 @@ The fact that Actions is the platform — not just a CI tool — has a compoundi
 3. **One observability story.** Workflow logs, job summaries, Actions Data Stream — the same tools for CI and for agent monitoring.
 4. **Network effects.** Every improvement GitHub makes to Actions benefits your CI/CD AND your AI automations simultaneously.
 
-## The Thesis: AI Makes CI/CD More Critical, Not Less
-
-There's a misconception that AI is going to replace CI/CD. The opposite is true.
+## The Thesis: AI Amplifies CI/CD
 
 AI agents are non-deterministic by nature. They generate different code each time, make judgment calls, and experiment. You need **strong deterministic automation suites** wrapped around them (tests, linting, security scanning, deployment gates) to catch what agents get wrong.
 
-Without robust CI/CD, you're shipping AI-generated code with no safety net. CI/CD is the guardrail layer that makes agentic workflows safe enough to trust. The better your CI/CD pipeline, the more autonomy you can give your agents — and the more value you get from them.
+Without robust CI/CD, you're shipping AI-generated code with no safety net. CI/CD is the guardrail layer that makes agentic workflows safe enough to trust. The better your CI/CD pipeline, the more autonomy you can give your agents, and the more value you get from them.
 
-> People ask me, "won't AI replace CI/CD?" No. AI makes CI/CD the most critical piece of your stack. Because the more you delegate to agents, the more you need ironclad testing, scanning, and validation to catch what they get wrong.
+> The more you delegate to agents, the more you need ironclad testing, scanning, and validation to catch what they get wrong. CI/CD isn't a nice-to-have anymore. It's the control plane for AI-generated code.
 
 ## Why Actions Is Purpose-Built for AI
 
@@ -97,7 +95,7 @@ The platform story matters, but so does _where_ the agents run.
 
 ### Security: Ephemeral by Default
 
-Imagine someone gets onto a self-hosted runner in your data center through an SDLC supply chain attack — a compromised npm package, a malicious action, a poisoned container image. They now have a foothold inside your network. From a self-hosted runner, they can potentially reach your internal services, your databases, your secrets. That runner persists between jobs. It's on your network.
+Imagine someone gets onto a self-hosted runner in your data center through a supply chain attack — a compromised npm package, a malicious action, a poisoned container image. They now have a foothold inside your network. From a self-hosted runner, they can potentially reach your internal services, your databases, your secrets. That runner persists between jobs. It's on your network.
 
 **GitHub-hosted runners (GHRs) eliminate this:**
 - **Ephemeral** — fresh VM every job, destroyed after. No persistence, no lateral movement.
