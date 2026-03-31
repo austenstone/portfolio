@@ -1,0 +1,145 @@
+---
+title: "Hooks"
+description: "Automate actions at lifecycle points — auto-format, lint, scan, and audit with deterministic hook execution."
+keywords: [copilot, hooks, lifecycle, automation, PreToolUse, PostToolUse]
+tags: [copilot, hooks]
+sidebar_position: 6
+---
+
+import ConfigBuilder from '@site/src/components/copilot/ConfigBuilder';
+import Quiz from '@site/src/components/copilot/Quiz';
+
+# Hooks
+
+Hooks are **deterministic lifecycle automation** — they run at specific points in Copilot's tool execution, every single time, without AI interpretation. When Copilot edits a file, your hook auto-formats it. When Copilot runs a command, your hook logs it. No exceptions, no "AI decided to skip it."
+
+## Lifecycle Events
+
+| Event | When It Fires |
+|---|---|
+| `PreToolUse` | Before a tool executes |
+| `PostToolUse` | After a tool completes |
+| `PreCommit` | Before a git commit |
+| `PostCommit` | After a git commit |
+
+## Format
+
+Hooks are JSON files in `.github/hooks/`:
+
+```json title=".github/hooks/auto-format.json"
+[
+  {
+    "event": "PostToolUse",
+    "steps": [
+      {
+        "tool": "editFiles",
+        "run": "npx prettier --write $FILE"
+      }
+    ]
+  }
+]
+```
+
+## Examples
+
+### Auto-Format on Save
+
+```json title=".github/hooks/format.json"
+[
+  {
+    "event": "PostToolUse",
+    "steps": [
+      {
+        "tool": "editFiles",
+        "run": "npx prettier --write $FILE && npx eslint --fix $FILE"
+      }
+    ]
+  }
+]
+```
+
+Every time Copilot edits a file, Prettier and ESLint run automatically.
+
+### Pre-Commit Lint Check
+
+```json title=".github/hooks/lint.json"
+[
+  {
+    "event": "PreCommit",
+    "steps": [
+      {
+        "run": "npm run lint"
+      },
+      {
+        "run": "npm run typecheck"
+      }
+    ]
+  }
+]
+```
+
+### Secret Scanning
+
+```json title=".github/hooks/secrets.json"
+[
+  {
+    "event": "PreToolUse",
+    "steps": [
+      {
+        "tool": "editFiles",
+        "run": "npx secretlint $FILE"
+      }
+    ]
+  }
+]
+```
+
+Scan for accidentally committed secrets *before* the edit lands.
+
+### Audit Logging
+
+```json title=".github/hooks/audit.json"
+[
+  {
+    "event": "PostToolUse",
+    "steps": [
+      {
+        "tool": "runTerminalCommand",
+        "run": "echo \"$(date -u +%Y-%m-%dT%H:%M:%SZ) | tool=$TOOL | command=$COMMAND\" >> .copilot-audit.log"
+      }
+    ]
+  }
+]
+```
+
+Log every command Copilot runs for auditing purposes.
+
+## Key Principle: Deterministic
+
+Hooks are **not AI-guided**. The AI doesn't decide whether to run them. They execute mechanically based on the event trigger. This makes them reliable for:
+
+- Compliance requirements
+- Security gates
+- Code quality enforcement
+- Audit trails
+
+## Try It
+
+<ConfigBuilder type="hook" />
+
+## Knowledge Check
+
+<Quiz questions={[
+  {
+    question: "What makes hooks different from custom instructions?",
+    options: ["Hooks are AI-guided", "Hooks run deterministically, not through AI interpretation", "Hooks only work in VS Code", "Hooks replace instructions"],
+    correct: 1,
+    explanation: "Hooks execute deterministically at lifecycle points. The AI doesn't decide whether to follow them — they run mechanically every time the event fires."
+  },
+  {
+    question: "Which event fires before Copilot executes a tool?",
+    options: ["BeforeTool", "PreToolUse", "OnToolStart", "ToolPending"],
+    correct: 1,
+    explanation: "PreToolUse fires before a tool executes, allowing you to validate, scan, or gate the action."
+  }
+]} />

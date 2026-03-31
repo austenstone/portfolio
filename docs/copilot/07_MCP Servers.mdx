@@ -1,0 +1,152 @@
+---
+title: "MCP Servers"
+description: "Connect GitHub Copilot to external tools and data sources using the Model Context Protocol."
+keywords: [copilot, MCP, model context protocol, tools, external]
+tags: [copilot, mcp]
+sidebar_position: 7
+---
+
+import ConfigBuilder from '@site/src/components/copilot/ConfigBuilder';
+import Quiz from '@site/src/components/copilot/Quiz';
+
+# MCP Servers
+
+MCP (Model Context Protocol) connects Copilot to **external tools and data sources** — databases, APIs, browsers, and anything else that speaks the protocol. It's how you go from "Copilot can edit files" to "Copilot can query your production database."
+
+## Configuration
+
+MCP servers are configured in `.vscode/mcp.json` (for VS Code) or `mcp.json` at the repo root:
+
+```json title=".vscode/mcp.json"
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${input:github-token}"
+      }
+    }
+  }
+}
+```
+
+## Transport Types
+
+### stdio (Local Process)
+
+Copilot spawns a local process and communicates over stdin/stdout:
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-playwright"]
+    }
+  }
+}
+```
+
+### HTTP (Streamable)
+
+Connect to a remote server over HTTP:
+
+```json
+{
+  "mcpServers": {
+    "my-api": {
+      "url": "http://localhost:3000/mcp"
+    }
+  }
+}
+```
+
+## Popular MCP Servers
+
+| Server | What It Does |
+|---|---|
+| `@modelcontextprotocol/server-github` | GitHub API — issues, PRs, repos |
+| `@anthropic/mcp-playwright` | Browser automation and testing |
+| `@modelcontextprotocol/server-postgres` | PostgreSQL queries |
+| `@modelcontextprotocol/server-filesystem` | File system access |
+| `@modelcontextprotocol/server-memory` | Persistent memory/knowledge graph |
+
+## Real-World Examples
+
+### Database Access
+
+```json title=".vscode/mcp.json"
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "DATABASE_URL": "${input:database-url}"
+      }
+    }
+  }
+}
+```
+
+Now you can ask Copilot: *"What are the top 10 customers by revenue this quarter?"* and it will write and execute the SQL.
+
+### Browser Automation
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-playwright"]
+    }
+  }
+}
+```
+
+Copilot can navigate websites, fill forms, take screenshots, and run E2E tests.
+
+### GitHub Coding Agent
+
+For the GitHub coding agent (Copilot that runs on GitHub.com), configure MCP in repo settings:
+
+**Settings → Copilot → Coding agent → MCP configuration**
+
+The coding agent supports HTTP transport only (no stdio, since it runs remotely).
+
+## Environment Variables
+
+Use `${input:name}` for secrets that shouldn't be committed:
+
+```json
+{
+  "env": {
+    "API_KEY": "${input:my-api-key}",
+    "DATABASE_URL": "${input:db-url}"
+  }
+}
+```
+
+VS Code will prompt for these values when the server starts.
+
+## Try It
+
+<ConfigBuilder type="mcp" />
+
+## Knowledge Check
+
+<Quiz questions={[
+  {
+    question: "What transport does the GitHub coding agent support for MCP?",
+    options: ["stdio only", "HTTP only", "Both stdio and HTTP", "WebSocket only"],
+    correct: 1,
+    explanation: "The GitHub coding agent runs remotely, so it only supports HTTP transport. stdio requires a local process, which isn't available in the cloud."
+  },
+  {
+    question: "How do you avoid committing secrets in MCP config?",
+    options: ["Use .env files", "Use ${input:name} syntax", "Encrypt the JSON", "Use a separate secrets file"],
+    correct: 1,
+    explanation: "The ${input:name} syntax prompts the user for the value at runtime, keeping secrets out of the committed config file."
+  }
+]} />
