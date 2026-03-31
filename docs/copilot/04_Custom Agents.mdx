@@ -1,0 +1,154 @@
+---
+title: "Custom Agents"
+description: "Create specialist AI personas with their own tools, models, and expertise areas for GitHub Copilot."
+keywords: [copilot, custom agents, personas, specialist, delegation]
+tags: [copilot, agents]
+sidebar_position: 4
+---
+
+import ConfigBuilder from '@site/src/components/copilot/ConfigBuilder';
+import Quiz from '@site/src/components/copilot/Quiz';
+
+# Custom Agents
+
+Custom Agents are **specialist personas** you invoke by name. Instead of one general-purpose assistant, you create focused experts — a security reviewer, a database admin, a React specialist — each with their own tools and system prompt.
+
+## Format
+
+Agent definitions live in `.github/agents/`:
+
+```markdown title=".github/agents/security-reviewer.md"
+---
+description: "Reviews code for security vulnerabilities and OWASP Top 10 issues"
+tools:
+  - editFiles
+  - runTerminalCommand
+  - codeSearch
+---
+
+You are a senior application security engineer. Your job is to:
+
+1. Review code changes for security vulnerabilities
+2. Check for OWASP Top 10 issues
+3. Identify hardcoded secrets, SQL injection, XSS, and CSRF risks
+4. Suggest fixes with secure coding patterns
+5. Flag dependencies with known CVEs
+
+Be thorough but practical — prioritize high-severity issues.
+Don't flag theoretical risks that require unlikely attack scenarios.
+```
+
+**Invoke it:** Type `@security-reviewer` in Copilot Chat.
+
+## Front Matter Options
+
+| Field | Description |
+|---|---|
+| `description` | What appears in the agent picker |
+| `tools` | Which tools this agent can use |
+| `model` | Preferred model (e.g., `gpt-4o`, `claude-sonnet-4`) |
+
+## Examples
+
+### Database Admin
+
+```markdown title=".github/agents/db-admin.md"
+---
+description: "Database expert for schema design, queries, and migrations"
+tools:
+  - editFiles
+  - runTerminalCommand
+---
+
+You are a database administrator and query optimization expert.
+
+Specialties:
+- PostgreSQL schema design and normalization
+- Query performance analysis and optimization
+- Migration safety (zero-downtime patterns)
+- Index strategy and maintenance
+
+Always consider:
+- Will this migration lock the table?
+- Is this query using indexes effectively?
+- Are there N+1 query patterns?
+```
+
+### React Specialist
+
+```markdown title=".github/agents/react-dev.md"
+---
+description: "React and Next.js frontend specialist"
+tools:
+  - editFiles
+  - runTerminalCommand
+  - githubSearch
+---
+
+You are a senior React developer specializing in Next.js App Router.
+
+Guidelines:
+- Default to Server Components unless client interactivity is needed
+- Use Suspense boundaries for async data
+- Implement proper error boundaries
+- Follow the component composition pattern
+- Use `next/image` for all images, `next/link` for navigation
+
+Reference our component library: #file:src/components/README.md
+```
+
+## Organization Agents
+
+For org-wide agents, define them in the `.github-private` repository (a special repo visible to all org members):
+
+```
+.github-private/
+  .github/
+    agents/
+      compliance-checker.md
+      style-guide.md
+```
+
+These agents are available across all repositories in the organization.
+
+## Subagent Delegation
+
+Agents can delegate subtasks to other agents. When an agent encounters a task outside its expertise, it can invoke another specialist:
+
+> "This code has a SQL injection vulnerability. Let me check with `@db-admin` for the recommended parameterized query pattern."
+
+## Tool Restrictions
+
+Limit what an agent can do by restricting its tools:
+
+```markdown title=".github/agents/code-reviewer.md"
+---
+description: "Read-only code reviewer — cannot edit files"
+tools:
+  - codeSearch
+---
+
+You are a code reviewer. Analyze code and provide feedback.
+You cannot edit files — only suggest changes in your responses.
+```
+
+## Try It
+
+<ConfigBuilder type="agent" />
+
+## Knowledge Check
+
+<Quiz questions={[
+  {
+    question: "How do you invoke a custom agent in Copilot Chat?",
+    options: ["/agent security-reviewer", "@security-reviewer", "#security-reviewer", "!security-reviewer"],
+    correct: 1,
+    explanation: "Custom agents are invoked with the @ prefix, like @security-reviewer, in the Copilot Chat panel."
+  },
+  {
+    question: "Where do org-wide agents live?",
+    options: ["Each repo's .github/agents/", "The .github-private repo", "GitHub org settings", ".github-org/agents/"],
+    correct: 1,
+    explanation: "Organization-wide agents are defined in the .github-private repository, which is a special repo visible to all org members."
+  }
+]} />

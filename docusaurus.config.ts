@@ -132,6 +132,12 @@ const config: Config = {
           label: 'Projects',
         },
         {
+          type: 'docSidebar',
+          sidebarId: 'copilot',
+          position: 'left',
+          label: 'Copilot',
+        },
+        {
           href: 'https://github.com/austenstone',
           className: 'header-github-link',
           position: 'right',

@@ -1,0 +1,163 @@
+---
+title: "Prompt Files"
+description: "Create reusable task templates for GitHub Copilot with variables, file references, and tool configurations."
+keywords: [copilot, prompt files, templates, prompt.md]
+tags: [copilot, prompts]
+sidebar_position: 3
+---
+
+import ConfigBuilder from '@site/src/components/copilot/ConfigBuilder';
+import Quiz from '@site/src/components/copilot/Quiz';
+
+# Prompt Files
+
+Prompt Files are **reusable task templates** — saved prompts your whole team can use. Think of them as recipes: define the steps once, invoke them anytime with different inputs.
+
+## Format
+
+Prompt files live in `.github/prompts/` and use `.prompt.md` extension:
+
+```markdown title=".github/prompts/new-component.prompt.md"
+---
+description: "Scaffold a new React component with tests and stories"
+mode: agent
+tools:
+  - editFiles
+  - runTerminalCommand
+---
+
+Create a new React component named `${{component_name}}` in `src/components/`.
+
+Include:
+1. The component file with TypeScript props interface
+2. A CSS Module for styles
+3. A Storybook story with at least 3 variants
+4. A unit test file with React Testing Library
+
+Use the existing `Button` component as a reference: #file:src/components/Button/Button.tsx
+```
+
+## Key Concepts
+
+### Front Matter
+
+| Field | Required | Description |
+|---|---|---|
+| `description` | Yes | Shown in the prompt picker UI |
+| `mode` | No | `agent` (can use tools), `ask` (chat only), `edit` (inline edit) |
+| `tools` | No | List of tools the agent can use |
+
+### Variables
+
+Use `${{variable_name}}` syntax for user-provided values. Copilot prompts the user to fill these in when the prompt is invoked.
+
+```markdown
+Generate a migration to ${{action}} the `${{table_name}}` table
+in the ${{database}} database.
+```
+
+### File References
+
+Reference existing files as context with `#file:path`:
+
+```markdown
+Follow the patterns established in:
+- #file:src/utils/api-client.ts
+- #file:src/types/index.ts
+```
+
+## Practical Examples
+
+### Test Generation
+
+```markdown title=".github/prompts/write-tests.prompt.md"
+---
+description: "Generate comprehensive tests for a module"
+mode: agent
+tools:
+  - editFiles
+  - runTerminalCommand
+---
+
+Write tests for #file:${{file_path}}
+
+Requirements:
+- Use Vitest and React Testing Library
+- Cover happy path, error cases, and edge cases
+- Mock external dependencies
+- Aim for >90% branch coverage
+- Run the tests to verify they pass
+```
+
+### PR Description
+
+```markdown title=".github/prompts/pr-description.prompt.md"
+---
+description: "Generate a PR description from staged changes"
+mode: ask
+---
+
+Analyze the current git diff and generate a PR description with:
+
+## Summary
+Brief overview of changes
+
+## Changes
+- Bullet list of what changed and why
+
+## Testing
+How to verify the changes work
+
+## Screenshots
+Note if UI changes need screenshots
+```
+
+### Database Migration
+
+```markdown title=".github/prompts/migration.prompt.md"
+---
+description: "Create a database migration"
+mode: agent
+tools:
+  - editFiles
+  - runTerminalCommand
+---
+
+Create a new database migration for: ${{description}}
+
+Follow our migration conventions in #file:docs/migrations.md
+
+1. Generate the migration file with proper timestamp naming
+2. Include both `up` and `down` migrations
+3. Add appropriate indexes
+4. Run `npm run db:migrate:dry` to validate
+```
+
+## Try It
+
+<ConfigBuilder type="prompt" />
+
+## Best Practices
+
+1. **Be specific about output format** — Tell Copilot exactly what files to create and where.
+2. **Reference existing code** — `#file:` references give Copilot real examples of your patterns.
+3. **Use `mode: agent`** when the task involves creating or editing files — it unlocks tool use.
+4. **Include validation steps** — Have the agent run tests or lint after generating code.
+5. **Keep prompts focused** — One task per prompt file. Compose multiple prompts for complex workflows.
+
+## Knowledge Check
+
+<Quiz questions={[
+  {
+    question: "What's the syntax for variables in prompt files?",
+    options: ["{{variable}}", "${variable}", "${{variable_name}}", "%variable%"],
+    correct: 2,
+    explanation: "Prompt files use ${{variable_name}} syntax. Copilot prompts the user to fill in values when the prompt is invoked."
+  },
+  {
+    question: "Which mode allows a prompt to create and edit files?",
+    options: ["ask", "edit", "agent", "write"],
+    correct: 2,
+    explanation: "The `agent` mode enables tool use, allowing Copilot to create files, run commands, and make edits. `ask` mode is chat-only."
+  }
+]} />

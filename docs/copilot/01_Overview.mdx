@@ -1,0 +1,105 @@
+---
+title: "Copilot Customization Cheat Sheet"
+description: "Complete overview of all 7 GitHub Copilot customization features — what they do, where they live, and when to use each one."
+keywords: [copilot, github, customization, instructions, prompts, agents, skills, hooks, mcp]
+tags: [copilot, overview]
+sidebar_position: 1
+---
+
+import FeatureComparison from '@site/src/components/copilot/FeatureComparison';
+import FileTree from '@site/src/components/copilot/FileTree';
+import Quiz from '@site/src/components/copilot/Quiz';
+
+# Copilot Customization Cheat Sheet
+
+GitHub Copilot isn't just autocomplete anymore. It's a customizable AI coding system with **7 distinct extension points** — from always-on instructions to full external tool integrations.
+
+This guide covers all of them: what they do, where the files go, which surfaces support them, and when to reach for each one.
+
+## The 7 Customization Features
+
+<FeatureComparison />
+
+## Project File Structure
+
+Here's what a fully-customized repo looks like:
+
+<FileTree
+  files={[
+    { name: '.github', type: 'dir', children: [
+      { name: 'copilot-instructions.md', type: 'file' },
+      { name: 'instructions', type: 'dir', children: [
+        { name: 'frontend.instructions.md', type: 'file' },
+        { name: 'api.instructions.md', type: 'file' },
+      ]},
+      { name: 'prompts', type: 'dir', children: [
+        { name: 'new-component.prompt.md', type: 'file' },
+        { name: 'write-tests.prompt.md', type: 'file' },
+      ]},
+      { name: 'agents', type: 'dir', children: [
+        { name: 'security-reviewer.md', type: 'file' },
+        { name: 'db-admin.md', type: 'file' },
+      ]},
+      { name: 'skills', type: 'dir', children: [
+        { name: 'deploy', type: 'dir', children: [
+          { name: 'SKILL.md', type: 'file' },
+        ]},
+      ]},
+      { name: 'hooks', type: 'dir', children: [
+        { name: 'auto-format.json', type: 'file' },
+      ]},
+    ]},
+    { name: '.vscode', type: 'dir', children: [
+      { name: 'mcp.json', type: 'file' },
+    ]},
+  ]}
+  highlight={['copilot-instructions.md', 'mcp.json']}
+/>
+
+## IDE & Surface Support Matrix
+
+| Feature | VS Code | Visual Studio | JetBrains | Eclipse | Xcode | GitHub.com | CLI |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Custom Instructions | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Prompt Files | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Custom Agents | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| Agent Skills | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Hooks | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| MCP Servers | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ |
+| Agent Plugins | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+
+## Quick Decision Guide
+
+- **Want consistent coding style across the team?** → [Custom Instructions](./Custom%20Instructions)
+- **Have a repeatable task (scaffolding, tests)?** → [Prompt Files](./Prompt%20Files)
+- **Need a specialist reviewer or advisor?** → [Custom Agents](./Custom%20Agents)
+- **Multi-step workflows with scripts?** → [Agent Skills](./Agent%20Skills)
+- **Auto-format or lint after every edit?** → [Hooks](./Hooks)
+- **Connect to external APIs or databases?** → [MCP Servers](./MCP%20Servers)
+
+## Knowledge Check
+
+<Quiz questions={[
+  {
+    question: "Which customization feature runs automatically without user invocation?",
+    options: ["Prompt Files", "Custom Instructions", "Custom Agents", "MCP Servers"],
+    correct: 1,
+    explanation: "Custom Instructions are always-on — they're automatically attached to every Copilot interaction without the user needing to invoke them."
+  },
+  {
+    question: "Where do repo-wide Copilot instructions live?",
+    options: [".copilot/instructions.md", ".github/copilot-instructions.md", ".vscode/copilot.json", "copilot.config.md"],
+    correct: 1,
+    explanation: "Repository-wide instructions go in .github/copilot-instructions.md at the root of your repository."
+  },
+  {
+    question: "Which feature uses the AgentSkills open standard?",
+    options: ["Custom Agents", "Prompt Files", "Agent Skills", "Hooks"],
+    correct: 2,
+    explanation: "Agent Skills follow the open standard defined at agentskills.io, using a SKILL.md file with a description that enables auto-matching."
+  }
+]} />
+
+---
+
+**Reference:** [GitHub Docs — Customization Cheat Sheet](https://docs.github.com/en/copilot/reference/customization-cheat-sheet)

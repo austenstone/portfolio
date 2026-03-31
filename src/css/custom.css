@@ -4,6 +4,8 @@
  * work well for content-centric websites.
  */
 
+@import './copilot.css';
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #007acc;
