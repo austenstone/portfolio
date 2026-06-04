@@ -37,3 +37,8 @@ dev:
   label: Development
   permalink: /dev
   description: Development related posts
+
+security:
+  label: Security
+  permalink: /security
+  description: Security, supply chain, and CI/CD hardening
