@@ -10,7 +10,7 @@ enableComments: true
 import CodeBlock from '@theme/CodeBlock';
 import ChatModeResearch from '!!raw-loader!./_prompts/research.chatmode.md';
 import ChatModePlan from '!!raw-loader!./_prompts/plan.chatmode.md';
-import Settings from '!!raw-loader!./_prompts/settings.json';
+import Settings from '!!raw-loader!./_prompts/settings.jsonc';
 import CopilotPromptPrompt from '!!raw-loader!./_prompts/copilot-prompt.prompt.md';
 
 I'm always looking for ways to work more efficiently and deliver better code faster. Recently, The [GitHub Copilot Agent Mode](https://code.visualstudio.com/blogs/2025/04/07/agentMode) in combination with [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) has transformed my development workflow.
@@ -32,9 +32,12 @@ This foundation allows me to create specialized AI assistants for different phas
 Here are [my VS Code settings](https://github.com/austenstone/.vscode). I have enabled experimental features and changed some settings to allow the agent to run without my intervention.
 
 <details>
- <summary>VS Code Settings</summary>
- View the most recent settings in [my VS Code settings](https://github.com/austenstone/.vscode)
+  <summary>VS Code Settings</summary>
+
+View the most recent settings in [my VS Code settings](https://github.com/austenstone/.vscode)
+
 <CodeBlock language="json" title="settings.json" showLineNumbers>{Settings}</CodeBlock>
+
 </details>
 
 - `github.copilot.chat.codeGeneration.instructions` - I have custom instructions personal to me
@@ -65,8 +68,10 @@ The repo [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/
 Before diving into coding, I often need to research new concepts or technologies. For this, I use a custom chat mode called `research` that includes tools like web search, and sequential thinking.
 
 <details>
- <summary>Research Chat Mode</summary>
+  <summary>Research Chat Mode</summary>
+
 <CodeBlock language="yaml" title="research.chatmode.md" showLineNumbers>{ChatModeResearch}</CodeBlock>
+
 </details>
 
 ### Planning
