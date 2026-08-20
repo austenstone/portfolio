@@ -57,12 +57,13 @@ on:
 
 # Environment variables available to all jobs
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: 24
   PYTHON_VERSION: "3.9"
 
 # Use permissions to modify the default permissions granted to the GITHUB_TOKEN
+# Start read-only at the top level and grant writes per job that needs them.
 permissions:
-  write-all # write-all|read-all or disable with {}
+  read-all # write-all|read-all or disable with {}
   # actions: read|write|none
   # attestations: read|write|none
   # checks: read|write|none
@@ -130,11 +131,11 @@ jobs:
           who-to-greet: "Mona the Octocat"
 
       # Reference a specific commit
-      - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       # Reference the major version of a release
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       # Reference a specific version
-      - uses: actions/checkout@v4.2.0
+      - uses: actions/checkout@v7.0.1
       # Reference a branch
       - uses: actions/checkout@main
 
@@ -215,7 +216,7 @@ jobs:
           echo "Build number: ${{ github.run_number }}" >> artifacts/output.txt
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: build-artifacts
           path: artifacts/
@@ -265,23 +266,23 @@ jobs:
       max-parallel: 10
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [18, 20, 22]
+        node-version: [22, 24, 26]
         # Exclude specific combinations
         exclude:
           - os: windows-latest
-            node-version: 16
+            node-version: 26
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       # Leverage caching to speed up builds
       - name: Cache node modules
         id: cache-npm
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         env:
           cache-name: cache-node-modules
         with:
@@ -305,7 +306,7 @@ jobs:
   container-job:
     runs-on: ubuntu-latest
     container:
-      image: node:18
+      image: node:24
       env:
         NODE_ENV: development
       ports:
@@ -350,7 +351,7 @@ jobs:
           - 6379:6379
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Test database connection
         run: |
           sudo apt-get update
@@ -377,17 +378,23 @@ jobs:
     if: github.ref == 'refs/heads/main'
     needs: [basic-job, build-matrix]
 
+    # Grant only what the commenting steps below actually need
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+
     # Use environments to track deployments and protect sensitive operations
     environment:
       name: github-pages
       url: https://myapp.example.com
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Download artifacts from previous jobs
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: build-artifacts
           path: ./artifacts
@@ -400,7 +407,7 @@ jobs:
       # The GitHub CLI is pre-installed on GitHub-hosted runners
       - run: |
           gh pr comment ${{ github.event.pull_request.number }} \
-            --body "🚀 **Deployment Successful!**
+            --body "🚀 **Deployment Successful!**"
         if: github.event_name == 'pull_request' && success()
         # To use the GitHub CLI, you need to authenticate with a token
         env:
@@ -408,7 +415,7 @@ jobs:
 
       # Basic GitHub Script example - create an issue comment
       - name: Comment on issue
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             github.rest.issues.createComment({
