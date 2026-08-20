@@ -28,8 +28,8 @@
     "photoswipe": "^5.4.4",
     "prism-react-renderer": "^2.4.1",
     "raw-loader": "^4.0.2",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "rehype-highlight": "^7.0.2",
     "remark-github-admonitions-to-directives": "^2.1.0"
   },
