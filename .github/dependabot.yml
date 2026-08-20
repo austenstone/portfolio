@@ -1,16 +1,49 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "npm"
+    directory: "/"
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 5
+    # Packages below are versioned in lockstep upstream. Bumping one on its own
+    # produces an unresolvable peer range, which is what left the standalone
+    # typescript and @eslint/js PRs red and stuck.
+    groups:
+      docusaurus:
+        patterns:
+          - "@docusaurus/*"
+      eslint:
+        patterns:
+          - "eslint"
+          - "@eslint/*"
+          - "eslint-plugin-*"
+          - "typescript-eslint"
+          - "globals"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      unified:
+        patterns:
+          - "mdast-util-*"
+          - "unist-util-*"
+          - "@types/mdast"
+          - "@types/unist"
+          - "rehype-*"
+          - "remark-*"
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
 
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      actions:
+        patterns:
+          - "*"

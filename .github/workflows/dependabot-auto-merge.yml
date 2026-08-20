@@ -3,19 +3,26 @@ name: Dependabot Auto Merge
 on:
   pull_request:
 
+# Dependabot-triggered runs get a read-only token unless the workflow asks for
+# more, which is why enabling auto-merge silently failed before.
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   dependabot:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     if: github.event.pull_request.user.login == 'dependabot[bot]'
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v1
+        uses: dependabot/fetch-metadata@v3
         with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Enable auto-merge for Dependabot PRs
-        if: ${{ steps.metadata.outputs.package-ecosystem == 'github_actions' }}
-        run: gh pr merge --auto --merge "$PR_URL"
+        if: steps.metadata.outputs.package-ecosystem == 'github_actions'
+        run: gh pr merge --auto --squash "$PR_URL"
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
