@@ -1,41 +1,48 @@
-# Austen Stone's Portfolio Website
+# austen.info
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+My personal site: portfolio, blog, and guides. Built with [Docusaurus](https://docusaurus.io/) and deployed to GitHub Pages at **[austen.info](https://austen.info)**.
 
-## Installation
+## Requirements
 
-```bash
-yarn
-```
+Node `>=22.13.0`. The repo ships an [`.nvmrc`](.nvmrc), so `nvm use` picks the right version.
 
-## Local Development
+This project uses **npm**, not yarn. There is no `yarn.lock`.
 
-```bash
-yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+## Getting started
 
 ```bash
-yarn build
+npm ci      # use ci, not install, to respect the lockfile
+npm start   # dev server at http://localhost:3000
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm start` | Dev server with hot reload |
+| `npm run build` | Production build into `build/` |
+| `npm run serve` | Serve the production build locally |
+| `npm run typecheck` | `tsc` with no emit |
+| `npm run lint` | ESLint across the repo |
+| `npm run clear` | Clear the Docusaurus cache |
+
+`typecheck` and `lint` both run in CI, so run them before pushing.
+
+## Content
+
+| Path | What lives there |
+| --- | --- |
+| [`blog/`](blog) | Blog posts. Filename sets the date, `slug:` in frontmatter sets the URL. |
+| [`docs/`](docs) | Guides, including the [GitHub Actions cheat sheet](docs/guides). |
+| [`src/`](src) | React components, pages, and CSS. |
+| [`static/`](static) | Files copied verbatim to the site root. |
+
+One thing worth knowing: [`docs/guides/01_Cheat Sheet.mdx`](docs/guides) renders [`.github/workflows/cheat-sheet.yml`](.github/workflows/cheat-sheet.yml) verbatim via `raw-loader`. That workflow is a live, running workflow *and* a published documentation page, so changes to it are user-facing.
 
 ## Deployment
 
-Using SSH:
+Deployment is automatic. Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which builds and publishes to GitHub Pages via [`actions/deploy-pages`](https://github.com/actions/deploy-pages) using OIDC.
 
-```bash
-USE_SSH=true yarn deploy
-```
+Pull requests run the same build as a check, but don't deploy.
 
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+**Don't run `npm run deploy`.** That's the stock Docusaurus command that pushes directly to a `gh-pages` branch, which is not how this site is published.
