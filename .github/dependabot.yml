@@ -10,6 +10,12 @@ updates:
     # produces an unresolvable peer range, which is what left the standalone
     # typescript and @eslint/js PRs red and stuck.
     groups:
+      # A group omitting `applies-to` covers version updates only, so security
+      # updates were opening one PR per package and ignoring the limit above.
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
       docusaurus:
         patterns:
           - "@docusaurus/*"
@@ -44,6 +50,10 @@ updates:
     schedule:
       interval: "weekly"
     groups:
+      actions-security:
+        applies-to: security-updates
+        patterns:
+          - "*"
       actions:
         patterns:
           - "*"
