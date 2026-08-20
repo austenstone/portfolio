@@ -384,9 +384,11 @@ jobs:
       issues: write
       pull-requests: write
 
-    # Use environments to track deployments and protect sensitive operations
+    # Use environments to track deployments and protect sensitive operations.
+    # Deliberately a throwaway name: pointing a demo at a real environment
+    # records fake deployments against it and trips its protection rules.
     environment:
-      name: github-pages
+      name: demo-production
       url: https://myapp.example.com
 
     steps:
