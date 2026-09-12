@@ -7,7 +7,7 @@ import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-di
 
 const config: Config = {
   title: 'Austen Stone',
-  tagline: 'Software Engineer who writes code and solves business problems',
+  tagline: 'GitHub Copilot, AI, developer tools, and automation',
   favicon: 'https://avatars.githubusercontent.com/u/22425467?v=4',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -114,7 +114,7 @@ const config: Config = {
       logo: {
         src: 'https://avatars.githubusercontent.com/u/22425467?v=4',
         style: {
-          'border-radius': '50%',
+          borderRadius: '50%',
         }
       },
       items: [

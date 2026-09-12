@@ -18,8 +18,8 @@
 
 .content {
   text-align: left;
-  width: 23%;
-  min-width: 300px;
+  width: 100%;
+  max-width: 38rem;
 }
 
 .title {
@@ -35,8 +35,13 @@
 
 .email {
   font-size: 1rem;
-  margin-bottom: 3rem;
-  color: var(--ifm-color-secondary);
+  margin: 0 0 3rem;
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
 }
 
 .section {
@@ -52,9 +57,10 @@
 
 .linksList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
   align-items: flex-start;
+  max-width: 18rem;
 }
 
 .link {
