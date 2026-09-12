@@ -1,28 +1,44 @@
 name: Dependabot Auto Merge
 
 on:
-  pull_request:
+  workflow_run: # zizmor: ignore[dangerous-triggers] no PR code is checked out or executed
+    workflows:
+      - Deploy to GitHub Pages
+    types:
+      - completed
 
-# Dependabot-triggered runs get a read-only token unless the workflow asks for
-# more, which is why enabling auto-merge silently failed before.
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
   dependabot:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     timeout-minutes: 5
-    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
     steps:
-      - name: Dependabot metadata
-        id: metadata
-        uses: dependabot/fetch-metadata@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Enable auto-merge for Dependabot PRs
-        if: steps.metadata.outputs.package-ecosystem == 'github_actions'
-        run: gh pr merge --auto --squash "$PR_URL"
+      - name: Merge successful Dependabot update
+        run: |
+          pr_number=$(gh api "repos/$REPOSITORY/commits/$HEAD_SHA/pulls" \
+            --jq 'map(select(.user.login == "dependabot[bot]" and .state == "open")) | first | .number // empty')
+
+          if [[ -z "$pr_number" ]]; then
+            echo "No open Dependabot PR found for $HEAD_SHA."
+            exit 0
+          fi
+
+          current_head=$(gh pr view "$pr_number" --repo "$REPOSITORY" \
+            --json headRefOid --jq '.headRefOid')
+
+          if [[ "$current_head" != "$HEAD_SHA" ]]; then
+            echo "Dependabot PR #$pr_number changed after CI started; waiting for the next run."
+            exit 0
+          fi
+
+          gh pr merge "$pr_number" --repo "$REPOSITORY" --squash --delete-branch
         env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          REPOSITORY: ${{ github.repository }}
