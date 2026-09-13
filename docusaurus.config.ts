@@ -159,7 +159,7 @@ const config: Config = {
             },
             {
               label: 'Email',
-              href: 'mailto:hi@austen.info',
+              href: 'mailto:stone@austen.info',
             },
           ],
         },

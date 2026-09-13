@@ -5,7 +5,7 @@ This is built using [docusaurus](https://docusaurus.io/docs/) and is hosted on G
 
 github username: austenstone
 name: Austen Stone
-email: hi@austen.info
+email: stone@austen.info
 
 # Tech Stack
 - [Docusaurus](https://docusaurus.io/docs)
