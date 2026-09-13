@@ -7,11 +7,11 @@ description: "OIDC kills long-lived cloud keys, and everyone treats that like th
 authors: [austen]
 ---
 
-![A silver bullet shattering against a layered glass shield](/img/blog/beyond-the-oidc-silver-bullet/hero.png)
-
 If you've modernized a CI/CD pipeline in the last couple of years, you've heard the gospel of [OpenID Connect](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect): stop hardcoding long-lived [AWS IAM keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in your [repository secrets](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions). Your workflow requests a short-lived token, the cloud verifies the claims, you deploy. It's a real upgrade. It's also where most teams stop thinking, and that's the problem.
 
 <!--truncate-->
+
+![A silver bullet shattering against a layered glass shield](/img/blog/beyond-the-oidc-silver-bullet/hero.png)
 
 OIDC solves one thing: [credential persistence](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect#benefits-of-using-openid-connect). No more static keys sitting in a secret store waiting to leak. But it does nothing about the actual job of a pipeline, which is to **execute arbitrary code on your behalf**. Your keys are only one of the things that code can abuse, and most of the attacks landing in the wild right now never touch your OIDC token at all. They hijack the pipeline *before* identity is even in the picture.
 

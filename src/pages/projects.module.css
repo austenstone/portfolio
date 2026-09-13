@@ -1,0 +1,33 @@
+.main {
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  padding: 4rem 1.5rem 5rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+}
+
+.description {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+@media (width <= 700px) {
+  .main {
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}

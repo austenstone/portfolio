@@ -4,8 +4,12 @@ title: VS Code Copilot Customizations
 tags: [github, github-copilot, ai, dev]
 image: https://i.ytimg.com/vi/aKx5I0Mrr9g/maxresdefault.jpg
 description: VS Code AI Customization - Learn to use custom instructions, prompt files, and custom chat modes to personalize AI code generation, reviews, and chat responses.
-onUntruncatedBlogPosts: ignore
+authors: [austen]
 ---
+
+Customize GitHub Copilot in VS Code with reusable instructions, prompt files, and chat modes.
+
+<!--truncate-->
 
 <iframe 
   width="100%" 

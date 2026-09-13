@@ -41,11 +41,6 @@ const config: Config = {
     //     result.frontMatter.description?.replaceAll('{{MY_VAR}}', 'MY_VALUE');
     //   return result;
     // },
-    mdx1Compat: {
-      comments: true,
-      admonitions: true,
-      headingIds: true,
-    },
     anchors: {
       maintainCase: true,
     },
@@ -84,11 +79,15 @@ const config: Config = {
           showReadingTime: true,
           showLastUpdateTime: true,
           blogTitle: 'Blog',
+          blogDescription: 'GitHub Actions, AI, automation, and things I build.',
           blogSidebarCount: 0,
           feedOptions: {
             type: 'all',
             xslt: true,
-            copyright: `Copyright © ${new Date().getFullYear()} Austen Stone`
+            title: 'Austen Stone',
+            description: 'GitHub Actions, AI, automation, and things I build.',
+            language: 'en',
+            copyright: `Copyright © ${new Date().getFullYear()} Austen Stone`,
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -97,7 +96,7 @@ const config: Config = {
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'ignore',
+          onUntruncatedBlogPosts: 'warn',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -113,6 +112,7 @@ const config: Config = {
       // title: 'Austen Stone',
       logo: {
         src: 'https://avatars.githubusercontent.com/u/22425467?v=4',
+        alt: 'Austen Stone',
         style: {
           borderRadius: '50%',
         }
@@ -126,8 +126,7 @@ const config: Config = {
           label: 'Actions',
         },
         {
-          type: 'docSidebar',
-          sidebarId: 'projects',
+          to: '/projects',
           position: 'left',
           label: 'Projects',
         },
@@ -135,11 +134,13 @@ const config: Config = {
           href: 'https://github.com/austenstone',
           className: 'header-github-link',
           position: 'right',
+          'aria-label': 'Austen Stone on GitHub',
         },
         {
           href: 'https://www.linkedin.com/in/austenstone/',
           className: 'header-linkedin-link',
           position: 'right',
+          'aria-label': 'Austen Stone on LinkedIn',
         },
       ],
     },
@@ -174,6 +175,14 @@ const config: Config = {
             {
               label: 'Blog',
               to: '/blog',
+            },
+            {
+              label: 'Archive',
+              to: '/blog/archive',
+            },
+            {
+              label: 'RSS',
+              href: 'https://austen.info/blog/rss.xml',
             },
             {
               label: 'Resume',
