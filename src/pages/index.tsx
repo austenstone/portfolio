@@ -32,9 +32,6 @@ const MinimalHomepage = () => {
             <Link href="/blog" className={styles.link}>
               blog<span className={styles.linkDir}>/</span>
             </Link>
-            <Link href="/docs/guides/Intro%20to%20Concepts" className={styles.link}>
-              guides<span className={styles.linkDir}>/</span>
-            </Link>
             <Link href="https://github.com/austenstone" className={styles.link}>
               github
             </Link>

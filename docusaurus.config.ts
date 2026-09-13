@@ -118,13 +118,7 @@ const config: Config = {
         }
       },
       items: [
-        { to: '/blog', label: 'Blog', position: 'left' },
-        {
-          type: 'docSidebar',
-          sidebarId: 'guides',
-          position: 'left',
-          label: 'Actions',
-        },
+        { to: '/blog', label: 'Blog', position: 'left'         },
         {
           to: '/projects',
           position: 'left',
