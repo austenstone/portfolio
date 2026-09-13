@@ -24,7 +24,7 @@ const MinimalHomepage = () => {
         </p>
 
         <p className={styles.email}>
-          <Link href="mailto:hi@austen.info">hi@austen.info</Link>
+          <Link href="mailto:stone@austen.info">stone@austen.info</Link>
         </p>
 
         <div className={styles.section}>
