@@ -44,7 +44,7 @@ const MinimalHomepage = () => {
             <Link href="/resume" className={styles.link}>
               resume
             </Link>
-            <Link href="/docs/projects/github-actions" className={styles.link}>
+            <Link href="/docs/projects" className={styles.link}>
               projects<span className={styles.linkDir}>/</span>
             </Link>
           </div>
