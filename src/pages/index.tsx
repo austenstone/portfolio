@@ -15,13 +15,12 @@ const MinimalHomepage = () => {
         </Heading>
 
         <p className={styles.intro}>
-          Austen Stone is a Senior Field Actions Specialist at{' '}
-          <Link href="https://github.com/">GitHub</Link> and a{' '}
-          <Link href="https://github.com/features/copilot">GitHub Copilot</Link>{' '}
-          expert. He uses AI heavily in his work and advocates for applying it
-          practically to automate the boring stuff and build better software. He
-          builds developer tools, publishes open source Actions, and writes about
-          automation, AI, and modern software delivery.
+          I&apos;m Austen. I work on <Link href="https://github.com/features/actions">
+            GitHub Actions
+          </Link>{' '}
+          at <Link href="https://github.com/">GitHub</Link>. I build things, and I
+          love using AI to automate the boring stuff and see what&apos;s possible.
+          This is where I share some of what I&apos;m working on.
         </p>
 
         <p className={styles.email}>
@@ -61,7 +60,7 @@ const Home = (): ReactNode => {
     <div className={styles.homepageContainer}>
       <Layout
         title={siteConfig.title}
-        description="GitHub Copilot expert, AI advocate, and builder of developer tools focused on automation and modern software delivery.">
+        description="I work on GitHub Actions, build things, and love using AI.">
         <MinimalHomepage />
       </Layout>
     </div>
