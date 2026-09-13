@@ -7,7 +7,7 @@ import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-di
 
 const config: Config = {
   title: 'Austen Stone',
-  tagline: 'GitHub Copilot, AI, developer tools, and automation',
+  tagline: 'GitHub Actions, building things, and using AI',
   favicon: 'https://avatars.githubusercontent.com/u/22425467?v=4',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
