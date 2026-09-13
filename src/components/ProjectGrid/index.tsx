@@ -21,12 +21,20 @@ const projects: Project[] = [
     imageAlt: 'GitHub Marketplace showing Actions published by Austen Stone',
   },
   {
-    title: 'GitHub Value',
+    title: 'Actio',
     description:
-      'An open-source app for understanding GitHub adoption, value, and impact.',
-    href: '/docs/projects/github-value',
-    image: '/assets/screenshots/github-value.png',
-    imageAlt: 'GitHub Value analytics dashboard',
+      'A tiny YAML superset that compiles macros into standard GitHub Actions workflows.',
+    href: 'https://austenstone.github.io/actio/',
+    image: '/assets/screenshots/actio.png',
+    imageAlt: 'Actio GitHub Actions YAML transpiler',
+  },
+  {
+    title: 'RunnerX',
+    description:
+      'Benchmark GitHub-hosted runners across real CI scenarios, comparing speed, hardware, and cost.',
+    href: '/docs/projects/runnerx',
+    image: '/assets/screenshots/runnerx.png',
+    imageAlt: 'RunnerX cost and performance benchmark dashboard',
   },
   {
     title: 'GitHub Actions Usage Report Viewer',
@@ -35,6 +43,46 @@ const projects: Project[] = [
     href: '/docs/projects/github-usage-report',
     image: '/assets/screenshots/chrome_xebwmFt39a.png',
     imageAlt: 'GitHub Actions usage report dashboard',
+  },
+  {
+    title: '.copilot',
+    description:
+      'My reusable Copilot instructions, skills, agents, hooks, extensions, and plugins.',
+    href: 'https://github.com/austenstone/.copilot',
+    image: '/assets/screenshots/copilot-customizations.png',
+    imageAlt: 'GitHub preview for the austenstone Copilot customizations repository',
+  },
+  {
+    title: 'Thinking Phrases',
+    description:
+      "Turn VS Code's Copilot thinking indicator into a live dashboard with tips and real-time data.",
+    href: 'https://github.com/austenstone/thinking-phrases',
+    image: '/assets/screenshots/thinking-phrases.png',
+    imageAlt: 'GitHub preview for the Thinking Phrases repository',
+  },
+  {
+    title: 'Copilot Model Lag',
+    description:
+      'Tracks how long new AI models take to arrive in GitHub Copilot across dozens of launches.',
+    href: 'https://austenstone.github.io/copilot-model-lag/',
+    image: '/assets/screenshots/copilot-model-lag.png',
+    imageAlt: 'Copilot Model Lag model availability statistics',
+  },
+  {
+    title: 'MyInstants MCP',
+    description:
+      'An MCP server that lets AI assistants search and play MyInstants sound buttons.',
+    href: 'https://github.com/austenstone/myinstants-mcp',
+    image: '/assets/screenshots/myinstants-mcp.webp',
+    imageAlt: 'MyInstants MCP soundboard artwork',
+  },
+  {
+    title: 'GitHub Value',
+    description:
+      'An open-source app for understanding GitHub adoption, value, and impact.',
+    href: '/docs/projects/github-value',
+    image: '/assets/screenshots/github-value.png',
+    imageAlt: 'GitHub Value analytics dashboard',
   },
   {
     title: 'deviceWISE View',
@@ -55,6 +103,7 @@ const ProjectGrid = (): ReactNode => (
             alt={imageAlt}
             className={styles.image}
             decoding="async"
+            loading="lazy"
             src={image}
           />
         </div>
