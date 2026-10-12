@@ -33,11 +33,9 @@ npm start   # dev server at http://localhost:3000
 | Path | What lives there |
 | --- | --- |
 | [`blog/`](blog) | Blog posts. Filename sets the date, `slug:` in frontmatter sets the URL. |
-| [`docs/`](docs) | Guides, including the [GitHub Actions cheat sheet](docs/guides). |
+| [`docs/`](docs) | Project documentation. |
 | [`src/`](src) | React components, pages, and CSS. |
 | [`static/`](static) | Files copied verbatim to the site root. |
-
-One thing worth knowing: [`docs/guides/01_Cheat Sheet.mdx`](docs/guides) renders [`.github/workflows/cheat-sheet.yml`](.github/workflows/cheat-sheet.yml) verbatim via `raw-loader`. That workflow is a live, running workflow *and* a published documentation page, so changes to it are user-facing.
 
 ## Deployment
 
