@@ -22,6 +22,9 @@ npm start   # dev server at http://localhost:3000
 | `npm start` | Dev server with hot reload |
 | `npm run build` | Production build into `build/` |
 | `npm run serve` | Serve the production build locally |
+| `npm run dev:worker` | Run the curl Worker locally |
+| `npm run test:worker` | Test curl detection and origin pass-through |
+| `npm run deploy:worker` | Deploy the curl Worker to Cloudflare |
 | `npm run typecheck` | `tsc` with no emit |
 | `npm run lint` | ESLint across the repo |
 | `npm run clear` | Clear the Docusaurus cache |
@@ -46,3 +49,28 @@ Deployment is automatic. Pushing to `main` triggers [`.github/workflows/deploy.y
 Pull requests run the same build as a check, but don't deploy.
 
 **Don't run `npm run deploy`.** That's the stock Docusaurus command that pushes directly to a `gh-pages` branch, which is not how this site is published.
+
+### Curl site
+
+[`worker/index.mts`](worker/index.mts) returns an ANSI-formatted homepage for
+`curl https://austen.info`. The Worker runs only at `/` and `/curl`; every other
+path goes directly to GitHub Pages. To request the original homepage with curl:
+
+```bash
+curl -H 'X-Original: true' https://austen.info
+```
+
+The Worker route requires `austen.info` to use Cloudflare DNS with the existing
+GitHub Pages records proxied. After the zone is active:
+
+```bash
+npx wrangler login
+npm run deploy:worker
+```
+
+Verify both response modes:
+
+```bash
+curl https://austen.info
+curl -H 'X-Original: true' https://austen.info
+```

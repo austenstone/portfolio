@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "austen-info",
+  "main": "worker/index.mts",
+  "compatibility_date": "2026-10-13",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "austen.info",
+      "zone_name": "austen.info"
+    },
+    {
+      "pattern": "austen.info/curl",
+      "zone_name": "austen.info"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
