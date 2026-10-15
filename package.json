@@ -10,6 +10,9 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
+    "dev:worker": "wrangler dev",
+    "deploy:worker": "wrangler deploy",
+    "test:worker": "node --experimental-strip-types --test worker/index.test.mjs",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
@@ -47,7 +50,8 @@
     "mdast-util-directive": "^3.1.0",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.69.0",
-    "unist-util-visit": "^5.1.0"
+    "unist-util-visit": "^5.1.0",
+    "wrangler": "^4.148.0"
   },
   "browserslist": {
     "production": [

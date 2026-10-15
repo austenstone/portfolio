@@ -19,8 +19,8 @@ const MinimalHomepage = () => {
             GitHub Actions
           </Link>{' '}
           at <Link href="https://github.com/">GitHub</Link>. I build things, and I
-          love using AI to automate the boring stuff and see what&apos;s possible.
-          This is where I share some of what I&apos;m working on.
+          use a lot of tokens. Automate everything. This is where I share some of
+          what I&apos;m working on.
         </p>
 
         <p className={styles.email}>
@@ -57,7 +57,7 @@ const Home = (): ReactNode => {
     <div className={styles.homepageContainer}>
       <Layout
         title={siteConfig.title}
-        description="I work on GitHub Actions, build things, and love using AI.">
+        description="I work on GitHub Actions, build things, and use a lot of tokens. Automate everything.">
         <MinimalHomepage />
       </Layout>
     </div>
