@@ -19,8 +19,7 @@ const MinimalHomepage = () => {
             GitHub Actions
           </Link>{' '}
           at <Link href="https://github.com/">GitHub</Link>. I build things, and I
-          use a lot of tokens. Automate everything. This is where I share some of
-          what I&apos;m working on.
+          use a lot of tokens. Automate everything.
         </p>
 
         <p className={styles.email}>
