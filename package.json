@@ -47,11 +47,11 @@
     "eslint": "^9.39.5",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.13.0",
-    "mdast-util-directive": "^3.1.0",
+    "mdast-util-directive": "^3.1.1",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.71.1",
     "unist-util-visit": "^5.1.0",
-    "wrangler": "^4.151.0"
+    "wrangler": "^4.151.1"
   },
   "browserslist": {
     "production": [
