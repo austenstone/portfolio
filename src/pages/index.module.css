@@ -135,6 +135,65 @@
   font-size: 0.8rem;
 }
 
+.secret {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ed-rule);
+  font-size: 0.8rem;
+}
+
+.secretHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  color: var(--ed-muted);
+}
+
+.dismiss {
+  padding: 0.25rem 0;
+  border: 0;
+  background: none;
+  color: var(--ed-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.dismiss:hover {
+  color: var(--ed-accent);
+}
+
+.dismiss:focus-visible {
+  outline: 2px solid var(--ed-accent);
+  outline-offset: 4px;
+}
+
+.secretSteps {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0;
+  color: var(--ed-muted);
+}
+
+.secretSteps li {
+  display: flex;
+  gap: 1ch;
+}
+
+.secretSteps li[data-complete='true'] {
+  color: var(--ed-text);
+}
+
+.secretSteps span,
+.secretStatus {
+  color: var(--ed-accent);
+}
+
+.secretStatus {
+  margin: 0;
+}
+
 .help kbd {
   font: inherit;
   color: var(--ed-text);

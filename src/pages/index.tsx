@@ -14,14 +14,50 @@ const items = [
   { name: 'resume', desc: 'the formal version', href: '/resume' },
 ];
 
+const konamiCode = [
+  'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+  'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a',
+];
+const secretSteps = [
+  'Recognize ancient cheat code',
+  'Allocate extra tokens',
+  'Automate absolutely everything',
+];
+
 const Terminal = () => {
   const [selected, setSelected] = useState(0);
+  const [secretVisible, setSecretVisible] = useState(false);
+  const [completedSteps, setCompletedSteps] = useState(0);
+  const recentKeys = useRef<string[]>([]);
   const links = useRef<(HTMLAnchorElement | null)[]>([]);
   const { colorMode, setColorMode } = useColorMode();
   const toggleTheme = useCallback(
     () => setColorMode(colorMode === 'dark' ? 'light' : 'dark'),
     [colorMode, setColorMode],
   );
+
+  useEffect(() => {
+    if (!secretVisible) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finish = () => setCompletedSteps(secretSteps.length);
+    if (reducedMotion.matches) {
+      finish();
+      return;
+    }
+    const timers = secretSteps.map((_, index) =>
+      window.setTimeout(() => setCompletedSteps(index + 1), (index + 1) * 650),
+    );
+    const onMotionChange = () => {
+      if (!reducedMotion.matches) return;
+      timers.forEach(window.clearTimeout);
+      finish();
+    };
+    reducedMotion.addEventListener('change', onMotionChange);
+    return () => {
+      timers.forEach(window.clearTimeout);
+      reducedMotion.removeEventListener('change', onMotionChange);
+    };
+  }, [secretVisible]);
 
   useEffect(() => {
     const select = (index: number) => {
@@ -33,6 +69,21 @@ const Terminal = () => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.metaKey || event.ctrlKey || event.altKey) return;
       if (event.target instanceof HTMLElement && event.target.closest('input, textarea, [contenteditable]')) return;
+      if (event.repeat) return;
+
+      const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+      recentKeys.current = [...recentKeys.current, key].slice(-konamiCode.length);
+      if (recentKeys.current.every((value, index) => value === konamiCode[index])
+        && recentKeys.current.length === konamiCode.length) {
+        recentKeys.current = [];
+        setSecretVisible(true);
+        return;
+      }
+      if (event.key === 'Escape' && secretVisible) {
+        setSecretVisible(false);
+        setCompletedSteps(0);
+        return;
+      }
 
       if (event.key === 'ArrowDown' || event.key === 'j') {
         event.preventDefault();
@@ -51,7 +102,7 @@ const Terminal = () => {
 
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [selected, toggleTheme]);
+  }, [selected, secretVisible, toggleTheme]);
 
   return (
     <main className={styles.page}>
@@ -86,6 +137,34 @@ const Terminal = () => {
               ))}
             </ul>
           </nav>
+
+          {secretVisible && (
+            <section className={styles.secret} aria-label="Secret workflow">
+              <div className={styles.secretHeader}>
+                <span>$ run secret-workflow --simulate</span>
+                <button
+                  type="button"
+                  className={styles.dismiss}
+                  onClick={() => {
+                    setSecretVisible(false);
+                    setCompletedSteps(0);
+                  }}>
+                  Close
+                </button>
+              </div>
+              <ul className={styles.secretSteps}>
+                {secretSteps.slice(0, Math.min(completedSteps + 1, secretSteps.length)).map((step, index) => (
+                  <li key={step} data-complete={index < completedSteps}>
+                    <span aria-hidden="true">{index < completedSteps ? '✓' : '·'}</span>
+                    {step}
+                  </li>
+                ))}
+              </ul>
+              <p className={styles.secretStatus} role="status">
+                {completedSteps === secretSteps.length ? '✓ All checks passed.' : 'Workflow running…'}
+              </p>
+            </section>
+          )}
         </div>
 
         <p className={styles.help}>
