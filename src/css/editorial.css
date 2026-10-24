@@ -819,6 +819,14 @@ pre .token:is(.punctuation, .operator) {
   color: var(--ed-syn-punct) !important;
 }
 
+pre .token.gha-expression {
+  color: var(--ed-syn-expr) !important;
+}
+
+pre .token.gha-expression.gha-delimiter {
+  color: var(--ed-syn-key) !important;
+}
+
 pre .token:is(.comment, .prolog, .doctype, .cdata) {
   color: var(--ed-muted) !important;
   font-style: italic !important;
