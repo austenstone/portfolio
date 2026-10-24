@@ -5,7 +5,7 @@
 
 .container {
   width: 100%;
-  max-width: 75rem;
+  max-width: var(--ed-nav-col);
   margin: 0 auto;
 }
 

@@ -1,3 +1,12 @@
+.resumePage {
+  max-width: var(--ed-nav-col);
+  margin: 2rem auto 4rem;
+}
+
+.resumePage > * {
+  max-width: 46rem;
+}
+
 .resumePage h1 {
   margin-bottom: 0;
 }
@@ -20,7 +29,7 @@
 
 .resumePage h4 {
   color: var(--ifm-color-primary);
-  margin-bottom: 0;
+  margin-bottom: 0.25rem;
 }
 
 .resumePage h3 {
@@ -37,7 +46,7 @@
 
 @media (max-width: 996px) {
   .resumePage {
-    padding: 1.5rem 1rem;
+    margin-top: 1rem;
+    padding: 1.5rem 0;
   }
-  
 }
