@@ -1,0 +1,118 @@
+.page {
+  width: min(var(--ed-text-col), calc(100% - 2 * var(--ed-gutter)));
+  margin-inline: auto;
+  padding-block: clamp(40px, 7vw, 88px) 72px;
+}
+
+.header {
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--ed-rule);
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 32px;
+  color: var(--ed-muted);
+  font-size: 14px;
+}
+
+.header h1 {
+  margin: 0 0 24px;
+  font: 600 clamp(2.5rem, 6vw, 4rem)/1.08 var(--ed-voice);
+  letter-spacing: -0.028em;
+}
+
+.header > p {
+  max-width: 48ch;
+  margin: 0 0 28px;
+  color: var(--ed-muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--ed-rule-strong);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ed-accent);
+  font: 500 14px var(--ed-chrome);
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background: var(--ed-accent-soft);
+  border-color: var(--ed-accent);
+}
+
+.controls svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.controls span {
+  max-width: 30ch;
+  color: var(--ed-muted);
+  font-size: 13px;
+}
+
+.article .passage {
+  position: relative;
+  padding-block: clamp(48px, 8vw, 88px);
+  border-bottom: 1px solid var(--ed-rule);
+}
+
+.article .passage h2 {
+  margin: 0 0 28px;
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
+  line-height: 1.25;
+}
+
+.article .passage > p:not(.note) {
+  line-height: 1.85;
+}
+
+.article .passage .note {
+  margin: 28px 0 0;
+  color: var(--ed-muted);
+  font: 400 14px/1.6 var(--ed-chrome);
+}
+
+.footer {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding-top: 40px;
+}
+
+.footer p {
+  margin: 0;
+  font: 500 22px/1.5 var(--ed-voice);
+}
+
+.footer span {
+  margin-top: 12px;
+  color: var(--ed-muted);
+  font-size: 13px;
+}
+
+@media print {
+  .controls {
+    display: none;
+  }
+}

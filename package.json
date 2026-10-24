@@ -35,7 +35,8 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "rehype-highlight": "^7.0.2",
-    "remark-github-admonitions-to-directives": "^2.1.0"
+    "remark-github-admonitions-to-directives": "^2.1.0",
+    "rough-notation": "^0.5.1"
   },
   "devDependencies": {
     "@docusaurus/eslint-plugin": "^3.10.2",

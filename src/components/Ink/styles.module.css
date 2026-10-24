@@ -1,0 +1,16 @@
+.ink {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink + :global(.rough-annotation) path {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+@media print {
+  .ink + :global(.rough-annotation) {
+    display: none;
+  }
+}
