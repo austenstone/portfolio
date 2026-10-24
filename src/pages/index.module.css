@@ -33,15 +33,10 @@
   margin-right: 0.5rem;
 }
 
-.email {
-  font-size: 1rem;
-  margin: 0 0 3rem;
-}
-
 .intro {
   font-size: 1.05rem;
   line-height: 1.7;
-  margin: 0 0 1rem;
+  margin: 0 0 3rem;
 }
 
 .section {

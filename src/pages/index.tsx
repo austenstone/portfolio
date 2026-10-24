@@ -16,14 +16,10 @@ const MinimalHomepage = () => {
 
         <p className={styles.intro}>
           I&apos;m Austen. I work on <Link href="https://github.com/features/actions">
-            GitHub Actions
+            Actions
           </Link>{' '}
           at <Link href="https://github.com/">GitHub</Link>. I build things, and I
           use a lot of tokens. Automate everything.
-        </p>
-
-        <p className={styles.email}>
-          <Link href="mailto:stone@austen.info">stone@austen.info</Link>
         </p>
 
         <div className={styles.section}>
