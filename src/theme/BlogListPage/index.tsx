@@ -33,7 +33,7 @@ const BlogListPageMetadata = ({ metadata }: Props): ReactNode => {
 
 const BlogListPage = (props: Props): ReactNode => {
   const { items, metadata } = props;
-  const { blogTitle, blogDescription, totalCount, nextPage, previousPage } = metadata;
+  const { blogTitle, totalCount, nextPage, previousPage } = metadata;
 
   return (
     <HtmlClassNameProvider
