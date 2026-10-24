@@ -128,12 +128,14 @@ const config: Config = {
         },
         {
           href: 'https://github.com/austenstone',
+          label: 'GitHub',
           className: 'header-github-link',
           position: 'right',
           'aria-label': 'Austen Stone on GitHub',
         },
         {
           href: 'https://www.linkedin.com/in/austenstone/',
+          label: 'LinkedIn',
           className: 'header-linkedin-link',
           position: 'right',
           'aria-label': 'Austen Stone on LinkedIn',

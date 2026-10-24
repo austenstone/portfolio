@@ -55,7 +55,7 @@ flowchart LR
   end
 ```
 
-Left side, every repo is part of every other repo's build. Right side, each repo has one job: build, test, publish a versioned thing. Consumers pin a version. Upgrades are PRs you can review and revert.
+In the source-coupled model, every repo is part of every other repo's build. With artifact coupling, each repo has one job: build, test, publish a versioned thing. Consumers pin a version. Upgrades are PRs you can review and revert.
 
 Honestly this is also why monorepo vs polyrepo is mostly the wrong argument. Big monorepos work because everything builds and tests together at one commit. Polyrepos work when repos talk through versioned contracts. What doesn't work is polyrepos pretending to be a monorepo by cloning each other at `main`. You get the costs of both and the benefits of neither.
 

@@ -28,47 +28,51 @@ const longDate = new Intl.DateTimeFormat('en-US', {
   timeZone: 'UTC',
 });
 
+const shortDate = new Intl.DateTimeFormat('en-US', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
 const delay = (ms: number) => ({'--d': `${ms}ms`}) as CSSProperties;
 
 function PostHero(): ReactNode {
   const {metadata} = useBlogPost();
-  const {title, date, readingTime, tags, authors} = metadata;
+  const {title, date, readingTime, tags} = metadata;
 
   return (
     <header className="post-hero editorial-grid">
-      <div>
-        {tags.length > 0 && (
-          <p className="post-hero__tags enter" style={delay(0)}>
-            {tags.map((tag) => (
-              <Link key={tag.permalink} to={tag.permalink}>
-                {tag.label}
-              </Link>
-            ))}
-          </p>
-        )}
+      <div className="post-hero__inner">
         <h1 className="post-hero__title rise">
           <SplitWords text={title} />
         </h1>
-        <p className="post-hero__byline enter" style={delay(420)}>
-          {authors.map((author) => (
-            <React.Fragment key={author.key ?? author.name}>
-              {author.page?.permalink ? (
-                <Link className="post-hero__who" to={author.page.permalink}>
-                  {author.name}
-                </Link>
-              ) : (
-                <span className="post-hero__who">{author.name}</span>
-              )}
-              {author.title && <span>{author.title}</span>}
-            </React.Fragment>
-          ))}
-          <time className="mono" dateTime={date}>
-            {longDate.format(new Date(date))}
-          </time>
+        <dl className="post-hero__meta enter" style={delay(420)}>
+          <div>
+            <dt>Published</dt>
+            <dd>
+              <time dateTime={date}>{shortDate.format(new Date(date))}</time>
+            </dd>
+          </div>
           {readingTime !== undefined && (
-            <span className="mono">{Math.max(1, Math.ceil(readingTime))} min read</span>
+            <div>
+              <dt>Reading</dt>
+              <dd>{Math.max(1, Math.ceil(readingTime))} min</dd>
+            </div>
           )}
-        </p>
+          {tags.length > 0 && (
+            <div>
+              <dt>Topics</dt>
+              <dd className="post-hero__topics">
+                {tags.map((tag) => (
+                  <Link key={tag.permalink} to={tag.permalink}>
+                    {tag.label}
+                  </Link>
+                ))}
+              </dd>
+            </div>
+          )}
+        </dl>
       </div>
     </header>
   );

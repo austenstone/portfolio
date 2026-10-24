@@ -45,7 +45,6 @@ const BlogListPage = (props: Props): ReactNode => {
       <BlogListPageStructuredData {...props} />
       <EditorialIndex
         title={blogTitle}
-        dek={blogDescription}
         byline={<span className="mono">{plural(totalCount, 'post')}</span>}>
         <PostRows items={items} />
         <IndexPager previousPage={previousPage} nextPage={nextPage} />
