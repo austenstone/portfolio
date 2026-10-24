@@ -2,6 +2,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-directives';
+import remarkDiagramBands from './src/remark/diagramBands';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -78,6 +79,7 @@ const config: Config = {
         blog: {
           showReadingTime: true,
           showLastUpdateTime: true,
+          beforeDefaultRemarkPlugins: [remarkDiagramBands],
           blogTitle: 'Blog',
           blogDescription: 'GitHub Actions, AI, automation, and things I build.',
           blogSidebarCount: 0,
@@ -190,6 +192,11 @@ const config: Config = {
         },
       ],
       copyright: `2024-${new Date().getFullYear()} © Austen Stone`,
+    },
+    mermaid: {
+      options: {
+        fontFamily: '"IBM Plex Mono", ui-monospace, Menlo, monospace',
+      },
     },
     prism: {
       theme: prismThemes.vsLight,
