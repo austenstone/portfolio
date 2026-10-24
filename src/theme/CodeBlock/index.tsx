@@ -1,40 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import clsx from 'clsx';
 import OriginalCodeBlock from '@theme-original/CodeBlock';   // Prism version
 import hljs from 'highlight.js';
 import './syntax-highlighting.css';                         // Custom GitHub-style HLJS theme
 import type CodeBlockType from '@theme/CodeBlock';
 import type {WrapperProps} from '@docusaurus/types';
+import {EditorialContext} from '@site/src/components/Editorial';
 
 type Props = WrapperProps<typeof CodeBlockType>;
 
-/**
- * Renders with Highlight.js **only** when the fence/metadata contains `hljs`,
- * otherwise defers to the stock Prism-based <CodeBlock>.
- *
- * ```js hljs
- * // this snippet uses Highlight.js
- * ```
- */
-export default function CodeBlockWrapper(props: Props): React.JSX.Element {
-  const { children, className = '', metastring } = props;
-  const wantsHljs = metastring?.includes('hljs');
-  
-  // --- 1. Prism path (default) -------------------------------
-  if (!wantsHljs) {
-    return <OriginalCodeBlock {...props} />;
-  }
-
-  // --- 2. Highlight.js path ----------------------------------
+function HljsCodeBlock({ children, className = '' }: Props): React.JSX.Element {
   const ref = useRef<HTMLElement>(null);
-  
+
   useEffect(() => {
     if (ref.current) {
       hljs.highlightElement(ref.current);
     }
   }, [children]);
 
-  const lang = (className || '').replace(/^language-/, '');
+  const lang = className.replace(/^language-/, '');
   const displayLang = lang ? lang.toUpperCase() : '';
 
   const handleCopy = () => {
@@ -66,4 +50,63 @@ export default function CodeBlockWrapper(props: Props): React.JSX.Element {
       </pre>
     </div>
   );
+}
+
+const codeLabel = ({ title, metastring, language, className = '' }: Props): string =>
+  (typeof title === 'string' ? title : undefined) ??
+  metastring?.match(/title=(["'])(.*?)\1/)?.[2] ??
+  language ??
+  className.match(/language-(\S+)/)?.[1] ??
+  'text';
+
+function EditorialCodeFigure({ props, children }: { props: Props; children: React.ReactNode }): React.JSX.Element {
+  const figure = useRef<HTMLDivElement>(null);
+  const [state, setState] = useState<'idle' | 'copied' | 'failed'>('idle');
+
+  useEffect(() => {
+    if (state === 'idle') return;
+    const timer = setTimeout(() => setState('idle'), 1600);
+    return () => clearTimeout(timer);
+  }, [state]);
+
+  const copy = async () => {
+    const text = typeof props.children === 'string'
+      ? props.children
+      : figure.current?.querySelector('pre')?.innerText ?? '';
+    try {
+      await navigator.clipboard.writeText(text.replace(/\n$/, ''));
+      setState('copied');
+    } catch {
+      setState('failed');
+    }
+  };
+
+  return (
+    <div className="code-figure" ref={figure}>
+      <div className="code-figure__bar">
+        <span className="code-figure__label">{codeLabel(props)}</span>
+        <button type="button" className="code-figure__copy" data-copied={state === 'copied' || undefined} onClick={copy}>
+          {state === 'copied' ? 'Copied' : state === 'failed' ? 'Select and copy' : 'Copy'}
+        </button>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+/**
+ * Renders with Highlight.js **only** when the fence/metadata contains `hljs`,
+ * otherwise defers to the stock Prism-based <CodeBlock>.
+ *
+ * ```js hljs
+ * // this snippet uses Highlight.js
+ * ```
+ */
+export default function CodeBlockWrapper(props: Props): React.JSX.Element {
+  const editorial = useContext(EditorialContext);
+  const block = props.metastring?.includes('hljs')
+    ? <HljsCodeBlock {...props} />
+    : <OriginalCodeBlock {...props} />;
+
+  return editorial ? <EditorialCodeFigure props={props}>{block}</EditorialCodeFigure> : block;
 }
