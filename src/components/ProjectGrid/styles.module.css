@@ -1,90 +1,217 @@
-.grid {
+.gallery {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.6fr);
+  gap: 56px;
+  align-items: start;
+  margin-top: 2.5rem;
 }
 
-.card {
-  overflow: hidden;
-  color: inherit;
+.panel {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.panelCopy {
+  animation: swap 360ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes swap {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.counter {
+  font: 400 13px var(--ed-mono);
+  color: var(--ed-muted);
+  letter-spacing: 0.02em;
+}
+
+.panelCopy h2 {
+  font: 400 34px/1.2 var(--ed-voice);
+  letter-spacing: -0.03em;
+  margin: 12px 0 14px;
+  text-wrap: balance;
+}
+
+.panelCopy h2 a,
+.mobileCopy h2 a {
+  color: var(--ed-text);
   text-decoration: none;
-  background: var(--ifm-card-background-color);
-  border: 1px solid var(--ed-rule);
-  border-radius: 8px;
-  transition: border-color 200ms var(--ed-ease);
 }
 
-.card:hover {
-  color: inherit;
-  text-decoration: none;
-  border-color: var(--ed-rule-strong);
-}
-
-.card:hover .title {
+.panelCopy h2 a:hover,
+.mobileCopy h2 a:hover {
   color: var(--ed-accent);
 }
 
-.card:focus-visible {
-  outline: 2px solid var(--ed-accent);
-  outline-offset: 3px;
+.panelCopy p,
+.mobileCopy p {
+  color: var(--ed-muted);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 8px;
 }
 
-.imageFrame {
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  color: var(--ed-accent);
+  font-size: 15px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ed-rule);
+}
+
+.list button {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  padding: 7px 0;
+  border: 0;
+  background: none;
+  color: var(--ed-muted);
+  font: 400 14px var(--ed-chrome);
+  text-align: left;
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+.list button span {
+  font: 400 12px/1.7 var(--ed-mono);
+  opacity: 0.6;
+}
+
+.list button:hover,
+.list button[aria-current='true'] {
+  color: var(--ed-text);
+}
+
+.list button[aria-current='true'] span {
+  color: var(--ed-accent);
+  opacity: 1;
+}
+
+.shots {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  padding-bottom: 30vh;
+}
+
+.shot {
+  opacity: 0.35;
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shot[data-active] {
+  opacity: 1;
+}
+
+/* Browser-style frame so light and dark screenshots read as one set */
+.frame {
+  display: block;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: var(--ed-code-bg);
-  border-bottom: 1px solid var(--ed-rule);
+  border: 1px solid var(--ed-rule-strong);
+  border-radius: 10px;
+  background: var(--ed-surface);
+  box-shadow: 0 1px 0 var(--ed-rule), 0 24px 48px -32px rgb(0 0 0 / 0.45);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.image {
+.shot:hover .frame {
+  transform: translateY(-4px);
+  box-shadow: 0 1px 0 var(--ed-rule), 0 32px 64px -32px rgb(0 0 0 / 0.55);
+}
+
+.frameBar {
+  display: block;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--ed-rule);
+  background: var(--ed-code-bg);
+  color: var(--ed-muted);
+  font: 400 12px var(--ed-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.frameShot {
+  display: block;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  background: var(--ed-code-bg);
+}
+
+.frameShot img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 400ms var(--ed-ease);
+  object-position: top center;
 }
 
-.card:hover .image {
-  transform: scale(1.015);
+.mobileCopy {
+  display: none;
 }
 
-.content {
-  padding: 1.25rem;
-}
-
-.title {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
-  line-height: 1.3;
-  transition: color 200ms var(--ed-ease);
-}
-
-.description {
-  margin: 0;
-  color: var(--ed-muted);
-  line-height: 1.55;
+.mobileCopy h2 {
+  font: 400 24px/1.2 var(--ed-voice);
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
 }
 
 @media (width <= 700px) {
-  .grid {
+  .gallery {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    margin-top: 1.5rem;
   }
 
-  .content {
-    padding: 1rem;
+  .panel {
+    display: none;
+  }
+
+  .shots {
+    gap: 56px;
+    padding-bottom: 0;
+  }
+
+  .shot {
+    opacity: 1;
+  }
+
+  .mobileCopy {
+    display: block;
+    padding-top: 16px;
+  }
+
+  .mobileCopy p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .frameBar {
+    font-size: 11px;
+    padding: 7px 10px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card,
-  .image,
-  .title {
+  .frame,
+  .shot,
+  .panelCopy {
     transition: none;
-  }
-
-  .card:hover .image {
-    transform: none;
+    animation: none;
   }
 }

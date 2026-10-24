@@ -1,4 +1,4 @@
-import React, {type ReactNode} from 'react';
+import React, {useEffect, useRef, useState, type ReactNode} from 'react';
 import Link from '@docusaurus/Link';
 
 import styles from './styles.module.css';
@@ -94,26 +94,91 @@ const projects: Project[] = [
   },
 ];
 
-const ProjectGrid = (): ReactNode => (
-  <div className={styles.grid}>
-    {projects.map(({title, description, href, image, imageAlt}) => (
-      <Link className={styles.card} key={href} to={href}>
-        <div className={styles.imageFrame}>
-          <img
-            alt={imageAlt}
-            className={styles.image}
-            decoding="async"
-            loading="lazy"
-            src={image}
-          />
+const pad = (value: number): string => String(value).padStart(2, '0');
+
+const displayUrl = (href: string): string => {
+  if (href.startsWith('/')) return `austen.info${href}`;
+  const url = new URL(href);
+  return `${url.hostname}${url.pathname}`.replace(/\/$/, '');
+};
+
+const ProjectGrid = (): ReactNode => {
+  const [active, setActive] = useState(0);
+  const shots = useRef<(HTMLElement | null)[]>([]);
+  const project = projects[active];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      items => {
+        for (const item of items) {
+          if (item.isIntersecting) setActive(Number((item.target as HTMLElement).dataset.index));
+        }
+      },
+      {rootMargin: '-45% 0px -45% 0px'},
+    );
+    shots.current.forEach(shot => shot && observer.observe(shot));
+    return () => observer.disconnect();
+  }, []);
+
+  const jump = (index: number): void => {
+    shots.current[index]?.scrollIntoView({behavior: 'smooth', block: 'center'});
+  };
+
+  return (
+    <div className={styles.gallery}>
+      <aside className={styles.panel}>
+        <div className={styles.panelCopy} key={project.href}>
+          <span className={styles.counter}>{pad(active + 1)} / {pad(projects.length)}</span>
+          <h2><Link to={project.href}>{project.title}</Link></h2>
+          <p>{project.description}</p>
+          <Link to={project.href} className={styles.textLink}>
+            Open project <span aria-hidden="true">↗</span>
+          </Link>
         </div>
-        <div className={styles.content}>
-          <h2 className={styles.title}>{title}</h2>
-          <p className={styles.description}>{description}</p>
-        </div>
-      </Link>
-    ))}
-  </div>
-);
+        <ol className={styles.list}>
+          {projects.map((item, index) => (
+            <li key={item.href}>
+              <button
+                type="button"
+                aria-current={index === active ? 'true' : undefined}
+                onClick={() => jump(index)}>
+                <span>{pad(index + 1)}</span>
+                {item.title}
+              </button>
+            </li>
+          ))}
+        </ol>
+      </aside>
+      <div className={styles.shots}>
+        {projects.map((item, index) => (
+          <section
+            key={item.href}
+            data-index={index}
+            ref={node => {
+              shots.current[index] = node;
+            }}
+            className={styles.shot}
+            data-active={index === active || undefined}>
+            <Link to={item.href} className={styles.frame} aria-label={`Open ${item.title}`} tabIndex={-1}>
+              <span className={styles.frameBar} aria-hidden="true">{displayUrl(item.href)}</span>
+              <span className={styles.frameShot}>
+                <img
+                  src={item.image}
+                  alt={item.imageAlt}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </span>
+            </Link>
+            <div className={styles.mobileCopy}>
+              <h2><Link to={item.href}>{item.title}</Link></h2>
+              <p>{item.description}</p>
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default ProjectGrid;
