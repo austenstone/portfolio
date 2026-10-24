@@ -15,14 +15,21 @@ const ACTIVE_LINE = 0.4;
 const MIN_TOP = 96;
 const DRAG_THRESHOLD = 4;
 
+const entities: Record<string, string> = {amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'"};
+
+const stripTags = (html: string): string => {
+  let text = html;
+  let previous: string;
+  do {
+    previous = text;
+    text = text.replace(/<[^>]*>/g, '');
+  } while (text !== previous);
+  return text;
+};
+
 const toLabel = (html: string) =>
-  html
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
+  stripTags(html)
+    .replace(/&(amp|lt|gt|quot|#39);/g, (_, name: string) => entities[name] ?? '')
     .replace(/^\d+\.\s+/, '')
     .trim();
 
