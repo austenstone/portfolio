@@ -1,25 +1,20 @@
 import React, { type ReactNode } from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {
   HtmlClassNameProvider,
   PageMetadata,
   ThemeClassNames,
 } from '@docusaurus/theme-common';
-import Layout from '@theme/Layout';
 import BlogListPageStructuredData from '@theme/BlogListPage/StructuredData';
 import SearchMetadata from '@theme/SearchMetadata';
 import type { Props } from '@theme/BlogListPage';
-
-import styles from './styles.module.css';
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric',
-  timeZone: 'UTC',
-});
+import {
+  EditorialIndex,
+  IndexPager,
+  PostRows,
+  plural,
+} from '@site/src/components/EditorialIndex';
 
 const BlogListPageMetadata = ({ metadata }: Props): ReactNode => {
   const {
@@ -38,7 +33,7 @@ const BlogListPageMetadata = ({ metadata }: Props): ReactNode => {
 
 const BlogListPage = (props: Props): ReactNode => {
   const { items, metadata } = props;
-  const { nextPage, previousPage } = metadata;
+  const { blogTitle, blogDescription, totalCount, nextPage, previousPage } = metadata;
 
   return (
     <HtmlClassNameProvider
@@ -48,46 +43,13 @@ const BlogListPage = (props: Props): ReactNode => {
       )}>
       <BlogListPageMetadata {...props} />
       <BlogListPageStructuredData {...props} />
-      <Layout noFooter>
-        <main className={styles.page}>
-          <h1 className={styles.heading}>Posts</h1>
-          <div className={styles.posts}>
-            {items.map(({ content: BlogPostContent }) => {
-              const { date, permalink, title } = BlogPostContent.metadata;
-
-              return (
-                <article className={styles.post} key={permalink}>
-                  <h2 className={styles.title}>
-                    <Link to={permalink}>{title}</Link>
-                  </h2>
-                  <time className={styles.date} dateTime={date}>
-                    {dateFormatter.format(new Date(date))}
-                  </time>
-                </article>
-              );
-            })}
-          </div>
-          {(previousPage || nextPage) && (
-            <nav className={styles.pagination} aria-label="Blog pagination">
-              {previousPage && (
-                <Link className={styles.paginationLink} to={previousPage}>
-                  <span aria-hidden="true">←</span> Newer entries
-                </Link>
-              )}
-              {nextPage && (
-                <Link
-                  className={clsx(
-                    styles.paginationLink,
-                    styles.paginationLinkNext,
-                  )}
-                  to={nextPage}>
-                  Older entries <span aria-hidden="true">→</span>
-                </Link>
-              )}
-            </nav>
-          )}
-        </main>
-      </Layout>
+      <EditorialIndex
+        title={blogTitle}
+        dek={blogDescription}
+        byline={<span className="mono">{plural(totalCount, 'post')}</span>}>
+        <PostRows items={items} />
+        <IndexPager previousPage={previousPage} nextPage={nextPage} />
+      </EditorialIndex>
     </HtmlClassNameProvider>
   );
 };

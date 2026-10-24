@@ -2,6 +2,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkGithubAdmonitionsToDirectives from 'remark-github-admonitions-to-directives';
+import remarkDiagramBands from './src/remark/diagramBands';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -78,6 +79,7 @@ const config: Config = {
         blog: {
           showReadingTime: true,
           showLastUpdateTime: true,
+          beforeDefaultRemarkPlugins: [remarkDiagramBands],
           blogTitle: 'Blog',
           blogDescription: 'GitHub Actions, AI, automation, and things I build.',
           blogSidebarCount: 0,
@@ -99,7 +101,7 @@ const config: Config = {
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.css', './src/css/editorial.css', './src/css/story.css'],
         },
       } satisfies Preset.Options,
     ],
@@ -191,6 +193,11 @@ const config: Config = {
       ],
       copyright: `2024-${new Date().getFullYear()} © Austen Stone`,
     },
+    mermaid: {
+      options: {
+        fontFamily: '"IBM Plex Mono", ui-monospace, Menlo, monospace',
+      },
+    },
     prism: {
       theme: prismThemes.vsLight,
       darkTheme: prismThemes.vsDark,
@@ -216,7 +223,7 @@ const config: Config = {
     {
       tagName: 'link',
       attributes: {
-        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap',
         rel: 'stylesheet',
       },
     },
