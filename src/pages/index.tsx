@@ -70,16 +70,14 @@ const Terminal = () => {
           <nav aria-label="Main">
             <ul className={styles.menu}>
               {items.map((item, index) => (
-                <li key={item.href}>
+                <li key={item.href} onMouseEnter={() => setSelected(index)} onFocus={() => setSelected(index)}>
                   <Link
                     href={item.href}
                     ref={(el: HTMLAnchorElement | null) => {
                       links.current[index] = el;
                     }}
                     className={styles.item}
-                    data-selected={index === selected}
-                    onMouseEnter={() => setSelected(index)}
-                    onFocus={() => setSelected(index)}>
+                    data-selected={index === selected}>
                     <span className={styles.cursor} aria-hidden="true">❯</span>
                     <span className={styles.name}>{item.name}</span>
                     <span className={styles.desc}>{item.desc}</span>
