@@ -1,87 +1,180 @@
-/* Hide navbar on homepage only */
-.homepageContainer :global(.navbar) {
-  display: none !important;
-}
-
-/* Hide footer on homepage only */
+/* The homepage is the terminal; site chrome would compete with it */
+.homepageContainer :global(.navbar),
 .homepageContainer :global(.footer) {
   display: none !important;
 }
 
-.minimalContainer {
+.page {
   min-height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 8rem 2rem 2rem 2rem;
-}
-
-.content {
-  text-align: left;
-  width: 100%;
-  max-width: 38rem;
-}
-
-.title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 400;
-}
-
-.tilde {
-  color: var(--ifm-color-primary);
-  margin-right: 0.5rem;
-}
-
-.intro {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin: 0 0 3rem;
-}
-
-.section {
-  margin-bottom: 3rem;
-}
-
-.sectionTitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-  color: var(--ifm-color-primary);
-}
-
-.linksList {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.5rem;
-  align-items: flex-start;
-  max-width: 18rem;
+  place-items: center;
+  padding: 2rem 1.25rem;
+  font-family: var(--ed-mono);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ed-text);
+  background:
+    radial-gradient(70rem 36rem at 70% -10%, color-mix(in oklch, var(--ed-accent) 14%, transparent), transparent 60%),
+    var(--ed-ground);
 }
 
-.link {
-  color: var(--ifm-color-primary);
+.tui {
+  width: min(45rem, 100%);
+}
+
+.badges {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0 0 1.1rem;
+  font: inherit;
+}
+
+.badge,
+.badgeDim {
+  padding: 0 0.6rem;
+  font-weight: 600;
+}
+
+.badge {
+  background: var(--ed-accent);
+  color: var(--ed-ground);
+}
+
+.badgeDim {
+  background: var(--ed-rule-strong);
+  color: var(--ed-text);
+}
+
+.box {
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--ed-rule-strong);
+  border-radius: 10px;
+  background: var(--ed-surface);
+  box-shadow: 0 30px 80px -30px color-mix(in oklch, var(--ed-accent) 22%, transparent);
+}
+
+.bio {
+  margin: 0 0 1.4rem;
+}
+
+.bio a {
+  color: var(--ed-accent);
+  font-weight: 600;
   text-decoration: none;
-  font-size: 1rem;
-  padding: 0.25rem 0;
-  transition: color 0.2s ease;
 }
 
-.link:hover {
-  color: var(--ifm-color-primary-light);
+.bio a:hover {
+  text-decoration: underline;
+}
+
+.bio strong {
+  font-weight: 600;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 2ch 12ch 1fr;
+  gap: 0 1ch;
+  margin: 0 -0.65rem;
+  padding: 0.375rem 0.65rem;
+  border-left: 2px solid transparent;
+  color: var(--ed-text);
+  text-decoration: none;
+  transition: background-color 0.12s ease;
+}
+
+.item:hover {
+  color: var(--ed-text);
   text-decoration: none;
 }
 
-.linkDir {
-  color: var(--ifm-font-color-base);
+.item:focus {
+  /* focus moves the selection, which is the visible indicator */
+  outline: none;
 }
 
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
-  .title {
-    font-size: 2rem;
+.cursor {
+  color: var(--ed-accent);
+  opacity: 0;
+}
+
+.desc {
+  color: var(--ed-muted);
+}
+
+.item[data-selected='true'] {
+  border-left-color: var(--ed-accent);
+  background: var(--ed-accent-soft);
+}
+
+.item[data-selected='true'] .cursor {
+  opacity: 1;
+}
+
+.item[data-selected='true'] .name {
+  color: var(--ed-accent);
+  font-weight: 600;
+}
+
+.item[data-selected='true'] .desc {
+  color: var(--ed-text);
+}
+
+.help {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5ch;
+  margin: 1.1rem 0 0;
+  color: var(--ed-muted);
+  font-size: 0.8rem;
+}
+
+.help kbd {
+  font: inherit;
+  color: var(--ed-text);
+  background: none;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.theme {
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.theme:hover {
+  color: var(--ed-accent);
+}
+
+@media (max-width: 560px) {
+  .box {
+    padding: 1.1rem 1.15rem;
   }
-  
-  .minimalContainer {
-    padding: 4rem 1rem 1rem 1rem;
+
+  .item {
+    grid-template-columns: 2ch 1fr;
+  }
+
+  .desc {
+    grid-column: 2;
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    transition: none;
   }
 }
