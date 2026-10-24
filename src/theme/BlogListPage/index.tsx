@@ -13,7 +13,6 @@ import {
   EditorialIndex,
   IndexPager,
   PostRows,
-  plural,
 } from '@site/src/components/EditorialIndex';
 
 const BlogListPageMetadata = ({ metadata }: Props): ReactNode => {
@@ -33,7 +32,7 @@ const BlogListPageMetadata = ({ metadata }: Props): ReactNode => {
 
 const BlogListPage = (props: Props): ReactNode => {
   const { items, metadata } = props;
-  const { blogTitle, totalCount, nextPage, previousPage } = metadata;
+  const { blogTitle, nextPage, previousPage } = metadata;
 
   return (
     <HtmlClassNameProvider
@@ -45,7 +44,7 @@ const BlogListPage = (props: Props): ReactNode => {
       <BlogListPageStructuredData {...props} />
       <EditorialIndex
         title={blogTitle}
-        byline={<span className="mono">{plural(totalCount, 'post')}</span>}>
+        hideHeader>
         <PostRows items={items} />
         <IndexPager previousPage={previousPage} nextPage={nextPage} />
       </EditorialIndex>

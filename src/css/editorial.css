@@ -1299,6 +1299,10 @@ pre .token:is(.comment, .prolog, .doctype, .cdata) {
   padding-bottom: 96px;
 }
 
+.blog-index > .visually-hidden + .blog-index__body {
+  padding-top: 72px;
+}
+
 .blog-index__list {
   margin: 0;
   padding: 0;

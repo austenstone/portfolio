@@ -21,15 +21,20 @@ export const EditorialIndex = ({
   title,
   dek,
   byline,
+  hideHeader = false,
   children,
 }: {
   title: string;
   dek?: ReactNode;
   byline?: ReactNode;
+  hideHeader?: boolean;
   children: ReactNode;
 }): ReactNode => (
   <Layout>
     <main className="editorial blog-index">
+      {hideHeader ? (
+        <h1 className="visually-hidden">{title}</h1>
+      ) : (
       <header className="post-hero editorial-grid">
         <div>
           <h1 className="post-hero__title rise">
@@ -47,6 +52,7 @@ export const EditorialIndex = ({
           )}
         </div>
       </header>
+      )}
       <div className="editorial-grid blog-index__body">
         <div>{children}</div>
       </div>
