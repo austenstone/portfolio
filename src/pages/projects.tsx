@@ -14,10 +14,6 @@ const Projects = (): ReactNode => (
         <Heading as="h1" className={styles.title}>
           Projects
         </Heading>
-        <p className={styles.description}>
-          A few things I&apos;ve built, from GitHub automation to industrial
-          software.
-        </p>
         <ProjectGrid />
       </div>
     </main>

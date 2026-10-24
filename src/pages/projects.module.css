@@ -14,20 +14,8 @@
   font-size: clamp(2.5rem, 7vw, 4rem);
 }
 
-.description {
-  max-width: 42rem;
-  margin: 0;
-  color: var(--ifm-color-emphasis-700);
-  font-size: 1.125rem;
-  line-height: 1.6;
-}
-
 @media (width <= 700px) {
   .main {
     padding: 2.5rem 1rem 4rem;
-  }
-
-  .description {
-    font-size: 1rem;
   }
 }
