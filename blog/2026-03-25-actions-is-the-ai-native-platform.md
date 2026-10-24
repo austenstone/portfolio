@@ -5,11 +5,13 @@ tags: [github, github-actions, ai, dev]
 image: https://images.ctfassets.net/8aevphvgewt8/KiQBgcnMQg6dALaS6erGk/f8d49c0cc5a461b903e52d08c3c3b8f6/actions-hero.webp
 description: "It's almost like Actions was made for the agentic era."
 authors: [austen]
+mdx:
+  format: mdx
 ---
 
 Actions isn't just your CI/CD pipeline. It's the execution layer for much of the GitHub platform — and it's purpose-built for the agentic era.
 
-<!--truncate-->
+{/* truncate */}
 
 *This is part 2 of a series on AI-native CI/CD. See also: [Automation is The Obvious Choice](/blog/automation-is-the-obvious-choice), [Agentic Workflows on GitHub Events](/blog/agentic-workflows-on-github-events), [Prompt Design for Headless Agents](/blog/prompt-design-for-headless-agents), and [The Future of Developer Compute](/blog/future-of-developer-compute).*
 
@@ -41,14 +43,18 @@ This is critical for agentic workloads: you WANT agents to experiment freely wit
 
 Before we talk about what you can build, let's talk about what's **already** running on Actions — things you use every day that you might not realize are Actions under the hood.
 
-| Feature | How It Uses Actions |
-|---------|-------------------|
-| **Copilot Code Review** | Runs as a PR check via Actions. LLM + CodeQL/ESLint analyze your PR. |
-| **Copilot Coding Agent** | Picks up issues, plans, codes, tests, opens PRs — all on GitHub-hosted runners. |
-| **Dependabot** | Version updates, security alerts, and auto-PRs — all orchestrated through Actions workflows. |
-| **GHAS / CodeQL** | Code scanning, secret scanning, and security analysis. Runs as Actions workflows on your code. |
-| **Codespace Prebuilds** | Prebuilds for Codespaces run on Actions to keep dev environments fast and ready. |
-| **GitHub Pages** | Site builds and deployments run as Actions workflows. |
+<Hub
+  center="Actions"
+  caption="Six GitHub features you already use, each one a workflow on Actions."
+  items={[
+    {label: 'Copilot Code Review', description: 'Runs as a PR check via Actions. LLM + CodeQL/ESLint analyze your PR.'},
+    {label: 'Copilot Coding Agent', description: 'Picks up issues, plans, codes, tests, opens PRs — all on GitHub-hosted runners.'},
+    {label: 'Dependabot', description: 'Version updates, security alerts, and auto-PRs — all orchestrated through Actions workflows.'},
+    {label: 'GHAS / CodeQL', description: 'Code scanning, secret scanning, and security analysis. Runs as Actions workflows on your code.'},
+    {label: 'Codespace Prebuilds', description: 'Prebuilds for Codespaces run on Actions to keep dev environments fast and ready.'},
+    {label: 'GitHub Pages', description: 'Site builds and deployments run as Actions workflows.'},
+  ]}
+/>
 
 If you're using Copilot Code Review, that's Actions. Dependabot? Actions. CodeQL scanning? Actions. GitHub Pages? Actions. Codespace prebuilds? Actions. The Coding Agent? Actions.
 
@@ -69,6 +75,26 @@ GitHub exposes [dozens of webhook events](https://docs.github.com/en/actions/wri
 - `workflow_dispatch`
 - etc.
 
+<Flow
+  label="An issues event triggers a workflow, which fans out to three jobs, each on its own fresh runner VM."
+  caption="One event in, a workflow out, jobs fanned across fresh runners."
+  columns={[
+    [{id: 'push', label: 'push'}, {id: 'pr', label: 'pull_request'}, {id: 'schedule', label: 'schedule'}, {id: 'issues', label: 'issues', tone: 'accent'}],
+    [{id: 'workflow', label: 'workflow.yml', sub: 'on: issues', tone: 'ink'}],
+    [{id: 'triage', label: 'triage', sub: 'job'}, {id: 'agent', label: 'agent', sub: 'job'}, {id: 'test', label: 'test', sub: 'job'}],
+    [{id: 'r1', label: 'runner', sub: 'fresh VM'}, {id: 'r2', label: 'runner', sub: 'fresh VM'}, {id: 'r3', label: 'runner', sub: 'fresh VM'}],
+  ]}
+  edges={[
+    ['issues', 'workflow'],
+    ['workflow', 'triage'],
+    ['workflow', 'agent'],
+    ['workflow', 'test'],
+    ['triage', 'r1'],
+    ['agent', 'r2'],
+    ['test', 'r3'],
+  ]}
+/>
+
 Every one of these is a hook you can attach automation to. And with AI agents now cheap enough to run on any event, the question shifts from "what _can_ we automate?" to "what _should_ we automate first?"
 
 ### Why This Matters for AI
@@ -80,6 +106,8 @@ The fact that Actions is the platform — not just a CI tool — has a compoundi
 3. **One observability story.** Workflow logs, job summaries, Actions Data Stream — the same tools for CI and for agent monitoring.
 4. **Network effects.** Every improvement GitHub makes to Actions benefits your CI/CD AND your AI automations simultaneously.
 
+<Band tone="ink">
+
 ## The Thesis: AI Amplifies CI/CD
 
 AI agents are non-deterministic by nature. They generate different code each time, make judgment calls, and experiment. You need **strong deterministic automation suites** wrapped around them (tests, linting, security scanning, deployment gates) to catch what agents get wrong.
@@ -87,6 +115,8 @@ AI agents are non-deterministic by nature. They generate different code each tim
 Without robust CI/CD, you're shipping AI-generated code with no safety net. CI/CD is the guardrail layer that makes agentic workflows safe enough to trust. The better your CI/CD pipeline, the more autonomy you can give your agents, and the more value you get from them.
 
 > The more you delegate to agents, the more you need ironclad testing, scanning, and validation to catch what they get wrong. CI/CD isn't a nice-to-have anymore. It's the control plane for AI-generated code.
+
+</Band>
 
 ## Why GitHub-Hosted Runners
 
@@ -101,6 +131,13 @@ Imagine someone gets onto a self-hosted runner in your data center through a sup
 - **Isolated** — no shared state between jobs, even from the same repo
 - **Network-isolated by default** — VNET injection only when YOU choose to open access
 - **GitHub owns the SLA** — patching, hardening, compliance is GitHub's problem
+
+<Loop
+  steps={['Spin up', 'Run job', 'Destroyed']}
+  center={['fresh VM', 'every job']}
+  label="Runner lifecycle: a fresh VM spins up, runs one job, and is destroyed. Then the cycle starts clean."
+  caption="Fresh VM every job, destroyed after. Nothing persists between runs."
+/>
 
 Now multiply that risk by what agents do. AI agents run code they generate themselves. They install packages. They make API calls. They iterate. If that's happening on a persistent runner in your network, that's a surface area problem. On ephemeral GHRs, every agent run starts clean and ends clean.
 
@@ -131,7 +168,19 @@ Step two is what's ON the runner when it starts.
 - Attach caches directly to the image — no download step, no cache miss
 - Use pre-job and post-job hooks for setup/teardown automation
 
-Real example: the `github/github` repo went from ~60 min builds to <10 min builds — a **6x improvement** from image optimization alone. Not code changes. Not runner changes. Just baking dependencies into the image.
+Real example: the `github/github` repo went from ~60 min builds to \<10 min builds — a **6x improvement** from image optimization alone. Not code changes. Not runner changes. Just baking dependencies into the image.
+
+<Chart
+  type="bar"
+  title="github/github build time"
+  subtitle="Minutes per build, as reported"
+  format={(v) => `${v} min`}
+  data={[
+    {label: 'Before', value: 60, display: '~60 min'},
+    {label: 'After image optimization', value: 10, display: '<10 min', subject: true},
+  ]}
+  caption="6x faster from baking dependencies into the runner image."
+/>
 
 ### Private Networking
 
@@ -197,6 +246,8 @@ Self-hosted runners carry massive hidden costs:
 - **Networking egress** — data transfer costs that don't show up on the runner bill
 - **Incident response** — when runners break, your pipeline stops and developers wait
 
+<Stat value="30%" label="GitHub-hosted runner price drop" note="January 2026" />
+
 The January 2026 **30% price drop** on GHRs shifted the math dramatically. For most organizations, GHRs are now cheaper than self-hosted when you account for total cost of ownership.
 
 ### Troubleshooting: One Pane of Glass
@@ -214,13 +265,18 @@ When something breaks, you're debugging your code, not your infrastructure. That
 
 ### The Full Picture
 
-| Concern | GHR | SHR |
-|---------|-----|-----|
-| **Security** | Ephemeral VMs, SLSA L3, zero persistent attack surface | Persistent VMs on your network, shared state between jobs |
-| **Performance** | Right-size with telemetry, custom images, 2-64 vCPU options | Full control but you own image management and scaling |
-| **Availability** | GitHub SLA, auto-scaling, multi-region, zero maintenance | Your team's on-call, your capacity planning, your patches |
-| **TCO** | All-inclusive buffet minute, 30% price drop (Jan 2026) | Hidden costs: headcount, idle compute, networking, incidents |
-| **Troubleshooting** | Clean VMs, standardized env, Actions Data Stream | Debugging infra + code simultaneously, stale state issues |
+<Compare
+  label="GitHub-hosted vs self-hosted runners"
+  head={['Concern', 'GHR', 'SHR']}
+  highlight="GHR"
+  rows={[
+    ['Security', 'Ephemeral VMs, SLSA L3, zero persistent attack surface', 'Persistent VMs on your network, shared state between jobs'],
+    ['Performance', 'Right-size with telemetry, custom images, 2-64 vCPU options', 'Full control but you own image management and scaling'],
+    ['Availability', 'GitHub SLA, auto-scaling, multi-region, zero maintenance', "Your team's on-call, your capacity planning, your patches"],
+    ['TCO', 'All-inclusive buffet minute, 30% price drop (Jan 2026)', 'Hidden costs: headcount, idle compute, networking, incidents'],
+    ['Troubleshooting', 'Clean VMs, standardized env, Actions Data Stream', 'Debugging infra + code simultaneously, stale state issues'],
+  ]}
+/>
 
 Convenient? Yes. But the real value is security, availability, and freeing your platform team from runner management.
 
