@@ -1300,13 +1300,12 @@ pre .token:is(.comment, .prolog, .doctype, .cdata) {
 }
 
 .blog-index > .visually-hidden + .blog-index__body {
-  padding-top: 72px;
+  padding-top: 32px;
 }
 
 .blog-index__list {
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--ed-rule);
   list-style: none;
 }
 
