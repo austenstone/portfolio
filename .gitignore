@@ -6,6 +6,7 @@
 
 # Generated files
 .docusaurus
+.docusaurus-build
 .cache-loader
 
 # Misc

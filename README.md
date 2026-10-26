@@ -20,7 +20,7 @@ npm start   # dev server at http://localhost:3000
 | Command | What it does |
 | --- | --- |
 | `npm start` | Dev server with hot reload |
-| `npm run build` | Production build into `build/` |
+| `npm run build` | Production build into `build/` (uses `.docusaurus-build/`, safe to run alongside `npm start`) |
 | `npm run serve` | Serve the production build locally |
 | `npm run dev:worker` | Run the curl Worker locally |
 | `npm run test:worker` | Test curl detection and origin pass-through |

@@ -7,7 +7,7 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
-    ignores: ["build/**", ".docusaurus/**", "node_modules/**"],
+    ignores: ["build/**", ".docusaurus/**", ".docusaurus-build/**", "node_modules/**"],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],

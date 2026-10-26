@@ -5,5 +5,5 @@
     "baseUrl": ".",
     "ignoreDeprecations": "6.0"
   },
-  "exclude": [".docusaurus", "build"]
+  "exclude": [".docusaurus", ".docusaurus-build", "build"]
 }
