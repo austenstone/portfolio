@@ -54,7 +54,7 @@
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.71.2",
     "unist-util-visit": "^5.1.0",
-    "wrangler": "^4.151.1"
+    "wrangler": "^4.153.0"
   },
   "browserslist": {
     "production": [
