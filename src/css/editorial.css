@@ -646,8 +646,8 @@ html .footer {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  padding: 0.06em 0 0.12em;
-  margin: -0.06em 0 -0.12em;
+  padding: 0.3em 0;
+  margin: -0.3em 0;
 }
 
 .w > span {
@@ -1422,7 +1422,7 @@ pre .token:is(.comment, .prolog, .doctype, .cdata) {
   }
 
   [data-motion] [data-reveal='rise']:not([data-in]) .w > span {
-    transform: translateY(110%);
+    transform: translateY(calc(100% + 0.6em));
   }
 
   .diagram[data-motion]:not([data-done]) :is(.node, .cluster, .edgeLabel),
@@ -1453,7 +1453,7 @@ pre .token:is(.comment, .prolog, .doctype, .cdata) {
 }
 
 @keyframes ed-rise {
-  from { transform: translateY(110%); }
+  from { transform: translateY(calc(100% + 0.6em)); }
 }
 
 @keyframes ed-fade {
