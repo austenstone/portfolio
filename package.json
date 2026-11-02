@@ -50,11 +50,11 @@
     "eslint": "^9.39.5",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.13.0",
-    "mdast-util-directive": "^3.1.1",
+    "mdast-util-directive": "^3.2.0",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.72.1",
-    "unist-util-visit": "^5.1.0",
-    "wrangler": "^4.153.0"
+    "unist-util-visit": "^5.2.0",
+    "wrangler": "^4.156.0"
   },
   "browserslist": {
     "production": [
