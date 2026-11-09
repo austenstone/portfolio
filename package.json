@@ -26,7 +26,7 @@
     "@giscus/react": "^3.1.0",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
-    "d3-scale": "^4.0.2",
+    "d3-scale": "^4.0.3",
     "highlight.js": "^11.12.0",
     "masonry-layout": "^4.2.2",
     "photoswipe": "^5.4.4",
@@ -54,7 +54,7 @@
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.72.1",
     "unist-util-visit": "^5.2.0",
-    "wrangler": "^4.156.0"
+    "wrangler": "^4.158.0"
   },
   "browserslist": {
     "production": [
